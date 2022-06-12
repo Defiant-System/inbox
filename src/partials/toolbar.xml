@@ -6,18 +6,19 @@
 		<Tool symbol="icon-new-mail"/>
 
 		<Options>
-			<Tool symbol="icon-trash"/>
-			<Tool symbol="icon-archive"/>
+			<Tool symbol="icon-trash" state="disabled"/>
+			<Tool symbol="icon-archive" state="disabled"/>
 		</Options>
-		<Tool symbol="icon-junk"/>
+		
+		<Tool symbol="icon-junk" state="disabled"/>
 
 		<Options>
-			<Tool symbol="icon-reply"/>
-			<Tool symbol="icon-reply-all"/>
-			<Tool symbol="icon-forward"/>
+			<Tool symbol="icon-reply" state="disabled"/>
+			<Tool symbol="icon-reply-all" state="disabled"/>
+			<Tool symbol="icon-forward" state="disabled"/>
 		</Options>
 
-		<Tool symbol="icon-flag" menu="toolbar-flags"/>
+		<Tool symbol="icon-flag" menu="toolbar-flags" state="disabled"/>
 
 	</Group>
 	<Group width="31%">

@@ -22,11 +22,13 @@ layout {
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		
-		&.icon-inbox   { background-image: url(~/icons/icon-inbox.png); }
-		&.icon-sent    { background-image: url(~/icons/icon-send.png); }
-		&.icon-archive { background-image: url(~/icons/icon-archive.png); }
-		&.icon-junk    { background-image: url(~/icons/icon-junk.png); }
-		&.icon-trash   { background-image: url(~/icons/icon-trash.png); }
+		&.icon-blank      { background-image: url(~/icons/icon-blank.png); }
+		&.icon-arrow-left { background-image: url(~/icons/icon-arrow-left.png); background-size: 11px 11px; }
+		&.icon-inbox      { background-image: url(~/icons/icon-inbox.png); }
+		&.icon-sent       { background-image: url(~/icons/icon-send.png); }
+		&.icon-archive    { background-image: url(~/icons/icon-archive.png); }
+		&.icon-junk       { background-image: url(~/icons/icon-junk.png); }
+		&.icon-trash      { background-image: url(~/icons/icon-trash.png); }
 	}
 }
 
@@ -36,6 +38,8 @@ sidebar {
 	overflow-x: hidden;
 	user-select: none;
 	transition: width 120ms linear;
+
+	&:after { display: none; }
 
 	.wrapper {
 		position: absolute;
