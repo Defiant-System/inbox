@@ -18,7 +18,7 @@
 			case "toggle-sidebar":
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
-				return isOn;
+				return !isOn;
 		}
 	}
 }

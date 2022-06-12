@@ -1,6 +1,6 @@
 <ToolBar>
 	<Group width="69%">
-		<Tool symbol="icon-sidebar" click="toggle-sidebar"/>
+		<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
 
 		<Tool symbol="icon-send-receive"/>
 		<Tool symbol="icon-new-mail"/>
