@@ -1,9 +1,24 @@
 <ToolBar>
 	<Group width="69%">
+		<Tool symbol="icon-sidebar" click="toggle-sidebar"/>
+
+		<Tool symbol="icon-send-receive"/>
+		<Tool symbol="icon-new-mail"/>
+
 		<Options>
-			<Tool symbol="icon-chevron-left"/>
-			<Tool symbol="icon-chevron-right"/>
+			<Tool symbol="icon-trash"/>
+			<Tool symbol="icon-archive"/>
 		</Options>
+		<Tool symbol="icon-junk"/>
+
+		<Options>
+			<Tool symbol="icon-reply"/>
+			<Tool symbol="icon-reply-all"/>
+			<Tool symbol="icon-forward"/>
+		</Options>
+
+		<Tool symbol="icon-flag" menu="toolbar-flags"/>
+
 	</Group>
 	<Group width="31%">
 		<Search placeholder="Search"/>

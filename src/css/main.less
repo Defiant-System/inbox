@@ -1,8 +1,38 @@
 
-content {
+layout {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	display: flex;
+
+	&.show-sidebar {
+		sidebar { width: 140px; }
+	}
+}
+
+sidebar {
+	position: relative;
+	width: 0;
+	overflow-x: hidden;
+	user-select: none;
+	transition: width 120ms linear;
+
+	.wrapper {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 140px;
+	}
+}
+
+list {
+	width: 280px;
+	background: #fff;
+}
+
+content {
+	flex: 1;
 }
