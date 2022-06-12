@@ -10,6 +10,24 @@ layout {
 	&.show-sidebar {
 		sidebar { width: 140px; }
 	}
+
+	[class*="icon-"],
+	[class^="icon-"] {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 17px;
+		height: 17px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		
+		&.icon-inbox   { background-image: url(~/icons/icon-inbox.png); }
+		&.icon-sent    { background-image: url(~/icons/icon-send.png); }
+		&.icon-archive { background-image: url(~/icons/icon-archive.png); }
+		&.icon-junk    { background-image: url(~/icons/icon-junk.png); }
+		&.icon-trash   { background-image: url(~/icons/icon-trash.png); }
+	}
 }
 
 sidebar {
@@ -25,6 +43,37 @@ sidebar {
 		right: 0;
 		bottom: 0;
 		width: 140px;
+		padding: 4px 5px;
+
+		.entry {
+			padding: 3px 2px;
+			margin-bottom: 1px;
+			white-space: nowrap;
+			border-radius: 3px;
+			font-size: 0;
+			color: #666;
+
+			&.active {
+				background: rgba(0,0,0,.1);
+				color: #222;
+
+				[class^="icon-"] {
+					opacity: .75;
+					margin-right: 5px;
+				}
+			}
+
+			[class^="icon-"] {
+				opacity: .35;
+				margin-right: 5px;
+			}
+
+			span {
+				display: inline-block;
+				font-size: 13px;
+				vertical-align: middle;
+			}
+		}
 	}
 }
 
