@@ -23,7 +23,7 @@ layout {
 		background-position: 50% 50%;
 		
 		&.icon-blank      { background-image: url(~/icons/icon-blank.png); }
-		&.icon-arrow-left { background-image: url(~/icons/icon-arrow-left.png); background-size: 11px 11px; }
+		&.icon-play       { background-image: url(~/icons/icon-play.png); background-size: 11px 11px; }
 		&.icon-inbox      { background-image: url(~/icons/icon-inbox.png); }
 		&.icon-sent       { background-image: url(~/icons/icon-send.png); }
 		&.icon-archive    { background-image: url(~/icons/icon-archive.png); }
@@ -107,21 +107,67 @@ list {
 	}
 
 	.entry {
-		padding: 3px 2px 3px 29px;
-		margin-bottom: 5px;
-		border-radius: 3px;
+		position: relative;
+		padding: 3px 4px 3px 29px;
+		margin-bottom: 7px;
+		border-radius: 5px;
 		line-height: 19px;
+
+		&.active {
+			background: #489bf7;
+			color: #fff;
+
+			.row {
+				[class^="icon-"] {
+					filter: invert(1) brightness(1.75);
+				}
+
+				.date {
+					color: rgba(255,255,255,.5);
+				}
+
+				.replies {
+					background: #287bd770;
+					color: rgba(255,255,255,.5);
+
+					&:before {
+						filter: invert(1) brightness(1.75);
+					}
+				}
+			}
+
+			&.replied:before {
+				filter: invert(1) brightness(1.75);
+			}
+		}
 
 		&.unread {
 			&:before {
 				content: "";
 				position: absolute;
-				top: 12px;
-				left: 15px;
+				top: 8px;
+				left: 11px;
 				width: 9px;
 				height: 9px;
 				border-radius: 50%;
 				background: rgba(0,0,0,.15);
+			}
+		}
+
+		&.replied {
+			&:before {
+				content: "";
+				position: absolute;
+				top: 7px;
+				left: 11px;
+				width: 11px;
+				height: 11px;
+				border-radius: 50%;
+				background-image: url(~/icons/icon-arrow-left.png);;
+				background-position: 80% 50%;
+				background-size: 11px 11px;
+				background-repeat: no-repeat;
+				opacity: .35;
 			}
 		}
 
@@ -155,15 +201,27 @@ list {
 			.replies {
 				position: relative;
 				top: -1px;
-				display: inline-block;
-				font-weight: 700;
-				padding: 0 15px 0 5px;
-				border-radius: 4px;
 				background-color: rgba(0,0,0,.075);
-				background-image: url(~/icons/icon-chevron-right.png);;
-				background-position: 80% 50%;
-				background-size: 9px 9px;
-				background-repeat: no-repeat;
+				display: inline-block;
+				padding: 0 13px 0 7px;
+				margin-left: 7px;
+				font-weight: 700;
+				color: #888;
+				border-radius: 4px;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 4px;
+					right: 3px;
+					width: 11px;
+					height: 11px;
+					background-image: url(~/icons/icon-chevron-right.png);;
+					background-position: 80% 50%;
+					background-size: 9px 9px;
+					background-repeat: no-repeat;
+					opacity: .5;
+				}
 			}
 		}
 	}
