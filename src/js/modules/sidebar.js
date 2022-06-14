@@ -19,6 +19,10 @@
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
 				return !isOn;
+			case "select-folder":
+				event.el.find(".active").removeClass("active");
+				el = $(event.target).addClass("active");
+				break;
 		}
 	}
 }

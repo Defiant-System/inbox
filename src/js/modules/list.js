@@ -12,7 +12,9 @@
 			Self = APP.list,
 			el;
 		switch (event.type) {
-			case "event-type":
+			case "select-mail":
+				event.el.find(".active").removeClass("active");
+				el = $(event.target).addClass("active");
 				break;
 		}
 	}

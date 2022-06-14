@@ -1,5 +1,5 @@
 <layout class="show-sidebar">
-	<sidebar>
+	<sidebar data-area="sidebar" data-click="select-folder">
 		<div class="wrapper">
 			<div class="entry active">
 				<i class="icon-arrow-left"></i>
@@ -27,7 +27,7 @@
 		</div>
 	</sidebar>
 	
-	<list>
+	<list data-area="list" data-click="select-mail">
 		<div class="wrapper">
 			<div class="entry unread">
 				<div class="row">
@@ -77,5 +77,9 @@
 		</div>
 	</list>
 	
-	<content></content>
+	<content data-area="content">
+		<div class="wrapper">
+
+		</div>
+	</content>
 </layout>
