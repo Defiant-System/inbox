@@ -9,7 +9,7 @@
 	</Mailbox>
 
 	<Maillist>
-		<thread id="123" replied="1">
+		<thread replied="1">
 			<mail>
 				<from name="Ben Greene" email="ben.green@gmail.com"/>
 				<to name="Sto Akron" email="sto.akron@hotmail.com"/>

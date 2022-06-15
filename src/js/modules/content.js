@@ -7,7 +7,7 @@
 			el: window.find("content"),
 		};
 		// temp
-		this.dispatch({ type: "init-render" });
+		// this.dispatch({ type: "init-render" });
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -15,11 +15,11 @@
 			value,
 			el;
 		switch (event.type) {
-			case "init-render":
+			case "render-mail-entries":
 				// render tree view
 				window.render({
 					template: "content-entries",
-					match: `//Data/Maillist/thread[@id="123"]`,
+					match: `//Data/Maillist/thread[position() = ${event.position+1}]`,
 					target: Self.els.el
 				});
 				break;

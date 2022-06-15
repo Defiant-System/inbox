@@ -8,6 +8,8 @@
 		};
 		// temp
 		this.dispatch({ type: "init-render" });
+
+		setTimeout(() => this.els.el.find(".entry").get(0).trigger("click"), 100);
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -27,6 +29,11 @@
 				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+
+				APP.content.dispatch({
+					type: "render-mail-entries",
+					position: el.index(),
+				});
 				break;
 		}
 	}
