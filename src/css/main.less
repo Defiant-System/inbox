@@ -374,5 +374,48 @@ content {
 			color: #333;
 			white-space: pre-line;
 		}
+
+		.foot {
+			position: relative;
+			padding: 2px 0;
+			margin-top: 13px;
+			font-size: 0;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: -7px;
+				left: 0;
+				right: 0;
+				border-top: 1px solid rgba(0,0,0,.1);
+			}
+
+			.file-attachment {
+				display: inline-block;
+				padding: 2px 11px 3px;
+				margin-right: 7px;
+				cursor: pointer;
+				color: #555;
+				border-radius: 31px;
+				box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+
+				i {
+					display: inline-block;
+					vertical-align: middle;
+					width: 17px;
+					height: 17px;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					margin-right: 7px;
+				}
+
+				span {
+					display: inline-block;
+					vertical-align: middle;
+					font-size: 13px;
+				}
+			}
+		}
 	}
 }
