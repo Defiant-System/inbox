@@ -20,8 +20,10 @@
 				Self.els.layout.toggleClass("show-sidebar", isOn);
 				return !isOn;
 			case "select-folder":
+				el = $(event.target);
+				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");
-				el = $(event.target).addClass("active");
+				el.addClass("active");
 				break;
 		}
 	}
