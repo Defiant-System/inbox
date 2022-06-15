@@ -8,7 +8,7 @@
 			el: window.find("sidebar"),
 		};
 	},
-	async dispatch(event) {
+	dispatch(event) {
 		let APP = mail,
 			Self = APP.sidebar,
 			el,

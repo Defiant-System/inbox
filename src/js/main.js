@@ -1,8 +1,6 @@
 
 const mail = {
 	init() {
-		// fast references
-		this.content = window.find("content");
 		// init all sub-objects
 		Object.keys(this)
 			.filter(i => typeof this[i].init === "function")

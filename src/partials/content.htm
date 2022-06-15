@@ -2,7 +2,7 @@
 	<sidebar data-area="sidebar" data-click="select-folder">
 		<div class="wrapper">
 			<div class="entry active">
-				<i class="icon-arrow-left"></i>
+				<i class="icon-play"></i>
 				<i class="icon-inbox"></i>
 				<span>Inbox</span>
 			</div>
@@ -23,6 +23,18 @@
 				<i class="icon-blank"></i>
 				<i class="icon-trash"></i>
 				<span>Deleted</span>
+			</div>
+
+			<div class="entry">
+				<i class="icon-play"></i>
+				<i class="icon-folder"></i>
+				<span>Leads</span>
+			</div>
+
+			<div class="entry">
+				<i class="icon-play"></i>
+				<i class="icon-folder"></i>
+				<span>Proposals</span>
 			</div>
 		</div>
 	</sidebar>
@@ -54,7 +66,7 @@
 				</div>
 			</div>
 
-			<div class="entry replied">
+			<div class="entry">
 				<div class="row">
 					<span class="from">Luca De Baptistis</span>
 					<span class="date">2022-06-13</span>
@@ -79,23 +91,9 @@
 	
 	<content data-area="content">
 		<div class="wrapper">
-			<div class="entry">
-				<div class="head">
-					<span class="avatar"></span>
-					<div class="row">
-						<span class="field-name">From</span>
-						<span class="field-value from-name">Sto Akron</span>
-						<span class="date">2022-06-13</span>
-					</div>
-					<div class="row">
-						<span class="field-name">To</span>
-						<span class="field-value from-name">Ben Greene</span>
-					</div>
-				</div>
-				<div class="body">
-					Birch would look great! We were also thinking of maple trees. What do you think?
-					- Sto
-				</div>
+			<div class="thread-subject">
+				<h2>Re: Help With Tree Selection</h2>
+				<i class="icon-slim-messages" data-click="toggle-message-view"></i>
 			</div>
 
 			<div class="entry">
@@ -103,6 +101,24 @@
 					<span class="avatar"></span>
 					<div class="row">
 						<span class="field-name">From</span>
+						<span class="field-value from-name">Sto Akron</span>
+						<span class="date">2022-06-13</span>
+					</div>
+					<div class="row">
+						<span class="field-name">To</span>
+						<span class="field-value from-name">Ben Greene</span>
+					</div>
+				</div>
+				<div class="body">Birch would look great! We were also thinking of maple trees. What do you think?
+					- Sto
+				</div>
+			</div>
+
+			<div class="entry">
+				<div class="head">
+					<span class="avatar" style="background-image: url(/res/avatar/hbi.jpg);"></span>
+					<div class="row">
+						<span class="field-name">From</span>
 						<span class="field-value from-name">Ben Greene</span>
 						<span class="date">2022-06-13</span>
 					</div>
@@ -111,8 +127,7 @@
 						<span class="field-value from-name">Sto Akron</span>
 					</div>
 				</div>
-				<div class="body">
-					Hi Sto,
+				<div class="body">Hi Sto,
 					I can help! HAve you thought about birch trees? You could plant a
 					cluster of them near the south wall.
 					- Ben
@@ -132,8 +147,7 @@
 						<span class="field-value from-name">Ben Greene</span>
 					</div>
 				</div>
-				<div class="body">
-					Ben,
+				<div class="body">Ben,
 					I am plainting new trees in my garden, and need some help with selection. Do you have any recommendations?
 					- Sto Akron
 				</div>

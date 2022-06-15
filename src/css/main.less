@@ -29,8 +29,11 @@ layout {
 		&.icon-archive    { background-image: url(~/icons/icon-archive.png); }
 		&.icon-junk       { background-image: url(~/icons/icon-junk.png); }
 		&.icon-trash      { background-image: url(~/icons/icon-trash.png); }
-
+		&.icon-folder     { background-image: url(~/icons/icon-folder.png); }
 		&.icon-attachment { background-image: url(~/icons/icon-attachment.png); }
+		
+		&.icon-slim-messages  { background-image: url(~/icons/icon-slim-messages.png); }
+		&.icon-thick-messages { background-image: url(~/icons/icon-thick-messages.png); }
 	}
 
 	[class^="icon-flag-"] {
@@ -168,7 +171,7 @@ list {
 				width: 9px;
 				height: 9px;
 				border-radius: 50%;
-				background: rgba(0,0,0,.15);
+				background: #489bf7a0;
 			}
 		}
 
@@ -260,6 +263,45 @@ content {
 		padding: 11px 13px;
 	}
 
+	.thread-subject {
+		padding: 3px 0 9px;
+		display: flex;
+
+		h2 {
+			flex: 1;
+			font-size: 17px;
+			font-weight: 400;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		i {
+			width: 23px;
+			height: 23px;
+			border-radius: 4px;
+			background-size: 0 0;
+			cursor: pointer;
+
+			&:hover {
+				background-color: rgba(0,0,0,.1);
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				width: 13px;
+				height: 13px;
+				background: inherit;
+				background-color: transparent;
+				background-size: 13px 13px;
+				opacity: .5;
+			}
+		}
+	}
+
 	.entry {
 		background: #fff;
 		color: #999;
@@ -280,17 +322,22 @@ content {
 				bottom: -7px;
 				left: 0;
 				right: 0;
-				border: 1px solid #eee;
+				border-bottom: 1px solid rgba(0,0,0,.1);
 			}
 
 			.avatar {
-				background: rgba(0,0,0,.125);
+				// background-color: rgba(0,0,0,.125);
+				background-image: url(/res/avatar/unknown.jpg);
+				background-size: 100% auto;
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
 				position: absolute;
 				top: 2px;
 				left: 2px;
 				width: 31px;
 				height: 31px;
 				border-radius: 50%;
+				box-shadow: inset 0 0 0 1px rgba(0,0,0,.075);
 			}
 
 			.row {
@@ -310,11 +357,14 @@ content {
 
 			.field-value {
 				flex: 1;
-				color: #555;
+				color: #333;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
 			}
 
 			.date {
-				width: 110px;
+				width: 140px;
 				text-align: right;
 			}
 		}
@@ -322,6 +372,7 @@ content {
 		.body {
 			padding: 3px 0 9px;
 			color: #333;
+			white-space: pre-line;
 		}
 	}
 }

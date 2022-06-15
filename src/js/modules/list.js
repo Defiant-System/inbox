@@ -7,7 +7,7 @@
 			el: window.find("list"),
 		};
 	},
-	async dispatch(event) {
+	dispatch(event) {
 		let APP = mail,
 			Self = APP.list,
 			el;
