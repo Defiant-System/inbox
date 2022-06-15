@@ -78,7 +78,7 @@ sidebar {
 			color: #222;
 
 			[class^="icon-"] {
-				opacity: .75;
+				opacity: .55;
 				margin-right: 5px;
 			}
 		}
@@ -192,6 +192,23 @@ list {
 			}
 		}
 
+		&.forwarded {
+			&:before {
+				content: "";
+				position: absolute;
+				top: 7px;
+				left: 11px;
+				width: 11px;
+				height: 11px;
+				border-radius: 50%;
+				background-image: url(~/icons/icon-chevron-right.png);;
+				background-position: 80% 50%;
+				background-size: 11px 11px;
+				background-repeat: no-repeat;
+				opacity: .35;
+			}
+		}
+
 		.row {
 			display: flex;
 			pointer-events: none;
@@ -215,6 +232,7 @@ list {
 			}
 			
 			.subject {
+				flex: 1;
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;

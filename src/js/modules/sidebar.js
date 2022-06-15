@@ -5,8 +5,10 @@
 	init() {
 		this.els = {
 			layout: window.find("layout"),
-			el: window.find("sidebar"),
+			el: window.find("sidebar .wrapper"),
 		};
+		// temp
+		this.dispatch({ type: "init-render" });
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -15,6 +17,14 @@
 			pEl,
 			isOn;
 		switch (event.type) {
+			case "init-render":
+				// render tree view
+				window.render({
+					template: "sidebar-entries",
+					match: `//Data/Mailbox`,
+					target: Self.els.el
+				});
+				break;
 			case "toggle-sidebar":
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
