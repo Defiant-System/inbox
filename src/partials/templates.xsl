@@ -1,15 +1,32 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:template name="sidebar-entries">
-		<xsl:for-each select="./*">
+		<legend>Accounts</legend>
+		<div class="list-wrapper" data-click="select-account">
 			<div class="entry">
 				<i class="icon-blank"></i>
-				<i>
-					<xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute>
-				</i>
-				<span><xsl:value-of select="@name"/></span>
+				<i class="icon-cloud"></i>
+				<span>Google Mail</span>
 			</div>
-		</xsl:for-each>
+			<div class="entry">
+				<i class="icon-blank"></i>
+				<i class="icon-cloud"></i>
+				<span>Hotmail</span>
+			</div>
+		</div>
+
+		<legend>Folders</legend>
+		<div class="list-wrapper" data-click="select-folder">
+			<xsl:for-each select="./*">
+				<div class="entry">
+					<i class="icon-blank"></i>
+					<i>
+						<xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute>
+					</i>
+					<span><xsl:value-of select="@name"/></span>
+				</div>
+			</xsl:for-each>
+		</div>
 	</xsl:template>
 
 	<xsl:template name="list-entries">

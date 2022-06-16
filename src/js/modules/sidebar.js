@@ -10,7 +10,7 @@
 		// temp
 		this.dispatch({ type: "init-render" });
 		
-		setTimeout(() => this.els.el.find(".entry").get(0).trigger("click"), 100);
+		setTimeout(() => this.els.el.find(".list-wrapper:nth(1) .entry:nth(0)").trigger("click"), 100);
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -31,6 +31,9 @@
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
 				return !isOn;
+			case "select-account":
+				console.log(event);
+				break;
 			case "select-folder":
 				el = $(event.target);
 				if (!el.length || el[0] === event.el[0]) return;

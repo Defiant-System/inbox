@@ -8,7 +8,7 @@
 		};
 		// temp
 		setTimeout(() => this.els.el.find(".entry").get(0).trigger("click"), 100);
-		setTimeout(() => this.els.el.find(".wrapper .icon-thick-messages").trigger("click"), 200);
+		// setTimeout(() => this.els.el.find(".wrapper .icon-thick-messages").trigger("click"), 200);
 	},
 	dispatch(event) {
 		let APP = mail,

@@ -3,7 +3,7 @@
 		<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
 
 		<Tool symbol="icon-send-receive"/>
-		<Tool symbol="icon-new-mail"/>
+		<Tool symbol="icon-new-mail" click="new-mail"/>
 
 		<Options>
 			<Tool symbol="icon-trash" state="disabled"/>

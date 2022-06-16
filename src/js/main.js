@@ -21,6 +21,9 @@ const mail = {
 				break;
 			case "toggle-sidebar":
 				return Self.sidebar.dispatch(event);
+			case "new-mail":
+				window.open("new-mail");
+				break;
 			default:
 				if (event.el) {
 					pEl = event.el.data("area") ? event.el : event.el.parents(`[data-area]`);

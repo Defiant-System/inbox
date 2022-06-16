@@ -22,6 +22,7 @@ layout {
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		
+		&.icon-cloud      { background-image: url(~/icons/icon-cloud.png); }
 		&.icon-blank      { background-image: url(~/icons/icon-blank.png); }
 		&.icon-play       { background-image: url(~/icons/icon-play.png); background-size: 11px 11px; }
 		&.icon-inbox      { background-image: url(~/icons/icon-inbox.png); }
@@ -63,6 +64,14 @@ sidebar {
 		overflow-y: auto;
 		padding: 4px 5px;
 		pointer-events: none;
+
+		legend {
+			padding: 1px 3px 2px 7px;
+		}
+
+		.list-wrapper {
+			padding-bottom: 19px;
+		}
 	}
 
 	.entry {
