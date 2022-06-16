@@ -9,7 +9,7 @@
 		// temp
 		this.dispatch({ type: "init-render" });
 
-		setTimeout(() => this.els.el.find(".entry").get(0).trigger("click"), 100);
+		setTimeout(() => this.els.el.find(".entry:nth(0)").trigger("click"), 100);
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -24,11 +24,13 @@
 					target: Self.els.el
 				});
 				break;
-			case "select-mail":
+			case "select-thread":
 				el = $(event.target);
 				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+				// make sure thread is marked as "read"
+				el.removeClass("unread");
 
 				APP.content.dispatch({
 					type: "render-mail-entries",
