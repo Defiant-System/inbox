@@ -14,7 +14,6 @@
 		let APP = mail,
 			Self = APP.content,
 			value,
-			pEl,
 			el;
 		switch (event.type) {
 			case "render-mail-entries":
@@ -28,14 +27,9 @@
 				Self.els.el.find(".entry:nth(0)").trigger("click");
 				break;
 			case "toggle-message-view":
-				value = event.el.hasClass("icon-slim-messages")
-						? "thick-messages"
-						: "slim-messages";
-				event.el.prop({ className: "icon-"+ value });
-
-				pEl = Self.els.el.find("> .wrapper");
-				if (value === "slim-messages") pEl.addClass("slim-messages");
-				else pEl.removeClass("slim-messages");
+				el = Self.els.el;
+				if (el.hasClass("slim-messages")) el.removeClass("slim-messages");
+				else el.addClass("slim-messages");
 				break;
 			case "select-mail":
 				el = $(event.target);
