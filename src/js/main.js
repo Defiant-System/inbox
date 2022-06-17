@@ -5,6 +5,9 @@ const mail = {
 		Object.keys(this)
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init());
+
+		// temp
+		setTimeout(() => this.dispatch({ type: "new-mail" }), 250);
 	},
 	dispatch(event) {
 		let Self = mail,

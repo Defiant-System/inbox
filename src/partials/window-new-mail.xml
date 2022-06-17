@@ -1,0 +1,18 @@
+<Window id="new-mail">
+	<Head>
+		<meta name="width" value="660"/>
+		<meta name="height" value="440"/>
+		<meta name="top" value="170"/>
+		<meta name="left" value="170"/>
+		<meta name="minimize"/>
+		<meta name="maximize"/>
+		<meta name="resize"/>
+
+		<ToolBar>
+			<Group>
+				<Tool symbol="icon-sidebar"/>
+			</Group>
+		</ToolBar>
+
+	</Head>
+</Window>

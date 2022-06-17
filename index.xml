@@ -22,21 +22,7 @@
 		@import "src/partials/menubar.xml"
 	</Head>
 
-	<Window id="new-mail">
-		<Head>
-			<meta name="width" value="600"/>
-			<meta name="height" value="460"/>
-			<meta name="top" value="170"/>
-			<meta name="left" value="170"/>
-			<meta name="minimize"/>
-			<meta name="maximize"/>
-			<meta name="resize"/>
-		</Head>
-		<Body>
-			
-		</Body>
-	</Window>
-
+	@import "src/partials/window-new-mail.xml"
 	@import "src/partials/data.xml"
 
 </Application>
