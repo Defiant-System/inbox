@@ -9,7 +9,7 @@
 		<meta name="maximize"/>
 		<meta name="resize"/>
 		<meta name="style" value="../css/new-mail.less"/>
-		<meta name="content" value="content-new-mail.htm/>
+		<meta name="content" value="content-new-mail.htm"/>
 
 		@import "toolbar-new-mail.xml"
 	</Head>
