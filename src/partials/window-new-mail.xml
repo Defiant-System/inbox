@@ -1,18 +1,16 @@
 <Window id="new-mail">
 	<Head>
-		<meta name="width" value="660"/>
+		<meta name="title" value="New Mail"/>
+		<meta name="width" value="680"/>
 		<meta name="height" value="440"/>
-		<meta name="top" value="170"/>
-		<meta name="left" value="170"/>
+		<meta name="top" value="270"/>
+		<meta name="left" value="440"/>
 		<meta name="minimize"/>
 		<meta name="maximize"/>
 		<meta name="resize"/>
+		<meta name="style" value="../css/new-mail.less"/>
+		<meta name="content" value="content-new-mail.htm/>
 
-		<ToolBar>
-			<Group>
-				<Tool symbol="icon-sidebar"/>
-			</Group>
-		</ToolBar>
-
+		@import "toolbar-new-mail.xml"
 	</Head>
 </Window>

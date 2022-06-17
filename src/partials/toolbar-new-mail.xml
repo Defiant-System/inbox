@@ -1,0 +1,10 @@
+<CaptionToolBar>
+	<Group>
+		<Tool symbol="icon-send-outline"/>
+		<Tool symbol="icon-mail-fields" menu="new-mail-fields"/>
+	</Group>
+	<Group />
+	<Group>
+		<Tool symbol="icon-attachment"/>
+	</Group>
+</CaptionToolBar>

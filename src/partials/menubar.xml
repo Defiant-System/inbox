@@ -9,4 +9,11 @@
 		<Menu type="divider"/>
 		<Menu name="License"/>
 	</Menu>
+
+	<Menu for="new-mail-fields">
+		<Menu name="Cc Address Field"/>
+		<Menu name="Bcc Address Field"/>
+		<Menu name="Reply-to Address Field"/>
+		<Menu name="Priority Field"/>
+	</Menu>
 </MenuBar>

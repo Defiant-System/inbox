@@ -121,6 +121,27 @@
 			C0.1,7.8,0,7.6,0,7.5C0,7.3,0.1,7.1,0.2,7l12.1-7C12.4,0,12.5,0,12.5,0C12.6,0,12.7,0,12.8,0.1z"/>
 	</svg>
 
+	<svg id="icon-send-outline" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<path class="dt0" d="M12.8,0.1C13,0.2,13,0.4,13,0.5l-1.9,11.1c0,0.1-0.1,0.3-0.2,0.3c-0.1,0-0.1,0.1-0.2,0.1c-0.1,0-0.1,0-0.2,0l-3.8-1.6
+			l-2.2,2.4C4.4,12.9,4.3,13,4.2,13c-0.1,0-0.1,0-0.2,0c-0.2-0.1-0.3-0.2-0.3-0.4V9.3L0.3,7.9C0.1,7.8,0,7.6,0,7.5
+			C0,7.3,0.1,7.1,0.2,7l12.1-7C12.5,0,12.7,0,12.8,0.1z M10.3,11l1.6-9.6l-10.4,6l2.4,1l6.3-4.6L6.7,9.5L10.3,11z"/>
+	</svg>
+
+	<svg id="icon-mail-fields" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:none;stroke:#333;stroke-width:2;stroke-miterlimit:10;}
+		</style>
+		<line class="st0" x1="0" y1="3" x2="4" y2="3"/>
+		<line class="st0" x1="6" y1="3" x2="13" y2="3"/>
+		<line class="st0" x1="0" y1="7" x2="4" y2="7"/>
+		<line class="st0" x1="6" y1="7" x2="13" y2="7"/>
+		<line class="st0" x1="0" y1="11" x2="4" y2="11"/>
+		<line class="st0" x1="6" y1="11" x2="13" y2="11"/>
+	</svg>
+
 	<svg id="icon-inbox" viewBox="0 0 13 13">
 		<style type="text/css">
 			.st0{fill:#333;}
