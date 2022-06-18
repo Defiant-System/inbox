@@ -32,11 +32,8 @@ const mail = {
 				console.log("close window");
 				break;
 			case "toggle-field":
-				// cc
-				// bcc
-				// reply-to
-				// priority
-				console.log(event);
+				el = event.spawn.find(`input[name="mail-${event.arg}"]`).parent();
+				el.toggleClass("hidden", el.hasClass("hidden"));
 				break;
 			case "add-attachment":
 				console.log(event);
