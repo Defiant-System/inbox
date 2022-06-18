@@ -12,9 +12,18 @@ layout {
 
 	label {
 		display: flex;
+		max-height: 29px;
+		overflow: hidden;
 		padding: 1px 0 0;
 		font-size: 0;
 		border-bottom: 1px solid rgba(0,0,0,.1);
+		transition: all 180ms ease-in-out;
+
+		&.hidden {
+			max-height: 0;
+			padding-top: 0;
+			border-bottom: 0;
+		}
 
 		span {
 			padding: 5px 3px 0;
