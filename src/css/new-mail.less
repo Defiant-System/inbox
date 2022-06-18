@@ -6,4 +6,43 @@ layout {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	padding: 0 5px 5px;
+	display: flex;
+	flex-direction: column;
+
+	label {
+		display: flex;
+		padding: 1px 0 0;
+		font-size: 0;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+
+		span {
+			padding: 5px 3px 0;
+			vertical-align: middle;
+			display: inline-block;
+			font-size: 13px;
+			color: #999;
+		}
+
+		input {
+			flex: 1;
+			vertical-align: middle;
+			display: inline-block;
+			font-size: 13px;
+			border: 0;
+			box-shadow: 0 0 0;
+
+			&:active,
+			&:focus {
+				outline: 0;
+				box-shadow: 0 0 0;
+			}
+		}
+	}
+
+	.mail-body {
+		flex: 1;
+		margin-top: 7px;
+		padding: 1px 3px;
+	}
 }
