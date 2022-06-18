@@ -11,9 +11,9 @@
 	</Menu>
 
 	<Menu for="new-mail-fields">
-		<Menu name="Cc Address Field"/>
-		<Menu name="Bcc Address Field"/>
-		<Menu name="Reply-to Address Field"/>
-		<Menu name="Priority Field"/>
+		<Menu name="Cc Address Field" click="toggle-field" arg="cc"/>
+		<Menu name="Bcc Address Field" click="toggle-field" arg="bcc"/>
+		<Menu name="Reply-to Address Field" click="toggle-field" arg="reply-to"/>
+		<Menu name="Priority Field" click="toggle-field" arg="priority"/>
 	</Menu>
 </MenuBar>

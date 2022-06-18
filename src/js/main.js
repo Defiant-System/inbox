@@ -8,6 +8,7 @@ const mail = {
 
 		// temp
 		setTimeout(() => this.dispatch({ type: "new-mail" }), 250);
+		setTimeout(() => $(".mail-body").focus(), 350);
 	},
 	dispatch(event) {
 		let Self = mail,
@@ -22,6 +23,25 @@ const mail = {
 			case "open-help":
 				defiant.shell("fs -u '~/help/index.md'");
 				break;
+
+			case "spawn.open":
+			case "spawn.close":
+				// console.log(event);
+				break;
+			case "send-mail":
+				console.log("close window");
+				break;
+			case "toggle-field":
+				// cc
+				// bcc
+				// reply-to
+				// priority
+				console.log(event);
+				break;
+			case "add-attachment":
+				console.log(event);
+				break;
+
 			case "toggle-sidebar":
 				return Self.sidebar.dispatch(event);
 			case "new-mail":
