@@ -23,28 +23,15 @@ const mail = {
 			case "open-help":
 				defiant.shell("fs -u '~/help/index.md'");
 				break;
-
-			case "spawn.open":
-			case "spawn.close":
-				// console.log(event);
-				break;
-			case "send-mail":
-				console.log("close window");
-				break;
-			case "toggle-field":
-				el = event.spawn.find(`input[name="mail-${event.arg}"]`).parent();
-				el.toggleClass("hidden", el.hasClass("hidden"));
-				break;
-			case "add-attachment":
-				console.log(event);
-				break;
-
 			case "toggle-sidebar":
 				return Self.sidebar.dispatch(event);
 			case "new-mail":
 				window.open("new-mail");
 				break;
 			default:
+				if (event.spawn) {
+					return Self.spawn.dispatch(event);
+				}
 				if (event.el) {
 					pEl = event.el.data("area") ? event.el : event.el.parents(`[data-area]`);
 					if (pEl.length) {
@@ -54,6 +41,7 @@ const mail = {
 				}
 		}
 	},
+	spawn: @import "modules/spawn.js",
 	list: @import "modules/list.js",
 	sidebar: @import "modules/sidebar.js",
 	content: @import "modules/content.js",
