@@ -12,8 +12,10 @@
 			el;
 		switch (event.type) {
 			case "spawn.open":
-			case "spawn.close":
 				// console.log(event);
+				break;
+			case "spawn.close":
+				window.focus();
 				break;
 			case "send-mail":
 				spawn = event.el.parents("[data-spawn]");
