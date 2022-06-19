@@ -8,7 +8,7 @@ const mail = {
 
 		// temp
 		setTimeout(() => this.dispatch({ type: "new-mail" }), 250);
-		setTimeout(() => $(".mail-body").focus(), 350);
+		// setTimeout(() => $(".mail-body").focus(), 350);
 	},
 	dispatch(event) {
 		let Self = mail,
@@ -16,6 +16,8 @@ const mail = {
 			value,
 			pEl,
 			el;
+		// proxy spawn events
+		if (event.spawn) return Self.spawn.dispatch(event);
 		// console.log(event);
 		switch (event.type) {
 			case "window.init":
@@ -29,9 +31,6 @@ const mail = {
 				window.open("new-mail");
 				break;
 			default:
-				if (event.spawn) {
-					return Self.spawn.dispatch(event);
-				}
 				if (event.el) {
 					pEl = event.el.data("area") ? event.el : event.el.parents(`[data-area]`);
 					if (pEl.length) {

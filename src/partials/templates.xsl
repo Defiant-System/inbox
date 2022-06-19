@@ -3,16 +3,13 @@
 	<xsl:template name="sidebar-entries">
 		<legend>Accounts</legend>
 		<div class="list-wrapper" data-click="select-account">
-			<div class="entry">
-				<i class="icon-blank"></i>
-				<i class="icon-cloud"></i>
-				<span>Google Mail</span>
-			</div>
-			<div class="entry">
-				<i class="icon-blank"></i>
-				<i class="icon-cloud"></i>
-				<span>Hotmail</span>
-			</div>
+			<xsl:for-each select="../Mailboxes/*">
+				<div class="entry">
+					<i class="icon-blank"></i>
+					<i class="icon-cloud"></i>
+					<span class="name"><xsl:value-of select="@name"/></span>
+				</div>
+			</xsl:for-each>
 		</div>
 
 		<legend>Folders</legend>
@@ -23,7 +20,10 @@
 					<i>
 						<xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute>
 					</i>
-					<span><xsl:value-of select="@name"/></span>
+					<span class="name"><xsl:value-of select="@name"/></span>
+					<xsl:if test="@unread">
+						<span class="unread"><xsl:value-of select="@unread"/></span>
+					</xsl:if>
 				</div>
 			</xsl:for-each>
 		</div>

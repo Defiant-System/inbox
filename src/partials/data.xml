@@ -1,10 +1,15 @@
 <Data>
+	<Mailboxes>
+		<i icon="cloud" name="Google Mail" />
+		<i icon="cloud" name="Hotmail" />
+	</Mailboxes>
+
 	<Mailbox>
-		<i icon="inbox" name="Inbox" />
+		<i icon="inbox" name="Inbox" unread="23"/>
 		<i icon="sent" name="Sent" />
 		<i icon="junk" name="Junk" />
 		<i icon="trash" name="Deleted" />
-		<i icon="folder" name="Leads" />
+		<i icon="folder" name="Leads" unread="2" />
 		<i icon="folder" name="Proposals" />
 	</Mailbox>
 
