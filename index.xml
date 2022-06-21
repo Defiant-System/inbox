@@ -18,7 +18,7 @@
 		<meta name="content" value="src/partials/content.htm"/>
 		<meta name="xsl" value="src/partials/templates.xsl"/>
 
-		<meta name="window" value="src/partials/window-new-mail.xml"/>
+		<meta name="spawn" value="src/partials/spawn-new-mail.xml"/>
 
 		@import "src/partials/toolbar.xml"
 		@import "src/partials/menubar.xml"

@@ -1,4 +1,4 @@
-<Window id="new-mail">
+<Spawn id="new-mail">
 	<Head>
 		<meta name="title" value="New Mail"/>
 		<meta name="width" value="680"/>
@@ -13,4 +13,4 @@
 
 		@import "toolbar-new-mail.xml"
 	</Head>
-</Window>
+</Spawn>
