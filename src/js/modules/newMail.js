@@ -1,5 +1,5 @@
 
-// mail.spawn
+// mail.newMail
 
 {
 	init() {
@@ -7,8 +7,8 @@
 	},
 	dispatch(event) {
 		let APP = mail,
-			Self = APP.spawn,
-			spawn,
+			Self = APP.newMail,
+			data = {},
 			el;
 		switch (event.type) {
 			case "spawn.open":
@@ -18,8 +18,13 @@
 				window.focus();
 				break;
 			case "send-mail":
-				spawn = event.el.parents("[data-spawn]");
-				window.close(spawn);
+				["to", "cc", "bcc", "reply-to", "subject", "from", "message"].map(key => {
+					let el = event.spawn.find(`[name="mail-${key}"]`),
+						value = key === "message" ? el.html() : el.val();
+					data[key] = value;
+				});
+				return console.log(data);
+				window.close(event.spawn);
 				break;
 			case "toggle-field":
 				el = event.spawn.find(`input[name="mail-${event.arg}"]`).parent();

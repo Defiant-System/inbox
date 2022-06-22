@@ -16,8 +16,8 @@ const mail = {
 			value,
 			pEl,
 			el;
-		// proxy spawn events
-		if (event.spawn) return Self.spawn.dispatch(event);
+		// proxy newMail (spawn) events
+		if (event.spawn) return Self.newMail.dispatch(event);
 		// console.log(event);
 		switch (event.type) {
 			case "window.init":
@@ -40,10 +40,10 @@ const mail = {
 				}
 		}
 	},
-	spawn: @import "modules/spawn.js",
 	list: @import "modules/list.js",
 	sidebar: @import "modules/sidebar.js",
 	content: @import "modules/content.js",
+	newMail: @import "modules/newMail.js",
 };
 
 window.exports = mail;
