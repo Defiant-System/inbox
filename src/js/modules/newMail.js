@@ -10,6 +10,7 @@
 			Self = APP.newMail,
 			data = {},
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "spawn.open":
 				// console.log(event);
@@ -23,8 +24,8 @@
 						value = key === "message" ? el.html() : el.val();
 					data[key] = value;
 				});
-				return console.log(data);
-				window.close(event.spawn);
+				console.log(data);
+				event.spawn.close();
 				break;
 			case "toggle-field":
 				el = event.spawn.find(`input[name="mail-${event.arg}"]`).parent();
