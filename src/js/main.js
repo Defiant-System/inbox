@@ -12,7 +12,7 @@ const mail = {
 		setTimeout(() => {
 			// let win = $(`.ant-window_[data-id="mail-new-mail"]`);
 			// el.trigger("mousedown");
-			// defiant_.window_.close_(win)
+			// karaqu_.window_.close_(win)
 
 			// window.close();
 			window.focus();
@@ -31,7 +31,7 @@ const mail = {
 			case "window.init":
 				break;
 			case "open-help":
-				defiant.shell("fs -u '~/help/index.md'");
+				karaqu.shell("fs -u '~/help/index.md'");
 				break;
 			case "toggle-sidebar":
 				return Self.sidebar.dispatch(event);
