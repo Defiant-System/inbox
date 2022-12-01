@@ -8,8 +8,6 @@
 		};
 		// temp
 		this.dispatch({ type: "init-render" });
-
-		setTimeout(() => this.els.el.find(".entry:nth(0)").trigger("click"), 100);
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -21,7 +19,7 @@
 				window.render({
 					template: "list-entries",
 					match: `//Data/Maillist`,
-					target: Self.els.el
+					target: Self.els.el,
 				});
 				break;
 			case "select-thread":
@@ -36,6 +34,31 @@
 					type: "render-mail-entries",
 					position: el.index(),
 				});
+				break;
+			case "prepend-mail":
+				let xParent = window.bluePrint.selectSingleNode(`//Maillist`),
+					xNode = $.nodeFromString(`<thread unread="1">
+								<mail>
+									<from name="Sonny Fazio" email="sony.fazio@gmail.com"/>
+									<to name="Sto Akron" email="sto.akron@hotmail.com"/>
+									<date value="2022-05-21"/>
+									<subject><![CDATA[Upcoming Newsletter Feature Image]]></subject>
+									<message><![CDATA[Lorem Ipsum...]]></message>
+								</mail>
+							</thread>`);
+				// prepend node
+				xParent.insertBefore(xNode, xParent.firstChild);
+				// render new list mail
+				el = window.render({
+					template: "list-entry",
+					match: `//Data/Maillist/*[1]`,
+					prepend: Self.els.el,
+				}).addClass("hidden");
+				
+				// prepend with animation
+				setTimeout(() =>
+					el.cssSequence("prepend-anim", "transitionend", entry =>
+						entry.removeClass("prepend-anim hidden")), 1);
 				break;
 		}
 	}

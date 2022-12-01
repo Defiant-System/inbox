@@ -234,6 +234,24 @@ list {
 			}
 		}
 
+		&.hidden {
+			opacity: 0;
+			max-height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			margin-bottom: 0;
+			overflow: hidden;
+			transition: all 300ms ease-in-out;
+		}
+
+		&.prepend-anim {
+			opacity: 1;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			margin-bottom: 7px;
+			max-height: 45px;
+		}
+
 		.row {
 			display: flex;
 			pointer-events: none;

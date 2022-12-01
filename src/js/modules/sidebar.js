@@ -9,8 +9,6 @@
 		};
 		// temp
 		this.dispatch({ type: "init-render" });
-		
-		setTimeout(() => this.els.el.find(".list-wrapper:nth(1) .entry:nth(0)").trigger("click"), 100);
 	},
 	dispatch(event) {
 		let APP = mail,

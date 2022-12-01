@@ -1,4 +1,7 @@
 
+@import "modules/test.js"
+
+
 const mail = {
 	init() {
 		// init all sub-objects
