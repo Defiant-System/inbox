@@ -35,6 +35,11 @@
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				break;
+			case "load-mail":
+				window
+					.fetch("~/sample/voi.eml")
+					.then(mail => console.log(mail));
+				break;
 		}
 	}
 }
