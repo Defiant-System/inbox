@@ -35,6 +35,11 @@
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				break;
+
+			case "handle-anchor-link":
+				console.log(event);
+				break;
+
 			case "render-mail-thread":
 				window
 					.fetch(event.eml)
@@ -48,21 +53,27 @@
 							fromName = email.from.name,
 							mailDate = new Date(email.date),
 							isoDate = mailDate.toISOString(),
-							span = document.createElement("span"),
-							b = (span.innerHTML = email.html),
-							str = `<thread>
-										<mail>
-											<from name="${fromName || fromMail}" email="${fromMail}"/>
-											<to name="${to.name || to.address}" email="${to.address}"/>
-											<date value="${isoDate.slice(0,10)}" time="${isoDate.slice(11,19)}"/>
-											<subject><![CDATA[${email.subject}]]></subject>
-											<message><![CDATA[${span.innerHTML}]]></message>
-										</mail>
-									</thread>`,
-							data = $.xmlFromString(str);
+							span = document.createElement("span");
+						// work off DOM
+						span.innerHTML = email.html;
+						// disable links
+						$("a", span).map(anchor => {
+							anchor.setAttribute("data-click", "handle-anchor-link");
+							anchor.setAttribute("data-href", anchor.href);
+							anchor.removeAttribute("href");
+						});
+						// create xml doc from EML
+						let data = $.xmlFromString(`<thread>
+								<mail>
+									<from name="${fromName || fromMail}" email="${fromMail}"/>
+									<to name="${to.name || to.address}" email="${to.address}"/>
+									<date value="${isoDate.slice(0,10)}" time="${isoDate.slice(11,19)}"/>
+									<subject><![CDATA[${email.subject}]]></subject>
+									<message><![CDATA[${span.innerHTML}]]></message>
+								</mail>
+							</thread>`);
 
 						// console.log(email);
-
 						window.render({
 							data,
 							template: "content-entries",
