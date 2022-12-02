@@ -1,6 +1,8 @@
 
 @import "modules/test.js"
 
+@import "ext/postal-mime/index.js"
+
 
 const mail = {
 	init() {

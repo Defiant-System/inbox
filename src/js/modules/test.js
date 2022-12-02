@@ -8,7 +8,7 @@ let test = {
 	list() {
 		mail.list.els.el.find(".entry:nth(0)").trigger("click");
 
-		setTimeout(() => mail.list.dispatch({ type: "prepend-mail" }), 500);
+		// setTimeout(() => mail.list.dispatch({ type: "prepend-mail" }), 500);
 	},
 	sidebar() {
 		mail.sidebar.els.el.find(".list-wrapper:nth(1) .entry:nth(0)").trigger("click");

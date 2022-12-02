@@ -37,8 +37,13 @@
 				break;
 			case "load-mail":
 				window
-					.fetch("~/sample/voi.eml")
-					.then(mail => console.log(mail));
+					.fetch("~/sample/thread.eml")
+					.then(async eml => {
+						let parser = new PostalMime();
+						let email = await parser.parse(eml);
+
+						console.log(email);
+					});
 				break;
 		}
 	}
