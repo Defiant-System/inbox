@@ -6,8 +6,6 @@
 		this.els = {
 			el: window.find("list .wrapper"),
 		};
-		// temp
-		this.dispatch({ type: "init-render" });
 	},
 	dispatch(event) {
 		let APP = mail,

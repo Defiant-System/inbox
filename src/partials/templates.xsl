@@ -32,6 +32,7 @@
 
 <xsl:template name="list-entries">
 	<xsl:for-each select="./*">
+		<xsl:sort order="descending" select="mail/date/@value"/>
 		<xsl:call-template name="list-entry"/>
 	</xsl:for-each>
 </xsl:template>
@@ -53,7 +54,7 @@
 			<xsl:if test="mail/flag">
 				<i class="icon-flag-red"></i>
 			</xsl:if>
-			<span class="date"><xsl:value-of select="mail/date/@value"/></span>
+			<span class="date"><xsl:value-of select="mail/date/@date"/></span>
 		</div>
 		<div class="row">
 			<span class="subject"><xsl:value-of select="mail/subject/text()"/></span>
@@ -89,7 +90,9 @@
 						<span class="field-value from-name"><xsl:value-of select="to/@name"/></span>
 					</div>
 				</div>
-				<div class="body"><xsl:value-of select="message/text()"/></div>
+				<div class="body">
+					<xsl:value-of select="message/text()" disable-output-escaping="yes"/>
+				</div>
 
 				<xsl:if test="count(attachment) &gt; 0">
 					<div class="foot">

@@ -37,12 +37,36 @@
 				break;
 			case "load-mail":
 				window
-					.fetch("~/sample/thread.eml")
+					.fetch(event.eml)
 					.then(async eml => {
-						let parser = new PostalMime();
-						let email = await parser.parse(eml);
+						let parser = new PostalMime(),
+							email = await parser.parse(eml),
+							to = email.to.find(r => r.address === email.deliveredTo),
+							fromMail = email.from.address,
+							fromName = email.from.name,
+							mailDate = new Date(email.date),
+							isoDate = mailDate.toISOString(),
+							span = document.createElement("span"),
+							b = (span.innerHTML = email.html),
+							str = `<thread>
+										<mail>
+											<from name="${fromName || fromMail}" email="${fromMail}"/>
+											<to name="${to.name || to.address}" email="${to.address}"/>
+											<date value="${isoDate.slice(0,10)}" time="${isoDate.slice(11,19)}"/>
+											<subject><![CDATA[${email.subject}]]></subject>
+											<message><![CDATA[${span.innerHTML}]]></message>
+										</mail>
+									</thread>`,
+							data = $.xmlFromString(str);
 
-						console.log(email);
+						// console.log(email);
+
+						window.render({
+							data,
+							template: "content-entries",
+							match: `//thread`,
+							target: Self.els.el
+						});
 					});
 				break;
 		}

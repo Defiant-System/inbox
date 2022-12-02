@@ -14,79 +14,49 @@
 	</Mailbox>
 
 	<Maillist>
-		<thread replied="1">
-			<mail>
-				<from name="Ben Greene" email="ben.green@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-06-13"/>
-				<attachment kind="txt" name="text-file.txt"/>
-				<attachment kind="image" name="image.jpg"/>
-				<subject><![CDATA[Re: Help With Tree Selection]]></subject>
-				<message><![CDATA[Birch would look great! We were also thinking of maple trees. What do you think?
-- Sto]]></message>
-			</mail>
 
+		<thread eml="~/hotmail-1.eml">
 			<mail>
-				<from name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<to name="Ben Greene" email="ben.green@gmail.com"/>
-				<date value="2022-06-13"/>
-				<subject><![CDATA[Re: Help With Tree Selection]]></subject>
-				<message><![CDATA[Hi Sto,
-I can help! Have you thought about birch trees? You could plant a
-cluster of them near the south wall.
-- Ben]]></message>
-			</mail>
-
-			<mail>
-				<from name="Ben Greene" email="ben.green@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-06-13"/>
-				<subject><![CDATA[Help With Tree Selection]]></subject>
-				<message><![CDATA[Ben,
-I am plainting new trees in my garden, and need some help with selection. Do you have any recommendations?
-- Sto Akron]]></message>
+				<from name="Hakan Bilgin" email="hbi99@hotmail.com"/>
+				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
+				<subject><![CDATA[test send]]></subject>
 			</mail>
 		</thread>
 
-		<thread unread="1">
+		<thread replied="1" eml="~/hotmail-2.eml">
 			<mail>
-				<from name="Daniel Hellerman" email="daniel.hellerman@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<flag color="red"/>
-				<date value="2022-05-21"/>
-				<subject><![CDATA[What type of butterfly is this on my flowers?]]></subject>
-				<message><![CDATA[Lorem Ipsum...]]></message>
+				<from name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<to name="Hakan Bilgin" email="hbi99@hotmail.com"/>
+				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
+				<subject><![CDATA[RE: test send]]></subject>
+			</mail>
+
+			<mail>
+				<from name="Hakan Bilgin" email="hbi99@hotmail.com"/>
+				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
+				<subject><![CDATA[test send]]></subject>
 			</mail>
 		</thread>
 
-		<thread unread="1">
+		<thread eml="~/spotify.eml">
 			<mail>
-				<from name="Sonny Fazio" email="sony.fazio@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-05-21"/>
-				<subject><![CDATA[Upcoming Newsletter Feature Image]]></subject>
-				<message><![CDATA[Lorem Ipsum...]]></message>
+				<from name="Spotify" email="no-reply@spotify.com"/>
+				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<date value="2022-11-30T12:00:00" date="2022-11-30" time="12:00:00"/>
+				<subject><![CDATA[Ditt 2022 Wrapped]]></subject>
 			</mail>
 		</thread>
 
-		<thread forwarded="1">
+		<thread unread="1" eml="~/voi.eml">
 			<mail>
-				<from name="Luca De Baptistis" email="luca.de.baptistis@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-05-21"/>
-				<subject><![CDATA[Requesting Information]]></subject>
-				<message><![CDATA[Lorem Ipsum...]]></message>
+				<from name="Voi" email="hello@mkt.voiapp.io"/>
+				<to name="Hakan Bilgin" email="hbi@longscript.com"/>
+				<date value="2022-11-10T12:00:00" date="2022-11-10" time="12:00:00"/>
+				<subject><![CDATA[Update to Voi's Privacy Policy]]></subject>
 			</mail>
 		</thread>
 
-		<thread>
-			<mail>
-				<from name="Ben Greene" email="ben.greene@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-05-21"/>
-				<subject><![CDATA[Schedule for NYC]]></subject>
-				<message><![CDATA[Lorem Ipsum...]]></message>
-			</mail>
-		</thread>
 	</Maillist>
 </Data>
