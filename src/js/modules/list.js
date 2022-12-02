@@ -29,8 +29,8 @@
 				el.removeClass("unread");
 
 				APP.content.dispatch({
-					type: "render-mail-entries",
-					position: el.index(),
+					type: "render-mail-thread",
+					eml: el.data("eml"),
 				});
 				break;
 			case "prepend-mail":

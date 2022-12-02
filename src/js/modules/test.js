@@ -16,7 +16,7 @@ let test = {
 		// setTimeout(() => mail.list.dispatch({ type: "prepend-mail" }), 500);
 	},
 	content() {
-		// mail.content.dispatch({ type: "load-mail", eml: "~/sample/hotmail-1.eml" });
+		// mail.content.dispatch({ type: "render-mail-thread", eml: "~/sample/hotmail-1.eml" });
 		// mail.content.els.el.find(".entry").get(0).trigger("click");
 		// this.els.el.find(".wrapper .icon-thick-messages").trigger("click");
 	}

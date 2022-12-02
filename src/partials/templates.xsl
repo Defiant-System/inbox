@@ -40,6 +40,7 @@
 
 <xsl:template name="list-entry">
 	<div>
+		<xsl:attribute name="data-eml"><xsl:value-of select="@eml"/></xsl:attribute>
 		<xsl:attribute name="class">
 			entry
 			<xsl:if test="@unread"> unread</xsl:if>

@@ -15,7 +15,7 @@
 
 	<Maillist>
 
-		<thread eml="~/hotmail-1.eml">
+		<thread eml="~/sample/hotmail-1.eml">
 			<mail>
 				<from name="Hakan Bilgin" email="hbi99@hotmail.com"/>
 				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
@@ -24,7 +24,7 @@
 			</mail>
 		</thread>
 
-		<thread replied="1" eml="~/hotmail-2.eml">
+		<thread replied="1" eml="~/sample/hotmail-2.eml">
 			<mail>
 				<from name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
 				<to name="Hakan Bilgin" email="hbi99@hotmail.com"/>
@@ -40,7 +40,7 @@
 			</mail>
 		</thread>
 
-		<thread eml="~/spotify.eml">
+		<thread eml="~/sample/spotify.eml">
 			<mail>
 				<from name="Spotify" email="no-reply@spotify.com"/>
 				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
@@ -49,7 +49,7 @@
 			</mail>
 		</thread>
 
-		<thread unread="1" eml="~/voi.eml">
+		<thread unread="1" eml="~/sample/voi.eml">
 			<mail>
 				<from name="Voi" email="hello@mkt.voiapp.io"/>
 				<to name="Hakan Bilgin" email="hbi@longscript.com"/>

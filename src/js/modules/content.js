@@ -35,13 +35,15 @@
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				break;
-			case "load-mail":
+			case "render-mail-thread":
 				window
 					.fetch(event.eml)
 					.then(async eml => {
 						let parser = new PostalMime(),
 							email = await parser.parse(eml),
-							to = email.to.find(r => r.address === email.deliveredTo),
+							to = email.deliveredTo
+								? email.to.find(r => r.address === email.deliveredTo)
+								: email.to[0],
 							fromMail = email.from.address,
 							fromName = email.from.name,
 							mailDate = new Date(email.date),
