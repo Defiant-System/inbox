@@ -24,6 +24,8 @@
 					match: `//Data/Mailbox`,
 					target: Self.els.el
 				});
+				// click on "inbox" (first entry)
+				Self.els.el.find(`.list-wrapper .entry:nth(0)`).trigger("click");
 				break;
 			case "toggle-sidebar":
 				isOn = Self.els.layout.hasClass("show-sidebar");

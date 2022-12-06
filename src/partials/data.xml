@@ -15,7 +15,7 @@
 
 	<Maillist>
 
-		<thread eml="~/sample/hotmail-1.eml">
+		<thread eml="~/sample/hotmail-2.eml">
 			<mail>
 				<from name="Hakan Bilgin" email="hbi99@hotmail.com"/>
 				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
@@ -24,7 +24,7 @@
 			</mail>
 		</thread>
 
-		<thread replied="1" eml="~/sample/hotmail-2.eml">
+		<thread replied="1" eml="~/sample/hotmail-4.eml">
 			<mail>
 				<from name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
 				<to name="Hakan Bilgin" email="hbi99@hotmail.com"/>

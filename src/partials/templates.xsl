@@ -1,6 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template name="sidebar-entries">
+	<!--
 	<legend>Accounts</legend>
 	<div class="list-wrapper" data-click="select-account">
 		<xsl:for-each select="../Mailboxes/*">
@@ -11,6 +12,7 @@
 			</div>
 		</xsl:for-each>
 	</div>
+	-->
 
 	<legend>Folders</legend>
 	<div class="list-wrapper" data-click="select-folder">
@@ -84,7 +86,7 @@
 					<div class="row">
 						<span class="field-name">From</span>
 						<span class="field-value from-name"><xsl:value-of select="from/@name"/></span>
-						<span class="date"><xsl:value-of select="date/@value"/></span>
+						<span class="date"><xsl:value-of select="date/@date"/></span>
 					</div>
 					<div class="row">
 						<span class="field-name">To</span>

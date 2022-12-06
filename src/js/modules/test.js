@@ -1,6 +1,10 @@
 
 let test = {
 	init() {
+		// setTimeout(() => {
+		// 	window.find(`.toolbar-tool_[data-click="new-mail"]`).trigger("click")
+		// }, 700);
+
 		setTimeout(() => this.list(), 200);
 		// setTimeout(() => this.sidebar(), 200);
 		setTimeout(() => this.content(), 200);
@@ -10,8 +14,8 @@ let test = {
 	},
 	list() {
 		mail.list.dispatch({ type: "init-render" });
-		
-		// mail.list.els.el.find(".entry:nth(0)").trigger("click");
+
+		mail.list.els.el.find(".entry:nth(1)").trigger("click");
 
 		// setTimeout(() => mail.list.dispatch({ type: "prepend-mail" }), 500);
 	},

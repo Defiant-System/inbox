@@ -53,33 +53,46 @@
 							fromName = email.from.name,
 							mailDate = new Date(email.date),
 							isoDate = mailDate.toISOString(),
-							span = document.createElement("span");
+							span = document.createElement("span"),
+							// create xml doc from EML
+							xMails = [];
+
+						console.log( email );
+
 						// work off DOM
 						span.innerHTML = email.html;
+
 						// disable links
 						$("a", span).map(anchor => {
 							anchor.setAttribute("data-click", "handle-anchor-link");
 							anchor.setAttribute("data-href", anchor.href);
 							anchor.removeAttribute("href");
 						});
-						// create xml doc from EML
-						let data = $.xmlFromString(`<thread>
-								<mail>
-									<from name="${fromName || fromMail}" email="${fromMail}"/>
-									<to name="${to.name || to.address}" email="${to.address}"/>
-									<date value="${isoDate.slice(0,10)}" time="${isoDate.slice(11,19)}"/>
-									<subject><![CDATA[${email.subject}]]></subject>
-									<message><![CDATA[${span.innerHTML}]]></message>
-								</mail>
-							</thread>`);
 
-						// console.log(email);
+						// chop up thread into separate mails
+						$("blockquote", span).reverse().map(block => {
+							xMails.push(`<mail>
+										<from name="${fromName || fromMail}" email="${fromMail}"/>
+										<to name="${to.name || to.address}" email="${to.address}"/>
+										<date value="${email.date}" date="${isoDate.slice(0,10)}" time="${isoDate.slice(11,19)}"/>
+										<subject><![CDATA[${email.subject}]]></subject>
+										<message><![CDATA[${block.innerHTML}]]></message>
+									</mail>`);
+
+							// block.parentNode.removeChild(block);
+						});
+
+						/**/
+						let data = $.xmlFromString(`<thread>${xMails.join("")}</thread>`);
+
+						// render mail content
 						window.render({
 							data,
 							template: "content-entries",
 							match: `//thread`,
 							target: Self.els.el
 						});
+						
 					});
 				break;
 		}
