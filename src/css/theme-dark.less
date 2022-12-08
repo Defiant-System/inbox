@@ -1,0 +1,44 @@
+
+&[data-theme="dark"] {
+
+	&.win-body-focused_ {}
+
+	sidebar {
+		color: #ccc;
+
+		&:after {
+			border-right-color: rgba(0,0,0,.15);
+		}
+
+		.entry {
+			[class^="icon-"] {
+				opacity: .4;
+				filter: invert(1) brightness(1) drop-shadow(0 1px 0 #111);
+			}
+
+			&.active {
+				color: #ddd;
+
+				[class^="icon-"] {
+					opacity: .75;
+				}
+			}
+		}
+	}
+
+	list {
+		background: #ffffff10;
+		color: #ccc;
+
+		&:after {
+			border-right-color: rgba(0,0,0,.15);
+		}
+	}
+
+	content {
+		.entry {
+			background: #ffffff20;
+			color: #ccc;
+		}
+	}
+}
