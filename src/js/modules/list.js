@@ -12,11 +12,11 @@
 			Self = APP.list,
 			el;
 		switch (event.type) {
-			case "init-render":
-				// render tree view
+			case "render-render-folder":
+				// render list view
 				window.render({
 					template: "list-entries",
-					match: `//Data/Maillist`,
+					match: `//Data/Maillist[@folder_id="${event.folder_id}"]`,
 					target: Self.els.el,
 				});
 				break;

@@ -39,6 +39,8 @@
 				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+
+				APP.list.dispatch({ type: "render-render-folder", folder_id: 2001 });
 				break;
 		}
 	}

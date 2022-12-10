@@ -1,22 +1,29 @@
 
 let test = {
 	init() {
-		// setTimeout(() => {
-		// 	window.find(`.toolbar-tool_[data-click="new-mail"]`).trigger("click")
-		// }, 700);
-
-		setTimeout(() => this.list(), 200);
+		setTimeout(() => this.newMail(), 200);
+		// setTimeout(() => this.list(), 200);
 		// setTimeout(() => this.sidebar(), 200);
-		setTimeout(() => this.content(), 200);
+		// setTimeout(() => this.content(), 200);
+	},
+	newMail() {
+		let Spawn = window.open("new-mail");
+
+		setTimeout(() => {
+			Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
+			Spawn.find(`input[name="mail-subject"]`).val("Writing the subject of the e-mail");
+			Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....`);
+		}, 200);
+
+		setTimeout(() => {
+			Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
+		}, 400);
 	},
 	sidebar() {
 		mail.sidebar.els.el.find(".list-wrapper:nth(1) .entry:nth(0)").trigger("click");
 	},
 	list() {
-		mail.list.dispatch({ type: "init-render" });
-
-		mail.list.els.el.find(".entry:nth(1)").trigger("click");
-
+		// mail.list.els.el.find(".entry:nth(1)").trigger("click");
 		// setTimeout(() => mail.list.dispatch({ type: "prepend-mail" }), 500);
 	},
 	content() {

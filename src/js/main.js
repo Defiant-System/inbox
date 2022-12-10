@@ -14,14 +14,14 @@ const mail = {
 		// temp
 		// setTimeout(() => this.dispatch({ type: "new-mail" }), 250);
 		// setTimeout(() => $(".mail-body").focus(), 350);
-		setTimeout(() => {
+		// setTimeout(() => {
 			// let win = $(`.ant-window_[data-id="mail-new-mail"]`);
 			// el.trigger("mousedown");
 			// karaqu_.window_.close_(win)
 
 			// window.close();
-			window.focus();
-		}, 600);
+			// window.focus();
+		// }, 600);
 	},
 	dispatch(event) {
 		let Self = mail,
