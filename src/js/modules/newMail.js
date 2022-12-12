@@ -24,18 +24,21 @@
 						value = key === "message" ? el.html() : el.val();
 					data[key] = value;
 				});
-				// console.log(data);
 
+				data.to_mail = [];
+				data.to_mail.push({ name: "Hakan Bilgin", address: data.to });
+
+				return console.log(data);
+				
 				// send message via Karaqu
 				karaqu.message({ type: "mail-send", data })
 					.then(res => {
 						console.log(res);
+						// event.spawn.close();
 					})
 					.catch(e => {
 						console.log(e);
 					});
-
-				// event.spawn.close();
 				break;
 			case "toggle-field":
 				el = event.spawn.find(`input[name="mail-${event.arg}"]`).parent();

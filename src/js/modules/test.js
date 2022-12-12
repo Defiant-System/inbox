@@ -15,9 +15,9 @@ let test = {
 			Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....`);
 		}, 200);
 
-		setTimeout(() => {
-			Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
-		}, 400);
+		// setTimeout(() => {
+		// 	Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
+		// }, 400);
 	},
 	sidebar() {
 		mail.sidebar.els.el.find(".list-wrapper:nth(1) .entry:nth(0)").trigger("click");
