@@ -14,6 +14,9 @@
 		// console.log(event);
 		switch (event.type) {
 			case "spawn.open":
+				// DEV-ONLY-START
+				try { test.spawn = event.spawn; } catch(e) {};
+				// DEV-ONLY-END
 				break;
 			case "spawn.close":
 				window.focus();

@@ -1,13 +1,13 @@
 
 let test = {
 	init() {
-		setTimeout(() => this.newMail(), 200);
+		setTimeout(() => this.newMail(), 300);
 		// setTimeout(() => this.list(), 200);
 		// setTimeout(() => this.sidebar(), 200);
 		// setTimeout(() => this.content(), 200);
 	},
 	newMail() {
-		let Spawn = window.open("new-mail");
+		let Spawn = this.spawn || window.open("new-mail");
 
 		setTimeout(() => {
 			Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
