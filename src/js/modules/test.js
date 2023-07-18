@@ -1,7 +1,7 @@
 
 let test = {
 	init() {
-		setTimeout(() => this.newMail(), 300);
+		// setTimeout(() => this.newMail(), 300);
 		// setTimeout(() => this.list(), 200);
 		// setTimeout(() => this.sidebar(), 200);
 		// setTimeout(() => this.content(), 200);

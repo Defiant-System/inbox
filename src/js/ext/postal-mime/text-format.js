@@ -59,7 +59,8 @@ function textToHtml(str) {
 function htmlToText(str) {
     str = str
         // we can't process tags on multiple lines so remove newlines first
-        .replace(/\r?\n/g, '\u0001')
+        .replace(/\r?\n/g, "&#1;")
+        // .replace(/\r?\n/g, "\u0001")
         .replace(/<\!\-\-.*?\-\->/gi, ' ')
 
         .replace(/<br\b[^>]*>/gi, '\n')
