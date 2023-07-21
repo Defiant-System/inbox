@@ -6,8 +6,19 @@
 	sidebar {
 		color: #ccc;
 
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 1px;
+			background: linear-gradient(0deg, transparent 7%, #ffffff30 50%, transparent 93%);
+		}
+
 		&:after {
-			border-right-color: rgba(0,0,0,.15);
+			right: 1px;
+			border-right-color: rgba(0,0,0,.35);
 		}
 
 		.entry {
@@ -30,8 +41,19 @@
 		background: #ffffff10;
 		color: #ccc;
 
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 1px;
+			background: linear-gradient(0deg, transparent 7%, #ffffff30 50%, transparent 93%);
+		}
+
 		&:after {
-			border-right-color: rgba(0,0,0,.15);
+			right: 1px;
+			border-right-color: rgba(0,0,0,.35);
 		}
 	}
 
