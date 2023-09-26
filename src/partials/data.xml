@@ -18,8 +18,8 @@
 
 		<thread eml="~/sample/hotmail-2.eml">
 			<mail>
-				<from name="Hakan Bilgin" email="hbi99@hotmail.com"/>
-				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<from name="Bill Gates" email="bill@hotmail.com"/>
+				<to name="Bill Gates" email="steve.jobs@gmail.com"/>
 				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
 				<subject><![CDATA[test send]]></subject>
 			</mail>
@@ -27,15 +27,15 @@
 
 		<thread replied="1" eml="~/sample/hotmail-4.eml">
 			<mail>
-				<from name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
-				<to name="Hakan Bilgin" email="hbi99@hotmail.com"/>
+				<from name="Steve Jobs" email="steve.jobs@gmail.com"/>
+				<to name="Bill Gates" email="bill@hotmail.com"/>
 				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
 				<subject><![CDATA[RE: test send]]></subject>
 			</mail>
 
 			<mail>
-				<from name="Hakan Bilgin" email="hbi99@hotmail.com"/>
-				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<from name="Bill Gates" email="bill@hotmail.com"/>
+				<to name="Steve Jobs" email="steve.jobs@gmail.com"/>
 				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
 				<subject><![CDATA[test send]]></subject>
 			</mail>
@@ -44,16 +44,16 @@
 		<thread eml="~/sample/spotify.eml">
 			<mail>
 				<from name="Spotify" email="no-reply@spotify.com"/>
-				<to name="Hakan Bilgin" email="mr.hakan.bilgin@gmail.com"/>
+				<to name="Bill Gates" email="steve.jobs@gmail.com"/>
 				<date value="2022-11-30T12:00:00" date="2022-11-30" time="12:00:00"/>
-				<subject><![CDATA[Ditt 2022 Wrapped]]></subject>
+				<subject><![CDATA[Your 2022 Wrapped]]></subject>
 			</mail>
 		</thread>
 
 		<thread unread="1" eml="~/sample/voi.eml">
 			<mail>
 				<from name="Voi" email="hello@mkt.voiapp.io"/>
-				<to name="Hakan Bilgin" email="hbi@longscript.com"/>
+				<to name="Bill Gates" email="bill@hotmail.com"/>
 				<date value="2022-11-10T12:00:00" date="2022-11-10" time="12:00:00"/>
 				<subject><![CDATA[Update to Voi's Privacy Policy]]></subject>
 			</mail>
