@@ -57,7 +57,7 @@
 							// create xml doc from EML
 							xMails = [];
 
-						console.log( email );
+						// console.log( email );
 
 						// work off DOM
 						span.innerHTML = email.html;
