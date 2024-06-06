@@ -1,7 +1,7 @@
 <Application>
 	<Head>
 		<meta name="id" value="mail"/>
-		<meta name="title" value="Mail" version="1.46"/>
+		<meta name="title" value="Mail" version="1.47"/>
 		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
 		<meta name="license" value="AGPL-3.0"/>
 		<meta name="repository" value="https://github.com/Defiant-System/mail"/>
@@ -24,6 +24,6 @@
 		@import "src/partials/menubar.xml"
 	</Head>
 
-	@import "src/partials/data.xml"
+	@import "src/partials/data.old.xml"
 
 </Application>

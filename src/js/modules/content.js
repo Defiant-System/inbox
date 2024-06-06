@@ -41,6 +41,14 @@
 				break;
 
 			case "render-mail-thread":
+				// render mail content
+				window.render({
+					template: "content-entries",
+					match: `//thread[1]`,
+					target: Self.els.el
+				});
+				break;
+			case "render-mail-thread.old":
 				window
 					.fetch(event.eml)
 					.then(async eml => {
