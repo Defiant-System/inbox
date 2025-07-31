@@ -5,16 +5,16 @@
 	</Mailboxes>
 
 	<Mailbox>
-		<i folder_id="2001" icon="inbox" name="Inbox" unread="23"/>
-		<i folder_id="2004" icon="sent" name="Sent" />
-		<i folder_id="2003" icon="junk" name="Junk" />
-		<i folder_id="2002" icon="folder" name="Drafts" />
-		<i folder_id="2005" icon="trash" name="Deleted" />
-		<!-- <i folder_id="2001" icon="folder" name="Leads" unread="2" />
-		<i folder_id="2001" icon="folder" name="Proposals" /> -->
+		<i fId="2001" icon="inbox" name="Inbox" unread="23"/>
+		<i fId="2004" icon="sent" name="Sent" />
+		<i fId="2003" icon="junk" name="Junk" />
+		<i fId="2002" icon="folder" name="Drafts" />
+		<i fId="2005" icon="trash" name="Deleted" />
+		<!-- <i fId="2001" icon="folder" name="Leads" unread="2" />
+		<i fId="2001" icon="folder" name="Proposals" /> -->
 	</Mailbox>
 
-	<Maillist folder_id="2001">
+	<Maillist fId="2001">
 
 		<thread eml="~/sample/hotmail-2.eml">
 			<mail>

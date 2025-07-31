@@ -1,8 +1,6 @@
 
 @import "modules/test.js"
 
-@import "ext/postal-mime/index.js"
-
 
 const mail = {
 	init() {
@@ -11,52 +9,48 @@ const mail = {
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init());
 
-		// temp
-		// setTimeout(() => this.dispatch({ type: "new-mail" }), 250);
-		// setTimeout(() => $(".mail-body").focus(), 350);
-		// setTimeout(() => {
-			// let win = $(`.ant-window_[data-id="mail-new-mail"]`);
-			// el.trigger("mousedown");
-			// karaqu_.window_.close_(win)
+		// init settings
+		this.dispatch({ type: "init-settings" });
 
-			// window.close();
-			// window.focus();
-		// }, 600);
+		// DEV-ONLY-START
+		Test.init(this);
+		// DEV-ONLY-END
 	},
 	dispatch(event) {
 		let Self = mail,
-			name,
-			value,
-			pEl,
 			el;
-		// proxy newMail (spawn) events
-		if (event.spawn) return Self.newMail.dispatch(event);
 		// console.log(event);
 		switch (event.type) {
+			// system events
 			case "window.init":
+			case "window.focus":
+			case "window.blur":
 				break;
+			// custom events
 			case "open-help":
 				karaqu.shell("fs -u '~/help/index.md'");
 				break;
-			case "toggle-sidebar":
-				return Self.sidebar.dispatch(event);
-			case "new-mail":
-				window.open("new-mail");
+			case "init-settings":
 				break;
+			// proxy events
 			default:
-				if (event.el) {
-					pEl = event.el.data("area") ? event.el : event.el.parents(`[data-area]`);
+				el = event.el;
+				if (!el && event.origin) el = event.origin.el;
+				if (el) {
+					let pEl = el.parents(`?div[data-area]`);
+					if (!pEl.length) pEl = Self.content;
 					if (pEl.length) {
-						name = pEl.data("area");
-						Self[name].dispatch(event);
+						let name = pEl.data("area");
+						if (!name) name = pEl.data("show");
+						return Self[name].dispatch(event);
 					}
 				}
 		}
 	},
-	list: @import "modules/list.js",
-	sidebar: @import "modules/sidebar.js",
-	content: @import "modules/content.js",
-	newMail: @import "modules/newMail.js",
+	toolbar: @import "areas/toolbar.js",
+	sidebar: @import "areas/sidebar.js",
+	list: @import "areas/list.js",
+	content: @import "areas/content.js",
 };
 
 window.exports = mail;
