@@ -12,6 +12,9 @@ const mail = {
 		// init settings
 		this.dispatch({ type: "init-settings" });
 
+		// init sidebar content
+		this.sidebar.dispatch({ type: "init-render" });
+
 		// DEV-ONLY-START
 		Test.init(this);
 		// DEV-ONLY-END
@@ -37,8 +40,7 @@ const mail = {
 				el = event.el;
 				if (!el && event.origin) el = event.origin.el;
 				if (el) {
-					let pEl = el.parents(`?div[data-area]`);
-					if (!pEl.length) pEl = Self.content;
+					let pEl = el.parents(`?[data-area]`);
 					if (pEl.length) {
 						let name = pEl.data("area");
 						if (!name) name = pEl.data("show");

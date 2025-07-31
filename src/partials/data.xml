@@ -5,7 +5,7 @@
 	</Mailboxes>
 
 	<Mailbox>
-		<i fId="2001" icon="inbox" name="Inbox" unread="23"/>
+		<i fId="2001" icon="inbox" name="Inbox"/>
 		<i fId="2004" icon="sent" name="Sent" />
 		<i fId="2003" icon="junk" name="Junk" />
 		<i fId="2002" icon="folder" name="Drafts" />
