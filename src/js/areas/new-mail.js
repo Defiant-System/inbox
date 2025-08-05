@@ -8,6 +8,8 @@
 	dispatch(event) {
 		let APP = mail,
 			Self = APP.newMail,
+			Spawn = event.spawn,
+			data = {},
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -17,11 +19,18 @@
 				window.focus();
 				break;
 			case "toggle-field":
-				el = event.spawn.find(`input[name="mail-${event.arg}"]`).parent();
+				el = Spawn.find(`input[name="mail-${event.arg}"]`).parent();
 				el.toggleClass("hidden", el.hasClass("hidden"));
 				break;
 			case "add-attachment":
 				console.log(event);
+				break;
+			case "send-mail":
+				data.to = [{ name: "Hakan Bilgin", mail: "hbi@longscript.com" }];
+				data.subject = "Testing";
+				data.body = "This is mail body";
+				// pass mail object to system
+				karaqu.shell({ cmd: "mail -s", data });
 				break;
 		}
 	}

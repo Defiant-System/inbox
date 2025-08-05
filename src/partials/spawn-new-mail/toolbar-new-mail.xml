@@ -1,7 +1,6 @@
 <CaptionToolBar>
 	<Group>
 		<Tool symbol="icon-send-outline" click="send-mail"/>
-		<Tool symbol="icon-mail-fields" menu="new-mail-fields"/>
 	</Group>
 	<Group />
 	<Group>

@@ -22,6 +22,7 @@ layout {
 		display: flex;
 		max-height: 27px;
 		overflow: hidden;
+		position: relative;
 		padding: 1px 0;
 		font-size: 0;
 		border-bottom: 1px solid rgba(0,0,0,.1);
@@ -55,6 +56,28 @@ layout {
 			&:focus {
 				outline: 0;
 				box-shadow: 0 0 0;
+			}
+		}
+
+		i.toggler {
+			position: absolute;
+			top: 6px;
+			right: 1px;
+			padding: 1px 3px;
+			color: #aaa;
+			box-shadow: 0 0 0 1px #ccc;
+			border-radius: 2px;
+			font-size: 12px;
+			font-style: normal;
+			cursor: pointer;
+
+			&:nth-last-child(2) {
+				right: 35px;
+			}
+
+			&:hover {
+				background: #ddd;
+				color: #777;
 			}
 		}
 	}

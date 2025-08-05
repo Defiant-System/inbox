@@ -22,6 +22,8 @@ const mail = {
 	dispatch(event) {
 		let Self = mail,
 			el;
+		// proxy newMail (spawn) events
+		if (event.spawn) return Self.newMail.dispatch(event);
 		// console.log(event);
 		switch (event.type) {
 			// system events
