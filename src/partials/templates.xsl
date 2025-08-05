@@ -41,6 +41,7 @@
 
 <xsl:template name="list-entry">
 	<div>
+		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="class">
 			entry
 			<xsl:if test="@unread"> unread</xsl:if>

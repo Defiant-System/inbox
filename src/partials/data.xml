@@ -16,7 +16,7 @@
 
 	<Maillist fId="2001">
 
-		<thread eml="~/sample/hotmail-2.eml">
+		<thread id="1753987109461">
 			<mail>
 				<from name="Ben Greene" email="ben.green@gmail.com"/>
 				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
@@ -25,7 +25,7 @@
 			</mail>
 		</thread>
 
-		<thread replied="1" eml="~/sample/hotmail-4.eml">
+		<thread id="1753987109462" replied="1">
 			<mail>
 				<from name="Sto Akron" email="sto.akron@hotmail.com"/>
 				<to name="Ben Greene" email="ben.green@gmail.com"/>
@@ -41,7 +41,7 @@
 			</mail>
 		</thread>
 
-		<thread eml="~/sample/spotify.eml">
+		<thread id="1753987109463">
 			<mail>
 				<from name="Daniel Hellerman" email="daniel.hellerman@gmail.com"/>
 				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
@@ -50,7 +50,7 @@
 			</mail>
 		</thread>
 
-		<thread unread="1" eml="~/sample/voi.eml">
+		<thread id="1753987109464" unread="1">
 			<mail>
 				<from name="Luca De Baptistis" email="luca.de.baptistis@gmail.com"/>
 				<to name="Sto Akron" email="sto.akron@hotmail.com"/>

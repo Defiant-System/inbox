@@ -53,6 +53,7 @@ const mail = {
 	sidebar: @import "areas/sidebar.js",
 	list: @import "areas/list.js",
 	content: @import "areas/content.js",
+	newMail: @import "areas/new-mail.js",
 };
 
 window.exports = mail;

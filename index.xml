@@ -18,6 +18,8 @@
 		<meta name="content" value="src/partials/content.htm"/>
 		<meta name="xsl" value="src/partials/templates.xsl"/>
 
+		<meta name="spawn" value="src/partials/spawn-new-mail/index.xml"/>
+
 		@import "src/partials/toolbar.xml"
 		@import "src/partials/menubar.xml"
 	</Head>
