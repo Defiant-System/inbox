@@ -22,7 +22,7 @@
 				<i class="icon-blank"></i>
 				<i><xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute></i>
 				<span class="name"><xsl:value-of select="@name"/></span>
-				<xsl:if test="@unread">
+				<xsl:if test="@unread &gt; 0">
 					<span class="unread"><xsl:value-of select="@unread"/></span>
 				</xsl:if>
 			</div>

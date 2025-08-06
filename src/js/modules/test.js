@@ -6,6 +6,7 @@ let Test = {
 		// 	window.find(`list .wrapper .entry`).nth(0).trigger("click");
 		// }, 500);
 
+		return;
 
 		let Spawn = this.spawn || window.open("new-mail");
 		setTimeout(() => {
