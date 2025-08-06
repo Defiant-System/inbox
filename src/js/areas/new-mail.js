@@ -24,15 +24,23 @@
 				event.el.toggleClass("isOn", event.el.hasClass("isOn"));
 				break;
 			case "add-attachment":
-				Spawn.dialog.open({
-					any: item => console.log(item),
-				});
+				// opens file dialog
+				Spawn.dialog.open({ any: file => Self.dispatch({ type: "attache-file-to-mail", file }) });
+				break;
+			case "attache-file-to-mail":
+				console.log(event);
 				break;
 			case "send-mail":
-				data.to = [{ name: "Hakan Bilgin", mail: "hbi@longscript.com" }];
-				data.subject = "Testing";
-				data.body = "This is mail body";
-				// pass mail object to system
+				// data.to = [{ name: "Hakan Bilgin", mail: "hbi@longscript.com" }];
+				data.to = Spawn.find(`.mail-rcpt`).map(el => {
+					let name = el.innerHTML,
+						mail = el.getAttribute("data-mail");
+					return { name, mail };
+				});
+				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
+				data.body = Spawn.find(`div.mail-message`).html();
+				data.attachments = [];
+				// pass mail envelope to karaqu
 				karaqu.shell({ cmd: "mail -s", data });
 				break;
 		}
