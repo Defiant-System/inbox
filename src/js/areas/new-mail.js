@@ -19,11 +19,14 @@
 				window.focus();
 				break;
 			case "toggle-field":
-				el = Spawn.find(`input[name="mail-${event.arg}"]`).parent();
+				el = Spawn.find(`input[name="mail-${event.arg}"]`).parents("label");
 				el.toggleClass("hidden", el.hasClass("hidden"));
+				event.el.toggleClass("isOn", event.el.hasClass("isOn"));
 				break;
 			case "add-attachment":
-				console.log(event);
+				Spawn.dialog.open({
+					any: item => console.log(item),
+				});
 				break;
 			case "send-mail":
 				data.to = [{ name: "Hakan Bilgin", mail: "hbi@longscript.com" }];

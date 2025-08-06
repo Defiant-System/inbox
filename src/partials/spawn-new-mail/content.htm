@@ -1,30 +1,33 @@
 <layout>
 	<label>
-		<span>To:</span>
-		<input type="text" name="mail-to" spellcheck="false" autocomplete="off"/>
-		<i class="toggler" data-click="toggle-field" data-arg="cc">CC</i>
-		<i class="toggler" data-click="toggle-field" data-arg="bcc">BCC</i>
+		<span class="key">To:</span>
+		<div class="val">
+			<div class="mail-rcpt" data-mail="hbi99@hotmail.com">hbi99@hotmail.com</div>
+			<div class="mail-rcpt" data-mail="hbi@longscript.com">Hakan Bilgin</div>
+			<input type="text" name="mail-to" spellcheck="false" autocomplete="off"/>
+		</div>
+		<i class="toggler" data-click="toggle-field" data-arg="cc" title="Carbon Copy">Cc</i>
+		<i class="toggler" data-click="toggle-field" data-arg="bcc" title="Blank carbon Copy">Bcc</i>
+		<i class="toggler" data-click="toggle-field" data-arg="priority" title="Priority"></i>
 	</label>
 	<label class="hidden">
-		<span>Cc:</span>
-		<input type="text" name="mail-cc" spellcheck="false" autocomplete="off"/>
+		<span class="key">Cc:</span>
+		<div class="val">
+			<input type="text" name="mail-cc" spellcheck="false" autocomplete="off"/>
+		</div>
 	</label>
 	<label class="hidden">
-		<span>Bcc:</span>
-		<input type="text" name="mail-bcc" spellcheck="false" autocomplete="off"/>
-	</label>
-	<label class="hidden">
-		<span>Reply to:</span>
-		<input type="text" name="mail-reply-to" spellcheck="false" autocomplete="off"/>
+		<span class="key">Bcc:</span>
+		<div class="val">
+			<input type="text" name="mail-bcc" spellcheck="false" autocomplete="off"/>
+		</div>
 	</label>
 	<label>
-		<span>Subject:</span>
-		<input type="text" name="mail-subject" spellcheck="false" autocomplete="off"/>
+		<span class="key">Subject:</span>
+		<div class="val">
+			<input type="text" name="mail-subject" spellcheck="false" autocomplete="off"/>
+		</div>
 	</label>
-	<!--
-		High Priority
-		Normal Priority
-		Low Priority
-	-->
+	<!-- mail body -->
 	<div class="mail-message" name="mail-message" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
 </layout>

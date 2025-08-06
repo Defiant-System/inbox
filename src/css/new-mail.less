@@ -26,7 +26,11 @@ layout {
 		padding: 1px 0;
 		font-size: 0;
 		border-bottom: 1px solid rgba(0,0,0,.1);
-		transition: all 220ms ease-in-out;
+		transition: all 160ms ease-in-out;
+
+		&:nth-child(1) {
+			padding-bottom: 2px;
+		}
 
 		&.hidden {
 			max-height: 0;
@@ -35,19 +39,24 @@ layout {
 			border-bottom: 0;
 		}
 
-		span {
-			padding: 5px 3px 0;
+		span.key {
+			padding: 6px 3px 0;
 			vertical-align: middle;
 			display: inline-block;
 			font-size: 13px;
 			color: #b2b2b2;
 		}
 
-		input {
+		div.val {
 			flex: 1;
-			background: transparent;
+			display: flex;
 			vertical-align: middle;
+		}
+
+		input {
+			background: transparent;
 			display: inline-block;
+			flex: 1;
 			font-size: 13px;
 			border: 0;
 			box-shadow: 0 0 0;
@@ -59,11 +68,48 @@ layout {
 			}
 		}
 
-		i.toggler {
+		.mail-rcpt {
+			position: relative;
+			display: inline-block;
+			vertical-align: text-top;
+			background: #eee;
+			color: #555;
+			border-radius: 21px;
+			padding: 3px 23px 0 11px;
+			margin: 3px 2px 1px;
+			box-shadow: 0 0 0 1px #ccc;
+			font-size: 13px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+
+			&:hover {
+				&:after {
+					opacity: .5;
+				}
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 19px;
+				height: 19px;
+				border-radius: 50%;
+				cursor: pointer;
+				background: url(~/icons/icon-times.png) 50% 50% no-repeat;
+				background-size: 11px auto;
+				opacity: .35;
+			}
+		}
+
+		.toggler {
 			position: absolute;
 			top: 6px;
 			right: 1px;
-			padding: 1px 3px;
+			z-index: 2;
+			padding: 2px 3px 1px;
 			color: #aaa;
 			box-shadow: 0 0 0 1px #ccc;
 			border-radius: 2px;
@@ -71,13 +117,48 @@ layout {
 			font-style: normal;
 			cursor: pointer;
 
+			&:nth-last-child(3) {
+				right: 52px;
+			}
+
 			&:nth-last-child(2) {
-				right: 35px;
+				right: 21px;
+			}
+
+			&:nth-last-child(1) {
+				// toggler
+				width: 15px;
+				height: 15px;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 2px;
+					left: 2px;
+					width: 11px;
+					height: 11px;
+					background: url(~/icons/icon-flag.png) 50% 50%/contain no-repeat;
+					opacity: .5;
+					filter: grayscale(1);
+				}
+
+				&.isOn {
+					&:before {
+						opacity: 1;
+						filter: none;
+					}
+				}
 			}
 
 			&:hover {
 				background: #ddd;
 				color: #777;
+			}
+
+			&.isOn {
+				background: #fff;
+				color: #555;
+				box-shadow: 0 0 0 1px #bbb;
 			}
 		}
 	}
