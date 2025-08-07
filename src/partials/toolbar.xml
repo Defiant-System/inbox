@@ -22,6 +22,6 @@
 
 	</Group>
 	<Group width="31%">
-		<Search placeholder="Search"/>
+		<Search placeholder="Search" state="disabled"/>
 	</Group>
 </ToolBar>

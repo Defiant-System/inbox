@@ -10,10 +10,24 @@
 	dispatch(event) {
 		let APP = mail,
 			Self = APP.list,
+			xFolder,
 			el;
-		console.log(event);
+		// console.log(event);
 		switch (event.type) {
+			case "get-mail-folder":
+				karaqu.shell(`mail -l ${event.fId}`).then(async call => {
+					let xData = window.bluePrint.selectSingleNode("//Data"),
+						xDoc = await call.result;
+					console.log(xDoc);
+
+					// Self.dispatch({ type: "render-folder" });
+				});
+				break;
 			case "render-folder":
+				xFolder = window.bluePrint.selectSingleNode(`//Data/Maillist[@fId="${event.fId}"]`);
+				if (!xFolder) {
+					return Self.dispatch({ ...event, type: "get-mail-folder" });
+				}
 				// render list view
 				window.render({
 					template: "list-entries",

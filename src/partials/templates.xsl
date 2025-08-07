@@ -45,20 +45,20 @@
 		<xsl:attribute name="class">
 			entry
 			<xsl:if test="@is_read = '0'"> unread</xsl:if>
-			<xsl:if test="@replied"> replied</xsl:if>
-			<xsl:if test="@forwarded"> forwarded</xsl:if>
+			<xsl:if test="@replied or position() = 3"> replied</xsl:if>
+			<xsl:if test="@forwarded or position() = 4"> forwarded</xsl:if>
 		</xsl:attribute>
 		<div class="row">
 			<span class="from"><xsl:value-of select="from/i/@name"/></span>
-			<xsl:if test="count(attachments/*) &gt; 0">
-				<i class="icon-attachment"></i>
+			<xsl:if test="tags/i[@id = 'priority' and @value = '1']">
+				<i class="icon-flag-red"></i>
 			</xsl:if>
 			<span class="date"><xsl:value-of select="substring-before(@date, ' ')"/></span>
 		</div>
 		<div class="row">
 			<span class="subject"><xsl:value-of select="subject/text()"/></span>
-			<xsl:if test="tags/i[@id = 'priority' and @value = '1']">
-				<i class="icon-flag-red"></i>
+			<xsl:if test="count(attachments/*) &gt; 0">
+				<i class="icon-attachment"></i>
 			</xsl:if>
 			<xsl:if test="count(mail) &gt; 1">
 				<span class="replies"><xsl:value-of select="count(mail)"/></span>
