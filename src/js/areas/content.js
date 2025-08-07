@@ -11,8 +11,17 @@
 		let APP = mail,
 			Self = APP.content,
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "show-mail":
+				karaqu.shell(`mail -o ${event.id}`).then(async call => {
+					let eml = await call.result,
+						parser = new PostalMime(),
+						email = await parser.parse(eml);
+					console.log( email );
+				});
+
+				return;
 				// render mail content
 				window.render({
 					template: "content-entries",

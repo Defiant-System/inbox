@@ -17,17 +17,26 @@
 			case "get-mail-folder":
 				karaqu.shell(`mail -l ${event.fId}`).then(async call => {
 					let xData = window.bluePrint.selectSingleNode("//Data"),
-						xDoc = await call.result;
-					console.log(xDoc);
+						xDoc = await call.result,
+						xItems = xDoc.selectNodes("/data/i");
 
-					// Self.dispatch({ type: "render-folder" });
+					// remove old nodes to avoid duplicates
+					let xOld = xData.selectSingleNode(`//Maillist[@fId="${event.fId}"]`);
+					if (xOld) xOld.parentNode.removeChild(xOld);
+					// insert new data
+					let xNode = $.nodeFromString(`<Maillist fId="${event.fId}"/>`),
+						xList = xData.appendChild(xNode);
+					xItems.map(xMail => xList.appendChild(xMail));
+
+					// folder received - render list now
+					Self.dispatch({ type: "render-folder", fId: event.fId });
 				});
 				break;
 			case "render-folder":
+				// if folder list not loaded, fetch first
 				xFolder = window.bluePrint.selectSingleNode(`//Data/Maillist[@fId="${event.fId}"]`);
-				if (!xFolder) {
-					return Self.dispatch({ ...event, type: "get-mail-folder" });
-				}
+				if (!xFolder) return Self.dispatch({ ...event, type: "get-mail-folder" });
+				
 				// render list view
 				window.render({
 					template: "list-entries",
