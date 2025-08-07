@@ -33,7 +33,7 @@
 
 <xsl:template name="list-entries">
 	<xsl:for-each select="./*">
-		<xsl:sort order="descending" select="mail/date/@value"/>
+		<xsl:sort order="descending" select="i/@mStamp"/>
 		<xsl:call-template name="list-entry"/>
 	</xsl:for-each>
 </xsl:template>
@@ -44,22 +44,22 @@
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="class">
 			entry
-			<xsl:if test="@unread"> unread</xsl:if>
+			<xsl:if test="@is_read = '0'"> unread</xsl:if>
 			<xsl:if test="@replied"> replied</xsl:if>
 			<xsl:if test="@forwarded"> forwarded</xsl:if>
 		</xsl:attribute>
 		<div class="row">
-			<span class="from"><xsl:value-of select="mail/from/@name"/></span>
-			<xsl:if test="count(mail/attachment) &gt; 0">
+			<span class="from"><xsl:value-of select="from/i/@name"/></span>
+			<xsl:if test="count(attachments/*) &gt; 0">
 				<i class="icon-attachment"></i>
 			</xsl:if>
-			<xsl:if test="mail/flag">
-				<i class="icon-flag-red"></i>
-			</xsl:if>
-			<span class="date"><xsl:value-of select="mail/date/@date"/></span>
+			<span class="date"><xsl:value-of select="substring-before(@date, ' ')"/></span>
 		</div>
 		<div class="row">
-			<span class="subject"><xsl:value-of select="mail/subject/text()"/></span>
+			<span class="subject"><xsl:value-of select="subject/text()"/></span>
+			<xsl:if test="tags/i[@id = 'priority' and @value = '1']">
+				<i class="icon-flag-red"></i>
+			</xsl:if>
 			<xsl:if test="count(mail) &gt; 1">
 				<span class="replies"><xsl:value-of select="count(mail)"/></span>
 			</xsl:if>

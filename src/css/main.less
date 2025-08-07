@@ -263,6 +263,7 @@ list {
 
 		.row {
 			display: flex;
+			position: relative;
 			pointer-events: none;
 
 			[class^="icon-"] {
@@ -281,6 +282,12 @@ list {
 				flex: 1;
 				text-align: right;
 				color: #999;
+			}
+
+			.icon-flag-red {
+				position: absolute;
+				top: 3px;
+				left: -21px;
 			}
 			
 			.subject {

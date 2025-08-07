@@ -11,7 +11,7 @@
 		let APP = mail,
 			Self = APP.list,
 			el;
-		// console.log(event);
+		console.log(event);
 		switch (event.type) {
 			case "render-folder":
 				// render list view
