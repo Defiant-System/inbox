@@ -93,7 +93,7 @@
 					</div>
 				</div>
 				<div class="body">
-					<xsl:value-of select="message/text()" disable-output-escaping="yes"/>
+					<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
 				</div>
 
 				<xsl:if test="count(attachment) &gt; 0">

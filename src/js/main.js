@@ -6,6 +6,9 @@
 
 const mail = {
 	init() {
+		// fast references
+		this.xData = window.bluePrint.selectSingleNode("//Data");
+
 		// init all sub-objects
 		Object.keys(this)
 			.filter(i => typeof this[i].init === "function")

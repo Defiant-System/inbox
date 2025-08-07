@@ -14,18 +14,17 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
-			case "get-mail-folder":
+			case "fetch-mail-folder":
 				karaqu.shell(`mail -l ${event.fId}`).then(async call => {
-					let xData = window.bluePrint.selectSingleNode("//Data"),
-						xDoc = await call.result,
+					let xDoc = await call.result,
 						xItems = xDoc.selectNodes("/data/i");
 
 					// remove old nodes to avoid duplicates
-					let xOld = xData.selectSingleNode(`//Maillist[@fId="${event.fId}"]`);
+					let xOld = APP.xData.selectSingleNode(`//Maillist[@fId="${event.fId}"]`);
 					if (xOld) xOld.parentNode.removeChild(xOld);
 					// insert new data
 					let xNode = $.nodeFromString(`<Maillist fId="${event.fId}"/>`),
-						xList = xData.appendChild(xNode);
+						xList = APP.xData.appendChild(xNode);
 					xItems.map(xMail => xList.appendChild(xMail));
 
 					// folder received - render list now
@@ -34,8 +33,8 @@
 				break;
 			case "render-folder":
 				// if folder list not loaded, fetch first
-				xFolder = window.bluePrint.selectSingleNode(`//Data/Maillist[@fId="${event.fId}"]`);
-				if (!xFolder) return Self.dispatch({ ...event, type: "get-mail-folder" });
+				xFolder = APP.xData.selectSingleNode(`//Data/Maillist[@fId="${event.fId}"]`);
+				if (!xFolder) return Self.dispatch({ ...event, type: "fetch-mail-folder" });
 				
 				// render list view
 				window.render({
@@ -52,7 +51,7 @@
 				// make sure thread is marked as "read"
 				el.removeClass("unread");
 				// render mail in content area
-				APP.content.dispatch({ type: "show-mail", id: el.data("id") });
+				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
 				break;
 		}
 	}
