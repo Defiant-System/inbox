@@ -69,14 +69,17 @@
 
 
 <xsl:template name="content-entries">
-	<div class="wrapper">
+	<div class="wrapper slim-messages">
 		<div class="thread-subject">
 			<h2><xsl:value-of select="mail/subject/text()"/></h2>
 			<i class="icon-thick-messages" data-click="toggle-message-view"></i>
 		</div>
 
 		<xsl:for-each select="./mail">
-			<div class="entry">
+			<div class="entry collapsed">
+				<xsl:if test="position() = 1">
+					<xsl:attribute name="class">entry active</xsl:attribute>
+				</xsl:if>
 				<xsl:if test="count(attachment) &gt; 0">
 					<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
 				</xsl:if>

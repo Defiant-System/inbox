@@ -4,7 +4,7 @@
 {
 	init() {
 		this.els = {
-			el: window.find("content .wrapper"),
+			el: window.find("content"),
 		};
 	},
 	dispatch(event) {
@@ -23,14 +23,14 @@
 									<mail>
 										<from name="Sto Akron" email="sto.akron@hotmail.com"/>
 										<to name="Ben Greene" email="ben.green@gmail.com"/>
-										<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
+										<date value="2022-12-01T17:31:00" date="2022-12-01" time="17:31"/>
 										<subject><![CDATA[RE: test send]]></subject>
 										<html><![CDATA[${lorem1}]]></html>
 									</mail>
 									<mail>
 										<from name="Ben Greene" email="ben.green@gmail.com"/>
 										<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-										<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
+										<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00"/>
 										<html><![CDATA[${lorem2}]]></html>
 									</mail>
 								</thread></data>`;
@@ -54,9 +54,8 @@
 				});
 				break;
 			case "toggle-message-view":
-				el = Self.els.el;
-				if (el.hasClass("slim-messages")) el.removeClass("slim-messages");
-				else el.addClass("slim-messages");
+				el = Self.els.el.find("> .wrapper");
+				el.toggleClass("slim-messages", el.hasClass("slim-messages"));
 				break;
 			case "select-mail":
 				el = $(event.target);
