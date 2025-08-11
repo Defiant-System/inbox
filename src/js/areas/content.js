@@ -19,19 +19,15 @@
 					let eml = await call.result,
 						parser = new PostalMime(),
 						email = await parser.parse(eml),
+						date = new karaqu.Moment(email.date),
+						// a = console.log( email ),
 						xStr = `<data><thread id="${event.id}">
 									<mail>
-										<from name="Sto Akron" email="sto.akron@hotmail.com"/>
-										<to name="Ben Greene" email="ben.green@gmail.com"/>
-										<date value="2022-12-01T17:31:00" date="2022-12-01" time="17:31"/>
-										<subject><![CDATA[RE: test send]]></subject>
-										<html><![CDATA[${lorem1}]]></html>
-									</mail>
-									<mail>
-										<from name="Ben Greene" email="ben.green@gmail.com"/>
-										<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-										<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00"/>
-										<html><![CDATA[${lorem2}]]></html>
+										<from name="${email.from.name}" eemail="${email.from.address}"/>
+										<to name="${ME.name}" email="${email.to[0].address}"/>
+										<date value="${date.toISOString()}" date="${date.format("YYYY-MM-DD")}" time="${date.format("HH:mm")}"/>
+										<subject><![CDATA[${email.subject}]]></subject>
+										<html><![CDATA[${email.html}]]></html>
 									</mail>
 								</thread></data>`;
 					// create xml node

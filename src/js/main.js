@@ -4,6 +4,8 @@
 @import "modules/test.js"
 
 
+const ME = karaqu.user;
+
 const mail = {
 	init() {
 		// fast references

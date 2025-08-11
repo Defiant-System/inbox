@@ -9,7 +9,22 @@ let Test = {
 		// 	window.find(`list .wrapper .entry`).nth(0).trigger("click");
 		// }, 500);
 
-		setTimeout(() => window.find(`list .entry:nth(3)`).trigger("click"), 300);
+		setTimeout(() => window.find(`list .entry:nth(1)`).trigger("click"), 300);
+
+		// setTimeout(() => {
+		// 	let data = [
+		// 			{ id: "1754845936080", fId: "2001" },
+		// 			{ id: "1754845936079", fId: "2001" },
+		// 			{ id: "1754817794379", fId: "2001" },
+		// 		];
+		// 	// let data = [{ id: "1754845936079", fId: "2001" }];
+		// 	karaqu.shell({ cmd: `mail -u`, data })
+		// }, 500);
+
+		// setTimeout(() => {
+		// 	window.find(`sidebar .entry[data-fid="2005"]`).trigger("click");
+		// 	karaqu.shell(`mail -d`);
+		// }, 500);
 
 		return;
 
