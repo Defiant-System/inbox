@@ -14,38 +14,25 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
-			case "fetch-thread":
-				karaqu.shell(`mail -o ${event.id}`).then(async call => {
-					let eml = await call.result,
-						parser = new PostalMime(),
-						email = await parser.parse(eml),
-						date = new karaqu.Moment(email.date),
-						// a = console.log( email ),
-						xStr = `<data><thread id="${event.id}">
-									<mail>
-										<from name="${email.from.name}" eemail="${email.from.address}"/>
-										<to name="${ME.name}" email="${email.to[0].address}"/>
-										<date value="${date.toISOString()}" date="${date.format("YYYY-MM-DD")}" time="${date.format("HH:mm")}"/>
-										<subject><![CDATA[${email.subject}]]></subject>
-										<html><![CDATA[${email.html}]]></html>
-									</mail>
-								</thread></data>`;
-					// create xml node
-					xThread = $.xmlFromString(xStr).selectSingleNode("//thread");
-					APP.xData.appendChild(xThread);
+			case "fetch-thread-":
+				karaqu.shell(`mail -v ${event.id}`).then(async call => {
+					let xDoc = await call.result,
+						xMail = xDoc.selectSingleNode(`/data/i`);
+					// add mail node to app ledger
+					APP.xData.appendChild(xMail);
 					// render thread
 					Self.dispatch({ type: "render-thread", id: event.id });
 				});
 				break;
-			case "render-thread":
+			case "render-thread-":
 				// if folder list not loaded, fetch first
-				xThread = APP.xData.selectSingleNode(`//thread[@id="${event.id}"]`);
+				xThread = APP.xData.selectSingleNode(`//i[@id="${event.id}"]`);
 				if (!xThread) return Self.dispatch({ ...event, type: "fetch-thread" });
 
 				// render mail content
 				window.render({
 					template: "content-entries",
-					match: `//thread[@id="${event.id}"]`,
+					match: `//i[@id="${event.id}"]`,
 					target: Self.els.el,
 				});
 				break;
