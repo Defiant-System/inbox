@@ -33,7 +33,7 @@
 
 <xsl:template name="list-entries">
 	<xsl:for-each select="./*">
-		<xsl:sort order="descending" select="i/@mStamp"/>
+		<xsl:sort order="descending" select="@mStamp"/>
 		<xsl:call-template name="list-entry"/>
 	</xsl:for-each>
 </xsl:template>
@@ -60,9 +60,9 @@
 			<xsl:if test="count(attachments/*) &gt; 0">
 				<i class="icon-attachment"></i>
 			</xsl:if>
-			<xsl:if test="count(mail) &gt; 1">
+			<!-- <xsl:if test="count(mail) &gt; 1"> -->
 				<span class="replies"><xsl:value-of select="count(mail)"/></span>
-			</xsl:if>
+			<!-- </xsl:if> -->
 		</div>
 	</div>
 </xsl:template>
@@ -122,9 +122,9 @@
 			<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
 		</div>
 
-		<xsl:if test="count(attachment) &gt; 0">
+		<xsl:if test="count(attachments/*) &gt; 0">
 			<div class="foot">
-				<xsl:for-each select="attachment">
+				<xsl:for-each select="attachments/*">
 					<span class="file-attachment">
 						<i>
 							<xsl:attribute name="style">background-image: url(/app/icons/file-<xsl:value-of select="@kind"/>.png);</xsl:attribute>
