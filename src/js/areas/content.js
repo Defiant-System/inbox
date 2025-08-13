@@ -14,19 +14,19 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
-			case "fetch-thread-":
+			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
 					let xDoc = await call.result,
-						xMail = xDoc.selectSingleNode(`/data/i`);
+						xThread = xDoc.selectSingleNode(`/data/i/thread`);
 					// add mail node to app ledger
-					APP.xData.appendChild(xMail);
+					APP.xData.selectSingleNode(`//i[@id="${event.id}"]`).appendChild(xThread);
 					// render thread
 					Self.dispatch({ type: "render-thread", id: event.id });
 				});
 				break;
-			case "render-thread-":
+			case "render-thread":
 				// if folder list not loaded, fetch first
-				xThread = APP.xData.selectSingleNode(`//i[@id="${event.id}"]`);
+				xThread = APP.xData.selectSingleNode(`//i[@id="${event.id}"]/thread`);
 				if (!xThread) return Self.dispatch({ ...event, type: "fetch-thread" });
 
 				// render mail content
@@ -42,6 +42,10 @@
 				break;
 			case "select-mail":
 				el = $(event.target);
+				if (el.hasClass("row") || el.hasClass("head")) {
+					let entry = el.parents(".entry");
+					entry.toggleClass("expanded", entry.hasClass("expanded"));
+				}
 				if (!el.hasClass("entry")) el = el.parents(".entry");
 				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");

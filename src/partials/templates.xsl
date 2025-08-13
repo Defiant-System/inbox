@@ -76,9 +76,9 @@
 		</div>
 
 		<xsl:for-each select="./thread/mail">
-			<div class="entry collapsed">
+			<div class="entry">
 				<xsl:if test="position() = 1">
-					<xsl:attribute name="class">entry active</xsl:attribute>
+					<xsl:attribute name="class">entry active expanded</xsl:attribute>
 				</xsl:if>
 				<xsl:if test="count(attachment) &gt; 0">
 					<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
@@ -87,12 +87,24 @@
 					<span class="avatar"></span>
 					<div class="row">
 						<span class="field-name">From</span>
-						<span class="field-value from-name"><xsl:value-of select="from/@name"/></span>
+						<span class="field-value from-name">
+							<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
+							<xsl:value-of select="from/i/@name"/>
+						</span>
 						<span class="date"><xsl:value-of select="date/@date"/></span>
+						<span class="time"><xsl:value-of select="date/@time"/></span>
 					</div>
 					<div class="row">
 						<span class="field-name">To</span>
-						<span class="field-value from-name"><xsl:value-of select="to/@name"/></span>
+						<xsl:for-each select="to/i">
+							<span class="field-value to-name">
+								<xsl:attribute name="data-mail"><xsl:value-of select="@mail"/></xsl:attribute>
+								<xsl:if test="@name = ''">
+									<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
+								</xsl:if>
+								<xsl:value-of select="@name"/>
+							</span>
+						</xsl:for-each>
 					</div>
 				</div>
 				<div class="body">
