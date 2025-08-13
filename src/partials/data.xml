@@ -1,8 +1,8 @@
 <Data>
-	<Mailboxes>
+	<!-- <Mailboxes>
 		<i icon="cloud" name="Google Mail" />
 		<i icon="cloud" name="Hotmail" />
-	</Mailboxes>
+	</Mailboxes> -->
 
 	<Mailbox>
 		<i fId="2001" icon="inbox" name="Inbox"/>
@@ -15,7 +15,6 @@
 	</Mailbox>
 
 	<!-- <Maillist fId="2001">
-
 
 		<i id="1753987109461" mStamp="1754431200000" size="2018">
 			<from>
@@ -32,7 +31,6 @@
 				<![CDATA[ Re: Help With Tree Selection ]]>
 			</subject>
 		</i>
-
 
 		<thread id="1753987109461">
 			<mail>

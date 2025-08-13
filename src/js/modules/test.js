@@ -10,7 +10,7 @@ let Test = {
 		// 	window.find(`list .wrapper .entry`).nth(0).trigger("click");
 		// }, 500);
 
-		setTimeout(() => window.find(`list .entry:nth(5)`).trigger("click"), 300);
+		setTimeout(() => window.find(`list .entry:nth(2)`).trigger("click"), 300);
 
 		// setTimeout(() => {
 		// 	let data = [

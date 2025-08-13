@@ -60,9 +60,9 @@
 			<xsl:if test="count(attachments/*) &gt; 0">
 				<i class="icon-attachment"></i>
 			</xsl:if>
-			<!-- <xsl:if test="count(mail) &gt; 1"> -->
+			<xsl:if test="count(mail) &gt; 1">
 				<span class="replies"><xsl:value-of select="count(mail)"/></span>
-			<!-- </xsl:if> -->
+			</xsl:if>
 		</div>
 	</div>
 </xsl:template>
