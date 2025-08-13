@@ -486,6 +486,8 @@ content {
 		border-radius: 6px;
 		line-height: 19px;
 		border: 1px solid #0002;
+		max-height: 31px;
+		overflow: hidden;
 		transition: all 250ms ease-in-out;
 
 		&.active {
@@ -494,6 +496,8 @@ content {
 		}
 
 		&.expanded {
+			max-height: 100%;
+
 			.head {
 				cursor: default;
 
@@ -566,7 +570,6 @@ content {
 			}
 
 			.field-value {
-				flex: 1;
 				color: #333;
 				white-space: nowrap;
 				text-overflow: ellipsis;
@@ -595,8 +598,10 @@ content {
 			}
 
 			.date {
-				width: 73px;
+				flex: 1;
+				// width: 73px;
 				text-align: right;
+				pointer-events: none;
 			}
 
 			.time {

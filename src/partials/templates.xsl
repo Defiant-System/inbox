@@ -76,56 +76,64 @@
 		</div>
 
 		<xsl:for-each select="./thread/mail">
-			<div class="entry">
-				<xsl:if test="position() = 1">
-					<xsl:attribute name="class">entry active expanded</xsl:attribute>
-				</xsl:if>
-				<xsl:if test="count(attachment) &gt; 0">
-					<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
-				</xsl:if>
-				<div class="head">
-					<span class="avatar"></span>
-					<div class="row">
-						<span class="field-name">From</span>
-						<span class="field-value from-name">
-							<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
-							<xsl:value-of select="from/i/@name"/>
-						</span>
-						<span class="date"><xsl:value-of select="date/@date"/></span>
-						<span class="time"><xsl:value-of select="date/@time"/></span>
-					</div>
-					<div class="row">
-						<span class="field-name">To</span>
-						<xsl:for-each select="to/i">
-							<span class="field-value to-name">
-								<xsl:attribute name="data-mail"><xsl:value-of select="@mail"/></xsl:attribute>
-								<xsl:if test="@name = ''">
-									<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
-								</xsl:if>
-								<xsl:value-of select="@name"/>
-							</span>
-						</xsl:for-each>
-					</div>
-				</div>
-				<div class="body">
-					<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
-				</div>
-
-				<xsl:if test="count(attachment) &gt; 0">
-					<div class="foot">
-						<xsl:for-each select="attachment">
-							<span class="file-attachment">
-								<i>
-									<xsl:attribute name="style">background-image: url(/app/icons/file-<xsl:value-of select="@kind"/>.png);</xsl:attribute>
-								</i>
-								<span><xsl:value-of select="@name"/></span>
-							</span>
-						</xsl:for-each>
-					</div>
-				</xsl:if>
-			</div>
+			<xsl:call-template name="mail-entry"/>
 		</xsl:for-each>
 
+		<xsl:if test="not(./thread/mail)">
+			<xsl:call-template name="mail-entry"/>
+		</xsl:if>
+	</div>
+</xsl:template>
+
+
+<xsl:template name="mail-entry">
+	<div class="entry">
+		<xsl:if test="position() = 1 or name() != 'mail'">
+			<xsl:attribute name="class">entry active expanded</xsl:attribute>
+		</xsl:if>
+		<xsl:if test="count(attachment) &gt; 0">
+			<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
+		</xsl:if>
+		<div class="head">
+			<span class="avatar"></span>
+			<div class="row">
+				<span class="field-name">From</span>
+				<span class="field-value from-name">
+					<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
+					<xsl:value-of select="from/i/@name"/>
+				</span>
+				<span class="date"><xsl:value-of select="date/@date"/></span>
+				<span class="time"><xsl:value-of select="date/@time"/></span>
+			</div>
+			<div class="row">
+				<span class="field-name">To</span>
+				<xsl:for-each select="to/i">
+					<span class="field-value to-name">
+						<xsl:attribute name="data-mail"><xsl:value-of select="@mail"/></xsl:attribute>
+						<xsl:if test="@name = ''">
+							<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
+						</xsl:if>
+						<xsl:value-of select="@name"/>
+					</span>
+				</xsl:for-each>
+			</div>
+		</div>
+		<div class="body">
+			<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
+		</div>
+
+		<xsl:if test="count(attachment) &gt; 0">
+			<div class="foot">
+				<xsl:for-each select="attachment">
+					<span class="file-attachment">
+						<i>
+							<xsl:attribute name="style">background-image: url(/app/icons/file-<xsl:value-of select="@kind"/>.png);</xsl:attribute>
+						</i>
+						<span><xsl:value-of select="@name"/></span>
+					</span>
+				</xsl:for-each>
+			</div>
+		</xsl:if>
 	</div>
 </xsl:template>
 

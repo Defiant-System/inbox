@@ -10,24 +10,24 @@
 	dispatch(event) {
 		let APP = mail,
 			Self = APP.content,
-			xThread,
 			el;
 		// console.log(event);
 		switch (event.type) {
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
 					let xDoc = await call.result,
-						xThread = xDoc.selectSingleNode(`/data/i/thread`);
+						xNew = xDoc.selectSingleNode(`/data/i[@id="${event.id}"]`),
+						xOld = APP.xData.selectSingleNode(`//i[@id="${event.id}"]`);
 					// add mail node to app ledger
-					APP.xData.selectSingleNode(`//i[@id="${event.id}"]`).appendChild(xThread);
+					xOld.parentNode.replaceChild(xNew, xOld);
 					// render thread
 					Self.dispatch({ type: "render-thread", id: event.id });
 				});
 				break;
 			case "render-thread":
 				// if folder list not loaded, fetch first
-				xThread = APP.xData.selectSingleNode(`//i[@id="${event.id}"]/thread`);
-				if (!xThread) return Self.dispatch({ ...event, type: "fetch-thread" });
+				let xThread = APP.xData.selectSingleNode(`//i[@id="${event.id}"]`);
+				if (!xThread.selectSingleNode(`./html`) && !xThread.selectSingleNode(`./thread`)) return Self.dispatch({ ...event, type: "fetch-thread" });
 
 				// render mail content
 				window.render({
