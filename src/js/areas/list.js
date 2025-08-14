@@ -55,6 +55,17 @@
 				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
 				break;
 
+			case "drop-mail-in-folder":
+				let data = [];
+				data.push({ id: event.el.data("id"), fId: event.target.data("fId") });
+				karaqu.shell({ cmd: "mail -u", data })
+					.then(res => {
+						console.log(res);
+					});
+				// reset drag / drop
+				Self.dispatch({ type: "reset-drag-drop" });
+				break;
+
 			case "drop-mail-outside":
 				/* falls through */
 			case "reset-drag-drop":
@@ -66,21 +77,29 @@
 				// click element if no drag'n drop
 				if (!event.hasMoved && Self.dragOrigin) Self.dragOrigin.trigger("click");
 				// reset reference to dragged element
-				Self.dragOrigin.removeClass("dragged");
-				delete Self.dragOrigin.removeClass("dragged");
+				Self.dragOrigin.removeClass("dragged-mail");
+				delete Self.dragOrigin;
 				break;
 
 			case "check-mail-drag":
 				// tag dragged item
-				Self.dragOrigin = event.el.addClass("dragged");
+				Self.dragOrigin = event.el.addClass("dragged-mail");
 				// tag "drop zones"
-				APP.sidebar.els.el.find(".list-entry")
+				APP.sidebar.els.el.find(".folder-entry")
 					.data({
 						"drop-zone": "drop-mail-in-folder",
-						"drop-outside": "drop-mail-outside",
+						// "drop-outside": "drop-mail-outside",
 					});
 
-				let clone = Self.dragOrigin.clone(true);
+				let clone = Self.dragOrigin.clone(true),
+					offset = event.el.offset("layout"),
+					top = offset.top,
+					left = offset.left,
+					width = event.el.width(),
+					height = event.el.height();
+
+				clone.css({ top, left, height, width });
+
 				return Self.els.swap.append(clone);
 		}
 	}
