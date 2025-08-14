@@ -179,6 +179,7 @@ list {
 	border-radius: 5px;
 	line-height: 19px;
 	pointer-events: all;
+	max-height: 45px;
 
 	&:hover {
 		background: #0001;
@@ -186,6 +187,14 @@ list {
 
 	&.dragged-mail {
 		opacity: .5;
+	}
+
+	&.list-entry-disappear {
+		max-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+		transition: all 220ms ease-in-out;
 	}
 
 	&.active {
@@ -361,7 +370,7 @@ list {
 		background: #eee7;
 
 		&.drag-return-to-origin {
-			transition: all 500ms ease-in-out;
+			transition: all 220ms ease-in-out;
 		}
 	}
 }

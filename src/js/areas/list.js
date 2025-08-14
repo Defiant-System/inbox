@@ -60,10 +60,10 @@
 				data.push({ id: event.el.data("id"), fId: event.target.data("fId") });
 				karaqu.shell({ cmd: "mail -u", data })
 					.then(res => {
-						console.log(res);
+						Self.dragOrigin.cssSequence("list-entry-disappear", "transitionend", el => el.remove());
+						// reset drag / drop
+						Self.dispatch({ type: "reset-drag-drop" });
 					});
-				// reset drag / drop
-				Self.dispatch({ type: "reset-drag-drop" });
 				break;
 
 			case "drop-mail-outside":
