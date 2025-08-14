@@ -17,7 +17,7 @@
 	<legend>Folders</legend>
 	<div class="list-wrapper">
 		<xsl:for-each select="./*">
-			<div class="entry">
+			<div class="folder-entry">
 				<xsl:attribute name="data-fId"><xsl:value-of select="@fId"/></xsl:attribute>
 				<i class="icon-blank"></i>
 				<i><xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute></i>
@@ -40,10 +40,10 @@
 
 
 <xsl:template name="list-entry">
-	<div>
+	<div data-ondrag="check-mail-drag">
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="class">
-			entry
+			list-entry
 			<xsl:if test="@is_read = '0'"> unread</xsl:if>
 			<xsl:if test="@replied or position() = 3"> replied</xsl:if>
 			<xsl:if test="@forwarded or position() = 4"> forwarded</xsl:if>
@@ -87,9 +87,9 @@
 
 
 <xsl:template name="mail-entry">
-	<div class="entry">
+	<div class="mail-entry">
 		<xsl:if test="position() = 1 or name() != 'mail'">
-			<xsl:attribute name="class">entry active expanded</xsl:attribute>
+			<xsl:attribute name="class">mail-entry active expanded</xsl:attribute>
 		</xsl:if>
 		<xsl:if test="count(attachment) &gt; 0">
 			<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
@@ -118,6 +118,11 @@
 				</xsl:for-each>
 			</div>
 		</div>
+
+		<xsl:if test="attachments/*[@kind = 'ics']">
+			Digitalt möte med Per, Erik och Tobias från Kumpan / Hakan
+		</xsl:if>
+
 		<div class="body">
 			<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
 		</div>

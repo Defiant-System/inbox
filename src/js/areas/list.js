@@ -5,6 +5,7 @@
 	init() {
 		this.els = {
 			el: window.find("list .wrapper"),
+			swap: window.find(".ux-swap"),
 		};
 	},
 	dispatch(event) {
@@ -45,7 +46,7 @@
 				break;
 			case "select-thread":
 				el = $(event.target);
-				if (!el.length || el[0] === event.el[0]) return;
+				if (!el.length || el[0] === event.el[0] || !el.data("id")) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				// make sure thread is marked as "read"
@@ -53,6 +54,34 @@
 				// render mail in content area
 				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
 				break;
+
+			case "drop-mail-outside":
+				/* falls through */
+			case "reset-drag-drop":
+				// clean up
+				Self.els.swap.html("");
+				// reset zones
+				window.find(`[data-drop-zone-before], [data-drop-zone-after], [data-drop-zone], [drop-outside]`)
+					.removeAttr("data-drop-zone-before data-drop-zone-after data-drop-zone data-drop-outside");
+				// click element if no drag'n drop
+				if (!event.hasMoved && Self.dragOrigin) Self.dragOrigin.trigger("click");
+				// reset reference to dragged element
+				Self.dragOrigin.removeClass("dragged");
+				delete Self.dragOrigin.removeClass("dragged");
+				break;
+
+			case "check-mail-drag":
+				// tag dragged item
+				Self.dragOrigin = event.el.addClass("dragged");
+				// tag "drop zones"
+				APP.sidebar.els.el.find(".list-entry")
+					.data({
+						"drop-zone": "drop-mail-in-folder",
+						"drop-outside": "drop-mail-outside",
+					});
+
+				let clone = Self.dragOrigin.clone(true);
+				return Self.els.swap.append(clone);
 		}
 	}
 }

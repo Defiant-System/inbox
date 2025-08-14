@@ -4,13 +4,13 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 
 let Test = {
 	init(APP) {
-		// return;
+		return;
 		
 		// setTimeout(() => {
-		// 	window.find(`list .wrapper .entry`).nth(0).trigger("click");
+		// 	window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
 		// }, 500);
 
-		setTimeout(() => window.find(`list .entry:nth(2)`).trigger("click"), 300);
+		setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
 		// setTimeout(() => {
 		// 	let data = [
@@ -23,7 +23,7 @@ let Test = {
 		// }, 500);
 
 		// setTimeout(() => {
-		// 	window.find(`sidebar .entry[data-fid="2005"]`).trigger("click");
+		// 	window.find(`sidebar .folder-entry[data-fid="2005"]`).trigger("click");
 		// 	karaqu.shell(`mail -d`);
 		// }, 500);
 

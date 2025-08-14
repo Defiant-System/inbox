@@ -44,25 +44,7 @@
 						target: Self.els.el
 					});
 					// click on "inbox" (first entry)
-					Self.els.el.find(`.list-wrapper .entry:nth(0)`).trigger("click");
-				});
-				break;
-			case "init-render2": // old
-				window.fetch("/mail/").then(mail => {
-					mail.selectNodes("//*[@id]").map(xFolder => {
-						let xPath = `//Mailbox/i[@fId="${xFolder.getAttribute("id")}"]`,
-							xBoxFolder = APP.xData.selectSingleNode(xPath),
-							unr = +xFolder.getAttribute("unr");
-						if (unr) xBoxFolder.setAttribute("unread", unr);
-					});
-					// render tree view
-					window.render({
-						template: "sidebar-entries",
-						match: `//Data/Mailbox`,
-						target: Self.els.el
-					});
-					// click on "inbox" (first entry)
-					Self.els.el.find(`.list-wrapper .entry:nth(0)`).trigger("click");
+					Self.els.el.find(`.list-wrapper .folder-entry:nth(0)`).trigger("click");
 				});
 				break;
 			case "select-folder":
@@ -72,6 +54,9 @@
 				el.addClass("active");
 				// render list view
 				APP.list.dispatch({ type: "render-folder", fId: el.data("fId") });
+				break;
+			case "drop-mail-in-folder":
+				console.log(event);
 				break;
 		}
 	}
