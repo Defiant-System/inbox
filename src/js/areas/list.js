@@ -87,6 +87,9 @@
 					// insert enty into list
 					mailEl = Self.els.el.prepend(mailEl);
 
+					// play sound
+					window.audio.play("new-mail");
+
 					setTimeout(() => {
 						mailEl.cssSequence("list-appear", "transitionend", el => el.removeClass("list-zero list-appear"));
 					}, 100);

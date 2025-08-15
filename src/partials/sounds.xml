@@ -1,0 +1,4 @@
+<Sounds>
+	<i id="new-mail" url="~/sounds/new-mail.mp3"/>
+	<i id="swoosh" url="~/sounds/swoosh.mp3"/>
+</Sounds>

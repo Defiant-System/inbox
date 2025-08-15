@@ -40,6 +40,8 @@
 				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
 				data.body = Spawn.find(`div.mail-message`).html();
 				data.attachments = [];
+				// play sound
+				window.audio.play("swoosh");
 				// pass mail envelope to karaqu
 				karaqu.shell({ cmd: "mail -s", data });
 				break;
