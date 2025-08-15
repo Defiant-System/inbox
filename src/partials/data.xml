@@ -5,75 +5,12 @@
 	</Mailboxes> -->
 
 	<Mailbox>
-		<i fId="2001" icon="inbox" name="Inbox"/>
-		<i fId="2004" icon="sent" name="Sent" />
-		<i fId="2003" icon="junk" name="Junk" />
-		<i fId="2002" icon="folder" name="Drafts" />
-		<i fId="2005" icon="trash" name="Deleted" />
-		<!-- <i fId="2001" icon="folder" name="Leads" unread="2" />
-		<i fId="2001" icon="folder" name="Proposals" /> -->
+		<folder id="2001" icon="inbox" name="Inbox"/>
+		<folder id="2004" icon="sent" name="Sent" />
+		<folder id="2003" icon="junk" name="Junk" />
+		<folder id="2002" icon="folder" name="Drafts" />
+		<folder id="2005" icon="trash" name="Deleted" />
+		<!-- <folder id="2001" icon="folder" name="Leads" unread="2" />
+		<folder id="2001" icon="folder" name="Proposals" /> -->
 	</Mailbox>
-
-	<!-- <Maillist fId="2001">
-
-		<i id="1753987109461" mStamp="1754431200000" size="2018">
-			<from>
-				<i name="Ben Greene" mail="ben.green@gmail.com"/>
-			</from>
-			<to>
-				<i name="Sto Akron" mail="sto.akron@hotmail.com"/>
-			</to>
-			<attachments>
-				<i path=""/>
-				<i path=""/>
-			</attachments>
-			<subject>
-				<![CDATA[ Re: Help With Tree Selection ]]>
-			</subject>
-		</i>
-
-		<thread id="1753987109461">
-			<mail>
-				<from name="Ben Greene" email="ben.green@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
-				<subject><![CDATA[test send]]></subject>
-			</mail>
-		</thread>
-
-		<thread id="1753987109462" replied="1">
-			<mail>
-				<from name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<to name="Ben Greene" email="ben.green@gmail.com"/>
-				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
-				<subject><![CDATA[RE: test send]]></subject>
-			</mail>
-
-			<mail>
-				<from name="Ben Greene" email="ben.green@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-12-01T12:00:00" date="2022-12-01" time="12:00:00"/>
-				<subject><![CDATA[test send]]></subject>
-			</mail>
-		</thread>
-
-		<thread id="1753987109463">
-			<mail>
-				<from name="Daniel Hellerman" email="daniel.hellerman@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-11-30T12:00:00" date="2022-11-30" time="12:00:00"/>
-				<subject><![CDATA[Your 2022 Wrapped]]></subject>
-			</mail>
-		</thread>
-
-		<thread id="1753987109464" unread="1">
-			<mail>
-				<from name="Luca De Baptistis" email="luca.de.baptistis@gmail.com"/>
-				<to name="Sto Akron" email="sto.akron@hotmail.com"/>
-				<date value="2022-11-10T12:00:00" date="2022-11-10" time="12:00:00"/>
-				<subject><![CDATA[Update to Voi's Privacy Policy]]></subject>
-			</mail>
-		</thread>
-
-	</Maillist> -->
 </Data>

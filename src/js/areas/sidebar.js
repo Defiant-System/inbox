@@ -3,9 +3,12 @@
 
 {
 	init() {
+		// fast reeferences
 		this.els = {
 			el: window.find("sidebar .wrapper"),
 		};
+		// is first render
+		this.isFirst = true;
 	},
 	dispatch(event) {
 		let APP = mail,
@@ -16,26 +19,18 @@
 			case "init-render":
 				karaqu.shell("mail -i").then(async call => {
 					let xDoc = await call.result;
-					xDoc.selectNodes(`/data/i[@id]`).map(xNode => {
+					xDoc.selectNodes(`/data/folder[@id]`).map(xNode => {
 						let fId = xNode.getAttribute("id"),
 							unread = +xNode.getAttribute("unr"),
 							total = +xNode.getAttribute("tot"),
-							xItems = xNode.selectNodes("./i"),
-							xPath = `//Mailbox/i[@fId="${fId}"]`,
+							xItems = xNode.selectNodes("./mail"),
+							xPath = `//folder[@id="${fId}"]`,
 							xFolder = APP.xData.selectSingleNode(xPath);
 						// transfer values to app blueprint
 						xFolder.setAttribute("unread", unread);
 						xFolder.setAttribute("total", total);
 						// transfer mails into blueprint
-						if (xItems.length) {
-							// remove old nodes to avoid duplicates
-							let xOld = APP.xData.selectSingleNode(`//Maillist[@fId="${fId}"]`);
-							if (xOld) xOld.parentNode.removeChild(xOld);
-							// insert new data
-							let xNode = $.nodeFromString(`<Maillist fId="${fId}"/>`),
-								xList = APP.xData.appendChild(xNode);
-							xItems.map(xMail => xList.appendChild(xMail));
-						}
+						xItems.map(xMail => xFolder.appendChild(xMail));
 					});
 					// render tree view
 					window.render({
@@ -53,10 +48,9 @@
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				// render list view
-				APP.list.dispatch({ type: "render-folder", fId: el.data("fId") });
-				break;
-			case "drop-mail-in-folder":
-				console.log(event);
+				APP.list.dispatch({ type: "render-folder", fId: el.data("fId"), fresh: Self.isFirst });
+				// once done
+				delete Self.isFirst;
 				break;
 		}
 	}

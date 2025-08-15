@@ -18,7 +18,7 @@
 	<div class="list-wrapper">
 		<xsl:for-each select="./*">
 			<div class="folder-entry">
-				<xsl:attribute name="data-fId"><xsl:value-of select="@fId"/></xsl:attribute>
+				<xsl:attribute name="data-fId"><xsl:value-of select="@id"/></xsl:attribute>
 				<i class="icon-blank"></i>
 				<i><xsl:attribute name="class">icon-<xsl:value-of select="@icon"/></xsl:attribute></i>
 				<span class="name"><xsl:value-of select="@name"/></span>

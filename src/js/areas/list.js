@@ -18,33 +18,31 @@
 			case "fetch-mail-folder":
 				karaqu.shell(`mail -l ${event.fId}`).then(async call => {
 					let xDoc = await call.result,
-						xItems = xDoc.selectNodes("/data/i");
+						xItems = xDoc.selectNodes("/data/mail"),
+						xFolder = APP.xData.selectSingleNode(`//folder[@id="${event.fId}"]`);
 
 					// remove old nodes to avoid duplicates
-					let xOld = APP.xData.selectSingleNode(`//Maillist[@fId="${event.fId}"]`);
-					if (xOld) xOld.parentNode.removeChild(xOld);
+					xFolder.selectNodes("./mail").map(xMail => xMail.parentNode.removeChild(xMail));
 					// insert new data
-					let xNode = $.nodeFromString(`<Maillist fId="${event.fId}"/>`),
-						xList = APP.xData.appendChild(xNode);
-					xItems.map(xMail => xList.appendChild(xMail));
+					xItems.map(xMail => xFolder.appendChild(xMail));
 
 					// folder received - render list now
-					Self.dispatch({ type: "render-folder", fId: event.fId });
+					Self.dispatch({ type: "render-folder", fId: event.fId, fresh: true });
 				});
 				break;
 			case "render-folder":
 				// if folder list not loaded, fetch first
-				xFolder = APP.xData.selectSingleNode(`//Data/Maillist[@fId="${event.fId}"]`);
-				if (!xFolder) return Self.dispatch({ ...event, type: "fetch-mail-folder" });
-				
+				if (!event.fresh) return Self.dispatch({ ...event, type: "fetch-mail-folder" });
+				// tag "folder ID" as attribute
 				Self.els.el.parent().data({ fId: event.fId })
-
 				// render list view
 				window.render({
 					template: "list-entries",
-					match: `//Data/Maillist[@fId="${event.fId}"]`,
+					match: `//folder[@id="${event.fId}"]`,
 					target: Self.els.el,
 				});
+				// is there any mails in the list
+				Self.els.el.parent().toggleClass("has-mails", !Self.els.el.find(".mail-entry").length);
 				break;
 			case "select-thread":
 				el = $(event.target);
@@ -56,6 +54,23 @@
 				// render mail in content area
 				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
 				break;
+			case "check-for-new-mail":
+				// temp fake new mail
+				let xDoc = $.xmlFromString(`<data>
+						<mail id="1754903553431" mStamp="1754863210000" size="307507">
+							<from><i name="David Beckham" mail="david@beckham.com"/></from>
+							<to><i name="hbi@karaqu.com" mail="hbi@karaqu.com"/></to>
+							<tags></tags>
+							<attachments></attachments>
+							<subject><![CDATA[ This is a fake email ]]></subject>
+						</mail>
+					</data>`);
+
+				xDoc.selectNodes("/data/i").map(xMail => {
+					console.log(xMail);
+				});
+
+				break;
 			case "permanently-empty-trashcan":
 				karaqu.shell("mail -d");
 				break;
@@ -65,6 +80,14 @@
 				data.push({ id: event.el.data("id"), fId: event.target.data("fId") });
 				karaqu.shell({ cmd: "mail -u", data })
 					.then(res => {
+						// move xml node
+						data.map(mail => {
+							let xMail = APP.xData.selectSingleNode(`//mail[@id="${mail.id}"]`),
+								xFolder = APP.xData.selectSingleNode(`//folder[@id="${mail.fId}"]`);
+							// move mail to folder
+							xFolder.appendChild(xMail);
+						});
+						// DOM animation
 						Self.dragOrigin.cssSequence("list-entry-disappear", "transitionend", el => el.remove());
 						// reset drag / drop
 						Self.dispatch({ type: "reset-drag-drop" });
