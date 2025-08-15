@@ -12,6 +12,7 @@
 		let APP = mail,
 			Self = APP.list,
 			xFolder,
+			data,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -34,7 +35,7 @@
 				// if folder list not loaded, fetch first
 				if (!event.fresh) return Self.dispatch({ ...event, type: "fetch-mail-folder" });
 				// tag "folder ID" as attribute
-				Self.els.el.parent().data({ fId: event.fId })
+				Self.els.el.parent().data({ fId: event.fId });
 				// render list view
 				window.render({
 					template: "list-entries",
@@ -57,7 +58,7 @@
 			case "check-for-new-mail":
 				// temp fake new mail
 				let xDoc = $.xmlFromString(`<data>
-						<mail id="1754903553431" mStamp="1754863210000" size="307507">
+						<mail id="1754903553431" fId="2001" mStamp="1754863210000" date="2025-02-12 12:54" is_read="0" size="307507">
 							<from><i name="David Beckham" mail="david@beckham.com"/></from>
 							<to><i name="hbi@karaqu.com" mail="hbi@karaqu.com"/></to>
 							<tags></tags>
@@ -65,18 +66,38 @@
 							<subject><![CDATA[ This is a fake email ]]></subject>
 						</mail>
 					</data>`);
-
-				xDoc.selectNodes("/data/i").map(xMail => {
-					console.log(xMail);
+				// loop mail nodes
+				xDoc.selectNodes("/data/mail").map(xMail => {
+					data = {
+						id: xMail.getAttribute("id"),
+						fId: xMail.getAttribute("fId"),
+						xMail,
+					}
+					// insert new mail node into app ledger
+					xFolder = APP.xData.selectSingleNode(`//folder[@id="${data.fId}"]`);
+					xFolder.appendChild(xMail);
 				});
+				if (data.fId === Self.els.el.parent().data("fId")) {
+					// render list view
+					let mailEl = window.render({
+							template: "list-entry",
+							match: `//mail[@id="${data.id}"]`,
+							vdom: true,
+						}).find(".list-entry").addClass("list-zero");
+					// insert enty into list
+					mailEl = Self.els.el.prepend(mailEl);
 
+					setTimeout(() => {
+						mailEl.cssSequence("list-appear", "transitionend", el => el.removeClass("list-zero list-appear"));
+					}, 100);
+				}
 				break;
 			case "permanently-empty-trashcan":
 				karaqu.shell("mail -d");
 				break;
 
 			case "drop-mail-in-folder":
-				let data = [];
+				data = [];
 				data.push({ id: event.el.data("id"), fId: event.target.data("fId") });
 				karaqu.shell({ cmd: "mail -u", data })
 					.then(res => {

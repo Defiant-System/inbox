@@ -238,6 +238,22 @@ list {
 		opacity: .5;
 	}
 
+	&.list-zero {
+		overflow: hidden;
+		max-height: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+
+	&.list-appear {
+		padding-top: 3px;
+		padding-bottom: 3px;
+		margin-bottom: 7px;
+		max-height: 45px;
+		transition: all 220ms ease-in-out;
+	}
+
 	&.list-entry-disappear {
 		max-height: 0;
 		padding-top: 0;

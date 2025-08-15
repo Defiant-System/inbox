@@ -5,6 +5,7 @@
 let Test = {
 	init(APP) {
 
+		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 		setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
 		return;
