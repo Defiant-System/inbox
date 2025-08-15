@@ -4,6 +4,9 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 
 let Test = {
 	init(APP) {
+
+		setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
+
 		return;
 		
 		// setTimeout(() => {

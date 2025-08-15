@@ -37,6 +37,8 @@
 				xFolder = APP.xData.selectSingleNode(`//Data/Maillist[@fId="${event.fId}"]`);
 				if (!xFolder) return Self.dispatch({ ...event, type: "fetch-mail-folder" });
 				
+				Self.els.el.parent().data({ fId: event.fId })
+
 				// render list view
 				window.render({
 					template: "list-entries",
@@ -53,6 +55,9 @@
 				el.removeClass("unread");
 				// render mail in content area
 				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
+				break;
+			case "permanently-empty-trashcan":
+				karaqu.shell("mail -d");
 				break;
 
 			case "drop-mail-in-folder":
@@ -88,7 +93,7 @@
 				APP.sidebar.els.el.find(".folder-entry")
 					.data({
 						"drop-zone": "drop-mail-in-folder",
-						// "drop-outside": "drop-mail-outside",
+						"drop-outside": "drop-mail-outside",
 					});
 
 				let clone = Self.dragOrigin.clone(true),

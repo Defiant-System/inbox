@@ -18,6 +18,9 @@
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
 				return !isOn;
+			case "send-receive":
+				karaqu.shell("mail -r");
+				break;
 			case "new-mail":
 				window.open("new-mail");
 				break;
