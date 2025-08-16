@@ -797,5 +797,112 @@ content {
 				}
 			}
 		}
+
+		.ics-card {
+			position: relative;
+			top: 3px;
+			display: flex;
+			border-radius: 4px;
+			margin: 0 11px 13px;
+			box-shadow: 0 0 0 1px #0002,
+						0 0 0 4px #3331;
+
+			.ics-date {
+				width: 80px;
+				padding: 13px;
+				background: #eee;
+				border-radius: 4px 0 0 4px;
+				border-right: 1px solid #0001;
+
+				.ics-cal-date {
+					width: 55px;
+					// box-shadow: 0 0 3px #0003;
+
+					span {
+						display: block;
+						text-align: center;
+					
+						&.month {
+							background: #69d;
+							color: #fff;
+							// font-size: 12px;
+							border-radius: 4px 4px 0 0;
+						}
+
+						&.date {
+							background: #fff;
+							color: #555;
+							padding: 7px 0 5px;
+							font-size: 25px;
+						}
+
+						&.weekday {
+							position: relative;
+							background: #fff;
+							color: #888;
+							border-radius: 0 0 4px 4px;
+							font-size: 11px;
+
+							&:before {
+								content: "";
+								position: absolute;
+								top: 0;
+								left: 5px;
+								right: 5px;
+								height: 1px;
+								background: #0001;
+							}
+						}
+					}
+				}
+
+			}
+
+			.ics-info {
+				flex: 1;
+				padding: 13px;
+
+				h3 {
+					color: #555;
+					font-weight: 400;
+					font-size: 18px;
+				}
+
+				.row {
+					display: flex;
+					padding: 5px 0 1px;
+
+					.name {
+						width: 50px;
+						color: #bbb;
+					}
+
+					.value {
+						flex: 1;
+					}
+				}
+
+				.buttons {
+					position: relative;
+					font-size: 0;
+					padding-top: 19px;
+
+					&:before {
+						content: "";
+						position: absolute;
+						top: 7px;
+						left: -5px;
+						right: -5px;
+						height: 1px;
+						background: #0001;
+					}
+
+					button {
+						display: inline-block;
+						width: auto;
+					}
+				}
+			}
+		}
 	}
 }

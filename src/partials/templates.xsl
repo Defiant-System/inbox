@@ -120,7 +120,35 @@
 		</div>
 
 		<xsl:if test="attachments/*[@kind = 'ics']">
-			Digitalt möte med Per, Erik och Tobias från Kumpan / Hakan
+			<div class="ics-card">
+				<div class="ics-date">
+					<div class="ics-cal-date">
+						<span class="month">dec</span>
+						<span class="date">19</span>
+						<span class="weekday">tors</span>
+					</div>
+				</div>
+				<div class="ics-info">
+					<h3>Digitalt möte med Per, Erik och Tobias från Kumpan / Hakan</h3>
+					<div class="row">
+						<span class="name">När</span>
+						<span class="value">tors 2024-12-19 15:00 – 15:45 (CET)</span>
+					</div>
+					<div class="row">
+						<span class="name">Var</span>
+						<span class="value">Microsoft Teams Meeting</span>
+					</div>
+					<div class="row">
+						<span class="name">Vem</span>
+						<span class="value">tobias@kumpan.se, erik@kumpan.se, per@kumpan.se</span>
+					</div>
+					<div class="buttons">
+						<button>Ja</button>
+						<button>Kanske</button>
+						<button>Nej</button>
+					</div>
+				</div>
+			</div>
 		</xsl:if>
 
 		<div class="body">
