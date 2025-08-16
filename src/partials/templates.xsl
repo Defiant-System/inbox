@@ -88,7 +88,7 @@
 
 <xsl:template name="mail-entry">
 	<div class="mail-entry">
-		<xsl:if test="position() = 1 or name() != 'mail'">
+		<xsl:if test="position() = 1 or name(..) != 'thread'">
 			<xsl:attribute name="class">mail-entry active expanded</xsl:attribute>
 		</xsl:if>
 		<xsl:if test="count(attachment) &gt; 0">

@@ -45,6 +45,9 @@ const mail = {
 			case "init-settings":
 				break;
 			// proxy events
+			case "check-for-new-mail":
+				// this event was triggered by system/socket-io
+				return Self.list.dispatch(event);
 			default:
 				el = event.el;
 				if (!el && event.origin) el = event.origin.el;

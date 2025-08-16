@@ -5,7 +5,8 @@
 let Test = {
 	init(APP) {
 
-		return;
+		// return;
+
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 		// setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
@@ -16,7 +17,7 @@ let Test = {
 		
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 
-		setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
+		setTimeout(() => window.find(`list .list-entry:nth(0)`).trigger("click"), 300);
 
 		// setTimeout(() => {
 		// 	let data = [
