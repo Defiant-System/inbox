@@ -17,19 +17,20 @@
 		// console.log(event);
 		switch (event.type) {
 			case "fetch-mail-folder":
-				karaqu.shell(`mail -l ${event.fId}`).then(async call => {
-					let xDoc = await call.result,
-						xItems = xDoc.selectNodes("/data/mail"),
-						xFolder = APP.xData.selectSingleNode(`//folder[@id="${event.fId}"]`);
+				karaqu.shell(`mail -l ${event.fId}`)
+					.then(async call => {
+						let xDoc = await call.result,
+							xItems = xDoc.selectNodes("/data/mail"),
+							xFolder = APP.xData.selectSingleNode(`//folder[@id="${event.fId}"]`);
 
-					// remove old nodes to avoid duplicates
-					xFolder.selectNodes("./mail").map(xMail => xMail.parentNode.removeChild(xMail));
-					// insert new data
-					xItems.map(xMail => xFolder.appendChild(xMail));
+						// remove old nodes to avoid duplicates
+						xFolder.selectNodes("./mail").map(xMail => xMail.parentNode.removeChild(xMail));
+						// insert new data
+						xItems.map(xMail => xFolder.appendChild(xMail));
 
-					// folder received - render list now
-					Self.dispatch({ type: "render-folder", fId: event.fId, fresh: true });
-				});
+						// folder received - render list now
+						Self.dispatch({ type: "render-folder", fId: event.fId, fresh: true });
+					});
 				break;
 			case "render-folder":
 				// if folder list not loaded, fetch first
@@ -56,44 +57,45 @@
 				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
 				break;
 			case "check-for-new-mail":
-				// temp fake new mail
-				let xDoc = $.xmlFromString(`<data>
-						<mail id="1754903553431" fId="2001" mStamp="1754863210000" date="2025-02-12 12:54" is_read="0" size="307507">
-							<from><i name="David Beckham" mail="david@beckham.com"/></from>
-							<to><i name="hbi@karaqu.com" mail="hbi@karaqu.com"/></to>
-							<tags></tags>
-							<attachments></attachments>
-							<subject><![CDATA[ This is a fake email ]]></subject>
-						</mail>
-					</data>`);
-				// loop mail nodes
-				xDoc.selectNodes("/data/mail").map(xMail => {
-					data = {
-						id: xMail.getAttribute("id"),
-						fId: xMail.getAttribute("fId"),
-						xMail,
-					}
-					// insert new mail node into app ledger
-					xFolder = APP.xData.selectSingleNode(`//folder[@id="${data.fId}"]`);
-					xFolder.appendChild(xMail);
+				// identify "latest" mail ID
+				let latestMail = 0;
+				APP.xData.selectNodes("//mail[@id]").map(xMail => {
+					let id = +xMail.getAttribute("id");
+					if (id > latestMail) latestMail = id;
 				});
-				if (data.fId === Self.els.el.parent().data("fId")) {
-					// render list view
-					let mailEl = window.render({
-							template: "list-entry",
-							match: `//mail[@id="${data.id}"]`,
-							vdom: true,
-						}).find(".list-entry").addClass("list-zero");
-					// insert enty into list
-					mailEl = Self.els.el.prepend(mailEl);
-
-					// play sound
-					window.audio.play("new-mail");
-
-					setTimeout(() => {
-						mailEl.cssSequence("list-appear", "transitionend", el => el.removeClass("list-zero list-appear"));
-					}, 100);
-				}
+				// request for newer mail
+				karaqu.shell(`mail -n ${latestMail}`)
+					.then(async call => {
+						let xDoc = await call.result,
+							data;
+						// loop mail nodes
+						xDoc.selectNodes("/data/mail").map(xMail => {
+							data = {
+								id: xMail.getAttribute("id"),
+								fId: xMail.getAttribute("fId"),
+								xMail,
+							}
+							// insert new mail node into app ledger
+							xFolder = APP.xData.selectSingleNode(`//folder[@id="${data.fId}"]`);
+							xFolder.appendChild(xMail);
+						});
+						if (data.fId === Self.els.el.parent().data("fId")) {
+							// render list view
+							let mailEl = window.render({
+									template: "list-entry",
+									match: `//mail[@id="${data.id}"]`,
+									vdom: true,
+								}).find(".list-entry").addClass("list-zero");
+							// insert enty into list
+							mailEl = Self.els.el.prepend(mailEl);
+							// play sound
+							window.audio.play("new-mail");
+							// appear animation
+							setTimeout(() =>
+								mailEl.cssSequence("list-appear", "transitionend", el =>
+									el.removeClass("list-zero list-appear")));
+						}
+					});
 				break;
 			case "permanently-empty-trashcan":
 				karaqu.shell("mail -d");

@@ -19,7 +19,7 @@
 				Self.els.layout.toggleClass("show-sidebar", isOn);
 				return !isOn;
 			case "send-receive":
-				karaqu.shell("mail -r");
+				APP.list.dispatch({ type: "check-for-new-mail" });
 				break;
 			case "new-mail":
 				window.open("new-mail");
