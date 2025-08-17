@@ -119,7 +119,7 @@
 			</div>
 		</div>
 
-		<xsl:if test="attachments/*[@kind = 'ics']">
+		<xsl:for-each select="attachments/*[@kind = 'ics']">
 			<div class="ics-card">
 				<div class="ics-date">
 					<div class="ics-cal-date">
@@ -129,27 +129,34 @@
 					</div>
 				</div>
 				<div class="ics-info">
-					<h3>Digitalt möte med Per, Erik och Tobias från Kumpan / Hakan</h3>
+					<h3><xsl:value-of select="title"/></h3>
 					<div class="row">
 						<span class="name">När</span>
-						<span class="value">tors 2024-12-19 15:00 – 15:45 (CET)</span>
+						<span class="icon"><i class="icon-calendar"></i></span>
+						<span class="value"><xsl:value-of select="date"/></span>
 					</div>
 					<div class="row">
 						<span class="name">Var</span>
-						<span class="value">Microsoft Teams Meeting</span>
+						<span class="icon"><i class="icon-location"></i></span>
+						<span class="value"><xsl:value-of select="location"/></span>
 					</div>
 					<div class="row">
 						<span class="name">Vem</span>
-						<span class="value">tobias@kumpan.se, erik@kumpan.se, per@kumpan.se</span>
+						<span class="icon"><i class="icon-user"></i></span>
+						<span class="value">
+							<xsl:for-each select="attendees/*">
+								<span class="attendee"><xsl:value-of select="@mail"/></span>
+							</xsl:for-each>
+						</span>
 					</div>
 					<div class="buttons">
-						<button>Ja</button>
-						<button>Kanske</button>
-						<button>Nej</button>
+						<button disabled="disabled">Yes</button>
+						<button disabled="disabled">Maybe</button>
+						<button disabled="disabled">No</button>
 					</div>
 				</div>
 			</div>
-		</xsl:if>
+		</xsl:for-each>
 
 		<div class="body">
 			<xsl:value-of select="html/text()" disable-output-escaping="yes"/>

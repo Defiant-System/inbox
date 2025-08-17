@@ -30,6 +30,22 @@
 				if (!xThread.selectSingleNode(`./html`) && !xThread.selectSingleNode(`./thread`)) {
 					return Self.dispatch({ ...event, type: "fetch-thread" });
 				}
+				// extract details from ics file
+				xThread.selectNodes(`./attachments/i[@kind="ics"]`).map(xIcs => {
+					let xStr = `<data>
+									<title><![CDATA[Digitalt möte med Per, Erik och Tobias från Kumpan / Hakan]]></title>
+									<date month="dec" date="19" weekday="tors"><![CDATA[tors 2024-12-19 15:00 – 15:45 (CET)]]></date>
+									<location><![CDATA[Microsoft Teams Meeting]]></location>
+									<attendees>
+										<i name="Tobias" mail="tobias@kumpan.se"/>
+										<i name="Erik" mail="erik@kumpan.se"/>
+										<i name="Per" mail="per@kumpan.se"/>
+									</attendees>
+								</data>`,
+						xDetails = $.xmlFromString(xStr).selectNodes("/data/*");
+					// transfer details
+					xDetails.map(xNode => xIcs.append(xNode));
+				});
 				// render mail content
 				window.render({
 					template: "content-entries",

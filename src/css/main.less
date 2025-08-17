@@ -35,6 +35,10 @@ layout {
 		&.icon-trash      { background-image: url(~/icons/icon-trash.png); }
 		&.icon-folder     { background-image: url(~/icons/icon-folder.png); }
 		&.icon-attachment { background-image: url(~/icons/icon-attachment.png); }
+
+		&.icon-calendar    { background-image: url(~/icons/icon-calendar.png); background-size: 15px auto; }
+		&.icon-location    { background-image: url(~/icons/icon-location.png); background-size: 15px auto; }
+		&.icon-user        { background-image: url(~/icons/icon-user.png); background-size: 15px auto; }
 		
 		&.icon-slim-messages  { background-image: url(~/icons/icon-slim-messages.png); }
 		&.icon-thick-messages { background-image: url(~/icons/icon-thick-messages.png); }
@@ -608,7 +612,7 @@ content {
 		}
 
 		&.expanded {
-			max-height: 100%;
+			max-height: initial;
 
 			.head {
 				cursor: default;
@@ -741,7 +745,7 @@ content {
 			user-select: all;
 			padding: 3px 0 9px;
 			color: #333;
-			white-space: pre-line;
+			// white-space: pre-line;
 
 			a {
 				color: #36f;
@@ -860,12 +864,13 @@ content {
 
 			.ics-info {
 				flex: 1;
-				padding: 13px;
+				padding: 9px 13px 13px;
 
 				h3 {
 					color: #555;
 					font-weight: 400;
 					font-size: 18px;
+					line-height: 1.5;
 				}
 
 				.row {
@@ -873,12 +878,27 @@ content {
 					padding: 5px 0 1px;
 
 					.name {
-						width: 50px;
+						width: 41px;
 						color: #bbb;
+					}
+
+					.icon {
+						width: 21px;
+
+						.icon-calendar,
+						.icon-location,
+						.icon-user {
+							top: -1px;
+							opacity: .25;
+						}
 					}
 
 					.value {
 						flex: 1;
+					}
+
+					.attendee:not(:first-child):before {
+						content: ", ";
 					}
 				}
 
