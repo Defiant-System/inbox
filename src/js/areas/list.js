@@ -44,7 +44,7 @@
 					target: Self.els.el,
 				});
 				// is there any mails in the list
-				Self.els.el.parent().toggleClass("has-mails", !Self.els.el.find(".mail-entry").length);
+				Self.els.el.parent().toggleClass("has-mails", !Self.els.el.find(".list-entry").length);
 				break;
 			case "select-thread":
 				el = $(event.target);
@@ -67,14 +67,12 @@
 				karaqu.shell(`mail -n ${latestMail}`)
 					.then(async call => {
 						let xDoc = await call.result,
-							data;
+							data = {};
 						// loop mail nodes
 						xDoc.selectNodes("/data/mail").map(xMail => {
-							data = {
-								id: xMail.getAttribute("id"),
-								fId: xMail.getAttribute("fId"),
-								xMail,
-							}
+							data.id = xMail.getAttribute("id");
+							data.fId = xMail.getAttribute("fId");
+							data.xMail = xMail;
 							// insert new mail node into app ledger
 							xFolder = APP.xData.selectSingleNode(`//folder[@id="${data.fId}"]`);
 							xFolder.appendChild(xMail);
@@ -98,7 +96,14 @@
 					});
 				break;
 			case "permanently-empty-trashcan":
-				karaqu.shell("mail -d");
+				karaqu.shell("mail -d")
+					.then(res => {
+						// clear app ledger
+						APP.xData.selectNodes(`//folder[@id="2005"]/mail`).map(xMail => xMail.parentNode.removeChild(xMail));
+						// reset list view
+						Self.els.el.find(".list-entry").remove();
+						Self.els.el.parent().removeClass("has-mails");
+					});
 				break;
 
 			case "drop-mail-in-folder":

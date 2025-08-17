@@ -436,7 +436,9 @@ list {
 	.dragged-mail {
 		opacity: .5;
 		position: absolute;
-		background: #eee7;
+		background: #eee;
+		transform-origin: 50% 50%;
+		transform: rotate(-5deg);
 
 		&.drag-return-to-origin {
 			transition: all 220ms ease-in-out;
@@ -806,7 +808,7 @@ content {
 			position: relative;
 			top: 3px;
 			display: flex;
-			border-radius: 4px;
+			border-radius: 11px;
 			margin: 0 11px 13px;
 			box-shadow: 0 0 0 1px #0002,
 						0 0 0 4px #3331;
@@ -815,12 +817,13 @@ content {
 				width: 80px;
 				padding: 13px;
 				background: #eee;
-				border-radius: 4px 0 0 4px;
+				border-radius: 11px 0 0 11px;
 				border-right: 1px solid #0001;
 
 				.ics-cal-date {
 					width: 55px;
-					// box-shadow: 0 0 3px #0003;
+					border-radius: 4px;
+					box-shadow: 0 0 0 2px #69f7;
 
 					span {
 						display: block;
@@ -891,23 +894,31 @@ content {
 					.name {
 						// text-align: right;
 						width: 41px;
-						color: #bbb;
+						color: #aaa;
 						padding-right: 5px;
 					}
 
 					.value {
 						flex: 1;
+						color: #666;
 					}
 
-					.attendee:not(:first-child):before {
-						content: ", ";
+					.attendee {
+						&:not(:first-child):before {
+							content: ", ";
+						}
+
+						&:hover {
+							color: #111;
+						}
 					}
 				}
 
 				.buttons {
 					position: relative;
-					font-size: 0;
+					display: flex;
 					padding-top: 19px;
+					font-size: 0;
 
 					&:before {
 						content: "";
@@ -922,6 +933,10 @@ content {
 					button {
 						display: inline-block;
 						width: auto;
+					}
+
+					span {
+						flex: 1;
 					}
 				}
 			}

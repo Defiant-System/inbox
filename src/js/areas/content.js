@@ -45,9 +45,9 @@
 							let comp = new ICAL.Component(jcalData);
 							let vevent = comp.getFirstSubcomponent("vevent");
 							let calcEvent = new ICAL.Event(vevent);
-							// console.log(vevent);
-							// console.log(event.summary);
-							// console.log(calcEvent);
+							let start = new karaqu.Moment(calcEvent.startDate.toString());
+							let end = new karaqu.Moment(calcEvent.endDate.toString());
+							// console.log(start);
 
 							let xAttendees = [];
 							calcEvent.attendees.map(att => {
@@ -57,7 +57,9 @@
 							// prepare details
 							let xStr = `<data>
 											<title><![CDATA[${calcEvent.summary}]]></title>
-											<date month="dec" date="19" weekday="tors"><![CDATA[tors 2024-12-19 15:00 – 15:45 (CET)]]></date>
+											<date month="${start.format("MMM")}" date="${start.format("D")}" weekday="${start.format("ddd").toLowerCase()}">
+												<![CDATA[${start.format("dddd")} ${start.format("YYYY-MM-DD HH:mm")} &mdash; ${end.format("HH:mm")}]]>
+											</date>
 											<location><![CDATA[${calcEvent.location}]]></location>
 											<attendees>${xAttendees.join("")}</attendees>
 										</data>`,
@@ -94,6 +96,15 @@
 				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+				break;
+			case "add-to-calendar":
+				// start calerndar in the background
+				karaqu.shell(`win -o calendar`)
+					.then(resp => {
+						// add ICS filepath to calendar app
+						let path = event.el.data("path");
+						karaqu.shell(`calendar -a '${path}'`);
+					});
 				break;
 		}
 	}

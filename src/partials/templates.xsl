@@ -123,26 +123,26 @@
 			<div class="ics-card">
 				<div class="ics-date">
 					<div class="ics-cal-date">
-						<span class="month">dec</span>
-						<span class="date">19</span>
-						<span class="weekday">tors</span>
+						<span class="month"><xsl:value-of select="date/@month"/></span>
+						<span class="date"><xsl:value-of select="date/@date"/></span>
+						<span class="weekday"><xsl:value-of select="date/@weekday"/></span>
 					</div>
 				</div>
 				<div class="ics-info">
 					<h3><xsl:value-of select="title"/></h3>
 					<div class="row">
-						<span class="name">När</span>
 						<span class="icon"><i class="icon-calendar"></i></span>
+						<span class="name">När</span>
 						<span class="value"><xsl:value-of select="date"/></span>
 					</div>
 					<div class="row">
-						<span class="name">Var</span>
 						<span class="icon"><i class="icon-location"></i></span>
+						<span class="name">Var</span>
 						<span class="value"><xsl:value-of select="location"/></span>
 					</div>
 					<div class="row">
-						<span class="name">Vem</span>
 						<span class="icon"><i class="icon-user"></i></span>
+						<span class="name">Vem</span>
 						<span class="value">
 							<xsl:for-each select="attendees/*">
 								<span class="attendee"><xsl:value-of select="@mail"/></span>
@@ -153,6 +153,11 @@
 						<button disabled="disabled">Yes</button>
 						<button disabled="disabled">Maybe</button>
 						<button disabled="disabled">No</button>
+						<span></span>
+						<button data-click="add-to-calendar">
+							<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
+							Add to Calendar
+						</button>
 					</div>
 				</div>
 			</div>
