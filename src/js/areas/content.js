@@ -30,22 +30,49 @@
 				if (!xThread.selectSingleNode(`./html`) && !xThread.selectSingleNode(`./thread`)) {
 					return Self.dispatch({ ...event, type: "fetch-thread" });
 				}
-				// extract details from ics file
-				xThread.selectNodes(`./attachments/i[@kind="ics"]`).map(xIcs => {
-					let xStr = `<data>
-									<title><![CDATA[Digitalt möte med Per, Erik och Tobias från Kumpan / Hakan]]></title>
-									<date month="dec" date="19" weekday="tors"><![CDATA[tors 2024-12-19 15:00 – 15:45 (CET)]]></date>
-									<location><![CDATA[Microsoft Teams Meeting]]></location>
-									<attendees>
-										<i name="Tobias" mail="tobias@kumpan.se"/>
-										<i name="Erik" mail="erik@kumpan.se"/>
-										<i name="Per" mail="per@kumpan.se"/>
-									</attendees>
-								</data>`,
-						xDetails = $.xmlFromString(xStr).selectNodes("/data/*");
-					// transfer details
-					xDetails.map(xNode => xIcs.append(xNode));
-				});
+				let icsFiles = xThread.selectNodes(`./attachments/i[@kind="ics"]`);
+				if (icsFiles.length) {
+					// already parsed?
+					if (icsFiles[0].hasChildNodes()) {
+						// render mail
+						return Self.dispatch({ type: "render-mail-contents", id: event.id });
+					}
+					// extract details from ics file
+					icsFiles.map(xIcs => {
+						karaqu.shell(`fs -o '${xIcs.getAttribute("path")}' null`).then(async cmd => {
+							let fsHandle = await cmd.result.open({ responseType: "text" });
+							let jcalData = ICAL.parse(fsHandle.data);
+							let comp = new ICAL.Component(jcalData);
+							let vevent = comp.getFirstSubcomponent("vevent");
+							let calcEvent = new ICAL.Event(vevent);
+							// console.log(vevent);
+							// console.log(event.summary);
+							// console.log(calcEvent);
+
+							let xAttendees = [];
+							calcEvent.attendees.map(att => {
+								let [a, mail] = att.jCal[3].split(":");
+								xAttendees.push(`<i mail="${mail}"/>`);
+							});
+							// prepare details
+							let xStr = `<data>
+											<title><![CDATA[${calcEvent.summary}]]></title>
+											<date month="dec" date="19" weekday="tors"><![CDATA[tors 2024-12-19 15:00 – 15:45 (CET)]]></date>
+											<location><![CDATA[${calcEvent.location}]]></location>
+											<attendees>${xAttendees.join("")}</attendees>
+										</data>`,
+								xDetails = $.xmlFromString(xStr).selectNodes("/data/*");
+							// transfer details
+							xDetails.map(xNode => xIcs.append(xNode));
+							// render mail
+							Self.dispatch({ type: "render-mail-contents", id: event.id });
+						});
+					});
+				} else {
+					Self.dispatch({ type: "render-mail-contents", id: event.id });
+				}
+				break;
+			case "render-mail-contents":
 				// render mail content
 				window.render({
 					template: "content-entries",

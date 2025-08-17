@@ -1,9 +1,14 @@
 
-@import "ext/postal-mime/index.js"
-
 @import "modules/test.js"
 
 
+// fetch bundled code
+const {
+	ICAL,
+	PostalMime,
+} = await window.fetch("~/js/bundle.js");
+
+// user details
 const ME = karaqu.user;
 
 const mail = {
