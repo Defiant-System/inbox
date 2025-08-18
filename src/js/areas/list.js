@@ -157,7 +157,7 @@
 					width = event.el.width(),
 					height = event.el.height();
 
-				clone.css({ top, left, height, width });
+				clone.removeClass("active").css({ top, left, height, width });
 
 				return Self.els.swap.append(clone);
 		}
