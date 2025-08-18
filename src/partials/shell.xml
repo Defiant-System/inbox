@@ -1,0 +1,5 @@
+<Shell>
+	<i object="email" type="Application" description="Public Interace for Mail">
+		<i switch="s" name="sendMailTo" arg="[address]" description="Send e-mail to provided address."/>
+	</i>
+</Shell>

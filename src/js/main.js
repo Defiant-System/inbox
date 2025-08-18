@@ -66,6 +66,11 @@ const mail = {
 				}
 		}
 	},
+	// shell exposed methods: START
+	sendMailTo(mail) {
+		console.log(mail);
+	},
+	// shell exposed methods: END
 	toolbar: @import "areas/toolbar.js",
 	sidebar: @import "areas/sidebar.js",
 	list: @import "areas/list.js",

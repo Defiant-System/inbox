@@ -5,7 +5,7 @@
 let Test = {
 	init(APP) {
 
-		// return;
+		return;
 
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 		// setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
@@ -17,7 +17,7 @@ let Test = {
 		
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 
-		setTimeout(() => window.find(`list .list-entry:nth(0)`).trigger("click"), 300);
+		// return setTimeout(() => window.find(`list .list-entry:nth(0)`).trigger("click"), 300);
 
 		// setTimeout(() => {
 		// 	let data = [
@@ -34,14 +34,12 @@ let Test = {
 		// 	karaqu.shell(`mail -d`);
 		// }, 500);
 
-		return;
-
 		let Spawn = this.spawn || window.open("new-mail");
 		setTimeout(() => {
 			// Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
 			Spawn.find(`input[name="mail-subject"]`).val("Writing the subject of the e-mail");
 			Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....`);
-			Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
+			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
 		}, 200);
 		
 	}

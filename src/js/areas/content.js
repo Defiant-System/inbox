@@ -44,23 +44,23 @@
 							let jcalData = ICAL.parse(fsHandle.data);
 							let comp = new ICAL.Component(jcalData);
 							let vevent = comp.getFirstSubcomponent("vevent");
-							let calcEvent = new ICAL.Event(vevent);
-							let start = new karaqu.Moment(calcEvent.startDate.toString());
-							let end = new karaqu.Moment(calcEvent.endDate.toString());
+							let calEvent = new ICAL.Event(vevent);
+							let start = new karaqu.Moment(calEvent.startDate.toString());
+							let end = new karaqu.Moment(calEvent.endDate.toString());
 							// console.log(start);
 
 							let xAttendees = [];
-							calcEvent.attendees.map(att => {
+							calEvent.attendees.map(att => {
 								let [a, mail] = att.jCal[3].split(":");
 								xAttendees.push(`<i mail="${mail}"/>`);
 							});
 							// prepare details
 							let xStr = `<data>
-											<title><![CDATA[${calcEvent.summary}]]></title>
+											<title><![CDATA[${calEvent.summary}]]></title>
 											<date month="${start.format("MMM")}" date="${start.format("D")}" weekday="${start.format("ddd").toLowerCase()}">
 												<![CDATA[${start.format("dddd")} ${start.format("YYYY-MM-DD HH:mm")} &mdash; ${end.format("HH:mm")}]]>
 											</date>
-											<location><![CDATA[${calcEvent.location}]]></location>
+											<location><![CDATA[${calEvent.location}]]></location>
 											<attendees>${xAttendees.join("")}</attendees>
 										</data>`,
 								xDetails = $.xmlFromString(xStr).selectNodes("/data/*");
