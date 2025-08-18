@@ -1,5 +1,5 @@
 
-// mail.content
+// email.content
 
 {
 	init() {
@@ -8,7 +8,7 @@
 		};
 	},
 	dispatch(event) {
-		let APP = mail,
+		let APP = email,
 			Self = APP.content,
 			el;
 		// console.log(event);

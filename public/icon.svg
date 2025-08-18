@@ -1,7 +1,7 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
 	<style type="text/css">
-		.st0{fill:url(#SVGID_1_);filter:url(#mail-dropshadow);}
+		.st0{fill:url(#SVGID_1_);filter:url(#email-dropshadow);}
 		.st1{fill:#FFFFFF;}
 	</style>
 	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="27.5" y1="53.0256" x2="27.5" y2="3.9744" gradientTransform="matrix(1 0 0 -1 0 56)">
@@ -9,7 +9,7 @@
 		<stop  offset="0.5" style="stop-color:#039DFC"/>
 		<stop  offset="1" style="stop-color:#00E6FF"/>
 	</linearGradient>
-	<filter filterUnits="objectBoundingBox" id="mail-dropshadow">
+	<filter filterUnits="objectBoundingBox" id="email-dropshadow">
 		<feOffset dx="0" dy=".125" in="SourceAlpha" result="defappShadowOffsetOuter1"></feOffset>
 		<feGaussianBlur stdDeviation=".5" in="defappShadowOffsetOuter1" result="defappShadowBlurOuter1"></feGaussianBlur>
 		<feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.35 0" type="matrix" in="defappShadowBlurOuter1" result="defappShadowMatrixOuter1"></feColorMatrix>

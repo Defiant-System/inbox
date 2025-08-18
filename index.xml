@@ -3,11 +3,11 @@
 		<task action="skip" source="src/js/bundle.js" destination="public/js/bundle.js"/>
 	</Build>
 	<Head>
-		<meta name="id" value="mail"/>
-		<meta name="title" value="Mail" version="1.47"/>
+		<meta name="id" value="email"/>
+		<meta name="title" value="Email" version="1.47"/>
 		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
 		<meta name="license" value="AGPL-3.0"/>
-		<meta name="repository" value="https://github.com/Defiant-System/mail"/>
+		<meta name="repository" value="https://github.com/Defiant-System/email"/>
 		<meta name="width" value="980" min="700"/>
 		<meta name="height" value="520" min="340"/>
 		<meta name="top" value="220"/>
@@ -24,6 +24,7 @@
 
 		<meta name="spawn" value="src/partials/spawn-new-mail/index.xml"/>
 
+		@import "src/partials/shell.xml"
 		@import "src/partials/toolbar.xml"
 		@import "src/partials/menubar.xml"
 		@import "src/partials/sounds.xml"

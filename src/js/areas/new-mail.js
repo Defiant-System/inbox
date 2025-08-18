@@ -1,12 +1,12 @@
 
-// mail.newMail
+// email.newMail
 
 {
 	init() {
 		
 	},
 	dispatch(event) {
-		let APP = mail,
+		let APP = email,
 			Self = APP.newMail,
 			Spawn = event.spawn,
 			data = {},

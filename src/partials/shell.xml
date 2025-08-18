@@ -1,5 +1,5 @@
 <Shell>
-	<i object="email" type="Application" description="Public Interace for Mail">
-		<i switch="s" name="sendMailTo" arg="[address]" description="Send e-mail to provided address."/>
+	<i object="email" type="Application" description="Public Interace for Email">
+		<i switch="w" name="writeMailTo" arg="[address]" description="Write e-mail to provided address."/>
 	</i>
 </Shell>

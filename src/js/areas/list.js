@@ -1,5 +1,5 @@
 
-// mail.list
+// email.list
 
 {
 	init() {
@@ -9,7 +9,7 @@
 		};
 	},
 	dispatch(event) {
-		let APP = mail,
+		let APP = email,
 			Self = APP.list,
 			xFolder,
 			data,

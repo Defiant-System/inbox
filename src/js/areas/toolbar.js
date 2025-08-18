@@ -1,5 +1,5 @@
 
-// mail.toolbar
+// email.toolbar
 
 {
 	init() {
@@ -9,7 +9,7 @@
 		};
 	},
 	dispatch(event) {
-		let APP = mail,
+		let APP = email,
 			Self = APP.toolbar,
 			isOn,
 			el;
