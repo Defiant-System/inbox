@@ -67,8 +67,10 @@ const email = {
 		}
 	},
 	// shell exposed methods: START
-	sendMailTo(mail) {
-		console.log(mail);
+	writeMailTo(mail) {
+		// open new spawn & insert email addres
+		let Spawn = window.open("new-mail");
+		Spawn.find(`input[name="mail-to"]`).val(mail);
 	},
 	// shell exposed methods: END
 	toolbar: @import "areas/toolbar.js",
