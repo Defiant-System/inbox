@@ -156,9 +156,9 @@
 					left = offset.left,
 					width = event.el.width(),
 					height = event.el.height();
-
+				// prepare ghost/clone
 				clone.removeClass("active").css({ top, left, height, width });
-
+				// return ghost
 				return Self.els.swap.append(clone);
 		}
 	}
