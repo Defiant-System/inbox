@@ -75,6 +75,12 @@
 					Self.dispatch({ type: "render-mail-contents", id: event.id });
 				}
 				break;
+			case "clear-view":
+				// clear view
+				Self.els.el.html("");
+				// update toolbar
+				APP.toolbar.dispatch({ type: "mail-selected" });
+				break;
 			case "render-mail-contents":
 				// render mail content
 				window.render({

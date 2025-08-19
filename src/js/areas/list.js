@@ -48,7 +48,10 @@
 				break;
 			case "select-thread":
 				el = $(event.target);
-				if (!el.length || el[0] === event.el[0] || !el.data("id")) return;
+				if (!el.length || el[0] === event.el[0] || !el.data("id")) {
+					Self.els.el.find(".active").removeClass("active");
+					return APP.content.dispatch({ type: "clear-view" });
+				}
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				// make sure thread is marked as "read"
