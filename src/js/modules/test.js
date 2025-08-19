@@ -11,9 +11,9 @@ let Test = {
 		// setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
 		
-		// setTimeout(() => {
-		// 	window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
-		// }, 500);
+		return setTimeout(() => {
+			window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
+		}, 500);
 		
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 
