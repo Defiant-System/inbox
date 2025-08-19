@@ -95,6 +95,25 @@
 						}
 					});
 				break;
+			case "put-mail-in-folder":
+				data = [];
+				data.push({ id: event.id, fId: event.fId });
+				karaqu.shell({ cmd: "mail -u", data })
+					.then(res => {
+						// move xml node
+						data.map(mail => {
+							let xMail = APP.xData.selectSingleNode(`//mail[@id="${mail.id}"]`),
+								xFolder = APP.xData.selectSingleNode(`//folder[@id="${mail.fId}"]`);
+							// move mail to folder
+							xFolder.appendChild(xMail);
+						});
+						// DOM animation
+						event.el.cssSequence("list-entry-disappear", "transitionend", el => el.remove());
+						// reset drag / drop
+						Self.dispatch({ type: "reset-drag-drop" });
+					});
+				break;
+
 			case "permanently-empty-trashcan":
 				karaqu.shell("mail -d")
 					.then(res => {
@@ -107,22 +126,13 @@
 				break;
 
 			case "drop-mail-in-folder":
-				data = [];
-				data.push({ id: event.el.data("id"), fId: event.target.data("fId") });
-				karaqu.shell({ cmd: "mail -u", data })
-					.then(res => {
-						// move xml node
-						data.map(mail => {
-							let xMail = APP.xData.selectSingleNode(`//mail[@id="${mail.id}"]`),
-								xFolder = APP.xData.selectSingleNode(`//folder[@id="${mail.fId}"]`);
-							// move mail to folder
-							xFolder.appendChild(xMail);
-						});
-						// DOM animation
-						Self.dragOrigin.cssSequence("list-entry-disappear", "transitionend", el => el.remove());
-						// reset drag / drop
-						Self.dispatch({ type: "reset-drag-drop" });
-					});
+				// forward event
+				Self.dispatch({
+					type: "put-mail-in-folder",
+					id: event.el.data("id"),
+					fId: event.target.data("fId"),
+					el: Self.dragOrigin,
+				});
 				break;
 
 			case "drop-mail-outside":
@@ -136,7 +146,7 @@
 				// click element if no drag'n drop
 				if (!event.hasMoved && Self.dragOrigin) Self.dragOrigin.trigger("click");
 				// reset reference to dragged element
-				Self.dragOrigin.removeClass("dragged-mail");
+				if (Self.dragOrigin) Self.dragOrigin.removeClass("dragged-mail");
 				delete Self.dragOrigin;
 				break;
 

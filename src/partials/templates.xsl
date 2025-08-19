@@ -94,6 +94,8 @@
 		<xsl:if test="position() = 1 or name(..) != 'thread'">
 			<xsl:attribute name="class">mail-entry active expanded</xsl:attribute>
 		</xsl:if>
+		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
+		<xsl:attribute name="data-messageId"><xsl:value-of select="tags/*[@id='messageId']/@value"/></xsl:attribute>
 		<xsl:if test="count(attachment) &gt; 0">
 			<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
 		</xsl:if>

@@ -10,6 +10,7 @@
 	dispatch(event) {
 		let APP = email,
 			Self = APP.content,
+			data,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -81,6 +82,8 @@
 					match: `//mail[@id="${event.id}"]`,
 					target: Self.els.el,
 				});
+				// toggle toolbar buttons
+				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
 			case "toggle-message-view":
 				el = Self.els.el.find("> .wrapper");
@@ -96,7 +99,18 @@
 				if (!el.length || el[0] === event.el[0]) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+				// toggle toolbar buttons
+				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
+			case "get-active-mail":
+				el = Self.els.el.find(`.mail-entry.active`);
+				data = {
+					el,
+					id: el.data("id"),
+					messageId: el.data("messageId"),
+					listEl: APP.list.els.el.find(".list-entry.active"),
+				};
+				return data;
 			case "add-to-calendar":
 				// start calerndar in the background
 				karaqu.shell(`win -o calendar`)
