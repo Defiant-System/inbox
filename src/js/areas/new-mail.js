@@ -10,6 +10,7 @@
 			Self = APP.newMail,
 			Spawn = event.spawn,
 			data = {},
+			xMail,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -51,6 +52,16 @@
 
 			// from parent window
 			case "reply-mail":
+				xMail = APP.xData.selectSingleNode(`//mail[@id="${event.activeMail.id}"]`);
+				// add recipient(s)
+				xMail.selectNodes("./to/i").map(xRcpt => {
+					let rcpt = $(`<span class="recient" data-mail="${xRcpt.getAttribute("mail")}">${xRcpt.getAttribute("name")}</span>`);
+					Spawn.find(`input[name="mail-to"]`).before(rcpt);
+				});
+				// fill in subject
+				Spawn.find(`input[name="mail-subject"]`).val(`RE: ${xMail.selectSingleNode("./subject").textContent}`);
+				// fill hidden messageId
+				Spawn.find(`input[name="message-id"]`).val(xMail.selectSingleNode(`./tags/*[@id="messageId"]`).getAttribute("value"));
 				// render mail content
 				el = window.render({
 						template: "reply-to-mail",
@@ -59,8 +70,10 @@
 					});
 				// clean up gmail inline styling
 				el.find(`.mail-entry .body *[style]`).removeAttr("style");
-
+				// insert previous mail
 				Spawn.find(`div.mail-message`).html(el);
+
+				setTimeout(() => Spawn.find(`div.mail-message`).focus(), 100);
 				break;
 		}
 	}
