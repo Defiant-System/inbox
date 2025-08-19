@@ -48,6 +48,20 @@
 				// close spawn window
 				Spawn.close();
 				break;
+
+			// from parent window
+			case "reply-mail":
+				// render mail content
+				el = window.render({
+						template: "reply-to-mail",
+						match: `//mail[@id="${event.activeMail.id}"]`,
+						vdom: true,
+					});
+				// clean up gmail inline styling
+				el.find(`.mail-entry .body *[style]`).removeAttr("style");
+
+				Spawn.find(`div.mail-message`).html(el);
+				break;
 		}
 	}
 }

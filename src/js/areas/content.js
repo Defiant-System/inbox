@@ -88,6 +88,8 @@
 					match: `//mail[@id="${event.id}"]`,
 					target: Self.els.el,
 				});
+				// clean up gmail inline styling
+				Self.els.el.find(`.mail-entry .body *[style]`).removeAttr("style");
 				// toggle toolbar buttons
 				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
@@ -113,6 +115,7 @@
 				data = {
 					el,
 					id: el.data("id"),
+					ids: Self.els.el.find(".mail-entry").map(elem => elem.getAttribute("data-id")),
 					messageId: el.data("messageId"),
 					listEl: APP.list.els.el.find(".list-entry.active"),
 				};

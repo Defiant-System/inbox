@@ -48,7 +48,16 @@
 				Self.els.el.parent().toggleClass("has-mails", !Self.els.el.find(".list-entry").length);
 
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				console.log( activeMail );
+				if (activeMail.id) {
+					let listEntry = Self.els.el.find(`.list-entry[data-id="${activeMail.id}"]`).addClass("active");
+					if (!listEntry.length) {
+						let found = false;
+						activeMail.ids.map(id => {
+							if (found) return;
+							found = !!Self.els.el.find(`.list-entry[data-id="${id}"]`).addClass("active").length;
+						});
+					}
+				}
 				break;
 			case "select-thread":
 				el = $(event.target);

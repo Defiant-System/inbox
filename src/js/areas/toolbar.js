@@ -16,9 +16,11 @@
 	dispatch(event) {
 		let APP = email,
 			Self = APP.toolbar,
+			spawn,
 			activeMail,
 			isOn,
 			el;
+		// console.log(event);
 		switch (event.type) {
 			case "toggle-sidebar":
 				isOn = Self.els.layout.hasClass("show-sidebar");
@@ -28,7 +30,7 @@
 				APP.list.dispatch({ type: "check-for-new-mail" });
 				break;
 			case "new-mail":
-				window.open("new-mail");
+				spawn = window.open("new-mail");
 				break;
 			case "delete-mail":
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
@@ -37,6 +39,18 @@
 			case "junk-mail":
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
 				APP.list.dispatch({ type: "put-mail-in-folder", id: activeMail.id, fId: 2003, el: activeMail.listEl });
+				break;
+			case "archive-mail":
+				// TODO
+				break;
+			case "reply-mail":
+				spawn = window.open("new-mail");
+				activeMail = APP.content.dispatch({ type: "get-active-mail" });
+				APP.dispatch({ type: "reply-mail", spawn, activeMail });
+				break;
+			case "reply-all-mail":
+				break;
+			case "forward-mail":
 				break;
 			case "mail-selected":
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
