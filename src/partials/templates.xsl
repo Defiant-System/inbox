@@ -49,7 +49,10 @@
 			<xsl:if test="@forwarded or position() = 4"> forwarded</xsl:if>
 		</xsl:attribute>
 		<div class="row">
-			<span class="from"><xsl:value-of select="from/i/@name"/></span>
+			<span class="from recient">
+				<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
+				<xsl:value-of select="from/i/@name"/>
+			</span>
 			<xsl:if test="tags/i[@id = 'priority' and @value = '1']">
 				<i class="icon-flag-red"></i>
 			</xsl:if>
@@ -98,7 +101,7 @@
 			<span class="avatar"></span>
 			<div class="row">
 				<span class="field-name">From</span>
-				<span class="field-value from-name">
+				<span class="field-value from-name recient">
 					<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
 					<xsl:value-of select="from/i/@name"/>
 				</span>
@@ -108,7 +111,7 @@
 			<div class="row">
 				<span class="field-name">To</span>
 				<xsl:for-each select="to/i">
-					<span class="field-value to-name">
+					<span class="field-value to-name recient">
 						<xsl:attribute name="data-mail"><xsl:value-of select="@mail"/></xsl:attribute>
 						<xsl:if test="@name = ''">
 							<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
