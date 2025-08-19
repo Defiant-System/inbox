@@ -11,6 +11,7 @@
 	dispatch(event) {
 		let APP = email,
 			Self = APP.list,
+			activeMail,
 			xFolder,
 			data,
 			el;
@@ -45,6 +46,9 @@
 				});
 				// is there any mails in the list
 				Self.els.el.parent().toggleClass("has-mails", !Self.els.el.find(".list-entry").length);
+
+				activeMail = APP.content.dispatch({ type: "get-active-mail" });
+				console.log( activeMail );
 				break;
 			case "select-thread":
 				el = $(event.target);
@@ -155,7 +159,7 @@
 
 			case "check-mail-drag":
 				// tag dragged item
-				Self.dragOrigin = event.el.addClass("dragged-mail");
+				Self.dragOrigin = event.el;
 				// tag "drop zones"
 				APP.sidebar.els.el.find(".folder-entry")
 					.data({
@@ -163,7 +167,7 @@
 						"drop-outside": "drop-mail-outside",
 					});
 
-				let clone = Self.dragOrigin.clone(true),
+				let clone = Self.dragOrigin.clone(true).addClass("dragged-mail drag-clone"),
 					offset = event.el.offset("layout"),
 					top = offset.top,
 					left = offset.left,
