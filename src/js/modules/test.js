@@ -13,7 +13,7 @@ let Test = {
 		
 		return setTimeout(() => {
 			window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
-			setTimeout(() => APP.toolbar.els.btnReply.trigger("click"), 200);
+			// setTimeout(() => APP.toolbar.els.btnReply.trigger("click"), 200);
 		}, 200);
 		
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);

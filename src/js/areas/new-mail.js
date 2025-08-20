@@ -40,20 +40,28 @@
 				});
 				break;
 			case "send-mail":
-				// data.to = [{ name: "Hakan Bilgin", mail: "hbi@longscript.com" }];
-				data.to = Spawn.find(`.mail-rcpt`).map(el => {
+				// mail recipients
+				data.to = Spawn.find(`.recient`).map(el => {
 					let name = el.innerHTML,
-						mail = el.getAttribute("data-mail");
-					return { name, mail };
+						address = el.getAttribute("data-mail");
+					return { name, address };
 				});
+				// if input field contains an address
+				val = Spawn.find(`input[name="mail-to"]`).val();
+				if (!!val) data.to.push({ mail: val });
+				// email subject
 				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
+				// email body + clean up
 				data.body = Spawn.find(`div.mail-message`).html();
+				data.body.replace(/quote_container block-collapsed/g, "quote_container");
+				data.body.replace(/data-click=".+?"/g, "");
+				// email attachments
 				data.attachments = [];
 				data.headers = {};
 				// if reply to "message-id"
-				val = Spawn.find(`input[name="message-id"]`).val();
+				val = Spawn.find(`input[name="inReplyTo"]`).val();
 				if (!!val) {
-					data.headers["message-id"] = val;
+					data.headers["inReplyTo"] = val;
 				}
 				// play sound
 				window.audio.play("swoosh");
@@ -67,14 +75,14 @@
 			case "reply-mail":
 				xMail = APP.xData.selectSingleNode(`//mail[@id="${event.activeMail.id}"]`);
 				// add recipient(s)
-				xMail.selectNodes("./to/i").map(xRcpt => {
+				xMail.selectNodes("./from/i").map(xRcpt => {
 					let rcpt = $(`<span class="recient" data-mail="${xRcpt.getAttribute("mail")}">${xRcpt.getAttribute("name")}</span>`);
 					Spawn.find(`input[name="mail-to"]`).before(rcpt);
 				});
 				// fill in subject
 				Spawn.find(`input[name="mail-subject"]`).val(`RE: ${xMail.selectSingleNode("./subject").textContent}`);
 				// fill hidden messageId
-				Spawn.find(`input[name="message-id"]`).val(xMail.selectSingleNode(`./tags/*[@id="messageId"]`).getAttribute("value"));
+				Spawn.find(`input[name="inReplyTo"]`).val(xMail.selectSingleNode(`./tags/*[@id="messageId"]`).getAttribute("value"));
 				// render mail content
 				el = window.render({
 						template: "reply-to-mail",
