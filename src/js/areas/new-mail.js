@@ -31,6 +31,13 @@
 			case "attache-file-to-mail":
 				console.log(event);
 				break;
+			case "expand-container":
+				// expand container
+				event.el.cssSequence("expand-block", "transitionend", el => {
+					// reset block
+					el.removeClass("expand-block block-collapsed").removeAttr("data-click");
+				});
+				break;
 			case "send-mail":
 				// data.to = [{ name: "Hakan Bilgin", mail: "hbi@longscript.com" }];
 				data.to = Spawn.find(`.mail-rcpt`).map(el => {

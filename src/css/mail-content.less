@@ -31,3 +31,58 @@ span, p {
 	line-height: 1.5 !important;
 	font-family: Arial, Helvetica, sans-serif !important;
 }
+
+.quote_container {
+	&.block-collapsed {
+		position: relative;
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 300ms ease-in-out;
+
+		&.expand-block {
+			grid-template-rows: 1fr;
+
+			&:before {
+				display: none;
+			}
+
+			> div,
+			> blockquote {
+				opacity: 1;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				max-height: 100%;
+			}
+		}
+
+		&:hover {
+			&:before { background: #bbb; }
+		}
+
+		&:before {
+			content: "...";
+			position: absolute;
+			top: -3px;
+			left: 0;
+			width: 21px;
+			height: 12px;
+			background: #ccc;
+			color: #fff;
+			border-radius: 12px;
+			line-height: 6px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		> div,
+		> blockquote {
+			opacity: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			max-height: 0;
+			overflow: hidden;
+			transition: all 1ms ease-in-out;
+			transition-duration: inherit;
+		}
+	}
+}

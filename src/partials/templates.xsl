@@ -91,7 +91,7 @@
 
 <xsl:template name="reply-to-mail">
 	<br/><br/>
-	<div>
+	<div class="quote_container block-collapsed" data-click="expand-container">
 		<div>Den tis 19 aug. 2025 kl 09:10 skrev 
 			<xsl:value-of select="from/i/@name"/> 
 			&lt;<a>
