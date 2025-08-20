@@ -11,6 +11,7 @@
 			Spawn = event.spawn,
 			data = {},
 			xMail,
+			val,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -48,7 +49,12 @@
 				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
 				data.body = Spawn.find(`div.mail-message`).html();
 				data.attachments = [];
-
+				data.headers = {};
+				// if reply to "message-id"
+				val = Spawn.find(`input[name="message-id"]`).val();
+				if (!!val) {
+					data.headers["message-id"] = val;
+				}
 				// play sound
 				window.audio.play("swoosh");
 				// pass mail envelope to karaqu
@@ -78,7 +84,7 @@
 				// clean up gmail inline styling
 				el.find(`.mail-entry .body *[style]`).removeAttr("style");
 				// insert previous mail
-				Spawn.find(`div.mail-message`).html(el);
+				Spawn.find(`div.mail-message`).html(el.html());
 
 				setTimeout(() => Spawn.find(`div.mail-message`).focus(), 100);
 				break;
