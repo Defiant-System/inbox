@@ -617,6 +617,7 @@ content {
 			grid-template-rows: 1fr;
 
 			.head {
+				overflow: visible;
 				height: auto;
 				max-height: 100%;
 				cursor: default;
@@ -641,12 +642,12 @@ content {
 					}
 				}
 				
-				.recient[data-mail] {
+				.recient[data-address] {
 					position: relative;
 
 					&:hover {
 						&:before {
-							content: attr(data-mail);
+							content: attr(data-address);
 							position: absolute;
 							top: -25px;
 							left: 50%;
@@ -758,7 +759,7 @@ content {
 
 				&.no-name {
 					&:after {
-						content: attr(data-mail);
+						content: attr(data-address);
 					}
 				}
 			}

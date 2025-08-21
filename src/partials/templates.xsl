@@ -50,7 +50,7 @@
 		</xsl:attribute>
 		<div class="row">
 			<span class="from recient">
-				<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
+				<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
 				<xsl:value-of select="from/i/@name"/>
 			</span>
 			<xsl:if test="tags/i[@id = 'priority' and @value = '1']">
@@ -95,8 +95,8 @@
 		<div>Den tis 19 aug. 2025 kl 09:10 skrev 
 			<xsl:value-of select="from/i/@name"/> 
 			&lt;<a>
-				<xsl:attribute name="href">mailto:<xsl:value-of select="from/i/@mail"/></xsl:attribute>
-				<xsl:value-of select="from/i/@mail"/>
+				<xsl:attribute name="href">mailto:<xsl:value-of select="from/i/@address"/></xsl:attribute>
+				<xsl:value-of select="from/i/@address"/>
 			</a>&gt;:</div>
 		<blockquote><xsl:value-of select="html/text()" disable-output-escaping="yes"/></blockquote>
 	</div>
@@ -118,7 +118,7 @@
 			<div class="row">
 				<span class="field-name">From</span>
 				<span class="field-value from-name recient">
-					<xsl:attribute name="data-mail"><xsl:value-of select="from/i/@mail"/></xsl:attribute>
+					<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
 					<xsl:value-of select="from/i/@name"/>
 				</span>
 				<span class="date"><xsl:value-of select="date/@date"/></span>
@@ -128,7 +128,7 @@
 				<span class="field-name">To</span>
 				<xsl:for-each select="to/i">
 					<span class="field-value to-name recient">
-						<xsl:attribute name="data-mail"><xsl:value-of select="@mail"/></xsl:attribute>
+						<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
 						<xsl:if test="@name = ''">
 							<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
 						</xsl:if>
@@ -164,7 +164,7 @@
 						<span class="name">Vem</span>
 						<span class="value">
 							<xsl:for-each select="attendees/*">
-								<span class="attendee"><xsl:value-of select="@mail"/></span>
+								<span class="attendee"><xsl:value-of select="@address"/></span>
 							</xsl:for-each>
 						</span>
 					</div>
