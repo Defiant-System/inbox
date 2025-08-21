@@ -48,7 +48,7 @@
 				});
 				// if input field contains an address
 				val = Spawn.find(`input[name="mail-to"]`).val();
-				if (!!val) data.to.push({ mail: val });
+				if (!!val) data.to.push({ address: val });
 				// email subject
 				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
 				// email body + clean up

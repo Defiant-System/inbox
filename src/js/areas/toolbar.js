@@ -31,6 +31,7 @@
 				break;
 			case "new-mail":
 				spawn = window.open("new-mail");
+				setTimeout(() => spawn.find(`input[name="mail-to"]`).focus(), 100);
 				break;
 			case "delete-mail":
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });

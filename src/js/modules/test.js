@@ -11,11 +11,11 @@ let Test = {
 		// setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
 		
-		return setTimeout(() => {
-			window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
-			// setTimeout(() => APP.toolbar.els.btnReply.trigger("click"), 200);
-			setTimeout(() => APP.content.els.el.find(`.mail-entry:nth(1) .head`).trigger("click"), 200);
-		}, 200);
+		// return setTimeout(() => {
+		// 	window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
+		// 	// setTimeout(() => APP.toolbar.els.btnReply.trigger("click"), 200);
+		// 	setTimeout(() => APP.content.els.el.find(`.mail-entry:nth(1) .head`).trigger("click"), 200);
+		// }, 200);
 		
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
 
@@ -40,11 +40,12 @@ let Test = {
 		// return;
 		setTimeout(() => {
 			// Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
-			// Spawn.find(`input[name="mail-to"]`).val("hbi@longscript.com");
-			let rcpt = $(`<div class="mail-rcpt" data-mail="hbi@longscript.com">Hakan Bilgin</div>`);
-			Spawn.find(`input[name="mail-to"]`).before(rcpt);
-			Spawn.find(`input[name="mail-subject"]`).val("Writing the subject of the e-mail");
-			Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
+			Spawn.find(`input[name="mail-to"]`).val("hbi@longscript.com");
+			// let rcpt = $(`<div class="mail-rcpt" data-mail="hbi@longscript.com">Hakan Bilgin</div>`);
+			// Spawn.find(`input[name="mail-to"]`).before(rcpt);
+			Spawn.find(`input[name="mail-subject"]`).val("This is a thread start");
+			Spawn.find(`div.mail-message`).html(`This is the thread root.<br/><br/>-H`);
+			// Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
 			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
 		}, 200);
 		
