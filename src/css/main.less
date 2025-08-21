@@ -647,17 +647,32 @@ content {
 
 					&:hover {
 						&:before {
+							content: "";
+							background: url(~/icons/tiny-arrow.png) 50% 50%/contain no-repeat;
+							position: absolute;
+							top: 3px;
+							left: 100%;
+							width: 15px;
+							height: 12px;
+							opacity: .6;
+							transform: translateX(2px);
+						}
+
+						&:after {
 							content: attr(data-address);
 							position: absolute;
-							top: -25px;
-							left: 50%;
-							transform: translateX(-50%);
+							top: -3px;
+							left: 100%;
+							transform: translateX(17px);
 							white-space: nowrap;
-							padding: 3px 9px 2px;
-							background: #fff;
-							box-shadow: inset 0 -3px 5px #0001,
-										0 0 0 2px #0001,
-										0 2px 5px #0007;
+							padding: 2px 9px 2px;
+							background: #e5f1ff;
+							color: #48b;
+							text-shadow: 0 1px 0 #fff;
+							box-shadow: inset 0 1px 1px #fff,
+										inset 0 -1px 1px #489bf750,
+										0 0 0 1px #489bf7aa,
+										3px 1px 5px #0003;
 							border-radius: 30px;
 							pointer-events: none;
 						}
@@ -668,6 +683,17 @@ content {
 			.body {
 				height: calc-size(auto, size);
 				padding: 3px 0 9px;
+			}
+		}
+
+		// possibly forwarded from "foreign" thread
+		&.not-thread {
+			.body {
+				.quote_container,
+				.quote_container.block-collapsed,
+				.gmail_quote {
+					display: initial;
+				}
 			}
 		}
 

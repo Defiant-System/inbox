@@ -88,7 +88,6 @@
 					match: `//mail[@id="${event.id}"]`,
 					target: Self.els.el,
 				});
-				console.log( Self.els.el.html() );
 				// clean up gmail inline styling
 				Self.els.el.find(`.mail-entry .body *[style]`).removeAttr("style");
 				// toggle toolbar buttons
