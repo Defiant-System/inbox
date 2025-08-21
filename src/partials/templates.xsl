@@ -184,7 +184,7 @@
 			</div>
 		</xsl:for-each>
 
-		<div class="body">
+		<div class="body" contenteditable="false">
 			<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
 		</div>
 
