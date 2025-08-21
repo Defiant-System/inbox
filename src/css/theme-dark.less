@@ -1,4 +1,37 @@
 
 &[data-theme="dark"] {
-	
+	layout {
+		background: #eee1;
+		color: #fff;
+		text-shadow: 0 1px 0 #0007;
+
+		sidebar {
+			background: #ddd1;
+			color: #fff;
+
+			&:after {
+				border-right-color: #0002;
+			}
+
+			.folder-entry {
+				&.active {
+					color: #fff;
+				}
+
+				[class*="icon-"],
+				[class^="icon-"] {
+					filter: invert(1);
+				}
+			}
+		}
+
+		list {
+			background: #fff1;
+			color: #fff;
+
+			&:after {
+				border-right-color: #0002;
+			}
+		}
+	}
 }
