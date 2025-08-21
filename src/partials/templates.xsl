@@ -45,8 +45,8 @@
 		<xsl:attribute name="class">
 			list-entry
 			<xsl:if test="@is_read = '0'"> unread</xsl:if>
-			<xsl:if test="@replied or position() = 3"> replied</xsl:if>
-			<xsl:if test="@forwarded or position() = 4"> forwarded</xsl:if>
+			<xsl:if test="tags/i[@id = 'replied' and @value = '1']"> replied</xsl:if>
+			<xsl:if test="tags/i[@id = 'forwarded' and @value = '1']"> forwarded</xsl:if>
 		</xsl:attribute>
 		<div class="row">
 			<span class="from recient">
