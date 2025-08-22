@@ -12,7 +12,7 @@ let Test = {
 
 		
 		return setTimeout(() => {
-			window.find(`list .wrapper .list-entry`).nth(2).trigger("click");
+			window.find(`list .wrapper .list-entry`).nth(0).trigger("click");
 			// setTimeout(() => APP.toolbar.els.btnReply.trigger("click"), 200);
 			// setTimeout(() => APP.content.els.el.find(`.mail-entry:nth(1) .head`).trigger("click"), 200);
 		}, 200);

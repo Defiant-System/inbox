@@ -46,7 +46,7 @@
 			list-entry
 			<xsl:if test="@is_read = '0'"> unread</xsl:if>
 			<xsl:if test="tags/i[@id = 'replied' and @value = '1']"> replied</xsl:if>
-			<xsl:if test="tags/i[@id = 'forwarded' and @value = '1']"> forwarded</xsl:if>
+			<xsl:if test="tags/i[@id = 'forward' and @value = '1']"> forward</xsl:if>
 		</xsl:attribute>
 		<div class="row">
 			<span class="from recient">
@@ -63,8 +63,8 @@
 			<xsl:if test="count(attachments/*) &gt; 0">
 				<i class="icon-attachment"></i>
 			</xsl:if>
-			<xsl:if test="count(mail) &gt; 1">
-				<span class="replies"><xsl:value-of select="count(mail)"/></span>
+			<xsl:if test="@thread">
+				<span class="replies"><xsl:value-of select="@thread"/></span>
 			</xsl:if>
 		</div>
 	</div>
@@ -107,7 +107,7 @@
 	<div class="mail-entry">
 		<xsl:if test="position() = 1 or name(..) != 'thread'">
 			<xsl:attribute name="class">mail-entry active expanded
-				<xsl:if test="name(..) != 'thread'"> not-thread</xsl:if>
+				<xsl:if test="name(..) != 'thread' or count(../mail) = 1"> not-thread</xsl:if>
 			</xsl:attribute>
 		</xsl:if>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>

@@ -290,7 +290,7 @@ list {
 		}
 
 		&.replied:before,
-		&.forwarded:before {
+		&.forward:before {
 			filter: invert(1) brightness(1.75);
 		}
 	}
@@ -319,7 +319,7 @@ list {
 			width: 11px;
 			height: 11px;
 			border-radius: 50%;
-			background-image: url(~/icons/icon-reply-all.png);;
+			background-image: url(~/icons/icon-reply-all.png);
 			background-position: 80% 50%;
 			background-size: 11px 11px;
 			background-repeat: no-repeat;
@@ -327,7 +327,7 @@ list {
 		}
 	}
 
-	&.forwarded {
+	&.forward {
 		&:before {
 			content: "";
 			position: absolute;
@@ -336,7 +336,7 @@ list {
 			width: 11px;
 			height: 11px;
 			border-radius: 50%;
-			background-image: url(~/icons/icon-forward.png);;
+			background-image: url(~/icons/icon-forward.png);
 			background-position: 80% 50%;
 			background-size: 11px 11px;
 			background-repeat: no-repeat;
