@@ -1,19 +1,19 @@
 <ToolBar>
 	<Group width="69%">
-		<Tool symbol="icon-sidebar" click="toggle-sidebar" state="active"/>
-		<Tool symbol="icon-send-receive" click="send-receive"/>
-		<Tool symbol="icon-new-mail" click="new-mail"/>
+		<Tool symbol="icon-sidebar" click="toggle-sidebar" title="Sidebar" state="active"/>
+		<Tool symbol="icon-send-receive" click="send-receive" title="Check for mail"/>
+		<Tool symbol="icon-new-mail" click="new-mail" title="New Mail"/>
 		<Options>
-			<Tool symbol="icon-trash" click="delete-mail" state="disabled"/>
-			<Tool symbol="icon-archive" click="archive-mail" state="disabled"/>
+			<Tool symbol="icon-trash" click="delete-mail" title="Trashcan" state="disabled"/>
+			<Tool symbol="icon-archive" click="archive-mail" title="Archive" state="disabled"/>
 		</Options>
-		<Tool symbol="icon-junk" click="junk-mail" state="disabled"/>
+		<Tool symbol="icon-junk" click="junk-mail" title="Junk" state="disabled"/>
 		<Options>
-			<Tool symbol="icon-reply" click="reply-mail" state="disabled"/>
-			<Tool symbol="icon-reply-all" click="reply-all-mail" state="disabled"/>
-			<Tool symbol="icon-forward" click="forward-mail" state="disabled"/>
+			<Tool symbol="icon-reply" click="reply-mail" title="Reply" state="disabled"/>
+			<Tool symbol="icon-reply-all" click="reply-all-mail" title="Reply All" state="disabled"/>
+			<Tool symbol="icon-forward" click="forward-mail" title="Forward" state="disabled"/>
 		</Options>
-		<Tool symbol="icon-flag" menu="toolbar-flags" state="disabled"/>
+		<Tool symbol="icon-tool-flag" menu="toolbar-flags" state="disabled"/>
 	</Group>
 	<Group width="31%">
 		<Search placeholder="Search" state="disabled"/>
