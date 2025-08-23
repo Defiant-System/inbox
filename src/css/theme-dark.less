@@ -32,6 +32,45 @@
 			&:after {
 				border-right-color: #0002;
 			}
+
+			.list-entry {
+				.row {
+					.date {
+						color: #fff8;
+						text-shadow: 0 1px 0 #0005;
+					}
+				}
+			}
+		}
+
+		content {
+			.mail-entry {
+				background: #fff3;
+				color: #fffd;
+				text-shadow: 0 1px 0 #0005;
+
+				&:before {
+					filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
+				}
+
+				.head {
+					.field-value {
+						color: #fff;
+						text-shadow: 0 1px 0 #0005;
+					}
+
+					.time {
+						&:before,
+						&:after {
+							filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
+						}
+					}
+				}
+
+				.body {
+					color: #fff;
+				}
+			}
 		}
 	}
 }
