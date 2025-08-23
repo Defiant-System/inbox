@@ -81,7 +81,7 @@
 					xRecipients = xMail.selectNodes(`./thread/mail[@id="${event.activeMail.id}"]/from/i`);
 				}
 				xRecipients.map(xRcpt => {
-					let rcpt = $(`<span class="recient" data-mail="${xRcpt.getAttribute("mail")}">${xRcpt.getAttribute("name")}</span>`);
+					let rcpt = $(`<span class="recient" data-mail="${xRcpt.getAttribute("address")}">${xRcpt.getAttribute("name")}</span>`);
 					Spawn.find(`input[name="mail-to"]`).before(rcpt);
 				});
 				// fill in subject

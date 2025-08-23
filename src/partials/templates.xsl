@@ -92,12 +92,13 @@
 <xsl:template name="reply-to-mail">
 	<br/><br/>
 	<div class="quote_container block-collapsed" data-click="expand-container">
-		<div><xsl:value-of select="thread/mail[1]/from/i/@name"/> 
+		<div>
+			At <xsl:value-of select="date/@date"/>, <xsl:value-of select="date/@time"/> o'clock,
+			<xsl:value-of select="thread/mail[1]/from/i/@name"/> 
 			&lt;<a>
-				<xsl:attribute name="href">mailto:<xsl:value-of select="from/i/@address"/></xsl:attribute>
-				<xsl:value-of select="from/i/@address"/>
-			</a>&gt; wrote, 
-			<xsl:value-of select="date/@date"/>, <xsl:value-of select="date/@time"/> o'clock:
+				<xsl:attribute name="href">mailto:<xsl:value-of select="thread/mail[1]/from/i/@address"/></xsl:attribute>
+				<xsl:value-of select="thread/mail[1]/from/i/@address"/>
+			</a>&gt; wrote:
 		</div>
 		<!-- <blockquote><xsl:value-of select="html/text()" disable-output-escaping="yes"/></blockquote> -->
 		<blockquote><xsl:value-of select="thread/mail[1]/html/text()" disable-output-escaping="yes"/></blockquote>
