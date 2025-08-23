@@ -74,15 +74,22 @@
 			// from parent window
 			case "reply-mail":
 				xMail = APP.xData.selectSingleNode(`//mail[@id="${event.activeMail.id}"]`);
+				// console.log(xMail);
 				// add recipient(s)
-				xMail.selectNodes("./from/i").map(xRcpt => {
+				let xRecipients = xMail.selectNodes(`./from/i`);
+				if (!xRecipients.length) {
+					xRecipients = xMail.selectNodes(`./thread/mail[@id="${event.activeMail.id}"]/from/i`);
+				}
+				xRecipients.map(xRcpt => {
 					let rcpt = $(`<span class="recient" data-mail="${xRcpt.getAttribute("mail")}">${xRcpt.getAttribute("name")}</span>`);
 					Spawn.find(`input[name="mail-to"]`).before(rcpt);
 				});
 				// fill in subject
 				Spawn.find(`input[name="mail-subject"]`).val(`RE: ${xMail.selectSingleNode("./subject").textContent}`);
 				// fill hidden messageId
-				Spawn.find(`input[name="inReplyTo"]`).val(xMail.selectSingleNode(`./tags/*[@id="messageId"]`).getAttribute("value"));
+				let xMessageId = xMail.selectSingleNode(`./tags/*[@id="messageId"]`);
+				if (!xMessageId) xMessageId = xMail.selectSingleNode(`./thread/mail[@id="${event.activeMail.id}"]/tags/*[@id="messageId"]`);
+				Spawn.find(`input[name="inReplyTo"]`).val(xMessageId.getAttribute("value"));
 				// render mail content
 				el = window.render({
 						template: "reply-to-mail",
