@@ -1,16 +1,15 @@
 <Data>
-	<!-- <Mailboxes>
-		<i icon="cloud" name="Google Mail" />
-		<i icon="cloud" name="Hotmail" />
-	</Mailboxes> -->
-
 	<Mailbox>
 		<folder id="2001" icon="inbox" name="Inbox"/>
 		<folder id="2004" icon="sent" name="Sent" />
 		<folder id="2003" icon="junk" name="Junk" />
 		<folder id="2002" icon="folder" name="Drafts" />
 		<folder id="2005" icon="trash" name="Deleted" />
-		<!-- <folder id="2001" icon="folder" name="Leads" unread="2" />
-		<folder id="2001" icon="folder" name="Proposals" /> -->
 	</Mailbox>
+
+	@import "temp-thread.xml"
 </Data>
+
+
+
+

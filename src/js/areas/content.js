@@ -89,7 +89,7 @@
 					target: Self.els.el,
 				});
 				// clean up gmail inline styling
-				// Self.els.el.find(`.mail-entry .body *[style]`).removeAttr("style");
+				Self.els.el.find(`.mail-entry .body .gmail_quote[style]`).removeAttr("style");
 				// toggle toolbar buttons
 				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;

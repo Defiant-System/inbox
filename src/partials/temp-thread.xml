@@ -1,0 +1,424 @@
+<TempThread>
+	<mail id="mid-123" is_read="1" size="4975">
+		<subject><![CDATA[ Re: Arguming about Thor and his Hammer ]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
+
+			<mail id="mid-1">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="messageId" value="1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
+
+			<mail id="mid-2">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="1"/>
+					<i id="messageId" value="2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+
+			<mail id="mid-3">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+
+			<mail id="mid-4">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="3"/>
+					<i id="messageId" value="4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
+
+			<mail id="mid-5">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="4"/>
+					<i id="messageId" value="5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
+
+			<mail id="mid-6">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="5"/>
+					<i id="messageId" value="6"/>
+				</tags>
+				<html><![CDATA[Yes!]]></html>
+			</mail>
+
+			<mail id="mid-7">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="5"/>
+					<i id="messageId" value="7"/>
+				</tags>
+				<html><![CDATA[No!]]></html>
+			</mail>
+
+			<mail id="mid-8">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="7"/>
+					<i id="messageId" value="8"/>
+				</tags>
+				<html><![CDATA[Well...which is it?]]></html>
+			</mail>
+
+			<mail id="mid-9">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="8"/>
+					<i id="messageId" value="9"/>
+				</tags>
+				<html><![CDATA[Maybe we missed something...]]></html>
+			</mail>
+
+			<mail id="mid-10">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="9"/>
+					<i id="messageId" value="10"/>
+				</tags>
+				<html><![CDATA[Lets read it again.]]></html>
+			</mail>
+
+			<mail id="mid-11">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="10"/>
+					<i id="messageId" value="11"/>
+				</tags>
+				<html><![CDATA[]]></html>
+			</mail>
+
+			<mail id="mid-12">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="10"/>
+					<i id="messageId" value="12"/>
+				</tags>
+				<html><![CDATA[Yeah...]]></html>
+			</mail>
+
+			<mail id="mid-13">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="11"/>
+					<i id="messageId" value="13"/>
+				</tags>
+				<html><![CDATA[Do you want some tea?]]></html>
+			</mail>
+
+			<mail id="mid-14">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="13"/>
+					<i id="messageId" value="14"/>
+				</tags>
+				<html><![CDATA[Good idea, I'll help you.]]></html>
+			</mail>
+
+			<mail id="mid-15">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="14"/>
+					<i id="messageId" value="15"/>
+				</tags>
+				<html><![CDATA[Wait, I thought we were reading.]]></html>
+			</mail>
+
+			<mail id="mid-16">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="15"/>
+					<i id="messageId" value="16"/>
+				</tags>
+				<html><![CDATA[We are...We're just...uhh...giving you a head start.]]></html>
+			</mail>
+
+			<mail id="mid-17">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="16"/>
+					<i id="messageId" value="17"/>
+				</tags>
+				<html><![CDATA[It says right here on the hammer; who ever picks up the hammer, if he be worthy, shall possess the power of Thor.]]></html>
+			</mail>
+
+			<mail id="mid-18">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="17"/>
+					<i id="messageId" value="18"/>
+				</tags>
+				<html><![CDATA[Hold on...who decides who will be worth? Does the hammer decide?]]></html>
+			</mail>
+
+			<mail id="mid-19">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="18"/>
+					<i id="messageId" value="19"/>
+				</tags>
+				<html><![CDATA[Yes!]]></html>
+			</mail>
+
+			<mail id="mid-20">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="18"/>
+					<i id="messageId" value="20"/>
+				</tags>
+				<html><![CDATA[No!]]></html>
+			</mail>
+
+			<mail id="mid-21">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="20"/>
+					<i id="messageId" value="21"/>
+				</tags>
+				<html><![CDATA[It can't decide...it is a hammer.]]></html>
+			</mail>
+
+			<mail id="mid-22">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="21"/>
+					<i id="messageId" value="22"/>
+				</tags>
+				<html><![CDATA[You said "it is a magic hammer".]]></html>
+			</mail>
+
+			<mail id="mid-23">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="22"/>
+					<i id="messageId" value="23"/>
+				</tags>
+				<html><![CDATA[Yeah but...it can't make decisions.]]></html>
+			</mail>
+
+			<mail id="mid-24">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="23"/>
+					<i id="messageId" value="24"/>
+				</tags>
+				<html><![CDATA[If Harry Potter's wand can make decisions, why can't Thor's hammer?]]></html>
+			</mail>
+
+			<mail id="mid-25">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="24"/>
+					<i id="messageId" value="25"/>
+				</tags>
+				<html><![CDATA[Okay, if you're going to start comparing wands and hammers, can't even take you seriously.]]></html>
+			</mail>
+
+			<mail id="mid-26">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="25"/>
+					<i id="messageId" value="26"/>
+				</tags>
+				<html><![CDATA[Well, what if the Hulk picked up Thor, while Thor is holding the hammer?]]></html>
+			</mail>
+
+			<mail id="mid-27">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="26"/>
+					<i id="messageId" value="27"/>
+				</tags>
+				<html><![CDATA[Yeah...?]]></html>
+			</mail>
+
+			<mail id="mid-28">
+				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="27"/>
+					<i id="messageId" value="28"/>
+				</tags>
+				<html><![CDATA[Then by the transitive property of picking things up, Hulk picked up the hammer.]]></html>
+			</mail>
+
+			<mail id="mid-29">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="28"/>
+					<i id="messageId" value="29"/>
+				</tags>
+				<html><![CDATA[No, Hulk picked up Thor. Thor picked up the hammer.]]></html>
+			</mail>
+
+			<mail id="mid-30">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="29"/>
+					<i id="messageId" value="30"/>
+				</tags>
+				<html><![CDATA[Okay, hang on. If I go to a bar and pick up a guy and he picks up a girl and then we all leave together, did I pick up the girl?]]></html>
+			</mail>
+
+			<mail id="mid-31">
+				<from><i name="Amy" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+					<i name="Penny" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="30"/>
+					<i id="messageId" value="31"/>
+				</tags>
+				<html><![CDATA[Did that ever happen?]]></html>
+			</mail>
+
+			<mail id="mid-32">
+				<from><i name="Penny" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy" address="amy@karaqu.com"/>
+					<i name="Bernadette" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="inReplyTo" value="31"/>
+					<i id="messageId" value="32"/>
+				</tags>
+				<html><![CDATA[Hey...we talking about me or we talking about Thor?]]></html>
+			</mail>
+
+		</thread>
+	</mail>
+</TempThread>
