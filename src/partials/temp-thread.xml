@@ -189,7 +189,7 @@
 				<html><![CDATA[Lets read it again.]]></html>
 			</mail>
 
-			<mail id="mid-11">
+			<mail id="mid-11" class="expanded">
 				<date value="2025-08-06T16:37:03.000Z" date="2025-08-06" time="16:37"/>
 				<from><i name="Penny" address="penny@karaqu.com"/></from>
 				<to>
@@ -200,10 +200,10 @@
 					<i id="inReplyTo" value="10"/>
 					<i id="messageId" value="11"/>
 				</tags>
-				<html><![CDATA[]]></html>
+				<html><![CDATA[Okay.]]></html>
 			</mail>
 
-			<mail id="mid-12">
+			<mail id="mid-12" class="expanded">
 				<date value="2025-08-06T16:51:03.000Z" date="2025-08-06" time="16:51"/>
 				<from><i name="Amy" address="amy@karaqu.com"/></from>
 				<to>
@@ -216,7 +216,7 @@
 				</tags>
 				<html><![CDATA[Yeah...]]></html>
 			</mail>
-
+			<!--
 			<mail id="mid-13">
 				<date value="2025-08-06T16:58:03.000Z" date="2025-08-06" time="16:58"/>
 				<from><i name="Bernadette" address="bernadette@karaqu.com"/></from>
@@ -496,7 +496,7 @@
 				</tags>
 				<html><![CDATA[Hey...we talking about me or we talking about Thor?]]></html>
 			</mail>
-
+			-->
 		</thread>
 	</mail>
 </TempThread>

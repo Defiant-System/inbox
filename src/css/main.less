@@ -458,7 +458,8 @@ content {
 		bottom: 0;
 		overflow: auto;
 		padding: 0 1px 11px 1px;
-		// padding: 0 13px 11px 29px;
+		--l1: #8bbdfa;
+		--l2: #f90;
 	}
 
 	.thread-subject {
@@ -470,6 +471,27 @@ content {
 		height: 41px;
 		margin-bottom: 5px;
 		z-index: 2;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 16px;
+			left: 6px;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			border: 3px solid var( --l1 );
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 29px;
+			bottom: -6px;
+			left: 11px;
+			width: 0;
+			border-left: 3px solid var( --l1 );
+		}
 
 		h2 {
 			position: absolute;
@@ -518,7 +540,7 @@ content {
 		background: #fff;
 		color: #999;
 		padding: 7px 7px;
-		margin: 0 11px 13px 21px;
+		margin: 0 11px 13px 31px;
 		border-radius: 6px;
 		// line-height: 19px;
 		display: flex;
@@ -527,15 +549,28 @@ content {
 		&:before {
 			content: "";
 			position: absolute;
-			top: 8px;
-			left: 9px;
-			width: 13px;
-			height: 13px;
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: 50% 50%;
-			background-image: url(~/icons/icon-send-receive.png);
-			opacity: .5;
+			top: 0;
+			bottom: -15px;
+			left: -21px;
+			width: 17px;
+			z-index: -1;
+			border: 0 solid var( --l1 );
+			border-left-width: 3px;
+		}
+
+		&:nth-child(2) {
+			&:before {
+				// top: 11px;
+			}
+		}
+
+		&:last-child {
+			&:before {
+				height: 13px;
+				bottom: auto;
+				border-bottom-left-radius: 7px;
+				border-bottom-width: 3px;
+			}
 		}
 
 		&.active {
@@ -543,10 +578,146 @@ content {
 			box-shadow: 0 0 0 3px #489bf770;
 		}
 
+		&.expanded {
+			display: block;
+
+			.head {
+				display: block;
+				padding: 0 0 3px 41px;
+				margin-bottom: 7px;
+
+				&:before { display: none; }
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					border-bottom: 1px solid #0001;
+				}
+
+				.avatar {
+					background: url(/res/avatar/unknown.jpg) 50% 50% no-repeat;
+					background-size: 100% auto;
+					position: absolute;
+					top: 0;
+					left: 2px;
+					width: 31px;
+					height: 31px;
+					display: block;
+					border-radius: 50%;
+					box-shadow: inset 0 0 0 1px #0001;
+				}
+
+				.row {
+					display: flex;
+					height: 19px;
+
+					// show "to" fields
+					&:nth-child(3) {
+						display: block;
+					}
+
+					.field-name {
+						display: inline-block;
+						width: 53px;
+						text-align: right;
+
+						&:after {
+							content: ":";
+							display: inline-block;
+							padding-right: 5px;
+						}
+					}
+
+					.field-value {
+						// color: #333;
+					}
+
+					.date {
+						flex: 1;
+						text-align: right;
+						pointer-events: none;
+					}
+
+					.time {
+						width: 53px;
+						padding-right: 0;
+
+						&:after { display:none; }
+					}
+				
+					.recipient {
+						position: relative;
+
+						&[data-address] {
+							&:hover {
+								&:before {
+									content: "";
+									background: url(~/icons/tiny-arrow.png) 50% 50%/contain no-repeat;
+									position: absolute;
+									top: 1px;
+									left: 100%;
+									width: 15px;
+									height: 12px;
+									// opacity: .6;
+									z-index: 2;
+									transform: translateX(2px);
+								}
+
+								&:after {
+									content: attr(data-address);
+									position: absolute;
+									top: -3px;
+									left: 100%;
+									z-index: 2;
+									transform: translateX(17px);
+									white-space: nowrap;
+									padding: 2px 9px 3px;
+									background: #e5f1ff;
+									color: #48b;
+									font-weight: 400;
+									text-shadow: 0 1px 0 #fff;
+									box-shadow: inset 0 1px 1px #fff,
+												inset 0 -1px 1px #489bf750,
+												0 0 0 1px #489bf7aa,
+												3px 1px 5px #0003;
+									border-radius: 30px;
+									pointer-events: none;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.body {
+				display: block;
+				overflow: initial;
+				text-overflow: initial;
+				white-space: initial;
+			}
+		}
+
 		.head {
 			position: relative;
 			padding: 0 5px 0 23px;
 			display: inline-block;
+
+			&:before {
+				content: "";
+				position: absolute;
+				top: 1px;
+				left: 3px;
+				width: 13px;
+				height: 13px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-image: url(~/icons/icon-send-receive.png);
+				opacity: .5;
+			}
 
 			.avatar,
 			.row .field-name {
