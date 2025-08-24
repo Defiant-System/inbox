@@ -14,6 +14,14 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "render-temp-thread":
+				// render mail content
+				window.render({
+					template: "content-entries",
+					match: `//TempThread/mail[@id="mid-123"]`,
+					target: Self.els.el,
+				});
+				break;
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
 					let xDoc = await call.result,

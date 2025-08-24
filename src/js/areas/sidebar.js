@@ -39,7 +39,7 @@
 						target: Self.els.el
 					});
 					// click on "inbox" (first entry)
-					Self.els.el.find(`.list-wrapper .folder-entry:nth(0)`).trigger("click");
+					// Self.els.el.find(`.list-wrapper .folder-entry:nth(0)`).trigger("click");
 				});
 				break;
 			case "select-folder":

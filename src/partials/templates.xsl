@@ -1,19 +1,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template name="sidebar-entries">
-	<!--
-	<legend>Accounts</legend>
-	<div class="list-wrapper" data-click="select-account">
-		<xsl:for-each select="../Mailboxes/*">
-			<div class="entry">
-				<i class="icon-blank"></i>
-				<i class="icon-cloud"></i>
-				<span class="name"><xsl:value-of select="@name"/></span>
-			</div>
-		</xsl:for-each>
-	</div>
-	-->
-
 	<legend>Folders</legend>
 	<div class="list-wrapper">
 		<xsl:for-each select="./*">
@@ -49,7 +36,7 @@
 			<xsl:if test="tags/i[@id = 'isForward' and @value = '1']"> forward</xsl:if>
 		</xsl:attribute>
 		<div class="row">
-			<span class="from recient">
+			<span class="from recipient">
 				<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
 				<xsl:value-of select="from/i/@name"/>
 			</span>
@@ -72,36 +59,16 @@
 
 
 <xsl:template name="content-entries">
-	<div class="wrapper slim-messages">
+	<div class="wrapper">
 		<div class="thread-subject">
 			<h2><xsl:value-of select="subject/text()"/></h2>
-			<i class="icon-thick-messages" data-click="toggle-message-view"></i>
+			<i class="icon-slim-messages" data-click="toggle-message-view"></i>
 		</div>
 
 		<xsl:for-each select="./thread/mail">
+			<xsl:sort order="descending" select="date/@value"/>
 			<xsl:call-template name="mail-entry"/>
 		</xsl:for-each>
-
-		<xsl:if test="not(./thread/mail)">
-			<xsl:call-template name="mail-entry"/>
-		</xsl:if>
-	</div>
-</xsl:template>
-
-
-<xsl:template name="reply-to-mail">
-	<br/><br/>
-	<div class="quote_container block-collapsed" data-click="expand-container">
-		<div>
-			At <xsl:value-of select="date/@date"/>, <xsl:value-of select="date/@time"/> o'clock,
-			<xsl:value-of select="thread/mail[1]/from/i/@name"/> 
-			&lt;<a>
-				<xsl:attribute name="href">mailto:<xsl:value-of select="thread/mail[1]/from/i/@address"/></xsl:attribute>
-				<xsl:value-of select="thread/mail[1]/from/i/@address"/>
-			</a>&gt; wrote:
-		</div>
-		<!-- <blockquote><xsl:value-of select="html/text()" disable-output-escaping="yes"/></blockquote> -->
-		<blockquote><xsl:value-of select="thread/mail[1]/html/text()" disable-output-escaping="yes"/></blockquote>
 	</div>
 </xsl:template>
 
@@ -122,7 +89,7 @@
 			<span class="avatar"></span>
 			<div class="row">
 				<span class="field-name">From</span>
-				<span class="field-value from-name recient">
+				<span class="field-value from-name recipient">
 					<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
 					<xsl:value-of select="from/i/@name"/>
 				</span>
@@ -132,7 +99,8 @@
 			<div class="row">
 				<span class="field-name">To</span>
 				<xsl:for-each select="to/i">
-					<span class="field-value to-name recient">
+					<xsl:if test="position() &gt; 1">, </xsl:if>
+					<span class="field-value to-name recipient">
 						<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
 						<xsl:if test="@name = ''">
 							<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>

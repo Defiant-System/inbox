@@ -5,6 +5,11 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 let Test = {
 	init(APP) {
 
+		// return;
+
+		APP.list.dispatch({ type: "render-temp-list" });
+		APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
+		APP.content.dispatch({ type: "render-temp-thread" });
 		return;
 
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);

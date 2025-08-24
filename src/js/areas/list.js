@@ -17,6 +17,15 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "render-temp-list":
+				// render mail content
+				window.render({
+					template: "list-entries",
+					match: `//TempList`,
+					target: Self.els.el,
+				});
+				break;
+				
 			case "fetch-mail-folder":
 				karaqu.shell(`mail -l ${event.fId}`)
 					.then(async call => {
