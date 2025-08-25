@@ -589,7 +589,7 @@ content {
 					&:nth-child(3) {
 						width: auto;
 						height: 19px;
-						// overflow: visible;
+						overflow: visible;
 					}
 
 					.field-name {
@@ -632,10 +632,10 @@ content {
 									content: "";
 									background: url(~/icons/tiny-arrow.png) 50% 50%/contain no-repeat;
 									position: absolute;
-									top: 1px;
+									top: 0;
 									left: 100%;
-									width: 15px;
-									height: 12px;
+									width: 16px;
+									height: 14px;
 									// opacity: .6;
 									z-index: 2;
 									transform: translateX(2px);
@@ -944,6 +944,9 @@ content {
 		// graphy UI - L2
 		&.l2-down .graph i.l2 {
 			display: block;
+			top: 15px;
+			border-top-left-radius: 6px;
+			border-top: 3px solid var( --l2 );
 		}
 
 		&.l2-up .graph i.l2 {

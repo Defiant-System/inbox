@@ -44,18 +44,45 @@
 		}
 
 		content {
+			.wrapper {
+				--l1: #dd6fec;
+				--l2: #50add4;
+				--l3: #da8233;
+			}
+
 			.thread-subject {
 				background: #737373;
+
+				i {
+					filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
+
+					&:hover {
+						background-color: #fff2;
+					}
+				}
 			}
 			
 			.mail-entry {
 				background: #fff3;
 				color: #fffd;
 				text-shadow: 0 1px 0 #0005;
-				border-color: #999;
+				border-color: #0005;
+
+				&.expanded {
+					.head {
+						&:after {
+							border-bottom-color: #fff2;
+						}
+
+						.recipient {
+							color: #fff;
+						}
+					}
+				}
 
 				&.active {
-					border-color: #6db2ff82;
+					border-color: #348baf;
+					box-shadow: 0 0 0 3px #50add4;
 				}
 
 				.head {
@@ -73,7 +100,11 @@
 						text-shadow: 0 1px 0 #0005;
 					}
 
+					.date,
 					.time {
+						color: #ccc;
+						text-shadow: 0 1px 0 #0005;
+						
 						&:before,
 						&:after {
 							filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
