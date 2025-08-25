@@ -458,9 +458,9 @@ content {
 		bottom: 0;
 		overflow: auto;
 		padding: 0 1px 11px 1px;
-		--l1: #e7f6;
-		--l2: #7bf8;
-		--l3: #bc08;
+		--l1: #f7bfff;
+		--l2: #b5daff;
+		--l3: #dae55e;
 	}
 
 	.thread-subject {
@@ -557,7 +557,7 @@ content {
 			left: -36px;
 			width: 35px;
 			overflow: hidden;
-			// z-index: -1;
+			z-index: -1;
 
 			i {
 				position: absolute;
@@ -692,10 +692,41 @@ content {
 		&.l2-conn .graph i.l2 {
 			display: block;
 
-			&:before, &:after { display: block; }
+			&:before { display: block; top: 13px; }
+			&:after { display: block; top: 15px; }
 		}
 
 		&.l2-track .graph i.l2 {
+			display: block;
+		}
+
+
+
+
+		&.l3-down .graph i.l3 {
+			display: block;
+			top: 15px;
+			border-top-left-radius: 6px;
+			border-top: 3px solid var( --l3 );
+		}
+
+		&.l3-up .graph i.l3 {
+			display: block;
+			height: 11px;
+			border-bottom-left-radius: 6px;
+			border-bottom: 3px solid var( --l3 );
+
+			&:before, &:after { display:none; }
+		}
+
+		&.l3-conn .graph i.l3 {
+			display: block;
+
+			&:before { display: block; }
+			&:after { display: block; }
+		}
+
+		&.l3-track .graph i.l3 {
 			display: block;
 		}
 
