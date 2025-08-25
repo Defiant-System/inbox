@@ -115,6 +115,9 @@
 					</span>
 				</xsl:for-each>
 			</div>
+			<div class="excerpt">
+				<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
+			</div>
 		</div>
 
 		<xsl:for-each select="attachments/*[@kind = 'ics']">

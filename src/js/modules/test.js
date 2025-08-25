@@ -11,7 +11,7 @@ let Test = {
 		APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
 		APP.content.dispatch({ type: "render-temp-thread" });
 
-		// setTimeout(() => window.find(`content .mail-entry[data-id="mid-7"]`).trigger("click"), 500);
+		// setTimeout(() => window.find(`content .mail-entry[data-id="mid-5"]`).trigger("click"), 500);
 		return;
 
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
