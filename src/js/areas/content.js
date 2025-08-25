@@ -102,8 +102,17 @@
 				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
 			case "toggle-message-view":
-				// el = Self.els.el.find("> .wrapper");
-				// el.toggleClass("slim-messages", el.hasClass("slim-messages"));
+				el = event.el;
+				if (el.hasClass("icon-slim-messages")) {
+					el.removeClass("icon-slim-messages").addClass("icon-thick-messages");
+					// remember expanded
+					Self.els.el.find(".mail-entry.expanded").data({ exp: 1 });
+					Self.els.el.find(".mail-entry").addClass("expanded");
+				} else {
+					el.removeClass("icon-thick-messages").addClass("icon-slim-messages");
+					Self.els.el.find(".mail-entry").removeClass("expanded");
+					Self.els.el.find(`.mail-entry[data-exp]`).addClass("expanded").removeAttr("data-exp");
+				}
 				break;
 			case "select-mail":
 				el = $(event.target);
