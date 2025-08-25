@@ -460,8 +460,8 @@ content {
 		overflow: auto;
 		padding: 0 1px 11px 1px;
 		--l1: #f7bfff;
-		--l2: #b5daff;
-		--l3: #dae55e;
+		--l2: #a9cff5;
+		--l3: #fdc18b;
 	}
 
 	.thread-subject {
@@ -577,6 +577,7 @@ content {
 				.avatar {
 					opacity: 1;
 					transition-delay: 150ms;
+					transition-duration: 150ms;
 				}
 
 				.row {
@@ -587,6 +588,7 @@ content {
 					&:nth-child(3) {
 						width: auto;
 						height: 19px;
+						overflow: visible;
 					}
 
 					.field-name {
@@ -721,7 +723,7 @@ content {
 				display: block;
 				border-radius: 50%;
 				box-shadow: inset 0 0 0 1px #0001;
-				transition: opacity var( --exp-anim ) ease-in-out;
+				transition: opacity 100ms ease-in-out;
 			}
 
 			.row .field-name {
@@ -822,7 +824,7 @@ content {
 					width: 7px;
 					height: 7px;
 					border-radius: 50%;
-					display: none; 
+					display: none;
 				}
 
 				&:after {
@@ -848,6 +850,8 @@ content {
 					left: 16px;
 					width: 21px;
 					border-left: 3px solid var( --l2 );
+					filter: drop-shadow(0 1px 0 var(--content-bg))
+							drop-shadow(0 -1px 0 var(--content-bg));
 
 					&:before { top: 7px; left: -5px; background: var( --l2 ); }
 					&:after { top: 9px; left: 2px; width: 15px; border-top: 3px solid var( --l2 ); }
