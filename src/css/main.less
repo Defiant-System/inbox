@@ -449,6 +449,7 @@ list {
 content {
 	position: relative;
 	flex: 1;
+	--exp-anim: 220ms;
 
 	.wrapper {
 		position: absolute;
@@ -549,189 +550,6 @@ content {
 		border: 1px solid #0002;
 		cursor: pointer;
 
-		.graph {
-			// background: #0001;
-			position: absolute;
-			top: 0;
-			bottom: -15px;
-			left: -36px;
-			width: 35px;
-			overflow: hidden;
-			z-index: -1;
-
-			i {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-
-				&:before {
-					content: "";
-					position: absolute;
-					width: 7px;
-					height: 7px;
-					border-radius: 50%;
-					display: none; 
-				}
-
-				&:after {
-					content: "";
-					position: absolute;
-					height: 0px;
-					display: none; 
-				}
-
-				&.l1 {
-					left: 8px;
-					width: 29px;
-					border-left: 3px solid var( --l1 );
-
-					&:before { background: var( --l1 ); }
-					&:after { border-top: 3px solid var( --l1 ); }
-				}
-
-				&.l2 {
-					display: none;
-					left: 16px;
-					width: 21px;
-					border-left: 3px solid var( --l2 );
-
-					&:before { top: 7px; left: -5px; background: var( --l2 ); }
-					&:after { top: 9px; left: 2px; width: 15px; border-top: 3px solid var( --l2 ); }
-				}
-
-				&.l3 {
-					display: none;
-					left: 24px;
-					width: 13px;
-					border-left: 3px solid var( --l3 );
-
-					&:before { top: 14px; left: -5px; background: var( --l3 ); }
-					&:after { top: 16px; left: 2px; width: 7px; border-top: 3px solid var( --l3 ); }
-				}
-			}
-		}
-
-		&:nth-child(2) {
-			.graph {
-				top: -6px;
-
-				i {
-					&.l1 {
-						&:before, &:after { display:none; }
-					}
-
-					&.l2 {
-						top: 9px;
-						border-top-left-radius: 9px;
-						border-top: 3px solid var( --l2 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l3 {
-						top: 15px;
-						border-top-left-radius: 6px;
-						border-top: 3px solid var( --l3 );
-
-						&:before, &:after { display:none; }
-					}
-				}
-			}
-		}
-
-		&:last-child {
-			.graph {
-				height: 29px;
-				bottom: auto;
-
-				i {
-					bottom: auto;
-
-					&.l1 {
-						height: 23px;
-						border-bottom-left-radius: 12px;
-						border-bottom: 3px solid var( --l1 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l2 {
-						height: 17px;
-						border-bottom-left-radius: 9px;
-						border-bottom: 3px solid var( --l2 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l3 {
-						height: 11px;
-						border-bottom-left-radius: 6px;
-						border-bottom: 3px solid var( --l3 );
-
-						&:before, &:after { display:none; }
-					}
-				}
-			}
-		}
-
-
-		// graphy UI
-		&.l2-down .graph i.l2 {
-			display: block;
-		}
-
-		&.l2-up .graph i.l2 {
-			display: block;
-			height: 17px;
-			border-bottom-left-radius: 9px;
-			border-bottom: 3px solid var( --l2 );
-
-			&:before, &:after { display:none; }
-		}
-
-		&.l2-conn .graph i.l2 {
-			display: block;
-
-			&:before { display: block; top: 13px; }
-			&:after { display: block; top: 15px; }
-		}
-
-		&.l2-track .graph i.l2 {
-			display: block;
-		}
-
-
-
-
-		&.l3-down .graph i.l3 {
-			display: block;
-			top: 15px;
-			border-top-left-radius: 6px;
-			border-top: 3px solid var( --l3 );
-		}
-
-		&.l3-up .graph i.l3 {
-			display: block;
-			height: 11px;
-			border-bottom-left-radius: 6px;
-			border-bottom: 3px solid var( --l3 );
-
-			&:before, &:after { display:none; }
-		}
-
-		&.l3-conn .graph i.l3 {
-			display: block;
-
-			&:before { display: block; }
-			&:after { display: block; }
-		}
-
-		&.l3-track .graph i.l3 {
-			display: block;
-		}
-
-		
-
 		&.active {
 			border-color: #489bf7b0;
 			box-shadow: 0 0 0 3px #489bf770;
@@ -746,30 +564,19 @@ content {
 				padding: 0 0 3px 41px;
 				margin-bottom: 7px;
 				pointer-events: initial;
+				overflow: initial;
+				height: 38px;
 				cursor: pointer;
 
 				&:before { display: none; }
 
 				&:after {
-					content: "";
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					border-bottom: 1px solid #0001;
+					opacity: 1;
 				}
 
 				.avatar {
-					background: url(/res/avatar/unknown.jpg) 50% 50% no-repeat;
-					background-size: 100% auto;
-					position: absolute;
-					top: 0;
-					left: 2px;
-					width: 31px;
-					height: 31px;
-					display: block;
-					border-radius: 50%;
-					box-shadow: inset 0 0 0 1px #0001;
+					opacity: 1;
+					transition-delay: 150ms;
 				}
 
 				.row {
@@ -778,7 +585,8 @@ content {
 
 					// show "to" fields
 					&:nth-child(3) {
-						display: block;
+						width: auto;
+						height: 19px;
 					}
 
 					.field-name {
@@ -861,6 +669,9 @@ content {
 				overflow: initial;
 				text-overflow: initial;
 				white-space: initial;
+				pointer-events: initial;
+				height: calc-size(auto, size);
+				padding: 3px 0 9px;
 			}
 		}
 
@@ -869,6 +680,9 @@ content {
 			padding: 0 5px 0 23px;
 			display: inline-block;
 			pointer-events: none;
+			height: 15px;
+			overflow: hidden;
+			transition: height var( --exp-anim ) ease-in-out;
 
 			&:before {
 				content: "";
@@ -884,7 +698,32 @@ content {
 				opacity: .5;
 			}
 
-			.avatar,
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				opacity: 0;
+				border-bottom: 1px solid #0001;
+				transition: opacity var( --exp-anim ) ease-in-out;
+			}
+
+			.avatar {
+				background: url(/res/avatar/unknown.jpg) 50% 50% no-repeat;
+				background-size: 100% auto;
+				position: absolute;
+				top: 0;
+				left: 2px;
+				width: 31px;
+				height: 31px;
+				opacity: 0;
+				display: block;
+				border-radius: 50%;
+				box-shadow: inset 0 0 0 1px #0001;
+				transition: opacity var( --exp-anim ) ease-in-out;
+			}
+
 			.row .field-name {
 				display: none;
 			}
@@ -894,7 +733,11 @@ content {
 
 				// hide "to" fields
 				&:nth-child(3) {
-					display: none;
+					display: block;
+					width: 0;
+					height: 0;
+					overflow: hidden;
+					transition: height var( --exp-anim ) ease-in-out;
 				}
 
 				span {
@@ -951,6 +794,189 @@ content {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+			pointer-events: none;
+			padding: 0;
+			height: 15px;
+			transition: height var( --exp-anim ) ease-in-out;
+			transition-behavior: allow-discrete;
+		}
+
+		// graph UI
+		.graph {
+			position: absolute;
+			top: 0;
+			bottom: -15px;
+			left: -36px;
+			width: 35px;
+			overflow: hidden;
+			z-index: -1;
+
+			i {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+
+				&:before {
+					content: "";
+					position: absolute;
+					width: 7px;
+					height: 7px;
+					border-radius: 50%;
+					display: none; 
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					height: 0px;
+					display: none; 
+				}
+
+				&.l1 {
+					left: 8px;
+					width: 29px;
+					border-left: 3px solid var( --l1 );
+
+					&:before { background: var( --l1 ); }
+					&:after { border-top: 3px solid var( --l1 ); }
+				}
+
+				&.l2 {
+					display: none;
+					left: 16px;
+					width: 21px;
+					border-left: 3px solid var( --l2 );
+
+					&:before { top: 7px; left: -5px; background: var( --l2 ); }
+					&:after { top: 9px; left: 2px; width: 15px; border-top: 3px solid var( --l2 ); }
+				}
+
+				&.l3 {
+					display: none;
+					left: 24px;
+					width: 13px;
+					border-left: 3px solid var( --l3 );
+
+					&:before { top: 14px; left: -5px; background: var( --l3 ); }
+					&:after { top: 16px; left: 2px; width: 7px; border-top: 3px solid var( --l3 ); }
+				}
+			}
+		}
+
+		&:nth-child(2) {
+			.graph {
+				top: -6px;
+
+				i {
+					&.l1 {
+						&:before, &:after { display:none; }
+					}
+
+					&.l2 {
+						top: 13px;
+						border-top-left-radius: 9px;
+						border-top: 3px solid var( --l2 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l3 {
+						top: 15px;
+						border-top-left-radius: 6px;
+						border-top: 3px solid var( --l3 );
+
+						&:before, &:after { display:none; }
+					}
+				}
+			}
+		}
+
+		&:last-child {
+			.graph {
+				height: 29px;
+				bottom: auto;
+
+				i {
+					bottom: auto;
+
+					&.l1 {
+						height: 23px;
+						border-bottom-left-radius: 12px;
+						border-bottom: 3px solid var( --l1 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l2 {
+						height: 17px;
+						border-bottom-left-radius: 9px;
+						border-bottom: 3px solid var( --l2 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l3 {
+						height: 11px;
+						border-bottom-left-radius: 6px;
+						border-bottom: 3px solid var( --l3 );
+
+						&:before, &:after { display:none; }
+					}
+				}
+			}
+		}
+
+		// graphy UI - L2
+		&.l2-down .graph i.l2 {
+			display: block;
+		}
+
+		&.l2-up .graph i.l2 {
+			display: block;
+			height: 17px;
+			border-bottom-left-radius: 9px;
+			border-bottom: 3px solid var( --l2 );
+
+			&:before, &:after { display:none; }
+		}
+
+		&.l2-conn .graph i.l2 {
+			display: block;
+
+			&:before { display: block; top: 13px; }
+			&:after { display: block; top: 15px; }
+		}
+
+		&.l2-track .graph i.l2 {
+			display: block;
+		}
+
+		// graphy UI - L3
+		&.l3-down .graph i.l3 {
+			display: block;
+			top: 15px;
+			border-top-left-radius: 6px;
+			border-top: 3px solid var( --l3 );
+		}
+
+		&.l3-up .graph i.l3 {
+			display: block;
+			height: 11px;
+			border-bottom-left-radius: 6px;
+			border-bottom: 3px solid var( --l3 );
+
+			&:before, &:after { display:none; }
+		}
+
+		&.l3-conn .graph i.l3 {
+			display: block;
+
+			&:before { display: block; }
+			&:after { display: block; }
+		}
+
+		&.l3-track .graph i.l3 {
+			display: block;
 		}
 	}
 }
