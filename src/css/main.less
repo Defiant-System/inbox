@@ -833,6 +833,7 @@ content {
 				}
 
 				&.l1 {
+					z-index: 1;
 					left: 8px;
 					width: 29px;
 					border-left: 3px solid var( --l1 );
@@ -843,6 +844,7 @@ content {
 
 				&.l2 {
 					display: none;
+					z-index: 3;
 					left: 16px;
 					width: 21px;
 					border-left: 3px solid var( --l2 );
@@ -853,6 +855,7 @@ content {
 
 				&.l3 {
 					display: none;
+					z-index: 2;
 					left: 24px;
 					width: 13px;
 					border-left: 3px solid var( --l3 );
@@ -945,6 +948,11 @@ content {
 
 			&:before { display: block; top: 13px; }
 			&:after { display: block; top: 15px; }
+		}
+
+		&.l2-conn.l3-conn .graph i.l2 {
+			&:before { top: 7px; }
+			&:after { top: 9px; }
 		}
 
 		&.l2-track .graph i.l2 {
