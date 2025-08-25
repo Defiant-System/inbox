@@ -1,8 +1,8 @@
 <MenuBar>
-	<Menu name="Email">
-		<Menu name="About Email" shell="win -a"/>
+	<Menu name="Inbox">
+		<Menu name="About Inbox" shell="win -a"/>
 		<Menu type="divider"/>
-		<Menu name="Quit Email" shell="win -c"/>
+		<Menu name="Quit Inbox" shell="win -c"/>
 	</Menu>
 	<Menu name="Help">
 		<Menu name="Help" click="open-help"/>

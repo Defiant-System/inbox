@@ -3,11 +3,11 @@
 		<task action="skip" source="src/js/bundle.js" destination="public/js/bundle.js"/>
 	</Build>
 	<Head>
-		<meta name="id" value="email"/>
-		<meta name="title" value="Email" version="1.47"/>
+		<meta name="id" value="inbox"/>
+		<meta name="title" value="Inbox" version="1.47"/>
 		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
 		<meta name="license" value="AGPL-3.0"/>
-		<meta name="repository" value="https://github.com/Defiant-System/email"/>
+		<meta name="repository" value="https://github.com/Defiant-System/inbox"/>
 		<meta name="width" value="1180" min="720"/>
 		<meta name="height" value="700" min="340"/>
 		<meta name="top" value="220"/>

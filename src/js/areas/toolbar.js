@@ -1,5 +1,5 @@
 
-// email.toolbar
+// inbox.toolbar
 
 {
 	init() {
@@ -14,7 +14,7 @@
 		};
 	},
 	dispatch(event) {
-		let APP = email,
+		let APP = inbox,
 			Self = APP.toolbar,
 			spawn,
 			activeMail,

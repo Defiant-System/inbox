@@ -11,7 +11,7 @@ const {
 // user details
 const ME = karaqu.user;
 
-const email = {
+const inbox = {
 	init() {
 		// fast references
 		this.xData = window.bluePrint.selectSingleNode("//Data");
@@ -32,7 +32,7 @@ const email = {
 		// DEV-ONLY-END
 	},
 	dispatch(event) {
-		let Self = email,
+		let Self = inbox,
 			el;
 		// proxy newMail (spawn) events
 		if (event.spawn) return Self.newMail.dispatch(event);
@@ -80,4 +80,4 @@ const email = {
 	newMail: @import "areas/new-mail.js",
 };
 
-window.exports = email;
+window.exports = inbox;

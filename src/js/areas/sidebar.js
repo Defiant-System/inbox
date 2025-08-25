@@ -1,5 +1,5 @@
 
-// email.sidebar
+// inbox.sidebar
 
 {
 	init() {
@@ -11,7 +11,7 @@
 		this.isFirst = true;
 	},
 	dispatch(event) {
-		let APP = email,
+		let APP = inbox,
 			Self = APP.sidebar,
 			el;
 		// console.log(event);
