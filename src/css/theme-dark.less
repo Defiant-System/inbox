@@ -44,21 +44,25 @@
 		}
 
 		content {
+			.thread-subject {
+				background: #737373;
+			}
+			
 			.mail-entry {
 				background: #fff3;
 				color: #fffd;
 				text-shadow: 0 1px 0 #0005;
-				border-color: #0004;
+				border-color: #999;
 
 				&.active {
 					border-color: #6db2ff82;
 				}
 
-				&:before {
-					filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
-				}
-
 				.head {
+					&:before {
+						filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
+					}
+
 					.avatar {
 						box-shadow: inset 0 0 0 1px #fff9,
 									0 0 0 1px #fff9;

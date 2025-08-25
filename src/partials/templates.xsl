@@ -84,6 +84,13 @@
 		<xsl:if test="count(attachment) &gt; 0">
 			<xsl:attribute name="data-attachment"><xsl:value-of select="count(attachment)"/></xsl:attribute>
 		</xsl:if>
+		
+		<div class="graph">
+			<i class="l1"></i>
+			<i class="l2"></i>
+			<i class="l3"></i>
+		</div>
+
 		<div class="head">
 			<span class="avatar"></span>
 			<div class="row">

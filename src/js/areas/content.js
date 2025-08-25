@@ -18,7 +18,7 @@
 				// render mail content
 				window.render({
 					template: "content-entries",
-					match: `//TempThread/mail[@id="mid-123"]`,
+					match: `//TempThread/mail[@id="mid-1"]`,
 					target: Self.els.el,
 				});
 				break;
@@ -102,21 +102,21 @@
 				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
 			case "toggle-message-view":
-				el = Self.els.el.find("> .wrapper");
-				el.toggleClass("slim-messages", el.hasClass("slim-messages"));
+				// el = Self.els.el.find("> .wrapper");
+				// el.toggleClass("slim-messages", el.hasClass("slim-messages"));
 				break;
 			case "select-mail":
-				el = $(event.target);
-				if (el.hasClass("row") || el.hasClass("head")) {
-					let entry = el.parents(".mail-entry");
-					entry.toggleClass("expanded", entry.hasClass("expanded"));
-				}
-				if (!el.hasClass("mail-entry")) el = el.parents(".mail-entry");
-				if (!el.length || el[0] === event.el[0]) return;
-				event.el.find(".active").removeClass("active");
-				el.addClass("active");
-				// toggle toolbar buttons
-				APP.toolbar.dispatch({ type: "mail-selected" });
+				// el = $(event.target);
+				// if (el.hasClass("row") || el.hasClass("head")) {
+				// 	let entry = el.parents(".mail-entry");
+				// 	entry.toggleClass("expanded", entry.hasClass("expanded"));
+				// }
+				// if (!el.hasClass("mail-entry")) el = el.parents(".mail-entry");
+				// if (!el.length || el[0] === event.el[0]) return;
+				// event.el.find(".active").removeClass("active");
+				// el.addClass("active");
+				// // toggle toolbar buttons
+				// APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
 			case "get-active-mail":
 				el = Self.els.el.find(`.mail-entry.active`);

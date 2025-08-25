@@ -458,8 +458,9 @@ content {
 		bottom: 0;
 		overflow: auto;
 		padding: 0 1px 11px 1px;
-		--l1: #8bbdfa;
-		--l2: #f90;
+		--l1: #e7f6;
+		--l2: #7bf8;
+		--l3: #bc08;
 	}
 
 	.thread-subject {
@@ -470,13 +471,14 @@ content {
 		right: 0;
 		height: 41px;
 		margin-bottom: 5px;
+		// box-shadow: 0 0 7px #0003;
 		z-index: 2;
 
 		&:before {
 			content: "";
 			position: absolute;
 			top: 16px;
-			left: 6px;
+			left: 4px;
 			width: 7px;
 			height: 7px;
 			border-radius: 50%;
@@ -487,8 +489,8 @@ content {
 			content: "";
 			position: absolute;
 			top: 29px;
-			bottom: -6px;
-			left: 11px;
+			bottom: 0px;
+			left: 9px;
 			width: 0;
 			border-left: 3px solid var( --l1 );
 		}
@@ -498,6 +500,7 @@ content {
 			top: 15px;
 			left: 23px;
 			right: 37px;
+			height: 21px;
 			font-size: 17px;
 			font-weight: 400;
 			white-space: nowrap;
@@ -539,39 +542,164 @@ content {
 		position: relative;
 		background: #fff;
 		color: #999;
-		padding: 7px 7px;
-		margin: 0 11px 13px 31px;
+		padding: 8px 11px 7px 7px;
+		margin: 0 11px 13px 36px;
 		border-radius: 6px;
-		// line-height: 19px;
 		display: flex;
 		border: 1px solid #0002;
+		cursor: pointer;
 
-		&:before {
-			content: "";
+		.graph {
+			// background: #0001;
 			position: absolute;
 			top: 0;
 			bottom: -15px;
-			left: -21px;
-			width: 17px;
-			z-index: -1;
-			border: 0 solid var( --l1 );
-			border-left-width: 3px;
+			left: -36px;
+			width: 35px;
+			overflow: hidden;
+			// z-index: -1;
+
+			i {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+
+				&:before {
+					content: "";
+					position: absolute;
+					width: 7px;
+					height: 7px;
+					border-radius: 50%;
+					display: none; 
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					height: 0px;
+					display: none; 
+				}
+
+				&.l1 {
+					left: 8px;
+					width: 29px;
+					border-left: 3px solid var( --l1 );
+
+					&:before { background: var( --l1 ); }
+					&:after { border-top: 3px solid var( --l1 ); }
+				}
+
+				&.l2 {
+					display: none;
+					left: 16px;
+					width: 21px;
+					border-left: 3px solid var( --l2 );
+
+					&:before { top: 7px; left: -5px; background: var( --l2 ); }
+					&:after { top: 9px; left: 2px; width: 15px; border-top: 3px solid var( --l2 ); }
+				}
+
+				&.l3 {
+					display: none;
+					left: 24px;
+					width: 13px;
+					border-left: 3px solid var( --l3 );
+
+					&:before { top: 14px; left: -5px; background: var( --l3 ); }
+					&:after { top: 16px; left: 2px; width: 7px; border-top: 3px solid var( --l3 ); }
+				}
+			}
 		}
 
 		&:nth-child(2) {
-			&:before {
-				// top: 11px;
+			.graph {
+				top: -6px;
+
+				i {
+					&.l1 {
+						&:before, &:after { display:none; }
+					}
+
+					&.l2 {
+						top: 9px;
+						border-top-left-radius: 9px;
+						border-top: 3px solid var( --l2 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l3 {
+						top: 15px;
+						border-top-left-radius: 6px;
+						border-top: 3px solid var( --l3 );
+
+						&:before, &:after { display:none; }
+					}
+				}
 			}
 		}
 
 		&:last-child {
-			&:before {
-				height: 13px;
+			.graph {
+				height: 29px;
 				bottom: auto;
-				border-bottom-left-radius: 7px;
-				border-bottom-width: 3px;
+
+				i {
+					bottom: auto;
+
+					&.l1 {
+						height: 23px;
+						border-bottom-left-radius: 12px;
+						border-bottom: 3px solid var( --l1 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l2 {
+						height: 17px;
+						border-bottom-left-radius: 9px;
+						border-bottom: 3px solid var( --l2 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l3 {
+						height: 11px;
+						border-bottom-left-radius: 6px;
+						border-bottom: 3px solid var( --l3 );
+
+						&:before, &:after { display:none; }
+					}
+				}
 			}
 		}
+
+
+		// graphy UI
+		&.l2-down .graph i.l2 {
+			display: block;
+		}
+
+		&.l2-up .graph i.l2 {
+			display: block;
+			height: 17px;
+			border-bottom-left-radius: 9px;
+			border-bottom: 3px solid var( --l2 );
+
+			&:before, &:after { display:none; }
+		}
+
+		&.l2-conn .graph i.l2 {
+			display: block;
+
+			&:before, &:after { display: block; }
+		}
+
+		&.l2-track .graph i.l2 {
+			display: block;
+		}
+
+		
 
 		&.active {
 			border-color: #489bf7b0;
@@ -580,11 +708,14 @@ content {
 
 		&.expanded {
 			display: block;
+			cursor: initial;
 
 			.head {
 				display: block;
 				padding: 0 0 3px 41px;
 				margin-bottom: 7px;
+				pointer-events: initial;
+				cursor: pointer;
 
 				&:before { display: none; }
 
@@ -650,6 +781,8 @@ content {
 				
 					.recipient {
 						position: relative;
+						color: #888;
+						cursor: default;
 
 						&[data-address] {
 							&:hover {
@@ -704,11 +837,12 @@ content {
 			position: relative;
 			padding: 0 5px 0 23px;
 			display: inline-block;
+			pointer-events: none;
 
 			&:before {
 				content: "";
 				position: absolute;
-				top: 1px;
+				top: 0;
 				left: 3px;
 				width: 13px;
 				height: 13px;
@@ -738,8 +872,9 @@ content {
 				}
 
 				.from-name {
-					font-weight: 700;
+					// font-weight: 700;
 					margin-right: 7px;
+					color: #888;
 				}
 
 				.date {
