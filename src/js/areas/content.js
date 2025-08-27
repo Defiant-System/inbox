@@ -29,6 +29,7 @@
 				});
 				break;
 			case "draw-graph":
+				let debug = false;
 				// helper functions
 				let xHelpers = {
 						recursive(xMail, branch=2) {
@@ -69,6 +70,9 @@
 
 				// pre-parse data
 				let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);
+				// debug flag
+				xRoot.parentNode.parentNode.setAttribute("debug", debug);
+				console.log( xRoot.parentNode.parentNode );
 				// recusively structure mail graph
 				xHelpers.recursive(xRoot);
 
@@ -107,7 +111,7 @@
 						return ret;
 					});
 					// set lane names back on the node
-					cNode.setAttribute("class", cLanes.join(" ").trim());
+					if (!debug) cNode.setAttribute("class", cLanes.join(" ").trim());
 				}
 				break;
 			case "fetch-thread":
