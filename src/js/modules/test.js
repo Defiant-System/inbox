@@ -8,8 +8,9 @@ let Test = {
 		// return;
 
 		APP.list.dispatch({ type: "render-temp-list" });
-		APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
-		APP.content.dispatch({ type: "render-temp-thread" });
+		APP.list.els.el.find(`.list-entry`).get(0).trigger("click");
+		// APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
+		// APP.content.dispatch({ type: "render-temp-thread" });
 
 		// setTimeout(() => window.find(`content .mail-entry[data-id="mid-5"]`).trigger("click"), 500);
 		return;

@@ -79,7 +79,8 @@
 				// make sure thread is marked as "read"
 				el.removeClass("unread");
 				// render mail in content area
-				APP.content.dispatch({ type: "render-thread", id: el.data("id") });
+				// APP.content.dispatch({ type: "render-thread", id: el.data("id") });
+				APP.content.dispatch({ type: "render-temp-thread", id: el.data("id") });
 				break;
 			case "check-for-new-mail":
 				// identify "latest" mail ID

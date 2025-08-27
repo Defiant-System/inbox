@@ -118,7 +118,10 @@
 				</xsl:for-each>
 			</div>
 			<div class="excerpt">
-				<!-- <xsl:value-of select="@id"/> -> <xsl:value-of select="@class"/> -->
+				<!-- <xsl:value-of select="tags/*[@id='messageId']/@value"/> / 
+				<xsl:value-of select="tags/*[@id='inReplyTo']/@value"/> 
+				-&gt; <xsl:value-of select="@class"/> - - - - - 
+				<xsl:value-of select="date/@value"/>  -->
 				<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
 			</div>
 		</div>
