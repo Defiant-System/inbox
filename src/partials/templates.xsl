@@ -60,6 +60,8 @@
 
 <xsl:template name="content-entries">
 	<div class="wrapper">
+		<xsl:attribute name="data-lanes"><xsl:value-of select="./thread/@lanes"/></xsl:attribute>
+
 		<div class="thread-subject">
 			<h2><xsl:value-of select="subject/text()"/></h2>
 			<i class="icon-slim-messages" data-click="toggle-message-view"></i>
@@ -77,7 +79,7 @@
 	<div class="mail-entry">
 		<xsl:attribute name="class">mail-entry 
 			<xsl:value-of select="@class"/> 
-			<xsl:if test="position() = 1"> active</xsl:if>
+			<!-- <xsl:if test="position() = 1"> active</xsl:if> -->
 		</xsl:attribute>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="data-messageId"><xsl:value-of select="tags/*[@id='messageId']/@value"/></xsl:attribute>
@@ -116,6 +118,7 @@
 				</xsl:for-each>
 			</div>
 			<div class="excerpt">
+				<!-- <xsl:value-of select="@id"/> -> <xsl:value-of select="@class"/> -->
 				<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
 			</div>
 		</div>

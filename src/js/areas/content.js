@@ -10,11 +10,92 @@
 	dispatch(event) {
 		let APP = inbox,
 			Self = APP.content,
+			xThread,
 			data,
 			el;
 		// console.log(event);
 		switch (event.type) {
 			case "render-temp-thread":
+				// helper functions
+				let xHelpers = {
+						recursive(xMail, branch=2) {
+							let msgId = xMail.selectSingleNode(`./tags/i[@id="messageId"]`).getAttribute("value");
+							let xReplied = xMail.selectNodes(`../mail/tags/i[@id="inReplyTo"][@value="${msgId}"]`);
+							// loop leafs / branches
+							for (let i=0, il=xReplied.length; i<il; i++) {
+								let names = [`l${branch+i}`];
+								for (let j=0, jl=branch-2; j<jl; j++) {
+									names.unshift(`l${branch+j-1}`);
+								}
+								names = names.join(" ").trim();
+								// tags branch of split
+								this.addClass(xMail, names);
+								// iterates childnodes
+								let xParent = xReplied[i].parentNode.parentNode;
+								this.addClass(xParent, names);
+								this.recursive(xParent, branch+i);
+							}
+						},
+						addClass(node, name) {
+							let names = (node.getAttribute("class") || "").split(" ");
+								// [line, type] = name.split("-");
+							// names.push(name);
+							names = names.concat(name.split(" ")).sort((a,b) => a.localeCompare(b));
+							names = [...new Set(names.filter(e => !!e))]; // clean up + remove duplicates
+							node.setAttribute("class", names.join(" ").trim());
+						}
+					};
+
+				// pre-parse data
+				let treadId = APP.xData.selectSingleNode(`//TempThread/mail`).getAttribute("id"),
+					xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${treadId}"]`);
+				// recusively structure mail graph
+				xHelpers.recursive(xRoot);
+
+				let xList = APP.xData.selectNodes(`//TempThread/mail/thread/mail`)
+						.sort((a,b) => {
+							let aDate = a.selectSingleNode("./date").getAttribute("value"),
+								bDate = b.selectSingleNode("./date").getAttribute("value");
+							return bDate.localeCompare(aDate);
+						});
+				// prepare lane tracks
+				let tracks = {};
+				xList.map(x => (x.getAttribute("class") || "").split(" ").map(l => tracks[l] = 0));
+				
+				// value used for UI indentation
+				xRoot.parentNode.setAttribute("lanes", Object.keys(tracks).length+1);
+
+				for (let i=0, il=xList.length; i<il; i++) {
+					let cNode = xList[i],
+						cLanes = (cNode.getAttribute("class") || "").split(" "),
+						nNode = xList[i+1],
+						nLanes = (nNode ? nNode.getAttribute("class") || "" :  "").split(" ");
+					
+					cLanes = cLanes.map((l,i) => {
+						let ret = l;
+						switch (true) {
+							case (!!tracks[l] && !nLanes.includes(l)):
+								ret = `${l}-up`;
+								tracks[l] = 0;
+								break;
+							case (tracks[l] && nLanes.includes(l) && i<cLanes.length-1):
+								ret = `${l}-track`;
+								break;
+							case (tracks[l] && nLanes.includes(l)):
+								ret = `${l}-conn`;
+								break;
+							case (!tracks[l]):
+								ret = `${l}-down`;
+								tracks[l] = 1;
+								break;
+						}
+						return ret;
+					});
+
+					cNode.setAttribute("class", cLanes.join(" ").trim());
+					// console.log( xList[i] );
+				}
+
 				// render mail content
 				window.render({
 					template: "content-entries",
@@ -35,7 +116,7 @@
 				break;
 			case "render-thread":
 				// if folder list not loaded, fetch first
-				let xThread = APP.xData.selectSingleNode(`//mail[@id="${event.id}"]`);
+				xThread = APP.xData.selectSingleNode(`//mail[@id="${event.id}"]`);
 				if (!xThread.selectSingleNode(`./html`) && !xThread.selectSingleNode(`./thread`)) {
 					return Self.dispatch({ ...event, type: "fetch-thread" });
 				}
