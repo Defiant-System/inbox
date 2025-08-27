@@ -462,6 +462,8 @@ content {
 		--l1: #f7bfff;
 		--l2: #a9cff5;
 		--l3: #fdc18b;
+		--l4: #67df70;
+		--l5: #ff9898;
 
 		&[data-lanes="2"] {
 			.mail-entry {
@@ -481,6 +483,17 @@ content {
 				.graph {
 					left: -35px;
 					width: 34px;
+				}
+			}
+		}
+
+		&[data-lanes="4"] {
+			.mail-entry {
+				margin-left: 42px;
+
+				.graph {
+					left: -42px;
+					width: 41px;
 				}
 			}
 		}
@@ -876,7 +889,7 @@ content {
 
 				&.l2 {
 					display: none;
-					z-index: 3;
+					z-index: 5;
 					left: 16px;
 					width: 21px;
 					border-left: 3px solid var( --l2 );
@@ -889,13 +902,35 @@ content {
 
 				&.l3 {
 					display: none;
-					z-index: 2;
+					z-index: 4;
 					left: 24px;
 					width: 13px;
 					border-left: 3px solid var( --l3 );
 
 					&:before { top: 14px; left: -5px; background: var( --l3 ); }
 					&:after { top: 16px; left: 2px; width: 7px; border-top: 3px solid var( --l3 ); }
+				}
+
+				&.l4 {
+					display: none;
+					z-index: 3;
+					left: 30px;
+					width: 13px;
+					border-left: 3px solid var( --l4 );
+
+					&:before { top: 17px; left: -5px; background: var( --l4 ); }
+					&:after { top: 21px; left: 2px; width: 3px; border-top: 3px solid var( --l4 ); }
+				}
+
+				&.l5 {
+					display: none;
+					z-index: 2;
+					left: 36px;
+					width: 13px;
+					border-left: 3px solid var( --l5 );
+
+					&:before { top: 21px; left: -5px; background: var( --l5 ); }
+					&:after { top: 26px; left: 2px; width: 1px; border-top: 3px solid var( --l5 ); }
 				}
 			}
 		}
@@ -921,6 +956,22 @@ content {
 						top: 15px;
 						border-top-left-radius: 6px;
 						border-top: 3px solid var( --l3 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l4 {
+						top: 17px;
+						border-top-left-radius: 3px;
+						border-top: 3px solid var( --l4 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l4 {
+						top: 19px;
+						border-top-left-radius: 2px;
+						border-top: 3px solid var( --l4 );
 
 						&:before, &:after { display:none; }
 					}
@@ -956,6 +1007,22 @@ content {
 						height: 11px;
 						border-bottom-left-radius: 6px;
 						border-bottom: 3px solid var( --l3 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l4 {
+						height: 5px;
+						border-bottom-left-radius: 3px;
+						border-bottom: 3px solid var( --l4 );
+
+						&:before, &:after { display:none; }
+					}
+
+					&.l5 {
+						height: 1px;
+						border-bottom-left-radius: 2px;
+						border-bottom: 3px solid var( --l5 );
 
 						&:before, &:after { display:none; }
 					}
@@ -1021,6 +1088,34 @@ content {
 		}
 
 		&.l3-track .graph i.l3 {
+			display: block;
+		}
+
+		// graphy UI - L4
+		&.l4-down .graph i.l4 {
+			display: block;
+			top: 15px;
+			border-top-left-radius: 3px;
+			border-top: 3px solid var( --l4 );
+		}
+
+		&.l4-up .graph i.l4 {
+			display: block;
+			height: 11px;
+			border-bottom-left-radius: 3px;
+			border-bottom: 3px solid var( --l4 );
+
+			&:before, &:after { display:none; }
+		}
+
+		&.l4-conn .graph i.l4 {
+			display: block;
+
+			&:before { display: block; }
+			&:after { display: block; }
+		}
+
+		&.l4-track .graph i.l4 {
 			display: block;
 		}
 	}

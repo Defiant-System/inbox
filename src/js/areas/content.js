@@ -29,7 +29,9 @@
 				});
 				break;
 			case "draw-graph":
-				let debug = false;
+				// debug 1 : show no content
+				// debug 2 : show lane data only
+				let debug = 0;
 				// helper functions
 				let xHelpers = {
 						recursive(xMail, branch=2) {
@@ -49,6 +51,8 @@
 								this.addClass(xParent, names);
 								this.recursive(xParent, branch+i);
 							}
+							// if (msgId == 3) this.addClass(xMail, "l2");
+							// if (msgId == 1) this.addClass(xMail, "l3");
 						},
 						addClass(node, name) {
 							let names = (node.getAttribute("class") || "").split(" ");
@@ -72,7 +76,6 @@
 				let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);
 				// debug flag
 				xRoot.parentNode.parentNode.setAttribute("debug", debug);
-				console.log( xRoot.parentNode.parentNode );
 				// recusively structure mail graph
 				xHelpers.recursive(xRoot);
 
@@ -89,6 +92,8 @@
 						cLanes = (cNode.getAttribute("class") || "").split(" "),
 						nNode = xList[i+1],
 						nLanes = (nNode ? nNode.getAttribute("class") || "" :  "").split(" ");
+					// for advanced debug
+					if (debug == 2) cNode.setAttribute("_class", cLanes.join(" ").trim());
 					// translate lane names
 					cLanes = cLanes.map((l,i) => {
 						let ret = l;
@@ -96,6 +101,9 @@
 							case (!!tracks[l] && !nLanes.includes(l)):
 								ret = `${l}-up`;
 								tracks[l] = 0;
+								break;
+							case (tracks[l] && nLanes.length < cLanes.length):
+								ret = `${l}-conn`;
 								break;
 							case (tracks[l] && nLanes.includes(l) && i<cLanes.length-1):
 								ret = `${l}-track`;
@@ -111,7 +119,7 @@
 						return ret;
 					});
 					// set lane names back on the node
-					if (!debug) cNode.setAttribute("class", cLanes.join(" ").trim());
+					cNode.setAttribute("class", cLanes.join(" ").trim());
 				}
 				break;
 			case "fetch-thread":
