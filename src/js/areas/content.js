@@ -29,98 +29,25 @@
 				});
 				break;
 			case "draw-graph":
-				// debug 1 : show no content
-				// debug 2 : show lane data only
-				let debug = 2;
-				// helper functions
-				let xHelpers = {
-						recursive(xMail, branch=2) {
-							let msgId = xMail.selectSingleNode(`./tags/i[@id="messageId"]`).getAttribute("value");
-							let xReplied = xMail.selectNodes(`../mail/tags/i[@id="inReplyTo"][@value="${msgId}"]`);
-							// loop leafs / branches
-							for (let i=0, il=xReplied.length; i<il; i++) {
-								let names = [`l${branch}`, `l${branch+i}`];
-								for (let j=0, jl=branch-2; j<jl; j++) {
-									names.unshift(`l${branch+j-1}`);
-								}
-								names = names.join(" ").trim();
-								// tags branch of split
-								this.addClass(xMail, names);
-								// iterates childnodes
-								let xParent = xReplied[i].parentNode.parentNode;
-								this.addClass(xParent, names);
-								this.recursive(xParent, branch+i);
-							}
-							// if (msgId == 3) this.addClass(xMail, "l2");
-							// if (msgId == 1) this.addClass(xMail, "l3");
-						},
-						addClass(node, name) {
-							let names = (node.getAttribute("class") || "").split(" ");
-							// names.push(name);
-							names = names.concat(name.split(" ")).sort((a,b) => a.localeCompare(b));
-							names = [...new Set(names.filter(e => !!e))]; // clean up + remove duplicates
-							node.setAttribute("class", names.join(" ").trim());
-						}
-					};
-				// sort nodes on date
-				let xList = APP.xData.selectNodes(`//TempThread/mail[@id="${event.id}"]/thread/mail`)
-						.sort((a,b) => {
-							let aDate = a.selectSingleNode("./date").getAttribute("value"),
-								bDate = b.selectSingleNode("./date").getAttribute("value");
-							return bDate.localeCompare(aDate);
-						});
-				// this actualy change node order index
-				xList.map((x,i) => x.parentNode.insertBefore(x, x.parentNode.childNodes[i]));
-
 				// pre-parse data
 				let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);
-				// debug flag
-				xRoot.parentNode.parentNode.setAttribute("debug", debug);
-				// recusively structure mail graph
-				xHelpers.recursive(xRoot);
+				let graph = new Graph(xRoot);
+				graph.plot();
 
-				// prepare lane tracks
-				let tracks = {};
-				xList.map(x => (x.getAttribute("class") || "").split(" ").map(l => tracks[l] = 0));
-				
-				// value used for UI indentation
-				xRoot.parentNode.setAttribute("lanes", Object.keys(tracks).length+1);
-
-				// iterate nodes and their lane names
-				for (let i=0, il=xList.length; i<il; i++) {
-					let cNode = xList[i],
-						cLanes = (cNode.getAttribute("class") || "").split(" "),
-						nNode = xList[i+1],
-						nLanes = (nNode ? nNode.getAttribute("class") || "" :  "").split(" ");
-					// for advanced debug
-					if (debug == 2) cNode.setAttribute("_class", cLanes.join(" ").trim());
-					// translate lane names
-					cLanes = cLanes.map((l,i) => {
-						let ret = l;
-						switch (true) {
-							case (!!tracks[l] && !nLanes.includes(l)):
-								ret = `${l}-up`;
-								tracks[l] = 0;
-								break;
-							case (tracks[l] && nLanes.length < cLanes.length):
-								ret = `${l}-conn`;
-								break;
-							case (tracks[l] && nLanes.includes(l) && i<cLanes.length-1):
-								ret = `${l}-track`;
-								break;
-							case (tracks[l] && nLanes.includes(l)):
-								ret = `${l}-conn`;
-								break;
-							case (!tracks[l]):
-								ret = `${l}-down`;
-								tracks[l] = 1;
-								break;
-						}
-						return ret;
-					});
-					// set lane names back on the node
-					cNode.setAttribute("class", cLanes.join(" ").trim());
+				/*
+				let topology = [];
+				for (let path of graph.juntions(messageId)) {
+					// console.log(path.at(-1), path.join("/"));
+					topology.unshift(path.join("-"));
 				}
+				topology.map(e => console.log(e));
+				// console.log(Array.from(graph.juntions(["1", "6"]), p => p.at(-1)));
+				// console.log(Array.from(graph.juntions(["1", "3"]), p => p.at(-1)));
+
+				// for (let path of graph.juntions(["1", "2"])) {
+				// 	console.log(path.join("/"))
+				// }
+				*/
 				break;
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {

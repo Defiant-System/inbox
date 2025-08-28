@@ -98,15 +98,13 @@
 		<div class="head">
 			<span class="avatar"></span>
 			<div class="row">
-				<xsl:if test="../../@debug &lt; 1">
-					<span class="field-name">From</span>
-					<span class="field-value from-name recipient">
-						<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
-						<xsl:value-of select="from/i/@name"/>
-					</span>
-					<span class="date"><xsl:value-of select="date/@date"/></span>
-					<span class="time"><xsl:value-of select="date/@time"/></span>
-				</xsl:if>
+				<span class="field-name">From</span>
+				<span class="field-value from-name recipient">
+					<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
+					<xsl:value-of select="from/i/@name"/>
+				</span>
+				<span class="date"><xsl:value-of select="date/@date"/></span>
+				<span class="time"><xsl:value-of select="date/@time"/></span>
 			</div>
 			<div class="row">
 				<span class="field-name">To</span>
@@ -122,19 +120,7 @@
 				</xsl:for-each>
 			</div>
 			<div class="excerpt">
-				<xsl:if test="../../@debug = 1">
-					<xsl:value-of select="tags/*[@id='messageId']/@value"/> / 
-					<xsl:value-of select="tags/*[@id='inReplyTo']/@value"/> 
-					-&gt; <xsl:value-of select="@class"/>
-				</xsl:if>
-				<xsl:if test="../../@debug = 2">
-					<xsl:value-of select="tags/*[@id='messageId']/@value"/> / 
-					<xsl:value-of select="tags/*[@id='inReplyTo']/@value"/> 
-					-&gt; <xsl:value-of select="@_class"/>
-				</xsl:if>
-				<xsl:if test="../../@debug &lt; 1">
-					<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
-				</xsl:if>
+				<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
 			</div>
 		</div>
 
