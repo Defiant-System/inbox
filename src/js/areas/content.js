@@ -31,7 +31,7 @@
 			case "draw-graph":
 				// debug 1 : show no content
 				// debug 2 : show lane data only
-				let debug = 0;
+				let debug = 2;
 				// helper functions
 				let xHelpers = {
 						recursive(xMail, branch=2) {
@@ -39,7 +39,7 @@
 							let xReplied = xMail.selectNodes(`../mail/tags/i[@id="inReplyTo"][@value="${msgId}"]`);
 							// loop leafs / branches
 							for (let i=0, il=xReplied.length; i<il; i++) {
-								let names = [`l${branch+i}`];
+								let names = [`l${branch}`, `l${branch+i}`];
 								for (let j=0, jl=branch-2; j<jl; j++) {
 									names.unshift(`l${branch+j-1}`);
 								}
