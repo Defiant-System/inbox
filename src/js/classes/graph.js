@@ -2,6 +2,16 @@
 class Graph {
 	constructor(xRoot) {
 		this.thread = new Map();
+		// sort nodes on date
+		let xList = xRoot.selectNodes(`../mail`)
+				.sort((a,b) => {
+					let aDate = a.selectSingleNode("./date").getAttribute("value"),
+						bDate = b.selectSingleNode("./date").getAttribute("value");
+					return aDate.localeCompare(bDate);
+				});
+		// this actualy change node order index
+		xList.map((x,i) => x.parentNode.insertBefore(x, x.parentNode.childNodes[i]));
+		// recursive map
 		this.mapXml(xRoot);
 		// save reference to root node
 		this.xRoot = xRoot;
@@ -97,6 +107,8 @@ class Graph {
 			});
 		});
 		// console.log(xThread);
+
+		xThread.setAttribute("lanes", this.lanes.length + 1);
 	}
 
 	*juntion(node, path=Array(), visited=new Set()) {

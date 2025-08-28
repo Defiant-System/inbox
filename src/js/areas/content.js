@@ -33,21 +33,6 @@
 				let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);
 				let graph = new Graph(xRoot);
 				graph.plot();
-
-				/*
-				let topology = [];
-				for (let path of graph.juntions(messageId)) {
-					// console.log(path.at(-1), path.join("/"));
-					topology.unshift(path.join("-"));
-				}
-				topology.map(e => console.log(e));
-				// console.log(Array.from(graph.juntions(["1", "6"]), p => p.at(-1)));
-				// console.log(Array.from(graph.juntions(["1", "3"]), p => p.at(-1)));
-
-				// for (let path of graph.juntions(["1", "2"])) {
-				// 	console.log(path.join("/"))
-				// }
-				*/
 				break;
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
