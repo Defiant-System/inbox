@@ -113,8 +113,12 @@ class Graph {
 		// trim stacks
 		stacks.map((s,i) => {
 			let stack = s.join("/").trim().split("/").filter(e => !!e).map(e => +e);
-			// let occupied = Object.keys(tracks).map();
-			console.log(i, stack);
+			let indent = i;
+			Object.keys(tracks).map(r => {
+				let overlap = stack.filter(v => tracks[+r].stack.includes(v));
+				if (!overlap.length) indent = +r;
+			});
+			tracks[i] = { indent, stack };
 		});
 		// console.log( tracks );
 		// console.log( this.lanes );
@@ -128,21 +132,21 @@ class Graph {
 				let num = s === "-" ? i+1+b : s,
 					xPath = `.//tags/i[@id="messageId"][@_val="${num}"]/../..`,
 					xMail = xThread.selectSingleNode(xPath),
-					indent = 0;
+					indent = tracks[l].indent;
 
 				// console.log(xMail);
 				switch (true) {
 					case (i === 0):
-						this.addClass(xMail, `l${l+indent+2}-up`);
+						this.addClass(xMail, `l${indent+2}-up`);
 						break;
 					case (s === "-"):
-						this.addClass(xMail, `l${l+indent+2}-track`);
+						this.addClass(xMail, `l${indent+2}-track`);
 						break;
 					case (i === r.length-1):
-						this.addClass(xMail, `l${l+indent+2}-down`);
+						this.addClass(xMail, `l${indent+2}-down`);
 						break;
 					default:
-						this.addClass(xMail, `l${l+indent+2}-conn`);
+						this.addClass(xMail, `l${indent+2}-conn`);
 				}
 			});
 		});
