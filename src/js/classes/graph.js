@@ -100,7 +100,6 @@ class Graph {
 
 	plot() {
 		let xThread = this.xRoot.parentNode;
-		let lLen = this.lanes.length + 1;
 		let stacks = [];
 		let tracks = {};
 
@@ -151,8 +150,9 @@ class Graph {
 			});
 		});
 		// console.log(xThread);
-		// overall lane thickness in UI
-		xThread.setAttribute("lanes", lLen);
+		// overall lane thickness in U
+		let lLen = Math.max(...Object.keys(tracks).map(e => tracks[e].indent));
+		xThread.setAttribute("lanes", lLen+2);
 	}
 
 	*juntion(node, path=Array(), visited=new Set()) {
