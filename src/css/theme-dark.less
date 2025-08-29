@@ -34,10 +34,27 @@
 			}
 
 			.list-entry {
+				&:before {
+					filter: invert(1) contrast(5) drop-shadow(0 1px 0 #000c);
+				}
+
 				.row {
 					.date {
+						color: #fff9;
+						text-shadow: 0 1px 0 #0005;
+					}
+
+					.replies {
 						color: #fff8;
 						text-shadow: 0 1px 0 #0005;
+
+						&:before {
+							filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
+						}
+					}
+
+					.icon-attachment {
+						filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
 					}
 				}
 			}
@@ -102,8 +119,12 @@
 
 					.date,
 					.time {
-						color: #ccc;
-						text-shadow: 0 1px 0 #0005;
+						color: #fff9;
+						text-shadow: 0 1px 0 #0003;
+
+						// &.time {
+						// 	color: #fffa;
+						// }
 						
 						&:before,
 						&:after {
