@@ -11,21 +11,31 @@ class Graph {
 				});
 		// this actualy change node order index
 		xList.map((x,i) => x.parentNode.insertBefore(x, x.parentNode.childNodes[i]));
+		// map "messageId" and "inReplyTo" to numeric values
+		xList.map((x,i) => {
+			let xMessageId = x.selectSingleNode(`./tags/i[@id="messageId"]`),
+				xInReplyTo = x.selectSingleNode(`./tags/i[@id="inReplyTo"]`);
+			xMessageId.setAttribute("_val", i+1);
+			if (xInReplyTo) {
+				let xReplyMsg = x.selectSingleNode(`../mail/tags/i[@id="messageId"][@value="${xInReplyTo.getAttribute("value")}"]`);
+				xInReplyTo.setAttribute("_val", xReplyMsg.getAttribute("_val"));
+			}
+		});
 		// recursive map
 		this.mapXml(xRoot);
 		// save reference to root node
 		this.xRoot = xRoot;
 		// traverse map & get lanes
-		let mId = xRoot.selectSingleNode(`./tags/i[@id="messageId"]`).getAttribute("value");
+		let mId = xRoot.selectSingleNode(`./tags/i[@id="messageId"]`).getAttribute("_val");
 		this.setLanes(mId);
 	}
 
 	mapXml(xMail) {
-		let aId = xMail.selectSingleNode(`./tags/i[@id="messageId"]`).getAttribute("value");
-		let xReplied = xMail.selectNodes(`../mail/tags/i[@id="inReplyTo"][@value="${aId}"]`);
+		let aId = xMail.selectSingleNode(`./tags/i[@id="messageId"]`).getAttribute("_val");
+		let xReplied = xMail.selectNodes(`../mail/tags/i[@id="inReplyTo"][@_val="${aId}"]`);
 		
 		for (let i=0, il=xReplied.length; i<il; i++) {
-			let bId = xReplied[i].selectSingleNode(`../i[@id="messageId"]`).getAttribute("value");
+			let bId = xReplied[i].selectSingleNode(`../i[@id="messageId"]`).getAttribute("_val");
 			this.addEdge(aId, bId);
 			// recursively go deeper
 			this.mapXml(xReplied[i].parentNode.parentNode);
@@ -90,33 +100,49 @@ class Graph {
 
 	plot() {
 		let xThread = this.xRoot.parentNode;
+		let lLen = this.lanes.length + 1;
+		let stacks = [];
+
 		// loop lanes
 		this.lanes.map((lane, l) => {
 			let b = lane[0] - 1;
-			console.log(lane);
+			let stack = stacks[l] || [];
+			
+			// non-greedy lane use
+			let indent = 0;
+			// logic to check if lane can be indented
+			if (l === 2) indent = -1;
+
+			// adjust overall lane length
+			lLen += indent;
+			// translate lanest to css classnames
 			lane.map((s, i, r) => {
 				let num = s === "-" ? i+1+b : s,
-					xPath = `.//tags/i[@id="messageId"][@value="${num}"]/../..`,
+					xPath = `.//tags/i[@id="messageId"][@_val="${num}"]/../..`,
 					xMail = xThread.selectSingleNode(xPath);
+
+				stack[s] = 1;
+				
 				// console.log(xMail);
 				switch (true) {
 					case (i === 0):
-						this.addClass(xMail, `l${l+2}-up`);
+						this.addClass(xMail, `l${l+indent+2}-up`);
 						break;
 					case (s === "-"):
-						this.addClass(xMail, `l${l+2}-track`);
+						this.addClass(xMail, `l${l+indent+2}-track`);
 						break;
 					case (i === r.length-1):
-						this.addClass(xMail, `l${l+2}-down`);
+						this.addClass(xMail, `l${l+indent+2}-down`);
 						break;
 					default:
-						this.addClass(xMail, `l${l+2}-conn`);
+						this.addClass(xMail, `l${l+indent+2}-conn`);
 				}
 			});
+			// console.log(stack);
 		});
 		// console.log(xThread);
-
-		xThread.setAttribute("lanes", this.lanes.length + 1);
+		// overall lane thickness in UI
+		xThread.setAttribute("lanes", lLen);
 	}
 
 	*juntion(node, path=Array(), visited=new Set()) {
