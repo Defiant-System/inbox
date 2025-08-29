@@ -905,20 +905,22 @@ content {
 					left: 24px;
 					width: 17px;
 					border-left: 3px solid var( --l3 );
+					filter: drop-shadow(0 1px 0 var(--content-bg))
+							drop-shadow(0 -1px 0 var(--content-bg));
 
 					&:before { top: 14px; left: -5px; background: var( --l3 ); }
-					&:after { top: 16px; left: 2px; width: 7px; border-top: 3px solid var( --l3 ); }
+					&:after { top: 16px; left: 2px; width: 13px; border-top: 3px solid var( --l3 ); }
 				}
 
 				&.l4 {
 					display: none;
 					z-index: 3;
-					left: 30px;
+					left: 32px;
 					width: 13px;
 					border-left: 3px solid var( --l4 );
 
 					&:before { top: 17px; left: -5px; background: var( --l4 ); }
-					&:after { top: 21px; left: 2px; width: 3px; border-top: 3px solid var( --l4 ); }
+					&:after { top: 19px; left: 2px; width: 5px; border-top: 3px solid var( --l4 ); }
 				}
 			}
 		}
@@ -949,16 +951,8 @@ content {
 					}
 
 					&.l4 {
-						top: 17px;
-						border-top-left-radius: 3px;
-						border-top: 3px solid var( --l4 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l4 {
 						top: 19px;
-						border-top-left-radius: 2px;
+						border-top-left-radius: 3px;
 						border-top: 3px solid var( --l4 );
 
 						&:before, &:after { display:none; }

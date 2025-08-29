@@ -92,7 +92,6 @@
 			<i class="l2"></i>
 			<i class="l3"></i>
 			<i class="l4"></i>
-			<i class="l5"></i>
 		</div>
 
 		<div class="head">

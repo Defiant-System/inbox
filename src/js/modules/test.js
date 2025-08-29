@@ -8,7 +8,7 @@ let Test = {
 		// return;
 
 		APP.list.dispatch({ type: "render-temp-list" });
-		APP.list.els.el.find(`.list-entry`).get(4).trigger("click");
+		APP.list.els.el.find(`.list-entry`).get(0).trigger("click");
 		// APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
 		// APP.content.dispatch({ type: "render-temp-thread" });
 
