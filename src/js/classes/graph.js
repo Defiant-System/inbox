@@ -63,8 +63,9 @@ class Graph {
 			let f = [];
 			l = l.split("/").map(e => +e);
 			l.map((e,k,r) => {
-				if (exclude.includes([e, r[k+1]].join("/"))) return;
-				if (r[k+1]) exclude.push([e, r[k+1]].join("/"));
+				let pair = [e, r[k+1]].join("/");
+				if (exclude.includes(pair)) return;
+				exclude.push(pair);
 
 				for (let i=e, il=r[k+1]; i<il; i++) {
 					f[i-1] = i == e ? e : "-";
@@ -73,7 +74,8 @@ class Graph {
 			});
 			return f;
 		}).map(r => r.filter(e => !!e));
-		lanes.map(r => console.log(r.join("/")));
+		// console.log(lanes);
+		// lanes.map(r => console.log(r.join("/")));
 
 		// lanes before plot
 		this.lanes = lanes;
@@ -90,8 +92,10 @@ class Graph {
 		let xThread = this.xRoot.parentNode;
 		// loop lanes
 		this.lanes.map((lane, l) => {
+			let b = lane[0] - 1;
+			console.log(lane);
 			lane.map((s, i, r) => {
-				let num = s === "-" ? i+1 : s,
+				let num = s === "-" ? i+1+b : s,
 					xPath = `.//tags/i[@id="messageId"][@value="${num}"]/../..`,
 					xMail = xThread.selectSingleNode(xPath);
 				// console.log(xMail);
@@ -133,16 +137,3 @@ class Graph {
 		}
 	}
 }
-
-/*
-
-
-LANE 1:
-1/-/-/4/5/6
-
- 
-LANE 2:
-1/2/3
-
-
-*/
