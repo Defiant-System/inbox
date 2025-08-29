@@ -102,27 +102,34 @@ class Graph {
 		let xThread = this.xRoot.parentNode;
 		let lLen = this.lanes.length + 1;
 		let stacks = [];
+		let tracks = {};
+
+		// loop lanes
+		this.lanes.map((lane, l) => {
+			// fill stacks
+			stacks[l] = stacks[l] || [];
+			lane.map(s => stacks[l][s] = s);
+		});
+		// trim stacks
+		stacks.map((s,i) => {
+			let stack = s.join("/").trim().split("/").filter(e => !!e).map(e => +e);
+			// let occupied = Object.keys(tracks).map();
+			console.log(i, stack);
+		});
+		// console.log( tracks );
+		// console.log( this.lanes );
 
 		// loop lanes
 		this.lanes.map((lane, l) => {
 			let b = lane[0] - 1;
-			let stack = stacks[l] || [];
-			
-			// non-greedy lane use
-			let indent = 0;
-			// logic to check if lane can be indented
-			if (l === 2) indent = -1;
 
-			// adjust overall lane length
-			lLen += indent;
 			// translate lanest to css classnames
 			lane.map((s, i, r) => {
 				let num = s === "-" ? i+1+b : s,
 					xPath = `.//tags/i[@id="messageId"][@_val="${num}"]/../..`,
-					xMail = xThread.selectSingleNode(xPath);
+					xMail = xThread.selectSingleNode(xPath),
+					indent = 0;
 
-				stack[s] = 1;
-				
 				// console.log(xMail);
 				switch (true) {
 					case (i === 0):
@@ -138,7 +145,6 @@ class Graph {
 						this.addClass(xMail, `l${l+indent+2}-conn`);
 				}
 			});
-			// console.log(stack);
 		});
 		// console.log(xThread);
 		// overall lane thickness in UI

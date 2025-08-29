@@ -13,6 +13,7 @@ let Test = {
 		// APP.content.dispatch({ type: "render-temp-thread" });
 
 		// setTimeout(() => window.find(`content .mail-entry[data-id="mid-5"]`).trigger("click"), 500);
+		setTimeout(() => APP.sidebar.els.el.find(`.folder-entry`).get(0).addClass("active"), 150);
 		return;
 
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
