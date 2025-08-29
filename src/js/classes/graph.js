@@ -102,16 +102,21 @@ class Graph {
 		let xThread = this.xRoot.parentNode;
 		let stacks = [];
 		let tracks = {};
-
 		// loop lanes
 		this.lanes.map((lane, l) => {
 			// fill stacks
 			stacks[l] = stacks[l] || [];
 			lane.map(s => stacks[l][s] = s);
 		});
-		// trim stacks
+		// analyse & fill stacks
 		stacks.map((s,i) => {
-			let stack = s.join("/").trim().split("/").filter(e => !!e).map(e => +e);
+			let stack = [],
+				// trim stacks + fill spaces
+				bits = s.join("/").trim().split("/").filter(e => !!e).map(e => +e),
+				j = Math.min(...bits),
+				jl = Math.max(...bits);
+			for (; j<=jl; j++) stack.push(j);
+			// check overlap, if any - and stack
 			let indent = i;
 			Object.keys(tracks).map(r => {
 				let overlap = stack.filter(v => tracks[+r].stack.includes(v));
@@ -119,9 +124,6 @@ class Graph {
 			});
 			tracks[i] = { indent, stack };
 		});
-		// console.log( tracks );
-		// console.log( this.lanes );
-
 		// loop lanes
 		this.lanes.map((lane, l) => {
 			let b = lane[0] - 1;
@@ -149,7 +151,6 @@ class Graph {
 				}
 			});
 		});
-		// console.log(xThread);
 		// overall lane thickness in U
 		let lLen = Math.max(...Object.keys(tracks).map(e => tracks[e].indent));
 		xThread.setAttribute("lanes", lLen+2);
