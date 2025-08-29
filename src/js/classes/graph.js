@@ -45,6 +45,7 @@ class Graph {
 	setLanes(node) {
 		// data topology
 		let topology = [];
+		let exclude = [];
 		for (let path of this.juntions(node)) {
 			topology.unshift(path.join("/"));
 		}
@@ -62,14 +63,17 @@ class Graph {
 			let f = [];
 			l = l.split("/").map(e => +e);
 			l.map((e,k,r) => {
+				if (exclude.includes([e, r[k+1]].join("/"))) return;
+				if (r[k+1]) exclude.push([e, r[k+1]].join("/"));
+
 				for (let i=e, il=r[k+1]; i<il; i++) {
 					f[i-1] = i == e ? e : "-";
 				}
 				if (k>=r.length-1) f.push(r[r.length-1]);
 			});
 			return f;
-		});
-		// lanes.map(r => console.log(r.join("/")));
+		}).map(r => r.filter(e => !!e));
+		lanes.map(r => console.log(r.join("/")));
 
 		// lanes before plot
 		this.lanes = lanes;
