@@ -79,7 +79,7 @@
 	<div class="mail-entry">
 		<xsl:attribute name="class">mail-entry 
 			<xsl:value-of select="@class"/> 
-			<!-- <xsl:if test="position() = 1"> active</xsl:if> -->
+			<xsl:if test="tags/*[@id='deleted'][@value='symbolic']"> deleted</xsl:if>
 		</xsl:attribute>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="data-messageId"><xsl:value-of select="tags/*[@id='messageId']/@value"/></xsl:attribute>
@@ -95,32 +95,40 @@
 		</div>
 
 		<div class="head">
-			<span class="avatar"></span>
-			<div class="row">
-				<span class="field-name">From</span>
-				<span class="field-value from-name recipient">
-					<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
-					<xsl:value-of select="from/i/@name"/>
-				</span>
-				<span class="date"><xsl:value-of select="date/@date"/></span>
-				<span class="time"><xsl:value-of select="date/@time"/></span>
-			</div>
-			<div class="row">
-				<span class="field-name">To</span>
-				<xsl:for-each select="to/i">
-					<xsl:if test="position() &gt; 1">, </xsl:if>
-					<span class="field-value to-name recipient">
-						<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
-						<xsl:if test="@name = ''">
-							<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
-						</xsl:if>
-						<xsl:value-of select="@name"/>
-					</span>
-				</xsl:for-each>
-			</div>
-			<div class="excerpt">
-				<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
-			</div>
+			<xsl:choose>
+				<xsl:when test="tags/*[@id='deleted'][@value='symbolic']">
+					<span>Deleted</span>
+					<span class="btn-undo" data-click="undo-deleted-message">Undo</span>
+				</xsl:when>
+				<xsl:otherwise>
+					<span class="avatar"></span>
+					<div class="row">
+						<span class="field-name">From</span>
+						<span class="field-value from-name recipient">
+							<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
+							<xsl:value-of select="from/i/@name"/>
+						</span>
+						<span class="date"><xsl:value-of select="date/@date"/></span>
+						<span class="time"><xsl:value-of select="date/@time"/></span>
+					</div>
+					<div class="row">
+						<span class="field-name">To</span>
+						<xsl:for-each select="to/i">
+							<xsl:if test="position() &gt; 1">, </xsl:if>
+							<span class="field-value to-name recipient">
+								<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
+								<xsl:if test="@name = ''">
+									<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
+								</xsl:if>
+								<xsl:value-of select="@name"/>
+							</span>
+						</xsl:for-each>
+					</div>
+					<div class="excerpt">
+						<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>
+					</div>
+				</xsl:otherwise>
+			</xsl:choose>
 		</div>
 
 		<xsl:for-each select="attachments/*[@kind = 'ics']">

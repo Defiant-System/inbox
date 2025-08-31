@@ -128,6 +128,7 @@
 				break;
 			case "select-mail":
 				el = $(event.target);
+				if (el.parents("?.mail-entry").hasClass("deleted")) return;
 				// deactivate current, if any
 				Self.els.el.find(".mail-entry.active").removeClass("active");
 				// toggles mail expand/collapse mode

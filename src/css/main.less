@@ -406,7 +406,7 @@ list {
 			padding: 0 13px 0 7px;
 			margin-left: 7px;
 			font-weight: 700;
-			color: #888;
+			color: #aaa;
 			border-radius: 4px;
 
 			&:before {
@@ -585,12 +585,59 @@ content {
 		border: 1px solid #0002;
 		cursor: pointer;
 
+		&.deleted {
+			background: #fff0;
+			border-color: #0000;
+			cursor: default;
+
+			.head {
+				overflow: initial;
+				pointer-events: initial;
+
+				&:before {
+					background-image: url(/app/ant/inbox/icons/icon-trash.png);
+					opacity: .25;
+				}
+
+				&:after {
+					opacity: 1;
+					pointer-events: none;
+					border-radius: 6px;
+					border: 1px dashed #0002;
+					right: auto;
+					bottom: auto;
+					top: -9px;
+					left: -8px;
+					height: 29px;
+					width: 137px;
+				}
+
+				.btn-undo {
+					display: inline-block;
+					background: #fffb;
+					border-radius: 3px;
+					border: 1px solid #0002;
+					padding: 3px 5px;
+					margin: 0 0 0 5px;
+					position: relative;
+					top: -4px;
+					height: 21px;
+					cursor: pointer;
+
+					&:hover {
+						background: #fff;
+						color: #555;
+					}
+				}
+			}
+		}
+
 		&.active {
 			border-color: #7cbaff;
 			box-shadow: 0 0 0 3px #a9cff5;
 		}
 
-		&.expanded {
+		&.expanded:not(.deleted) {
 			display: block;
 			cursor: initial;
 

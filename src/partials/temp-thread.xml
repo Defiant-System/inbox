@@ -1,5 +1,5 @@
 <TempList>
-	<mail id="mid-1" mStamp="1756027803000" date="2025-08-06 13:11" is_read="1" thread="31" size="123">
+	<mail id="mid-1" mStamp="1756027803000" date="2025-08-06 13:11" is_read="1" thread="11" size="123">
 		<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
 		<to>
 			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
@@ -33,7 +33,7 @@
 		<subject><![CDATA[Re: Sheldon Disagreement]]></subject>
 	</mail>
 
-	<mail id="mid-31" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" size="123">
+	<mail id="mid-31" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="5" size="123">
 		<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
 		<to>
 			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
@@ -45,7 +45,7 @@
 		<subject><![CDATA[Leonard elevator pitch]]></subject>
 	</mail>
 
-	<mail id="mid-41" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" size="123">
+	<mail id="mid-41" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="6" size="123">
 		<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
 		<to>
 			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
@@ -57,7 +57,7 @@
 		<subject><![CDATA[Microbiology]]></subject>
 	</mail>
 
-	<mail id="mid-51" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" size="123">
+	<mail id="mid-51" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="4" size="123">
 		<from><i name="Howard Wolowitz" address="howard@karaqu.com"/></from>
 		<to>
 			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
@@ -128,13 +128,13 @@
 				</to>
 				<tags>
 					<i id="threadId" value="mid-1"/>
-					<i id="inReplyTo" value="abs1"/>
+					<i id="inReplyTo" value="abs2"/>
 					<i id="messageId" value="abs3"/>
 				</tags>
 				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
-<!--
+			
 			<mail id="mid-4">
 				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
 				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
@@ -210,9 +210,10 @@
 					<i id="threadId" value="mid-1"/>
 					<i id="inReplyTo" value="abs7"/>
 					<i id="messageId" value="abs8"/>
+					<i id="deleted" value="symbolic"/>
 				</tags>
 				<excerpt><![CDATA[Well...which is it?]]></excerpt>
-				<html><![CDATA[Well...which is it?]]></html>
+				<html><![CDATA[Well...which is it?<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></html>
 			</mail>
 
 			<mail id="mid-9">
@@ -262,7 +263,7 @@
 				<excerpt><![CDATA[Okay.]]></excerpt>
 				<html><![CDATA[Okay.]]></html>
 			</mail>
--->
+
 		</thread>
 	</mail>
 
