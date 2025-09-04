@@ -9,4 +9,12 @@
 		<Menu type="divider"/>
 		<Menu name="License" shell="win -al"/>
 	</Menu>
+
+	<Menu for="mail-actions">
+		<Menu name="Reply"/>
+		<Menu name="Reply All"/>
+		<Menu name="Delete"/>
+		<Menu type="divider"/>
+		<Menu name="Show attachments"/>
+	</Menu>
 </MenuBar>

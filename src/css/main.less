@@ -35,10 +35,11 @@ layout {
 		&.icon-trash      { background-image: url(~/icons/icon-trash.png); }
 		&.icon-folder     { background-image: url(~/icons/icon-folder.png); }
 		&.icon-attachment { background-image: url(~/icons/icon-attachment.png); }
+		&.icon-more-menu  { background-image: url(~/icons/icon-more-menu.png); background-size: 13px auto; }
 
 		&.icon-calendar    { background-image: url(~/icons/icon-calendar.png); background-size: 15px auto; }
 		&.icon-location    { background-image: url(~/icons/icon-location.png); background-size: 15px auto; }
-		&.icon-user        { background-image: url(~/icons/icon-user.png); background-size: 15px auto; }
+		&.icon-user        { background-image: url(~/icons/icon-user.png); }
 		
 		&.icon-slim-messages  { background-image: url(~/icons/icon-slim-messages.png); }
 		&.icon-thick-messages { background-image: url(~/icons/icon-thick-messages.png); }
@@ -585,6 +586,35 @@ content {
 		border: 1px solid #0002;
 		cursor: pointer;
 
+		&:hover {
+			padding-right: 29px;
+
+			span[data-menu="mail-actions"] {
+				opacity: 1;
+				pointer-events: all;
+			}
+		}
+
+		&[data-attachments]:not(.expanded) {
+			.head .row:nth-child(2) {
+				padding-left: 17px;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 21px;
+					width: 13px;
+					height: 13px;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					background-image: url(~/icons/icon-attachment.png);
+					opacity: .5;
+				}
+			}
+		}
+
 		&.deleted {
 			background: #fff0;
 			border-color: #0000;
@@ -629,6 +659,11 @@ content {
 						color: #555;
 					}
 				}
+			}
+
+			span[data-menu="mail-actions"] {
+				display: none;
+				pointer-events: none;
 			}
 		}
 
@@ -757,6 +792,11 @@ content {
 				padding: 3px 0 9px;
 				line-height: 1.5;
 			}
+
+			.foot {
+				height: calc-size(auto, size);
+				padding: 17px 1px 3px;
+			}
 		}
 
 		.head {
@@ -882,6 +922,25 @@ content {
 			}
 		}
 
+		span[data-menu="mail-actions"] {
+			position: absolute;
+			top: 6px;
+			right: 6px;
+			width: 17px;
+			height: 17px;
+			border-radius: 3px;
+			opacity: 0;
+			transition: opacity 80ms ease-in-out;
+
+			&:hover {
+				background: #0001;
+			}
+
+			.icon-more-menu {
+				opacity: .35;
+			}
+		}
+
 		.body {
 			display: block;
 			height: 0;
@@ -890,6 +949,51 @@ content {
 			padding-bottom: 0;
 			transition: all var( --exp-anim ) ease-in-out;
 			transition-behavior: allow-discrete;
+		}
+
+		.foot {
+			position: relative;
+			font-size: 0;
+			height: 0;
+			overflow: hidden;
+			transition: all var( --exp-anim ) ease-in-out;
+			transition-behavior: allow-discrete;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 7px;
+				left: 0;
+				right: 0;
+				border-top: 1px solid #0001;
+			}
+
+			.file-attachment {
+				display: inline-block;
+				padding: 2px 11px 3px;
+				margin-right: 7px;
+				cursor: pointer;
+				color: #555;
+				border-radius: 31px;
+				box-shadow: 0 0 0 1px #0002;
+
+				i {
+					display: inline-block;
+					vertical-align: middle;
+					width: 17px;
+					height: 17px;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					margin-right: 7px;
+				}
+
+				span {
+					display: inline-block;
+					vertical-align: middle;
+					font-size: 13px;
+				}
+			}
 		}
 
 		// graph UI

@@ -201,6 +201,15 @@
 			C11.3,3.5,12,4.2,12,5z"/>
 	</svg>
 
+	<svg id="icon-more-menu" viewBox="0 0 13 13">
+		<style type="text/css">
+			.st0{fill:#333;}
+		</style>
+		<circle class="st0" cx="6" cy="2" r="1.5"/>
+		<circle class="st0" cx="6" cy="6.5" r="1.5"/>
+		<circle class="st0" cx="6" cy="11" r="1.5"/>
+	</svg>
+
 	<svg id="icon-attachment" viewBox="0 0 13 13">
 		<style type="text/css">
 			.st0{fill:#333;}

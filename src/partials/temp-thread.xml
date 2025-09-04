@@ -223,6 +223,11 @@
 					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
+				<attachments>
+					<i path="~/Mail/123/some-file-1.pdf" name="some-file-1.pdf" kind="pdf"/>
+					<i path="~/Mail/123/agreement.rtf" name="agreement.rtf" kind="rtf"/>
+					<i path="~/Mail/123/logo.png" name="logo.png" kind="png"/>
+				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>
 					<i id="inReplyTo" value="abs8"/>
@@ -232,13 +237,16 @@
 				<html><![CDATA[Maybe we missed something...]]></html>
 			</mail>
 
-			<mail id="mid-10">
+			<mail id="mid-10" class="expanded">
 				<date value="2025-08-06T16:29:03.000Z" date="2025-08-06" time="16:29"/>
 				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
 				<to>
 					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
+				<attachments>
+					<i path="~/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
+				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>
 					<i id="inReplyTo" value="abs6"/>
