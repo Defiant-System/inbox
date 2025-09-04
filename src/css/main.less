@@ -585,8 +585,10 @@ content {
 		border-radius: 7px;
 		border: 1px solid #0002;
 		cursor: pointer;
+		transition: padding 100ms ease-in-out;
 
-		&:hover {
+		&:hover,
+		&.menu-active {
 			padding-right: 29px;
 
 			span[data-menu="mail-actions"] {
@@ -923,18 +925,20 @@ content {
 		}
 
 		span[data-menu="mail-actions"] {
+			background: #0001;
 			position: absolute;
-			top: 6px;
-			right: 6px;
-			width: 17px;
-			height: 17px;
-			border-radius: 3px;
+			top: 7px;
+			right: 8px;
+			width: 16px;
+			height: 16px;
+			border-radius: 2px;
+			box-shadow: 0 0 0 2px #0001;
 			opacity: 0;
 			transition: opacity 80ms ease-in-out;
 
-			&:hover {
-				background: #0001;
-			}
+			// &:hover {
+			// 	background: #0001;
+			// }
 
 			.icon-more-menu {
 				opacity: .35;
@@ -970,7 +974,7 @@ content {
 
 			.file-attachment {
 				display: inline-block;
-				padding: 2px 11px 3px;
+				padding: 2px 11px 3px 9px;
 				margin-right: 7px;
 				cursor: pointer;
 				color: #555;

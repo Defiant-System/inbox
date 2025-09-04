@@ -15,6 +15,14 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			// system events
+			case "before-menu:mail-actions":
+				event.el.parents(".mail-entry").addClass("menu-active");
+				break;
+			case "after-menu:mail-actions":
+				event.el.parents(".mail-entry").removeClass("menu-active");
+				break;
+			// custom events
 			case "render-temp-thread":
 				xThread = APP.xData.selectSingleNode(`//TempThread/mail[@id="${event.id}"]`);
 				if (!xThread.getAttribute("graph-processed")) {
