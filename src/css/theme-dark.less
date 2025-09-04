@@ -120,8 +120,10 @@
 							border-bottom-color: #fff2;
 						}
 
-						.recipient {
-							color: #fff;
+						.row {
+							.recipient {
+								color: #fff;
+							}
 						}
 					}
 				}
@@ -151,10 +153,6 @@
 						color: #fff9;
 						text-shadow: 0 1px 0 #0003;
 
-						// &.time {
-						// 	color: #fffa;
-						// }
-						
 						&:before,
 						&:after {
 							filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
@@ -162,8 +160,26 @@
 					}
 				}
 
+				span[data-menu="mail-actions"] {
+					.icon-more-menu {
+						filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0007);
+					}
+				}
+
 				.body {
 					color: #fff;
+				}
+
+				.foot {
+					&:after {
+						border-top-color: #fff2;
+					}
+
+					.file-attachment {
+						background: #fff1;
+						color: #fff;
+						box-shadow: 0 0 0 1px #0001;
+					}
 				}
 			}
 		}

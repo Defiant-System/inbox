@@ -184,7 +184,8 @@
 		<xsl:if test="count(attachments/*) &gt; 0">
 			<div class="foot">
 				<xsl:for-each select="attachments/*">
-					<span class="file-attachment">
+					<span class="file-attachment" data-click="open-attached-folder">
+						<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
 						<i>
 							<xsl:attribute name="style">background-image: url(/app/icons/file-<xsl:value-of select="@kind"/>.png);</xsl:attribute>
 						</i>

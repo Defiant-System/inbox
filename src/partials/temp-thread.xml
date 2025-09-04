@@ -28,7 +28,7 @@
 			<i id="messageId" value="s-4"/>
 		</tags>
 		<attachments>
-			<i path="~/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
+			<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
 		</attachments>
 		<subject><![CDATA[Re: Sheldon Disagreement]]></subject>
 	</mail>
@@ -224,9 +224,9 @@
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
 				<attachments>
-					<i path="~/Mail/123/some-file-1.pdf" name="some-file-1.pdf" kind="pdf"/>
-					<i path="~/Mail/123/agreement.rtf" name="agreement.rtf" kind="rtf"/>
-					<i path="~/Mail/123/logo.png" name="logo.png" kind="png"/>
+					<i path="/fs/Mail/123/some-file-1.pdf" name="some-file-1.pdf" kind="pdf"/>
+					<i path="/fs/Mail/123/agreement.rtf" name="agreement.rtf" kind="rtf"/>
+					<i path="/fs/Mail/123/logo.png" name="logo.png" kind="png"/>
 				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>
@@ -245,7 +245,7 @@
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
 				<attachments>
-					<i path="~/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
+					<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
 				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>

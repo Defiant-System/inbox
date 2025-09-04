@@ -589,7 +589,7 @@ content {
 
 		&:hover,
 		&.menu-active {
-			padding-right: 29px;
+			padding-right: 31px;
 
 			span[data-menu="mail-actions"] {
 				opacity: 1;
@@ -936,10 +936,6 @@ content {
 			opacity: 0;
 			transition: opacity 80ms ease-in-out;
 
-			// &:hover {
-			// 	background: #0001;
-			// }
-
 			.icon-more-menu {
 				opacity: .35;
 			}
@@ -977,9 +973,13 @@ content {
 				padding: 2px 11px 3px 9px;
 				margin-right: 7px;
 				cursor: pointer;
-				color: #555;
+				color: #888;
 				border-radius: 31px;
 				box-shadow: 0 0 0 1px #0002;
+
+				&:hover {
+					color: #555;
+				}
 
 				i {
 					display: inline-block;

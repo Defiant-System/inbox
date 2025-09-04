@@ -165,6 +165,10 @@
 						karaqu.shell(`calendar -a '${path}'`);
 					});
 				break;
+			case "open-attached-folder":
+				let file = new karaqu.File({ path: event.el.data("path") });
+				karaqu.shell(`fs -o ${file.dir}`);
+				break;
 		}
 	}
 }
