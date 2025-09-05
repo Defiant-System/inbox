@@ -54,6 +54,8 @@ let Test = {
 		}, 200);
 	},
 	runTestData(APP) {
+		// demo flag app
+		APP.demoView = true;
 		// put lorem ipsum text into test mail body
 		window.bluePrint.selectNodes(`//TempThread//mail/html`).map(xHtml => {
 			let html = xHtml.textContent;

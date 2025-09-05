@@ -43,6 +43,9 @@
 					});
 				break;
 			case "render-folder":
+				if (APP.demoView && event.fId === "2001") {
+					return Self.dispatch({ type: "render-temp-list" });
+				}
 				// if folder list not loaded, fetch first
 				if (!event.fresh) return Self.dispatch({ ...event, type: "fetch-mail-folder" });
 				// tag "folder ID" as attribute
@@ -76,11 +79,25 @@
 				}
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+
 				// make sure thread is marked as "read"
 				el.removeClass("unread");
 				// render mail in content area
-				// APP.content.dispatch({ type: "render-thread", id: el.data("id") });
-				APP.content.dispatch({ type: "render-temp-thread", id: el.data("id") });
+				if (APP.demoView) {
+					APP.content.dispatch({ type: "render-temp-thread", id: el.data("id") });
+					// UI list entry active
+					let xMail = APP.xData.selectSingleNode(`//TempList/mail[@active]`);
+					if (xMail) xMail.removeAttribute("active");
+					xMail = APP.xData.selectSingleNode(`//TempList/mail[@id="${el.data("id")}"]`);
+					xMail.setAttribute("active", "1");
+				} else {
+					APP.content.dispatch({ type: "render-thread", id: el.data("id") });
+					// UI list entry active
+					let xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@active]`);
+					if (xMail) xMail.removeAttribute("active");
+					xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@id="${el.data("id")}"]`);
+					xMail.setAttribute("active", "1");
+				}
 				break;
 			case "check-for-new-mail":
 				// identify "latest" mail ID

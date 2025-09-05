@@ -81,6 +81,7 @@
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="class">
 			list-entry
+			<xsl:if test="@active = '1'"> active</xsl:if>
 			<xsl:if test="@is_read = '0'"> unread</xsl:if>
 			<xsl:if test="tags/i[@id = 'isReplied' and @value = '1']"> replied</xsl:if>
 			<xsl:if test="tags/i[@id = 'isForward' and @value = '1']"> forward</xsl:if>

@@ -1,780 +1,778 @@
-<Data>
-	<TempList>
-		<mail id="mid-1" mStamp="1756027803000" date="2025-08-06 13:11" is_read="1" thread="11" size="123">
-			<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-			<to>
-				<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
-				<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-				<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-				<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-			</to>
-			<tags>
-				<i id="isReplied" value="1"/>
-				<i id="inReplyTo" value="s-1"/>
-				<i id="messageId" value="s-2"/>
-			</tags>
-			<attachments/>
-			<subject><![CDATA[Re: Arguming about Thor and his Hammer]]></subject>
-		</mail>
+<TempList>
+	<mail id="mid-1" mStamp="1756027803000" date="2025-08-06 13:11" is_read="1" thread="11" size="123">
+		<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+		<to>
+			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
+			<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+			<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+			<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+		</to>
+		<tags>
+			<i id="isReplied" value="1"/>
+			<i id="inReplyTo" value="s-1"/>
+			<i id="messageId" value="s-2"/>
+		</tags>
+		<attachments/>
+		<subject><![CDATA[Re: Arguming about Thor and his Hammer]]></subject>
+	</mail>
 
-		<mail id="mid-21" mStamp="1756027803000" date="2025-08-01 14:29" is_read="1" thread="2" size="123">
-			<from><i name="Sheldon Cooper" address="sheldon@karaqu.com"/></from>
-			<to>
-				<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
-				<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-			</to>
-			<tags>
-				<i id="isReplied" value="1"/>
-				<i id="inReplyTo" value="s-3"/>
-				<i id="messageId" value="s-4"/>
-			</tags>
-			<attachments>
-				<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
-			</attachments>
-			<subject><![CDATA[Re: Sheldon Disagreement]]></subject>
-		</mail>
+	<mail id="mid-21" mStamp="1756027803000" date="2025-08-01 14:29" is_read="1" thread="2" size="123">
+		<from><i name="Sheldon Cooper" address="sheldon@karaqu.com"/></from>
+		<to>
+			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
+			<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+		</to>
+		<tags>
+			<i id="isReplied" value="1"/>
+			<i id="inReplyTo" value="s-3"/>
+			<i id="messageId" value="s-4"/>
+		</tags>
+		<attachments>
+			<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
+		</attachments>
+		<subject><![CDATA[Re: Sheldon Disagreement]]></subject>
+	</mail>
 
-		<mail id="mid-31" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="5" size="123">
-			<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-			<to>
-				<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
-			</to>
-			<tags>
-				<i id="messageId" value="s-4"/>
-			</tags>
-			<attachments/>
-			<subject><![CDATA[Leonard elevator pitch]]></subject>
-		</mail>
+	<mail id="mid-31" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="5" size="123">
+		<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+		<to>
+			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
+		</to>
+		<tags>
+			<i id="messageId" value="s-4"/>
+		</tags>
+		<attachments/>
+		<subject><![CDATA[Leonard elevator pitch]]></subject>
+	</mail>
 
-		<mail id="mid-41" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="6" size="123">
-			<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-			<to>
-				<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
-			</to>
-			<tags>
-				<i id="messageId" value="s-4"/>
-			</tags>
-			<attachments/>
-			<subject><![CDATA[Microbiology]]></subject>
-		</mail>
+	<mail id="mid-41" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="6" size="123">
+		<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+		<to>
+			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
+		</to>
+		<tags>
+			<i id="messageId" value="s-4"/>
+		</tags>
+		<attachments/>
+		<subject><![CDATA[Microbiology]]></subject>
+	</mail>
 
-		<mail id="mid-51" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="4" size="123">
-			<from><i name="Howard Wolowitz" address="howard@karaqu.com"/></from>
-			<to>
-				<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
-			</to>
-			<tags>
-				<i id="messageId" value="s-4"/>
-			</tags>
-			<attachments/>
-			<subject><![CDATA[Space Cosmonaut]]></subject>
-		</mail>
+	<mail id="mid-51" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="4" size="123">
+		<from><i name="Howard Wolowitz" address="howard@karaqu.com"/></from>
+		<to>
+			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
+		</to>
+		<tags>
+			<i id="messageId" value="s-4"/>
+		</tags>
+		<attachments/>
+		<subject><![CDATA[Space Cosmonaut]]></subject>
+	</mail>
 
-		<mail id="mid-61" mStamp="1756027803000" date="2025-07-17 15:59" is_read="1" size="123">
-			<from><i name="Rajesh Koothrappali" address="raj@karaqu.com"/></from>
-			<to>
-				<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
-			</to>
-			<tags>
-				<i id="messageId" value="s-4"/>
-			</tags>
-			<attachments/>
-			<subject><![CDATA[Big debate]]></subject>
-		</mail>
-	</TempList>
+	<mail id="mid-61" mStamp="1756027803000" date="2025-07-17 15:59" is_read="1" size="123">
+		<from><i name="Rajesh Koothrappali" address="raj@karaqu.com"/></from>
+		<to>
+			<i name="Hakan Bilgin" address="hbi@karaqu.com"/>
+		</to>
+		<tags>
+			<i id="messageId" value="s-4"/>
+		</tags>
+		<attachments/>
+		<subject><![CDATA[Big debate]]></subject>
+	</mail>
+</TempList>
 
-	<TempThread>
-		<mail id="mid-1" is_read="1" size="4975">
-			<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
-			<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
-			<thread>
+<TempThread>
+	<mail id="mid-1" is_read="1" size="4975">
+		<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
 
-				<mail id="mid-1">
-					<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="messageId" value="abs1"/>
-					</tags>
-					<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
-				</mail>
+			<mail id="mid-1">
+				<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="messageId" value="abs1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
 
-				<mail id="mid-2">
-					<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs1"/>
-						<i id="messageId" value="abs2"/>
-					</tags>
-					<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
-				</mail>
-				
-				<mail id="mid-3">
-					<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs2"/>
-						<i id="messageId" value="abs3"/>
-					</tags>
-					<html><![CDATA[That makes even less sense. I mean...]]></html>
-				</mail>
-				
-				<mail id="mid-4">
-					<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs3"/>
-						<i id="messageId" value="abs4"/>
-					</tags>
-					<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
-				</mail>
+			<mail id="mid-2">
+				<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs1"/>
+					<i id="messageId" value="abs2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+			
+			<mail id="mid-3">
+				<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs2"/>
+					<i id="messageId" value="abs3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+			
+			<mail id="mid-4">
+				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs3"/>
+					<i id="messageId" value="abs4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
 
-				<mail id="mid-5">
-					<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs3"/>
-						<i id="messageId" value="abs5"/>
-					</tags>
-					<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
-				</mail>
+			<mail id="mid-5">
+				<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs3"/>
+					<i id="messageId" value="abs5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
 
-				<mail id="mid-6">
-					<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs2"/>
-						<i id="messageId" value="abs6"/>
-					</tags>
-					<html><![CDATA[Yes!]]></html>
-				</mail>
+			<mail id="mid-6">
+				<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs2"/>
+					<i id="messageId" value="abs6"/>
+				</tags>
+				<html><![CDATA[Yes!]]></html>
+			</mail>
 
-				<mail id="mid-7">
-					<date value="2025-08-06T15:53:03.000Z" date="2025-08-06" time="15:53"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<attachments>
-						<i path="/cdn/samples/ics/invite.ics" name="invite.ics" kind="ics">
-							<title>Some meeting</title>
-							<date month="Oct" date="17" weekday="Tue">
-								<![CDATA[Tuesday 2025-10-17 13:00 &mdash; 14:00}]]>
-							</date>
-							<location>Microsoft Teams Meeting</location>
-							<attendees>
-								<i name="Erik Friberg" address="erik@bolag.se"/>
-								<i name="Per Nordquist" address="per@bolag.se"/>
-								<i name="David Holmberg" address="david@bolag.se"/>
-							</attendees>
-						</i>
-					</attachments>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs4"/>
-						<i id="messageId" value="abs7"/>
-					</tags>
-					<html><![CDATA[No!]]></html>
-				</mail>
+			<mail id="mid-7">
+				<date value="2025-08-06T15:53:03.000Z" date="2025-08-06" time="15:53"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<attachments>
+					<i path="/cdn/samples/ics/invite.ics" name="invite.ics" kind="ics">
+						<title>Some meeting</title>
+						<date month="Oct" date="17" weekday="Tue">
+							<![CDATA[Tuesday 2025-10-17 13:00 &mdash; 14:00}]]>
+						</date>
+						<location>Microsoft Teams Meeting</location>
+						<attendees>
+							<i name="Erik Friberg" address="erik@bolag.se"/>
+							<i name="Per Nordquist" address="per@bolag.se"/>
+							<i name="David Holmberg" address="david@bolag.se"/>
+						</attendees>
+					</i>
+				</attachments>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs4"/>
+					<i id="messageId" value="abs7"/>
+				</tags>
+				<html><![CDATA[No!]]></html>
+			</mail>
 
-				<mail id="mid-8">
-					<date value="2025-08-06T15:59:03.000Z" date="2025-08-06" time="15:59"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs7"/>
-						<i id="messageId" value="abs8"/>
-						<i id="deleted" value="symbolic"/>
-					</tags>
-					<html><![CDATA[Well...which is it?<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></html>
-				</mail>
+			<mail id="mid-8">
+				<date value="2025-08-06T15:59:03.000Z" date="2025-08-06" time="15:59"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs7"/>
+					<i id="messageId" value="abs8"/>
+					<i id="deleted" value="symbolic"/>
+				</tags>
+				<html><![CDATA[Well...which is it?<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></html>
+			</mail>
 
-				<mail id="mid-9">
-					<date value="2025-08-06T16:14:03.000Z" date="2025-08-06" time="16:14"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<attachments>
-						<i path="/fs/Mail/123/some-file-1.pdf" name="some-file-1.pdf" kind="pdf"/>
-						<i path="/fs/Mail/123/agreement.rtf" name="agreement.rtf" kind="rtf"/>
-						<i path="/fs/Mail/123/logo.png" name="logo.png" kind="png"/>
-					</attachments>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs8"/>
-						<i id="messageId" value="abs9"/>
-					</tags>
-					<html><![CDATA[Maybe we missed something...]]></html>
-				</mail>
+			<mail id="mid-9">
+				<date value="2025-08-06T16:14:03.000Z" date="2025-08-06" time="16:14"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<attachments>
+					<i path="/fs/Mail/123/some-file-1.pdf" name="some-file-1.pdf" kind="pdf"/>
+					<i path="/fs/Mail/123/agreement.rtf" name="agreement.rtf" kind="rtf"/>
+					<i path="/fs/Mail/123/logo.png" name="logo.png" kind="png"/>
+				</attachments>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs8"/>
+					<i id="messageId" value="abs9"/>
+				</tags>
+				<html><![CDATA[Maybe we missed something...]]></html>
+			</mail>
 
-				<mail id="mid-10" class="expanded">
-					<date value="2025-08-06T16:29:03.000Z" date="2025-08-06" time="16:29"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<attachments>
-						<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
-					</attachments>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs6"/>
-						<i id="messageId" value="abs10"/>
-					</tags>
-					<html><![CDATA[Lets read it again.]]></html>
-				</mail>
+			<mail id="mid-10" class="expanded">
+				<date value="2025-08-06T16:29:03.000Z" date="2025-08-06" time="16:29"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<attachments>
+					<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
+				</attachments>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs6"/>
+					<i id="messageId" value="abs10"/>
+				</tags>
+				<html><![CDATA[Lets read it again.]]></html>
+			</mail>
 
-				<mail id="mid-11">
-					<date value="2025-08-06T16:37:03.000Z" date="2025-08-06" time="16:37"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-1"/>
-						<i id="inReplyTo" value="abs10"/>
-						<i id="messageId" value="abs11"/>
-					</tags>
-					<html><![CDATA[Okay.]]></html>
-				</mail>
+			<mail id="mid-11">
+				<date value="2025-08-06T16:37:03.000Z" date="2025-08-06" time="16:37"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-1"/>
+					<i id="inReplyTo" value="abs10"/>
+					<i id="messageId" value="abs11"/>
+				</tags>
+				<html><![CDATA[Okay.]]></html>
+			</mail>
 
-			</thread>
-		</mail>
+		</thread>
+	</mail>
 
-		<mail id="mid-21" is_read="1" size="4975">
-			<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
-			<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
-			<thread>
+	<mail id="mid-21" is_read="1" size="4975">
+		<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
 
-				<mail id="mid-21">
-					<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-21"/>
-						<i id="messageId" value="1"/>
-					</tags>
-					<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
-				</mail>
+			<mail id="mid-21">
+				<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-21"/>
+					<i id="messageId" value="1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
 
-				<mail id="mid-22">
-					<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-21"/>
-						<i id="inReplyTo" value="1"/>
-						<i id="messageId" value="2"/>
-					</tags>
-					<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
-				</mail>
-				
-				<mail id="mid-23">
-					<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-21"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="3"/>
-					</tags>
-					<html><![CDATA[That makes even less sense. I mean...]]></html>
-				</mail>
-				
-				<mail id="mid-24">
-					<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-21"/>
-						<i id="inReplyTo" value="3"/>
-						<i id="messageId" value="4"/>
-					</tags>
-					<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
-				</mail>
+			<mail id="mid-22">
+				<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-21"/>
+					<i id="inReplyTo" value="1"/>
+					<i id="messageId" value="2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+			
+			<mail id="mid-23">
+				<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-21"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+			
+			<mail id="mid-24">
+				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-21"/>
+					<i id="inReplyTo" value="3"/>
+					<i id="messageId" value="4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
 
-				<mail id="mid-25">
-					<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-21"/>
-						<i id="inReplyTo" value="4"/>
-						<i id="messageId" value="5"/>
-					</tags>
-					<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
-				</mail>
+			<mail id="mid-25">
+				<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-21"/>
+					<i id="inReplyTo" value="4"/>
+					<i id="messageId" value="5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
 
-			</thread>
-		</mail>
+		</thread>
+	</mail>
 
-		<mail id="mid-31" is_read="1" size="4975">
-			<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
-			<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
-			<thread>
+	<mail id="mid-31" is_read="1" size="4975">
+		<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
 
-				<mail id="mid-31">
-					<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-31"/>
-						<i id="messageId" value="1"/>
-					</tags>
-					<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
-				</mail>
+			<mail id="mid-31">
+				<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-31"/>
+					<i id="messageId" value="1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
 
-				<mail id="mid-32">
-					<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-31"/>
-						<i id="inReplyTo" value="1"/>
-						<i id="messageId" value="2"/>
-					</tags>
-					<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
-				</mail>
-				
-				<mail id="mid-33">
-					<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-31"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="3"/>
-					</tags>
-					<html><![CDATA[That makes even less sense. I mean...]]></html>
-				</mail>
-				
-				<mail id="mid-34">
-					<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-31"/>
-						<i id="inReplyTo" value="3"/>
-						<i id="messageId" value="4"/>
-					</tags>
-					<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
-				</mail>
+			<mail id="mid-32">
+				<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-31"/>
+					<i id="inReplyTo" value="1"/>
+					<i id="messageId" value="2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+			
+			<mail id="mid-33">
+				<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-31"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+			
+			<mail id="mid-34">
+				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-31"/>
+					<i id="inReplyTo" value="3"/>
+					<i id="messageId" value="4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
 
-				<mail id="mid-35">
-					<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-31"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="5"/>
-					</tags>
-					<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
-				</mail>
+			<mail id="mid-35">
+				<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-31"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
 
-			</thread>
-		</mail>
+		</thread>
+	</mail>
 
-		<mail id="mid-41" is_read="1" size="4975">
-			<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
-			<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
-			<thread>
+	<mail id="mid-41" is_read="1" size="4975">
+		<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
 
-				<mail id="mid-41">
-					<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="messageId" value="1"/>
-					</tags>
-					<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
-				</mail>
+			<mail id="mid-41">
+				<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="messageId" value="1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
 
-				<mail id="mid-42">
-					<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="1"/>
-						<i id="messageId" value="2"/>
-					</tags>
-					<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
-				</mail>
-				
-				<mail id="mid-43">
-					<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="3"/>
-					</tags>
-					<html><![CDATA[That makes even less sense. I mean...]]></html>
-				</mail>
-				
-				<mail id="mid-44">
-					<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="4"/>
-					</tags>
-					<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
-				</mail>
+			<mail id="mid-42">
+				<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="1"/>
+					<i id="messageId" value="2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+			
+			<mail id="mid-43">
+				<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+			
+			<mail id="mid-44">
+				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
 
-				<mail id="mid-45">
-					<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="4"/>
-						<i id="messageId" value="5"/>
-					</tags>
-					<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
-				</mail>
+			<mail id="mid-45">
+				<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="4"/>
+					<i id="messageId" value="5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
 
-				<mail id="mid-46">
-					<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="5"/>
-						<i id="messageId" value="6"/>
-					</tags>
-					<html><![CDATA[Yes!]]></html>
-				</mail>
+			<mail id="mid-46">
+				<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="5"/>
+					<i id="messageId" value="6"/>
+				</tags>
+				<html><![CDATA[Yes!]]></html>
+			</mail>
 
-				<mail id="mid-47">
-					<date value="2025-08-06T15:53:03.000Z" date="2025-08-06" time="15:53"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="3"/>
-						<i id="messageId" value="7"/>
-					</tags>
-					<html><![CDATA[No!]]></html>
-				</mail>
+			<mail id="mid-47">
+				<date value="2025-08-06T15:53:03.000Z" date="2025-08-06" time="15:53"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="3"/>
+					<i id="messageId" value="7"/>
+				</tags>
+				<html><![CDATA[No!]]></html>
+			</mail>
 
-				<mail id="mid-48">
-					<date value="2025-08-06T15:59:03.000Z" date="2025-08-06" time="15:59"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-41"/>
-						<i id="inReplyTo" value="6"/>
-						<i id="messageId" value="8"/>
-					</tags>
-					<html><![CDATA[Well...which is it?]]></html>
-				</mail>
+			<mail id="mid-48">
+				<date value="2025-08-06T15:59:03.000Z" date="2025-08-06" time="15:59"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-41"/>
+					<i id="inReplyTo" value="6"/>
+					<i id="messageId" value="8"/>
+				</tags>
+				<html><![CDATA[Well...which is it?]]></html>
+			</mail>
 
-			</thread>
-		</mail>
+		</thread>
+	</mail>
 
-		<mail id="mid-51" is_read="1" size="4975">
-			<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
-			<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
-			<thread>
+	<mail id="mid-51" is_read="1" size="4975">
+		<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
 
-				<mail id="mid-51">
-					<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-51"/>
-						<i id="messageId" value="1"/>
-					</tags>
-					<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
-				</mail>
+			<mail id="mid-51">
+				<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-51"/>
+					<i id="messageId" value="1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
 
-				<mail id="mid-52">
-					<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-51"/>
-						<i id="inReplyTo" value="1"/>
-						<i id="messageId" value="2"/>
-					</tags>
-					<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
-				</mail>
-				
-				<mail id="mid-53">
-					<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-51"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="3"/>
-					</tags>
-					<html><![CDATA[That makes even less sense. I mean...]]></html>
-				</mail>
-				
-				<mail id="mid-54">
-					<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-51"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="4"/>
-					</tags>
-					<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
-				</mail>
+			<mail id="mid-52">
+				<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-51"/>
+					<i id="inReplyTo" value="1"/>
+					<i id="messageId" value="2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+			
+			<mail id="mid-53">
+				<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-51"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+			
+			<mail id="mid-54">
+				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-51"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
 
-				<mail id="mid-55">
-					<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-51"/>
-						<i id="inReplyTo" value="4"/>
-						<i id="messageId" value="5"/>
-					</tags>
-					<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
-				</mail>
+			<mail id="mid-55">
+				<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-51"/>
+					<i id="inReplyTo" value="4"/>
+					<i id="messageId" value="5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
 
-				<mail id="mid-56">
-					<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-51"/>
-						<i id="inReplyTo" value="4"/>
-						<i id="messageId" value="6"/>
-					</tags>
-					<html><![CDATA[Yes!]]></html>
-				</mail>
-			</thread>
-		</mail>
+			<mail id="mid-56">
+				<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-51"/>
+					<i id="inReplyTo" value="4"/>
+					<i id="messageId" value="6"/>
+				</tags>
+				<html><![CDATA[Yes!]]></html>
+			</mail>
+		</thread>
+	</mail>
 
-		<mail id="mid-61" is_read="1" size="4975">
-			<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
-			<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
-			<thread>
+	<mail id="mid-61" is_read="1" size="4975">
+		<subject><![CDATA[Arguing about Thor and his Hammer]]></subject>
+		<date value="2025-08-24T11:30:03.000Z" date="2025-08-24" time="11:30"/>
+		<thread>
 
-				<mail id="mid-61">
-					<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="messageId" value="1"/>
-					</tags>
-					<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
-				</mail>
+			<mail id="mid-61">
+				<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="messageId" value="1"/>
+				</tags>
+				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			</mail>
 
-				<mail id="mid-62">
-					<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="inReplyTo" value="1"/>
-						<i id="messageId" value="2"/>
-					</tags>
-					<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
-				</mail>
-				
-				<mail id="mid-63">
-					<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="3"/>
-					</tags>
-					<html><![CDATA[That makes even less sense. I mean...]]></html>
-				</mail>
-				
-				<mail id="mid-64">
-					<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="inReplyTo" value="3"/>
-						<i id="messageId" value="4"/>
-					</tags>
-					<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
-				</mail>
+			<mail id="mid-62">
+				<date value="2025-08-06T13:11:03.000Z" date="2025-08-06" time="13:11"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="inReplyTo" value="1"/>
+					<i id="messageId" value="2"/>
+				</tags>
+				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
+			</mail>
+			
+			<mail id="mid-63">
+				<date value="2025-08-06T14:22:03.000Z" date="2025-08-06" time="14:22"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="3"/>
+				</tags>
+				<html><![CDATA[That makes even less sense. I mean...]]></html>
+			</mail>
+			
+			<mail id="mid-64">
+				<date value="2025-08-06T14:29:03.000Z" date="2025-08-06" time="14:29"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="inReplyTo" value="3"/>
+					<i id="messageId" value="4"/>
+				</tags>
+				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
+			</mail>
 
-				<mail id="mid-65">
-					<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
-					<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="inReplyTo" value="3"/>
-						<i id="messageId" value="5"/>
-					</tags>
-					<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
-				</mail>
+			<mail id="mid-65">
+				<date value="2025-08-06T15:11:03.000Z" date="2025-08-06" time="15:11"/>
+				<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="inReplyTo" value="3"/>
+					<i id="messageId" value="5"/>
+				</tags>
+				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
+			</mail>
 
-				<mail id="mid-66">
-					<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
-					<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
-					<to>
-						<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="inReplyTo" value="2"/>
-						<i id="messageId" value="6"/>
-					</tags>
-					<html><![CDATA[Yes!]]></html>
-				</mail>
+			<mail id="mid-66">
+				<date value="2025-08-06T15:41:03.000Z" date="2025-08-06" time="15:41"/>
+				<from><i name="Amy Farrah Fowler" address="amy@karaqu.com"/></from>
+				<to>
+					<i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="inReplyTo" value="2"/>
+					<i id="messageId" value="6"/>
+				</tags>
+				<html><![CDATA[Yes!]]></html>
+			</mail>
 
-				<mail id="mid-67">
-					<date value="2025-08-06T15:53:03.000Z" date="2025-08-06" time="15:53"/>
-					<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
-					<to>
-						<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
-						<i name="Penny Hofstadter" address="penny@karaqu.com"/>
-					</to>
-					<tags>
-						<i id="threadId" value="mid-61"/>
-						<i id="inReplyTo" value="4"/>
-						<i id="messageId" value="7"/>
-					</tags>
-					<html><![CDATA[No!]]></html>
-				</mail>
-			</thread>
-		</mail>
-	</TempThread>
-</Data>
+			<mail id="mid-67">
+				<date value="2025-08-06T15:53:03.000Z" date="2025-08-06" time="15:53"/>
+				<from><i name="Bernadette Rostenkowski" address="bernadette@karaqu.com"/></from>
+				<to>
+					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
+					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
+				</to>
+				<tags>
+					<i id="threadId" value="mid-61"/>
+					<i id="inReplyTo" value="4"/>
+					<i id="messageId" value="7"/>
+				</tags>
+				<html><![CDATA[No!]]></html>
+			</mail>
+		</thread>
+	</mail>
+</TempThread>
