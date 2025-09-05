@@ -184,6 +184,20 @@
 					<i name="Amy Farrah Fowler" address="amy@karaqu.com"/>
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
+				<attachments>
+					<i path="/cdn/samples/ics/invite.ics" name="invite.ics" kind="ics">
+						<title>Some meeting</title>
+						<date month="Oct" date="17" weekday="Tue">
+							<![CDATA[Tuesday 2025-10-17 13:00 &mdash; 14:00}]]>
+						</date>
+						<location>Microsoft Teams Meeting</location>
+						<attendees>
+							<i name="Erik Friberg" address="erik@bolag.se"/>
+							<i name="Per Nordquist" address="per@bolag.se"/>
+							<i name="David Holmberg" address="david@bolag.se"/>
+						</attendees>
+					</i>
+				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>
 					<i id="inReplyTo" value="abs4"/>
@@ -236,18 +250,7 @@
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
 				<attachments>
-					<i path="/cdn/samples/ics/invite.ics" name="invite.ics" kind="ics">
-						<title>Some meeting</title>
-						<date month="Oct" date="17" weekday="Tue">
-							<![CDATA[Tuesday 2025-10-17 13:00 &mdash; 14:00}]]>
-						</date>
-						<location>Microsoft Teams Meeting</location>
-						<attendees>
-							<i name="Erik Friberg" address="erik@bolag.se"/>
-							<i name="Per Nordquist" address="per@bolag.se"/>
-							<i name="Davil Holmberg" address="david@bolag.se"/>
-						</attendees>
-					</i>
+					<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
 				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>
