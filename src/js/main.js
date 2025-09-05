@@ -79,6 +79,7 @@ const inbox = {
 	list: @import "areas/list.js",
 	content: @import "areas/content.js",
 	newMail: @import "areas/new-mail.js",
+	blankView: @import "areas/blank-view.js",
 };
 
 window.exports = inbox;

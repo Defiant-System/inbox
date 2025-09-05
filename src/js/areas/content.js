@@ -38,6 +38,9 @@
 					target: Self.els.el,
 				});
 				break;
+			case "render-blank-view":
+				APP.blankView.dispatch({ type: "render-blank-view" });
+				break;
 			case "draw-graph":
 				// pre-parse data
 				let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);

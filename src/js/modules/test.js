@@ -7,6 +7,8 @@ let Test = {
 
 		// return;
 
+		return APP.content.dispatch({ type: "render-blank-view" });
+
 		return this.runTestData(APP);
 
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
