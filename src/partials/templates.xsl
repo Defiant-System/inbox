@@ -5,21 +5,35 @@
 		<h2>Welcome to Inbox.</h2>
 
 		<div class="block-buttons">
-			<div class="btn" data-click="new-mail">
-				<i class="icon-new-file"></i>
+			<div class="btn disabled_" data-click="new-mail">
+				<i class="icon-new-mail"></i>
 				New
+			</div>
+
+			<div class="btn" data-click="new-mail">
+				<i class="icon-send-receive"></i>
+				Sample Data
 			</div>
 			
 			<div class="btn" data-click="open-filesystem">
 				<i class="icon-folder-open"></i>
-				Open&#8230;
+				Attachments folder
 			</div>
 
-			<div class="btn disabled_" data-click="from-clipboard">
+			<!-- <div class="btn disabled_" data-click="from-clipboard">
 				<i class="icon-clipboard"></i>
 				From clipboard
-			</div>
+			</div> -->
 		</div>
+
+		<div class="sample-demo-view">
+			<i class="icon-warning"></i>
+			Since this is the guest account, the privilege to send or receive e-mails has been disabled.
+			You are welcome to test this application with <span data-click="init-demo-data">demo data</span> - 
+			or <span data-click="register-account">register an account</span> to test full functionality.
+		</div>
+
+		<!-- <xsl:if test="//Settings/User/@account-type = 1">Free</xsl:if> -->
 
 		<!-- <div class="block-samples" data-click="select-sample">
 			<h3>Example</h3>

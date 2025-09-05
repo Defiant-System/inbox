@@ -1,5 +1,57 @@
 
 &[data-theme="dark"] {
+	&.win-body-focused_ {
+		.blank-view {
+			color: #ddd;
+			text-shadow: 0 1px 0 rgba(#000,.125);
+
+			h2 {
+				color: #ddd;
+			}
+
+			> div {
+				> h3 {
+					color: #ddd;
+				}
+			}
+		}
+	}
+
+	.blank-view {
+		background: transparent;
+		color: #999;
+		text-shadow: 0 0 0;
+
+		h2 {
+			color: #aaa;
+		}
+
+		> div {
+			> h3 {
+				color: #aaa;
+			}
+		}
+
+		.block-buttons {
+			.btn {
+				background: #0001;
+				box-shadow: inset 0 1px 0 rgba(#000,.075),
+							0 0 0 2px rgba(#fff,.35);
+
+				&:hover:not(.disabled_) {
+					box-shadow: 0 0 0 3px #489bf770,
+								0 0 0 2px #489bf7;
+				}
+				
+				i {
+					left: -1px;
+					opacity: .35;
+					filter: invert(1) brightness(2) drop-shadow(0 1px 0 #0003);
+				}
+			}
+		}
+	}
+
 	layout {
 		background: #eee1;
 		color: #fff;
@@ -7,21 +59,33 @@
 
 		sidebar {
 			background: #ddd1;
-			color: #fff;
+			color: #ddd;
 
 			&:after {
 				border-right-color: #0002;
 			}
 
 			.folder-entry {
+				&:hover {
+					color: #fff;
+				}
+				
 				&.active {
 					color: #fff;
+
+					.unread {
+						color: #bbb;
+					}
 				}
 
 				[class*="icon-"],
 				[class^="icon-"] {
 					filter: invert(1) contrast(5) drop-shadow(0 1px 0 #0009);
 				}
+			}
+
+			.unread {
+				color: #aaa;
 			}
 		}
 

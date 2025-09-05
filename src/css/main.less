@@ -15,6 +15,10 @@ layout {
 		sidebar { width: 120px; }
 	}
 
+	&.show-list {
+		list { width: 280px; }
+	}
+
 	[class*="icon-"],
 	[class^="icon-"] {
 		position: relative;
@@ -152,7 +156,10 @@ sidebar {
 
 list {
 	position: relative;
-	width: 280px;
+	width: 0;
+	overflow-x: hidden;
+	user-select: none;
+	transition: width 120ms linear;
 	background: #fff;
 	color: #666;
 
@@ -160,7 +167,7 @@ list {
 		content: "";
 		position: absolute;
 		top: 0;
-		right: -1px;
+		right: 0;
 		bottom: 0;
 		z-index: 2;
 		border-right: 1px solid #bdc0c787;

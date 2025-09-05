@@ -6,6 +6,7 @@
 		this.els = {
 			el: window.find("content"),
 		};
+		this.dispatch({ type: "init-view" });
 	},
 	dispatch(event) {
 		let APP = inbox,
@@ -25,6 +26,11 @@
 				event.el.parents(".mail-entry").removeClass("menu-active");
 				break;
 			// custom events
+			case "init-view":
+				if (APP.settings.content.show === "blank-view") {
+					setTimeout(() => Self.dispatch({ type: "render-blank-view" }));
+				}
+				break;
 			case "render-temp-thread":
 				xThread = APP.xData.selectSingleNode(`//TempThread/mail[@id="${event.id}"]`);
 				if (!xThread.getAttribute("graph-processed")) {

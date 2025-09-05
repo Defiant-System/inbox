@@ -9,21 +9,39 @@ const {
 	PostalMime,
 } = await window.fetch("~/js/bundle.js");
 
+
+const defaultSettings = {
+	sidebar: {
+		show: true
+	},
+	list: {
+		show: true
+	},
+	content: {
+		show: "blank-view"
+	},
+};
+
+
 // user details
 const ME = karaqu.user;
+// console.log(ME);
+
 
 const inbox = {
 	init() {
 		// fast references
 		this.xData = window.bluePrint.selectSingleNode("//Data");
+		// put username to ledger data
+		this.xData.setAttribute("user", ME.username);
+
+		// init settings
+		this.dispatch({ type: "init-settings" });
 
 		// init all sub-objects
 		Object.keys(this)
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init());
-
-		// init settings
-		this.dispatch({ type: "init-settings" });
 
 		// init sidebar content
 		this.sidebar.dispatch({ type: "init-render" });
@@ -49,6 +67,12 @@ const inbox = {
 				karaqu.shell("fs -u '~/help/index.md'");
 				break;
 			case "init-settings":
+				if (ME.username === "demo") {
+					Self.settings = defaultSettings;
+				} else {
+					// get settings, if any
+					Self.settings = window.settings.getItem("settings") || defaultSettings;
+				}
 				break;
 			// proxy events
 			case "check-for-new-mail":

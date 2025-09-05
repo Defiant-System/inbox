@@ -1,8 +1,8 @@
 <ToolBar>
 	<Group width="69%">
-		<Tool symbol="icon-sidebar" click="toggle-sidebar" title="Sidebar" state="active"/>
-		<Tool symbol="icon-send-receive" click="send-receive" title="Check for mail"/>
-		<Tool symbol="icon-new-mail" click="new-mail" title="New Mail"/>
+		<Tool symbol="icon-sidebar" click="toggle-sidebar" title="Sidebar" state="disabled"/>
+		<Tool symbol="icon-send-receive" click="send-receive" title="Check for mail" state="disabled"/>
+		<Tool symbol="icon-new-mail" click="new-mail" title="New Mail" state="disabled"/>
 		<Options>
 			<Tool symbol="icon-trash" click="delete-mail" title="Trashcan" state="disabled"/>
 			<Tool symbol="icon-archive" click="archive-mail" title="Archive" state="disabled"/>
