@@ -21,7 +21,7 @@
 				// render mail content
 				window.render({
 					template: "list-entries",
-					match: `//TempList`,
+					match: `//TempFolder[@fId="${event.fId}"]`,
 					target: Self.els.el,
 				});
 				break;
@@ -86,9 +86,9 @@
 				if (APP.demoView) {
 					APP.content.dispatch({ type: "render-temp-thread", id: el.data("id") });
 					// UI list entry active
-					let xMail = APP.xData.selectSingleNode(`//TempList/mail[@active]`);
+					let xMail = APP.xData.selectSingleNode(`//TempFolder/mail[@active]`);
 					if (xMail) xMail.removeAttribute("active");
-					xMail = APP.xData.selectSingleNode(`//TempList/mail[@id="${el.data("id")}"]`);
+					xMail = APP.xData.selectSingleNode(`//TempFolder/mail[@id="${el.data("id")}"]`);
 					xMail.setAttribute("active", "1");
 				} else {
 					APP.content.dispatch({ type: "render-thread", id: el.data("id") });

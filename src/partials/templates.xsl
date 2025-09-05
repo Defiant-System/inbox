@@ -19,11 +19,6 @@
 				<i class="icon-folder-open"></i>
 				Attachments folder
 			</div>
-
-			<!-- <div class="btn disabled_" data-click="from-clipboard">
-				<i class="icon-clipboard"></i>
-				From clipboard
-			</div> -->
 		</div>
 
 		<div class="sample-demo-view">
@@ -32,20 +27,6 @@
 			You are welcome to test this application with <span data-click="init-demo-data">demo data</span> - 
 			or <span data-click="register-account">register an account</span> to test full functionality.
 		</div>
-
-		<!-- <xsl:if test="//Settings/User/@account-type = 1">Free</xsl:if> -->
-
-		<!-- <div class="block-samples" data-click="select-sample">
-			<h3>Example</h3>
-			<xsl:call-template name="sample-list" />
-		</div>
-
-		<xsl:if test="count(./Recents/*) &gt; 0">
-			<div class="block-recent" data-click="select-recent-file">
-				<h3>Recent</h3>
-				<xsl:call-template name="recent-list" />
-			</div>
-		</xsl:if> -->
 	</div>
 </xsl:template>
 

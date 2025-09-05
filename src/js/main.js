@@ -11,21 +11,15 @@ const {
 
 
 const defaultSettings = {
-	sidebar: {
-		show: true
-	},
-	list: {
-		show: true
-	},
-	content: {
-		show: "blank-view"
-	},
+	sidebar: { show: true },
+	list: { show: true },
+	content: { show: true },
 };
 
 
 // user details
 const ME = karaqu.user;
-// console.log(ME);
+if (ME.username === "demo") defaultSettings.content.show = "blank-view";
 
 
 const inbox = {
@@ -33,7 +27,7 @@ const inbox = {
 		// fast references
 		this.xData = window.bluePrint.selectSingleNode("//Data");
 		// put username to ledger data
-		this.xData.setAttribute("user", ME.username);
+		// this.xData.setAttribute("user", ME.username);
 
 		// init settings
 		this.dispatch({ type: "init-settings" });

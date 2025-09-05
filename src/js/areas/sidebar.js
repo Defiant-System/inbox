@@ -48,7 +48,11 @@
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 				// render list view
-				APP.list.dispatch({ type: "render-folder", fId: el.data("fId"), fresh: Self.isFirst });
+				APP.list.dispatch({
+					type: APP.demoView ? "render-temp-list" : "render-folder",
+					fId: el.data("fId"),
+					fresh: Self.isFirst,
+				});
 				// once done
 				delete Self.isFirst;
 				break;

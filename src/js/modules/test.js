@@ -66,7 +66,7 @@ let Test = {
 			xHtml.textContent = `${html}<br><br/>${oddEven ? lorem1 : lorem2}`;
 		});
 
-		APP.list.dispatch({ type: "render-temp-list" });
+		APP.list.dispatch({ type: "render-temp-list", fId: 2001 });
 		APP.list.els.el.find(`.list-entry`).get(0).trigger("click");
 		// APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
 		// APP.content.dispatch({ type: "render-temp-thread" });

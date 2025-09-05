@@ -1,4 +1,4 @@
-<TempList>
+<TempFolder fId="2001">
 	<mail id="mid-1" mStamp="1756027803000" date="2025-08-06 13:11" is_read="1" thread="11" size="123">
 		<from><i name="Penny Hofstadter" address="penny@karaqu.com"/></from>
 		<to>
@@ -56,7 +56,9 @@
 		<attachments/>
 		<subject><![CDATA[Microbiology]]></subject>
 	</mail>
+</TempFolder>
 
+<TempFolder fId="2005">
 	<mail id="mid-51" mStamp="1756027803000" date="2025-07-17 15:59" is_read="0" thread="4" size="123">
 		<from><i name="Howard Wolowitz" address="howard@karaqu.com"/></from>
 		<to>
@@ -80,7 +82,7 @@
 		<attachments/>
 		<subject><![CDATA[Big debate]]></subject>
 	</mail>
-</TempList>
+</TempFolder>
 
 <TempThread>
 	<mail id="mid-1" is_read="1" size="4975">
