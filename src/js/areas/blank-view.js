@@ -22,8 +22,22 @@
 					target: Self.els.content
 				});
 				break;
+			case "open-filesystem":
+				karaqu.shell("fs -o ~/Mail/");
+				break;
 			case "new-mail":
-				console.log(event);
+				APP.toolbar.els.btnNewMail.trigger("click");
+				break;
+			case "init-demo-data":
+				// init test data
+				Test.runTestData(APP);
+				// enable toolbar for demo use
+				APP.toolbar.dispatch({ type: "init-demo-data" });
+				// show sidebar + list column
+				Self.els.layout.addClass("show-sidebar show-list");
+				break;
+			case "register-account":
+				karaqu.shell("sys -x");
 				break;
 		}
 	}

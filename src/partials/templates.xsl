@@ -10,9 +10,9 @@
 				New
 			</div>
 
-			<div class="btn" data-click="new-mail">
+			<div class="btn" data-click="init-demo-data">
 				<i class="icon-send-receive"></i>
-				Sample Data
+				Demo Data
 			</div>
 			
 			<div class="btn" data-click="open-filesystem">

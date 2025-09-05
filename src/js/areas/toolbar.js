@@ -5,6 +5,10 @@
 	init() {
 		this.els = {
 			layout: window.find("layout"),
+			btnSidebar: window.find(`.toolbar-tool_[data-click="toggle-sidebar"]`),
+			btnSendReceive: window.find(`.toolbar-tool_[data-click="send-receive"]`),
+			btnNewMail: window.find(`.toolbar-tool_[data-click="new-mail"]`),
+
 			btnTrash: window.find(`.toolbar-tool_[data-click="delete-mail"]`),
 			btnArchive: window.find(`.toolbar-tool_[data-click="arhive-mail"]`),
 			btnJunk: window.find(`.toolbar-tool_[data-click="junk-mail"]`),
@@ -22,6 +26,11 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "init-demo-data":
+				Self.els.btnSidebar.removeClass("tool-disabled_").addClass("tool-active_");
+				Self.els.btnSendReceive.removeClass("tool-disabled_");
+				Self.els.btnNewMail.removeClass("tool-disabled_");
+				break;
 			case "toggle-sidebar":
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
@@ -54,6 +63,9 @@
 			case "forward-mail":
 				break;
 			case "mail-selected":
+				// skip if demo account
+				if (ME.username === "demo") return;
+
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
 				// console.log( activeMail );
 				// update toolbar
