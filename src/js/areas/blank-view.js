@@ -15,10 +15,14 @@
 		// console.log(event);
 		switch (event.type) {
 			case "render-blank-view":
+				// init toolbar depending on user
+				APP.toolbar.dispatch({ type: "init-view" });
+				// hide sidebar + list column
+				Self.els.layout.removeClass("show-sidebar show-list");
 				// render blank view
 				window.render({
 					template: "blank-view",
-					match: `//TempThread`,
+					match: `//Data`,
 					target: Self.els.content
 				});
 				break;

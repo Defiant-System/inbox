@@ -26,6 +26,10 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			case "init-view":
+				isOn = ME.username === "demo";
+				Self.els.btnNewMail.toggleClass("tool-disabled_", !isOn);
+				break;
 			case "init-demo-data":
 				Self.els.btnSidebar.removeClass("tool-disabled_").addClass("tool-active_");
 				Self.els.btnSendReceive.removeClass("tool-disabled_");

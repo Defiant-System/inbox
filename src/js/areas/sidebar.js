@@ -38,8 +38,8 @@
 						match: `//Data/Mailbox`,
 						target: Self.els.el
 					});
-					// click on "inbox" (first entry)
-					// Self.els.el.find(`.list-wrapper .folder-entry:nth(0)`).trigger("click");
+					// click on last "active" folder (or inbox)
+					APP.sidebar.els.el.find(`.folder-entry[data-fid="${APP.settings.sidebar.folder}"]`).trigger("click");
 				});
 				break;
 			case "select-folder":

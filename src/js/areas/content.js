@@ -4,6 +4,7 @@
 {
 	init() {
 		this.els = {
+			layout: window.find("layout"),
 			el: window.find("content"),
 		};
 		this.dispatch({ type: "init-view" });
@@ -14,6 +15,7 @@
 			xThread,
 			file,
 			data,
+			isOn,
 			done,
 			el;
 		// console.log(event);
@@ -29,6 +31,12 @@
 			case "init-view":
 				if (APP.settings.content.show === "blank-view") {
 					setTimeout(() => Self.dispatch({ type: "render-blank-view" }));
+				} else {
+					// show sidebar + list column
+					isOn = APP.settings.list.show;
+					Self.els.layout.toggleClass("show-list", !isOn);
+					isOn = APP.settings.sidebar.show;
+					Self.els.layout.toggleClass("show-sidebar", !isOn);
 				}
 				break;
 			case "render-temp-thread":

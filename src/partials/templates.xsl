@@ -5,7 +5,10 @@
 		<h2>Welcome to Inbox.</h2>
 
 		<div class="block-buttons">
-			<div class="btn disabled_" data-click="new-mail">
+			<div class="btn" data-click="new-mail">
+				<xsl:if test="@user = 'demo'">
+					<xsl:attribute name="class">btn disabled_</xsl:attribute>
+				</xsl:if>
 				<i class="icon-new-mail"></i>
 				New
 			</div>
@@ -21,12 +24,14 @@
 			</div>
 		</div>
 
-		<div class="sample-demo-view">
-			<i class="icon-warning"></i>
-			Since this is the guest account, the privilege to send or receive e-mails has been disabled.
-			You are welcome to test this application with <span data-click="init-demo-data">demo data</span> - 
-			or <span data-click="register-account">register an account</span> to test full functionality.
-		</div>
+		<xsl:if test="@user = 'demo'">
+			<div class="sample-demo-view">
+				<i class="icon-warning"></i>
+				Since this is the guest account, the privilege to send or receive e-mails has been disabled.
+				You are welcome to test this application with <span data-click="init-demo-data">demo data</span> - 
+				or <span data-click="register-account">register an account</span> to test full functionality.
+			</div>
+		</xsl:if>
 	</div>
 </xsl:template>
 

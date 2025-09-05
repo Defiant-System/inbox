@@ -2,6 +2,8 @@
 	<Menu name="Inbox">
 		<Menu name="About Inbox" shell="win -a"/>
 		<Menu type="divider"/>
+		<Menu name="Start View" click="show-start-view"/>
+		<Menu type="divider"/>
 		<Menu name="Quit Inbox" shell="win -c"/>
 	</Menu>
 	<Menu name="Help">

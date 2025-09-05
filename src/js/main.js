@@ -11,7 +11,7 @@ const {
 
 
 const defaultSettings = {
-	sidebar: { show: true },
+	sidebar: { show: true, folder: 2001, },
 	list: { show: true },
 	content: { show: true },
 };
@@ -27,7 +27,8 @@ const inbox = {
 		// fast references
 		this.xData = window.bluePrint.selectSingleNode("//Data");
 		// put username to ledger data
-		// this.xData.setAttribute("user", ME.username);
+		// this.xData.setAttribute("user", "demo");
+		this.xData.setAttribute("user", ME.username);
 
 		// init settings
 		this.dispatch({ type: "init-settings" });
@@ -68,6 +69,8 @@ const inbox = {
 					Self.settings = window.settings.getItem("settings") || defaultSettings;
 				}
 				break;
+			case "show-start-view":
+				return Self.content.dispatch({ type: "render-blank-view" });
 			// proxy events
 			case "check-for-new-mail":
 				// this event was triggered by system/socket-io
