@@ -17,6 +17,7 @@
 			case "render-blank-view":
 				// init toolbar depending on user
 				APP.toolbar.dispatch({ type: "init-view" });
+				APP.toolbar.dispatch({ type: "mail-selected" });
 				// hide sidebar + list column
 				Self.els.layout.removeClass("show-sidebar show-list");
 				// render blank view

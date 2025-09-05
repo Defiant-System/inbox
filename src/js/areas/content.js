@@ -175,13 +175,16 @@
 				break;
 			case "get-active-mail":
 				el = Self.els.el.find(`.mail-entry.active`);
-				data = {
-					el,
-					id: el.data("id"),
-					ids: Self.els.el.find(".mail-entry").map(elem => elem.getAttribute("data-id")),
-					messageId: el.data("messageId"),
-					listEl: APP.list.els.el.find(".list-entry.active"),
-				};
+				if (el.id === "welcome") data = { el: [] };
+				else {
+					data = {
+						el,
+						id: el.data("id"),
+						ids: Self.els.el.find(".mail-entry").map(elem => elem.getAttribute("data-id")),
+						messageId: el.data("messageId"),
+						listEl: APP.list.els.el.find(".list-entry.active"),
+					};
+				}
 				return data;
 			case "add-to-calendar":
 				// start calerndar in the background

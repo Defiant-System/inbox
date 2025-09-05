@@ -38,8 +38,21 @@
 						match: `//Data/Mailbox`,
 						target: Self.els.el
 					});
-					// click on last "active" folder (or inbox)
-					APP.sidebar.els.el.find(`.folder-entry[data-fid="${APP.settings.sidebar.folder}"]`).trigger("click");
+					if (APP.settings.list.mail === "welcome") {
+						let xInbox = APP.xData.selectSingleNode(`//Mailbox/folder[@id="2001"]`),
+							xWelcome = APP.xData.selectSingleNode(`//Data/mail[@id="welcome"]`);
+						// add welcome mail to inbox / 2001
+						xInbox.appendChild(xWelcome);
+					}
+					if (APP.settings.sidebar.folder) {
+						// click on last "active" folder (or inbox)
+						APP.sidebar.els.el.find(`.folder-entry[data-fid="${APP.settings.sidebar.folder}"]`).trigger("click");
+					}
+
+					if (APP.settings.list.mail === "welcome") {
+						// click on welcome mail
+						APP.list.els.el.find(`.list-entry[data-id="welcome"]`).trigger("click");
+					}
 				});
 				break;
 			case "select-folder":

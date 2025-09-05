@@ -12,7 +12,7 @@ const {
 
 const defaultSettings = {
 	sidebar: { show: true, folder: 2001, },
-	list: { show: true },
+	list: { show: true, mail: "welcome" },
 	content: { show: true },
 };
 

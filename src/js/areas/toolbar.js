@@ -71,14 +71,14 @@
 				if (ME.username === "demo") return;
 
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				// console.log( activeMail );
+				isOn = activeMail.id !== "welcome" && activeMail.el.length;
 				// update toolbar
-				Self.els.btnTrash.toggleClass("tool-disabled_", activeMail.el.length);
-				Self.els.btnJunk.toggleClass("tool-disabled_", activeMail.el.length);
+				Self.els.btnTrash.toggleClass("tool-disabled_", isOn);
+				Self.els.btnJunk.toggleClass("tool-disabled_", isOn);
 				
-				Self.els.btnReply.toggleClass("tool-disabled_", activeMail.el.length);
-				Self.els.btnReplyAll.toggleClass("tool-disabled_", activeMail.el.length);
-				Self.els.btnforward.toggleClass("tool-disabled_", activeMail.el.length);
+				Self.els.btnReply.toggleClass("tool-disabled_", isOn);
+				Self.els.btnReplyAll.toggleClass("tool-disabled_", isOn);
+				Self.els.btnforward.toggleClass("tool-disabled_", isOn);
 				break;
 		}
 	}

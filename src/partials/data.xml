@@ -7,6 +7,7 @@
 		<folder id="2005" icon="trash" name="Deleted" />
 	</Mailbox>
 
+	@import "welcome-mail.xml"
 	@import "temp-thread.xml"
 </Data>
 

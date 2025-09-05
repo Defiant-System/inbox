@@ -1,0 +1,18 @@
+
+<mail id="welcome" fId="2001" is_read="0">
+	<subject><![CDATA[Welcome to Karaqu Inbox]]></subject>
+	<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
+	<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
+	<to><i name="Bill Gates" address="bill@karaqu.com"/></to>
+	
+	<thread>
+		<mail id="welcome" class="expanded active">
+			<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
+			<to><i name="Bill Gates" address="bill@karaqu.com"/></to>
+			<tags/>
+			<attachments/>
+			<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
+			<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+		</mail>
+	</thread>
+</mail>
