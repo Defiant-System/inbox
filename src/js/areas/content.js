@@ -11,7 +11,9 @@
 		let APP = inbox,
 			Self = APP.content,
 			xThread,
+			file,
 			data,
+			done,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -59,49 +61,57 @@
 				if (!xThread.selectSingleNode(`./html`) && !xThread.selectSingleNode(`./thread`)) {
 					return Self.dispatch({ ...event, type: "fetch-thread" });
 				}
-				let icsFiles = xThread.selectNodes(`./attachments/i[@kind="ics"]`);
-				if (icsFiles.length) {
+				file = xThread.selectNodes(`./attachments/i[@kind="ics"]`);
+				if (file.length) {
 					// already parsed?
-					if (icsFiles[0].hasChildNodes()) {
+					if (file[0].hasChildNodes()) {
 						// render mail
 						return Self.dispatch({ type: "render-mail-contents", id: event.id });
 					}
-					// extract details from ics file
-					icsFiles.map(xIcs => {
-						karaqu.shell(`fs -o '${xIcs.getAttribute("path")}' null`).then(async cmd => {
-							let fsHandle = await cmd.result.open({ responseType: "text" });
-							let jcalData = ICAL.parse(fsHandle.data);
-							let comp = new ICAL.Component(jcalData);
-							let vevent = comp.getFirstSubcomponent("vevent");
-							let calEvent = new ICAL.Event(vevent);
-							let start = new karaqu.Moment(calEvent.startDate.toString());
-							let end = new karaqu.Moment(calEvent.endDate.toString());
-							// console.log(start);
-
-							let xAttendees = [];
-							calEvent.attendees.map(att => {
-								let [a, mail] = att.jCal[3].split(":");
-								xAttendees.push(`<i mail="${mail}"/>`);
-							});
-							// prepare details
-							let xStr = `<data>
-											<title><![CDATA[${calEvent.summary}]]></title>
-											<date month="${start.format("MMM")}" date="${start.format("D")}" weekday="${start.format("ddd").toLowerCase()}">
-												<![CDATA[${start.format("dddd")} ${start.format("YYYY-MM-DD HH:mm")} &mdash; ${end.format("HH:mm")}]]>
-											</date>
-											<location><![CDATA[${calEvent.location}]]></location>
-											<attendees>${xAttendees.join("")}</attendees>
-										</data>`,
-								xDetails = $.xmlFromString(xStr).selectNodes("/data/*");
-							// transfer details
-							xDetails.map(xNode => xIcs.append(xNode));
-							// render mail
-							Self.dispatch({ type: "render-mail-contents", id: event.id });
-						});
-					});
+					// parse attached ics files
+					done = () => Self.dispatch({ type: "render-mail-contents", id: event.id });
+					Self.dispatch({ ...event, type: "parse-ics-attachments", done });
 				} else {
 					Self.dispatch({ type: "render-mail-contents", id: event.id });
 				}
+				break;
+			case "parse-ics-attachments":
+				// parse ics files that has not yet been parsed
+				file = APP.xData.selectNodes(`./attachments/i[@kind="ics"][not(@parsed)]`);
+				// extract details from ics file
+				file.map(xIcs => {
+					karaqu.shell(`fs -o '${xIcs.getAttribute("path")}' null`).then(async cmd => {
+						let fsHandle = await cmd.result.open({ responseType: "text" });
+						let jcalData = ICAL.parse(fsHandle.data);
+						let comp = new ICAL.Component(jcalData);
+						let vevent = comp.getFirstSubcomponent("vevent");
+						let calEvent = new ICAL.Event(vevent);
+						let start = new karaqu.Moment(calEvent.startDate.toString());
+						let end = new karaqu.Moment(calEvent.endDate.toString());
+						// console.log(start);
+						let xAttendees = [];
+						calEvent.attendees.map(att => {
+							let [a, mail] = att.jCal[3].split(":");
+							xAttendees.push(`<i mail="${mail}"/>`);
+						});
+						// prepare details
+						let xStr = `<data>
+										<title><![CDATA[${calEvent.summary}]]></title>
+										<date month="${start.format("MMM")}" date="${start.format("D")}" weekday="${start.format("ddd").toLowerCase()}">
+											<![CDATA[${start.format("dddd")} ${start.format("YYYY-MM-DD HH:mm")} &mdash; ${end.format("HH:mm")}]]>
+										</date>
+										<location><![CDATA[${calEvent.location}]]></location>
+										<attendees>${xAttendees.join("")}</attendees>
+									</data>`,
+							xDetails = $.xmlFromString(xStr).selectNodes("/data/*");
+						// transfer details
+						xDetails.map(xNode => xIcs.append(xNode));
+						// flag this ics file as parsed
+						xIcs.setAttribute("parsed", "true");
+						// call callback function, if any
+						if (event.done) event.done();
+					});
+				});
 				break;
 			case "clear-view":
 				// clear view
@@ -166,7 +176,7 @@
 					});
 				break;
 			case "open-attached-folder":
-				let file = new karaqu.File({ path: event.el.data("path") });
+				file = new karaqu.File({ path: event.el.data("path") });
 				karaqu.shell(`fs -o ${file.dir}`);
 				break;
 		}

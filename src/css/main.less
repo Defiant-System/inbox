@@ -585,11 +585,16 @@ content {
 		border-radius: 7px;
 		border: 1px solid #0002;
 		cursor: pointer;
-		transition: padding 100ms ease-in-out;
 
 		&:hover,
 		&.menu-active {
-			padding-right: 31px;
+			.head {
+				margin-right: 21px;
+
+				&:after {
+					right: -21px;
+				}
+			}
 
 			span[data-menu="mail-actions"] {
 				opacity: 1;
@@ -705,6 +710,7 @@ content {
 
 					// show "to" fields
 					&:nth-child(3) {
+						display: block;
 						width: auto;
 						height: 19px;
 						overflow: visible;
@@ -738,55 +744,20 @@ content {
 
 						&:after { display:none; }
 					}
-				
-					.recipient {
-						position: relative;
-						color: #888;
-						cursor: default;
-
-						&[data-address] {
-							&:hover {
-								&:before {
-									content: "";
-									background: url(~/icons/tiny-arrow.png) 50% 50%/contain no-repeat;
-									position: absolute;
-									top: 0;
-									left: 100%;
-									width: 16px;
-									height: 14px;
-									// opacity: .6;
-									z-index: 2;
-									transform: translateX(2px);
-								}
-
-								&:after {
-									content: attr(data-address);
-									position: absolute;
-									top: -3px;
-									left: 100%;
-									z-index: 2;
-									transform: translateX(17px);
-									white-space: nowrap;
-									padding: 2px 9px 3px;
-									background: #e5f1ff;
-									color: #48b;
-									font-weight: 400;
-									text-shadow: 0 1px 0 #fff;
-									box-shadow: inset 0 1px 1px #fff,
-												inset 0 -1px 1px #489bf750,
-												0 0 0 1px #489bf7aa,
-												3px 1px 5px #0003;
-									border-radius: 30px;
-									pointer-events: none;
-								}
-							}
-						}
-					}
 				}
 			}
 
 			.excerpt {
 				display: none;
+			}
+
+			.ics-card {
+				top: 3px;
+				height: calc-size(auto, size);
+				border-radius: 11px;
+				margin-bottom: 13px;
+				box-shadow: 0 0 0 1px #0002,
+							0 0 0 4px #3331;
 			}
 
 			.body {
@@ -804,11 +775,13 @@ content {
 		.head {
 			position: relative;
 			padding: 0 0 0 23px;
+			margin-right: 0;
 			display: flex;
 			pointer-events: none;
 			height: 15px;
 			overflow: hidden;
-			transition: height var( --exp-anim ) ease-in-out;
+			transition: height var( --exp-anim ) ease-in-out,
+						margin 100ms ease-in-out;
 
 			&:before {
 				content: "";
@@ -1000,252 +973,51 @@ content {
 			}
 		}
 
-		// graph UI
-		.graph {
-			position: absolute;
-			top: 0;
-			bottom: -13px;
-			left: -35px;
-			width: 34px;
-			overflow: hidden;
-			z-index: -1;
+		.recipient {
+			position: relative;
+			color: #888;
+			cursor: default;
 
-			i {
-				position: absolute;
-				top: 0;
-				bottom: 0;
-
-				&:before {
-					content: "";
-					position: absolute;
-					width: 7px;
-					height: 7px;
-					border-radius: 50%;
-					display: none;
-				}
-
-				&:after {
-					content: "";
-					position: absolute;
-					height: 0px;
-					display: none; 
-				}
-
-				&.l1 {
-					z-index: 1;
-					left: 8px;
-					width: 33px;
-					border-left: 3px solid var( --l1 );
-
-					&:before { background: var( --l1 ); }
-					&:after { border-top: 3px solid var( --l1 ); }
-				}
-
-				&.l2 {
-					display: none;
-					z-index: 5;
-					left: 16px;
-					width: 25px;
-					border-left: 3px solid var( --l2 );
-					filter: drop-shadow(0 1px 0 var(--content-bg))
-							drop-shadow(0 -1px 0 var(--content-bg));
-
-					&:before { top: 7px; left: -5px; background: var( --l2 ); }
-					&:after { top: 9px; left: 2px; width: 21px; border-top: 3px solid var( --l2 ); }
-				}
-
-				&.l3 {
-					display: none;
-					z-index: 4;
-					left: 24px;
-					width: 17px;
-					border-left: 3px solid var( --l3 );
-					filter: drop-shadow(0 1px 0 var(--content-bg))
-							drop-shadow(0 -1px 0 var(--content-bg));
-
-					&:before { top: 14px; left: -5px; background: var( --l3 ); }
-					&:after { top: 16px; left: 2px; width: 13px; border-top: 3px solid var( --l3 ); }
-				}
-
-				&.l4 {
-					display: none;
-					z-index: 3;
-					left: 32px;
-					width: 13px;
-					border-left: 3px solid var( --l4 );
-
-					&:before { top: 17px; left: -5px; background: var( --l4 ); }
-					&:after { top: 19px; left: 2px; width: 5px; border-top: 3px solid var( --l4 ); }
-				}
-			}
-		}
-
-		&:nth-child(2) {
-			.graph {
-				top: -6px;
-
-				i {
-					&.l1 {
-						&:before, &:after { display:none; }
+			&[data-address] {
+				&:hover {
+					&:before {
+						content: "";
+						background: url(~/icons/tiny-arrow.png) 50% 50%/contain no-repeat;
+						position: absolute;
+						top: 0;
+						left: 100%;
+						width: 16px;
+						height: 14px;
+						// opacity: .6;
+						z-index: 2;
+						transform: translateX(2px);
 					}
 
-					&.l2 {
-						top: 13px;
-						border-top-left-radius: 9px;
-						border-top: 3px solid var( --l2 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l3 {
-						top: 15px;
-						border-top-left-radius: 6px;
-						border-top: 3px solid var( --l3 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l4 {
-						top: 19px;
-						border-top-left-radius: 5px;
-						border-top: 3px solid var( --l4 );
-
-						&:before, &:after { display:none; }
+					&:after {
+						content: attr(data-address);
+						position: absolute;
+						top: -3px;
+						left: 100%;
+						z-index: 2;
+						transform: translateX(17px);
+						white-space: nowrap;
+						padding: 2px 9px 3px;
+						background: #e5f1ff;
+						color: #48b;
+						font-weight: 400;
+						text-shadow: 0 1px 0 #fff;
+						box-shadow: inset 0 1px 1px #fff,
+									inset 0 -1px 1px #489bf750,
+									0 0 0 1px #489bf7aa,
+									3px 1px 5px #0003;
+						border-radius: 30px;
+						pointer-events: none;
 					}
 				}
 			}
 		}
 
-		&:last-child {
-			.graph {
-				height: 29px;
-				bottom: auto;
-
-				i {
-					bottom: auto;
-
-					&.l1 {
-						height: 23px;
-						border-bottom-left-radius: 12px;
-						border-bottom: 3px solid var( --l1 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l2 {
-						height: 17px;
-						border-bottom-left-radius: 9px;
-						border-bottom: 3px solid var( --l2 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l3 {
-						height: 11px;
-						border-bottom-left-radius: 6px;
-						border-bottom: 3px solid var( --l3 );
-
-						&:before, &:after { display:none; }
-					}
-
-					&.l4 {
-						height: 5px;
-						border-bottom-left-radius: 5px;
-						border-bottom: 3px solid var( --l4 );
-
-						&:before, &:after { display:none; }
-					}
-				}
-			}
-		}
-
-		// graphy UI - L2
-		&.l2-down .graph i.l2 {
-			display: block;
-			top: 15px;
-			border-top-left-radius: 9px;
-			border-top: 3px solid var( --l2 );
-		}
-
-		&.l2-up .graph i.l2 {
-			display: block;
-			height: 17px;
-			border-bottom-left-radius: 9px;
-			border-bottom: 3px solid var( --l2 );
-
-			&:before, &:after { display:none; }
-		}
-
-		&.l2-conn .graph i.l2 {
-			display: block;
-
-			&:before { display: block; top: 13px; }
-			&:after { display: block; top: 15px; }
-		}
-
-		&.l2-conn.l3-conn .graph i.l2 {
-			&:before { top: 7px; }
-			&:after { top: 9px; }
-		}
-
-		&.l2-track .graph i.l2 {
-			display: block;
-		}
-
-		// graphy UI - L3
-		&.l3-down .graph i.l3 {
-			display: block;
-			top: 15px;
-			border-top-left-radius: 6px;
-			border-top: 3px solid var( --l3 );
-		}
-
-		&.l3-up .graph i.l3 {
-			display: block;
-			height: 11px;
-			border-bottom-left-radius: 6px;
-			border-bottom: 3px solid var( --l3 );
-
-			&:before, &:after { display:none; }
-		}
-
-		&.l3-conn .graph i.l3 {
-			display: block;
-
-			&:before { display: block; }
-			&:after { display: block; }
-		}
-
-		&.l3-track .graph i.l3 {
-			display: block;
-		}
-
-		// graphy UI - L4
-		&.l4-down .graph i.l4 {
-			display: block;
-			top: 15px;
-			border-top-left-radius: 5px;
-			border-top: 3px solid var( --l4 );
-		}
-
-		&.l4-up .graph i.l4 {
-			display: block;
-			height: 11px;
-			border-bottom-left-radius: 5px;
-			border-bottom: 3px solid var( --l4 );
-
-			&:before, &:after { display:none; }
-		}
-
-		&.l4-conn .graph i.l4 {
-			display: block;
-
-			&:before { display: block; }
-			&:after { display: block; }
-		}
-
-		&.l4-track .graph i.l4 {
-			display: block;
-		}
+		@import "graph";
+		@import "ics-card";
 	}
 }

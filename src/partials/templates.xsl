@@ -159,7 +159,11 @@
 						<span class="name">Vem</span>
 						<span class="value">
 							<xsl:for-each select="attendees/*">
-								<span class="attendee"><xsl:value-of select="@address"/></span>
+								<xsl:if test="position() &gt; 1">, </xsl:if>
+								<span class="attendee recipient">
+									<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
+									<xsl:value-of select="@name"/>
+								</span>
 							</xsl:for-each>
 						</span>
 					</div>

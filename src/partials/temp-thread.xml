@@ -99,7 +99,6 @@
 					<i id="threadId" value="mid-1"/>
 					<i id="messageId" value="abs1"/>
 				</tags>
-				<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
 				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
 			</mail>
 
@@ -115,7 +114,6 @@
 					<i id="inReplyTo" value="abs1"/>
 					<i id="messageId" value="abs2"/>
 				</tags>
-				<excerpt><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></excerpt>
 				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
 			</mail>
 			
@@ -131,7 +129,6 @@
 					<i id="inReplyTo" value="abs2"/>
 					<i id="messageId" value="abs3"/>
 				</tags>
-				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
 			
@@ -147,7 +144,6 @@
 					<i id="inReplyTo" value="abs3"/>
 					<i id="messageId" value="abs4"/>
 				</tags>
-				<excerpt><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></excerpt>
 				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
 			</mail>
 
@@ -163,7 +159,6 @@
 					<i id="inReplyTo" value="abs3"/>
 					<i id="messageId" value="abs5"/>
 				</tags>
-				<excerpt><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></excerpt>
 				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
 			</mail>
 
@@ -179,7 +174,6 @@
 					<i id="inReplyTo" value="abs2"/>
 					<i id="messageId" value="abs6"/>
 				</tags>
-				<excerpt><![CDATA[Yes!]]></excerpt>
 				<html><![CDATA[Yes!]]></html>
 			</mail>
 
@@ -195,7 +189,6 @@
 					<i id="inReplyTo" value="abs4"/>
 					<i id="messageId" value="abs7"/>
 				</tags>
-				<excerpt><![CDATA[No!]]></excerpt>
 				<html><![CDATA[No!]]></html>
 			</mail>
 
@@ -212,7 +205,6 @@
 					<i id="messageId" value="abs8"/>
 					<i id="deleted" value="symbolic"/>
 				</tags>
-				<excerpt><![CDATA[Well...which is it?]]></excerpt>
 				<html><![CDATA[Well...which is it?<br/><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></html>
 			</mail>
 
@@ -233,7 +225,6 @@
 					<i id="inReplyTo" value="abs8"/>
 					<i id="messageId" value="abs9"/>
 				</tags>
-				<excerpt><![CDATA[Maybe we missed something...]]></excerpt>
 				<html><![CDATA[Maybe we missed something...]]></html>
 			</mail>
 
@@ -245,14 +236,24 @@
 					<i name="Penny Hofstadter" address="penny@karaqu.com"/>
 				</to>
 				<attachments>
-					<i path="/fs/Mail/123/some-file.pdf" name="some-file.pdf" kind="pdf"/>
+					<i path="/cdn/samples/ics/invite.ics" name="invite.ics" kind="ics">
+						<title>Some meeting</title>
+						<date month="Oct" date="17" weekday="Tue">
+							<![CDATA[Tuesday 2025-10-17 13:00 &mdash; 14:00}]]>
+						</date>
+						<location>Microsoft Teams Meeting</location>
+						<attendees>
+							<i name="Erik Friberg" address="erik@bolag.se"/>
+							<i name="Per Nordquist" address="per@bolag.se"/>
+							<i name="Davil Holmberg" address="david@bolag.se"/>
+						</attendees>
+					</i>
 				</attachments>
 				<tags>
 					<i id="threadId" value="mid-1"/>
 					<i id="inReplyTo" value="abs6"/>
 					<i id="messageId" value="abs10"/>
 				</tags>
-				<excerpt><![CDATA[Lets read it again.]]></excerpt>
 				<html><![CDATA[Lets read it again.]]></html>
 			</mail>
 
@@ -268,7 +269,6 @@
 					<i id="inReplyTo" value="abs10"/>
 					<i id="messageId" value="abs11"/>
 				</tags>
-				<excerpt><![CDATA[Okay.]]></excerpt>
 				<html><![CDATA[Okay.]]></html>
 			</mail>
 
@@ -291,7 +291,6 @@
 					<i id="threadId" value="mid-21"/>
 					<i id="messageId" value="1"/>
 				</tags>
-				<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
 				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
 			</mail>
 
@@ -307,7 +306,6 @@
 					<i id="inReplyTo" value="1"/>
 					<i id="messageId" value="2"/>
 				</tags>
-				<excerpt><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></excerpt>
 				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
 			</mail>
 			
@@ -323,7 +321,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="3"/>
 				</tags>
-				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
 			
@@ -339,7 +336,6 @@
 					<i id="inReplyTo" value="3"/>
 					<i id="messageId" value="4"/>
 				</tags>
-				<excerpt><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></excerpt>
 				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
 			</mail>
 
@@ -355,7 +351,6 @@
 					<i id="inReplyTo" value="4"/>
 					<i id="messageId" value="5"/>
 				</tags>
-				<excerpt><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></excerpt>
 				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
 			</mail>
 
@@ -378,7 +373,6 @@
 					<i id="threadId" value="mid-31"/>
 					<i id="messageId" value="1"/>
 				</tags>
-				<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
 				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
 			</mail>
 
@@ -394,7 +388,6 @@
 					<i id="inReplyTo" value="1"/>
 					<i id="messageId" value="2"/>
 				</tags>
-				<excerpt><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></excerpt>
 				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
 			</mail>
 			
@@ -410,7 +403,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="3"/>
 				</tags>
-				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
 			
@@ -426,7 +418,6 @@
 					<i id="inReplyTo" value="3"/>
 					<i id="messageId" value="4"/>
 				</tags>
-				<excerpt><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></excerpt>
 				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
 			</mail>
 
@@ -442,7 +433,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="5"/>
 				</tags>
-				<excerpt><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></excerpt>
 				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
 			</mail>
 
@@ -465,7 +455,6 @@
 					<i id="threadId" value="mid-41"/>
 					<i id="messageId" value="1"/>
 				</tags>
-				<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
 				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
 			</mail>
 
@@ -481,7 +470,6 @@
 					<i id="inReplyTo" value="1"/>
 					<i id="messageId" value="2"/>
 				</tags>
-				<excerpt><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></excerpt>
 				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
 			</mail>
 			
@@ -497,7 +485,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="3"/>
 				</tags>
-				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
 			
@@ -513,7 +500,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="4"/>
 				</tags>
-				<excerpt><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></excerpt>
 				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
 			</mail>
 
@@ -529,7 +515,6 @@
 					<i id="inReplyTo" value="4"/>
 					<i id="messageId" value="5"/>
 				</tags>
-				<excerpt><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></excerpt>
 				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
 			</mail>
 
@@ -545,7 +530,6 @@
 					<i id="inReplyTo" value="5"/>
 					<i id="messageId" value="6"/>
 				</tags>
-				<excerpt><![CDATA[Yes!]]></excerpt>
 				<html><![CDATA[Yes!]]></html>
 			</mail>
 
@@ -561,7 +545,6 @@
 					<i id="inReplyTo" value="3"/>
 					<i id="messageId" value="7"/>
 				</tags>
-				<excerpt><![CDATA[No!]]></excerpt>
 				<html><![CDATA[No!]]></html>
 			</mail>
 
@@ -577,7 +560,6 @@
 					<i id="inReplyTo" value="6"/>
 					<i id="messageId" value="8"/>
 				</tags>
-				<excerpt><![CDATA[Well...which is it?]]></excerpt>
 				<html><![CDATA[Well...which is it?]]></html>
 			</mail>
 
@@ -600,7 +582,6 @@
 					<i id="threadId" value="mid-51"/>
 					<i id="messageId" value="1"/>
 				</tags>
-				<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
 				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
 			</mail>
 
@@ -616,7 +597,6 @@
 					<i id="inReplyTo" value="1"/>
 					<i id="messageId" value="2"/>
 				</tags>
-				<excerpt><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></excerpt>
 				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
 			</mail>
 			
@@ -632,7 +612,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="3"/>
 				</tags>
-				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
 			
@@ -648,7 +627,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="4"/>
 				</tags>
-				<excerpt><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></excerpt>
 				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
 			</mail>
 
@@ -664,7 +642,6 @@
 					<i id="inReplyTo" value="4"/>
 					<i id="messageId" value="5"/>
 				</tags>
-				<excerpt><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></excerpt>
 				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
 			</mail>
 
@@ -680,7 +657,6 @@
 					<i id="inReplyTo" value="4"/>
 					<i id="messageId" value="6"/>
 				</tags>
-				<excerpt><![CDATA[Yes!]]></excerpt>
 				<html><![CDATA[Yes!]]></html>
 			</mail>
 		</thread>
@@ -702,7 +678,6 @@
 					<i id="threadId" value="mid-61"/>
 					<i id="messageId" value="1"/>
 				</tags>
-				<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
 				<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
 			</mail>
 
@@ -718,7 +693,6 @@
 					<i id="inReplyTo" value="1"/>
 					<i id="messageId" value="2"/>
 				</tags>
-				<excerpt><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></excerpt>
 				<html><![CDATA[I don't think it is heavy. I think it's some sort of magic so only Thor can lift it.]]></html>
 			</mail>
 			
@@ -734,7 +708,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="3"/>
 				</tags>
-				<excerpt><![CDATA[That makes even less sense. I mean...]]></excerpt>
 				<html><![CDATA[That makes even less sense. I mean...]]></html>
 			</mail>
 			
@@ -750,7 +723,6 @@
 					<i id="inReplyTo" value="3"/>
 					<i id="messageId" value="4"/>
 				</tags>
-				<excerpt><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></excerpt>
 				<html><![CDATA[No, no, no. It doesn't. Thos is a god. The hammer is his, only he can use it. It' like Sheldon and his toothbrush...or his thin beckoning lips]]></html>
 			</mail>
 
@@ -766,7 +738,6 @@
 					<i id="inReplyTo" value="3"/>
 					<i id="messageId" value="5"/>
 				</tags>
-				<excerpt><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></excerpt>
 				<html><![CDATA[Wait, hang on. What if Thor's hand is on the hammer? I mean, if he's touching it with his god magic, does that mean I could lift it?]]></html>
 			</mail>
 
@@ -782,7 +753,6 @@
 					<i id="inReplyTo" value="2"/>
 					<i id="messageId" value="6"/>
 				</tags>
-				<excerpt><![CDATA[Yes!]]></excerpt>
 				<html><![CDATA[Yes!]]></html>
 			</mail>
 
@@ -798,7 +768,6 @@
 					<i id="inReplyTo" value="4"/>
 					<i id="messageId" value="7"/>
 				</tags>
-				<excerpt><![CDATA[No!]]></excerpt>
 				<html><![CDATA[No!]]></html>
 			</mail>
 		</thread>
