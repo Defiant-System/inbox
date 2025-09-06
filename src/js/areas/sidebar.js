@@ -40,7 +40,20 @@
 					});
 					if (APP.settings.list.mail === "welcome") {
 						let xInbox = APP.xData.selectSingleNode(`//Mailbox/folder[@id="2001"]`),
-							xWelcome = APP.xData.selectSingleNode(`//Data/mail[@id="welcome"]`);
+							xWelcome = APP.xData.selectSingleNode(`//Data/mail[@id="welcome"]`),
+							now = new karaqu.Moment(),
+							xNode;
+						// adapt mail to user
+						xNode = xWelcome.selectSingleNode(`./to/i`);
+						xNode.setAttribute("name", `${ME.name}`);
+						xNode.setAttribute("address", `${ME.username}`);
+						// set date
+						xNode = xWelcome.selectSingleNode(`./date`);
+						xNode.setAttribute("value", now.format("YYYY-MM-DD HH:mm"));
+						xNode.setAttribute("date", now.format("YYYY-MM-DD"));
+						xNode.setAttribute("time", now.format("HH:mm"));
+						// date time stamp on mail node
+						xWelcome.setAttribute("date", now.format("YYYY-MM-DD HH:mm"));
 						// add welcome mail to inbox / 2001
 						xInbox.appendChild(xWelcome);
 					}
