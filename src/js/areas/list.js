@@ -111,7 +111,6 @@
 					.then(async call => {
 						let xDoc = await call.result,
 							data = {};
-						
 						// loop mail nodes
 						xDoc.selectNodes("/data/mail").map(xMail => {
 							data.id = xMail.getAttribute("id");
@@ -120,6 +119,14 @@
 							// insert new mail node into app ledger
 							xFolder = APP.xData.selectSingleNode(`//folder[@id="${data.fId}"]`);
 							xFolder.appendChild(xMail);
+							// sidebar UI update
+							let fEl = APP.sidebar.els.el.find(`.folder-entry[data-fId="${data.fId}"]`);
+							if (fEl.length) {
+								let unreadEl = fEl.find(".unread");
+								if (!unreadEl.length) unreadEl = fEl.append(`<span class="unread">0</span>`);
+								let val = +unreadEl.text();
+								unreadEl.html(val+1);
+							}
 						});
 						if (data.fId === Self.els.el.parent().data("fId")) {
 							// render list view

@@ -86,8 +86,8 @@ const inbox = {
 				delete Self.demoView;
 				switch (event.arg) {
 					case "default":
-						Self.sidebar.els.el.find(".folder-entry.active").removeClass("active");
-						Self.sidebar.els.el.find(".folder-entry").get(0).addClass("active");
+						// Self.sidebar.els.el.find(".folder-entry.active").removeClass("active");
+						Self.sidebar.els.el.find(".folder-entry").removeClass("active").get(0).addClass("active");
 						Self.list.dispatch({ type: "render-folder", fId: 2001, fresh: true });
 						Self.list.els.el.find(".active").trigger("click");
 						break;
@@ -95,6 +95,7 @@ const inbox = {
 						return Self.content.dispatch({ type: "render-blank-view" });
 					case "demo":
 						Self.demoView = true;
+						Self.sidebar.els.el.find(".folder-entry").removeClass("active");
 						return Self.blankView.dispatch({ type: "init-demo-data" });
 				}
 				break;
