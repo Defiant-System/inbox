@@ -5,7 +5,7 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 let Test = {
 	init(APP) {
 
-		return;
+		// return;
 
 		return setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 1500);
 

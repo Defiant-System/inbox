@@ -106,6 +106,9 @@
 					let id = +xMail.getAttribute("id");
 					if (id > latestMail) latestMail = id;
 				});
+
+				// latestMail -= 1; // TEMP
+				
 				// request for newer mail
 				karaqu.shell(`mail -n ${latestMail}`)
 					.then(async call => {
@@ -136,6 +139,7 @@
 								unreadEl.html(val+1);
 							}
 						});
+						// console.log(data.fId , Self.els.el.parent().data("fId"));
 						if (data.fId === Self.els.el.parent().data("fId")) {
 							let threadEl = Self.els.el.find(`.list-entry[data-id="${data.threadId}"]`);
 							if (threadEl.length) {

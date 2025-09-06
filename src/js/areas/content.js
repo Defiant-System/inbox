@@ -63,11 +63,18 @@
 				break;
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
-					let xDoc = await call.result,
-						xNew = xDoc.selectSingleNode(`/data/mail[@id="${event.id}"]`),
+					let xDoc = await call.result;
+					// temp: START
+					// let xTmp = xDoc.selectSingleNode(`//thread/mail[@id="1757188853202"]`);
+					// xTmp.parentNode.removeChild(xTmp);
+					// return console.log(xDoc.xml);
+					// temp: END
+
+					let xNew = xDoc.selectSingleNode(`/data/mail[@id="${event.id}"]`),
 						xOld = APP.xData.selectSingleNode(`//mail[@id="${event.id}"]`);
 					// add mail node to app ledger
 					xOld.parentNode.replaceChild(xNew, xOld);
+
 					// render thread
 					Self.dispatch({ type: "render-thread", id: event.id });
 				});
