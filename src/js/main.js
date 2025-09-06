@@ -13,7 +13,8 @@ const {
 const defaultSettings = {
 	firstUsed: Date.now(),
 	sidebar: { show: true, folder: 2001, },
-	list: { show: true, mail: "welcome" },
+	// list: { show: true, mail: "welcome" },
+	list: { show: true, mail: 1757188853202 },
 	content: { show: true },
 };
 

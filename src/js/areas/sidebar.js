@@ -30,7 +30,7 @@
 						xFolder.setAttribute("unread", unread);
 						xFolder.setAttribute("total", total);
 						// transfer mails into blueprint
-						// xItems.map(xMail => xFolder.appendChild(xMail)); // disable to dev-test new mail
+						xItems.map(xMail => xFolder.appendChild(xMail)); // disable to dev-test new mail
 					});
 					// render tree view
 					window.render({
@@ -61,11 +61,10 @@
 						// click on last "active" folder (or inbox)
 						APP.sidebar.els.el.find(`.folder-entry[data-fid="${APP.settings.sidebar.folder}"]`).trigger("click");
 					}
-
-					if (APP.settings.list.mail === "welcome") {
-						// click on welcome mail
-						APP.list.els.el.find(`.list-entry[data-id="welcome"]`).trigger("click");
-					}
+					// click on last mail, default to "welcome"
+					APP.list.els.el.find(`.list-entry[data-id="${APP.settings.list.mail}"]`).trigger("click");
+					// init toolbar
+					APP.toolbar.dispatch({ type: "init-view" });
 				});
 				break;
 			case "select-folder":

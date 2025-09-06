@@ -136,6 +136,9 @@
 				// update toolbar
 				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
+			case "new-thread-mail":
+				console.log(event);
+				break;
 			case "render-mail-contents":
 				// render mail content
 				window.render({
@@ -180,8 +183,9 @@
 					data = {
 						el,
 						id: el.data("id"),
-						ids: Self.els.el.find(".mail-entry").map(elem => elem.getAttribute("data-id")),
+						threadId: el.data("threadId"),
 						messageId: el.data("messageId"),
+						ids: Self.els.el.find(".mail-entry").map(elem => elem.getAttribute("data-id")),
 						listEl: APP.list.els.el.find(".list-entry.active"),
 					};
 				}

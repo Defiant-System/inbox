@@ -129,12 +129,14 @@
 			<span class="field-value from-name recipient">
 				<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
 				<xsl:value-of select="from/i/@name"/>
+				<xsl:if test="from/i/@name = ''"><xsl:value-of select="from/i/@address"/></xsl:if>
 			</span>
 		</xsl:when>
 		<xsl:otherwise>
 			<span class="field-value from-name recipient">
 				<xsl:attribute name="data-address"><xsl:value-of select="../../from/i/@address"/></xsl:attribute>
 				<xsl:value-of select="../../from/i/@name"/>
+				<xsl:if test="../../from/i/@name = ''"><xsl:value-of select="../../from/i/@address"/></xsl:if>
 			</span>
 		</xsl:otherwise>
 	</xsl:choose>
@@ -152,6 +154,7 @@
 						<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
 					</xsl:if>
 					<xsl:value-of select="@name"/>
+					<xsl:if test="@name = ''"><xsl:value-of select="@address"/></xsl:if>
 				</span>
 			</xsl:for-each>
 		</xsl:when>
@@ -164,6 +167,7 @@
 						<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
 					</xsl:if>
 					<xsl:value-of select="@name"/>
+					<xsl:if test="@name = ''"><xsl:value-of select="@address"/></xsl:if>
 				</span>
 			</xsl:for-each>
 		</xsl:otherwise>
@@ -189,6 +193,30 @@
 </xsl:template>
 
 
+<xsl:template name="get-tag-messageId">
+	<xsl:choose>
+		<xsl:when test="tags/i[@id='messageId']">
+			<xsl:value-of select="tags/i[@id='messageId']/@value"/>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="../../tags/i[@id='messageId']/@value"/>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
+<xsl:template name="get-tag-threadId">
+	<xsl:choose>
+		<xsl:when test="tags/i[@id='threadId']">
+			<xsl:value-of select="tags/i[@id='threadId']/@value"/>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="../../tags/i[@id='threadId']/@value"/>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
 <xsl:template name="mail-entry">
 	<div class="mail-entry">
 		<xsl:attribute name="class">mail-entry 
@@ -196,7 +224,8 @@
 			<xsl:if test="tags/*[@id='deleted'][@value='symbolic']"> deleted</xsl:if>
 		</xsl:attribute>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
-		<xsl:attribute name="data-messageId"><xsl:value-of select="tags/*[@id='messageId']/@value"/></xsl:attribute>
+		<xsl:attribute name="data-messageId"><xsl:call-template name="get-tag-messageId"/></xsl:attribute>
+		<xsl:attribute name="data-threadId"><xsl:call-template name="get-tag-threadId"/></xsl:attribute>
 		<xsl:if test="count(attachments/i) &gt; 0">
 			<xsl:attribute name="data-attachments"><xsl:value-of select="count(attachments/i)"/></xsl:attribute>
 		</xsl:if>

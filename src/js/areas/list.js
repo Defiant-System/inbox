@@ -114,9 +114,9 @@
 						// loop mail nodes
 						xDoc.selectNodes("/data/mail").map(xMail => {
 							// temp: START
-							xMail.selectSingleNode(`.//tags`).appendChild($.nodeFromString(`<i id="inReplyTo" value="welcome"/>`));
-							xMail.selectSingleNode(`.//tags`).appendChild($.nodeFromString(`<i id="threadId" value="welcome"/>`));
-							console.log(xMail);
+							// xMail.selectSingleNode(`.//tags`).appendChild($.nodeFromString(`<i id="inReplyTo" value="welcome"/>`));
+							// xMail.selectSingleNode(`.//tags`).appendChild($.nodeFromString(`<i id="threadId" value="welcome"/>`));
+							// console.log(xMail);
 							// temp: END
 
 							data.id = xMail.getAttribute("id");
@@ -159,6 +159,10 @@
 							}
 							// play sound
 							window.audio.play("new-mail");
+						}
+						let activeMail = APP.content.dispatch({ type: "get-active-mail" });
+						if (data.threadId === activeMail.threadId) {
+							APP.content.dispatch({ type: "new-thread-mail", data });
 						}
 					});
 				break;
