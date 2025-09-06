@@ -27,7 +27,11 @@
 		<xsl:if test="@user != 'demo'">
 			<div class="blank-block">
 				<i class="icon-info"></i>
-				Welcome to Karaqu Inbox...
+				Say goodbye to cluttered inboxes and missed messages. Karaqu Inbox email software is 
+				designed to be fast, intuitive, and intelligent—helping you focus on what 
+				matters most. With smart organization, powerful search, seamless integrations, 
+				and a beautifully clean interface, managing your communication has never 
+				been this effortless.
 			</div>
 		</xsl:if>
 
@@ -119,6 +123,72 @@
 </xsl:template>
 
 
+<xsl:template name="get-mail-from">
+	<xsl:choose>
+		<xsl:when test="from">
+			<span class="field-value from-name recipient">
+				<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
+				<xsl:value-of select="from/i/@name"/>
+			</span>
+		</xsl:when>
+		<xsl:otherwise>
+			<span class="field-value from-name recipient">
+				<xsl:attribute name="data-address"><xsl:value-of select="../../from/i/@address"/></xsl:attribute>
+				<xsl:value-of select="../../from/i/@name"/>
+			</span>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
+<xsl:template name="get-mail-to">
+	<xsl:choose>
+		<xsl:when test="to">
+			<xsl:for-each select="to/i">
+				<xsl:if test="position() &gt; 1">, </xsl:if>
+				<span class="field-value to-name recipient">
+					<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
+					<xsl:if test="@name = ''">
+						<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
+					</xsl:if>
+					<xsl:value-of select="@name"/>
+				</span>
+			</xsl:for-each>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:for-each select="../../to/i">
+				<xsl:if test="position() &gt; 1">, </xsl:if>
+				<span class="field-value to-name recipient">
+					<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
+					<xsl:if test="@name = ''">
+						<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
+					</xsl:if>
+					<xsl:value-of select="@name"/>
+				</span>
+			</xsl:for-each>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
+<xsl:template name="get-mail-date">
+	<xsl:choose>
+		<xsl:when test="date">
+			<span class="date"><xsl:value-of select="date/@date"/></span>
+			<span class="time"><xsl:value-of select="date/@time"/></span>
+		</xsl:when>
+		<xsl:when test="../../date">
+			<span class="date"><xsl:value-of select="../../date/@date"/></span>
+			<span class="time"><xsl:value-of select="../../date/@time"/></span>
+		</xsl:when>
+		<xsl:otherwise>
+			<span class="date"><xsl:value-of select="substring-before(../../@date, ' ')"/></span>
+			<span class="time"><xsl:value-of select="substring-after(../../@date, ' ')"/></span>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+
+
 <xsl:template name="mail-entry">
 	<div class="mail-entry">
 		<xsl:attribute name="class">mail-entry 
@@ -150,25 +220,12 @@
 					<span class="avatar"></span>
 					<div class="row">
 						<span class="field-name">From</span>
-						<span class="field-value from-name recipient">
-							<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
-							<xsl:value-of select="from/i/@name"/>
-						</span>
-						<span class="date"><xsl:value-of select="date/@date"/></span>
-						<span class="time"><xsl:value-of select="date/@time"/></span>
+						<xsl:call-template name="get-mail-from"/>
+						<xsl:call-template name="get-mail-date"/>
 					</div>
 					<div class="row">
 						<span class="field-name">To</span>
-						<xsl:for-each select="to/i">
-							<xsl:if test="position() &gt; 1">, </xsl:if>
-							<span class="field-value to-name recipient">
-								<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
-								<xsl:if test="@name = ''">
-									<xsl:attribute name="class">field-value to-name no-name</xsl:attribute>
-								</xsl:if>
-								<xsl:value-of select="@name"/>
-							</span>
-						</xsl:for-each>
+						<xsl:call-template name="get-mail-to"/>
 					</div>
 					<div class="excerpt">
 						<xsl:value-of select="excerpt/text()" disable-output-escaping="yes"/>

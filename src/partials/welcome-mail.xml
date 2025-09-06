@@ -1,18 +1,20 @@
 
-<mail id="welcome" fId="2001" is_read="0">
+<mail id="welcome" fId="2001" is_read="0" date="2025-08-06 13:07">
 	<subject><![CDATA[Welcome to Karaqu Inbox]]></subject>
 	<date value="2025-08-06T13:07:03.000Z" date="2025-08-06" time="13:07"/>
 	<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
 	<to><i name="Bill Gates" address="bill@karaqu.com"/></to>
-	
+
 	<thread>
 		<mail id="welcome" class="expanded active">
-			<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
-			<to><i name="Bill Gates" address="bill@karaqu.com"/></to>
-			<tags/>
-			<attachments/>
-			<excerpt><![CDATA[A hammer so heavy that no one else can pick it up.]]></excerpt>
-			<html><![CDATA[A hammer so heavy that no one else can pick it up.]]></html>
+			<excerpt><![CDATA[Say goodbye to cluttered inboxes and missed messages.]]></excerpt>
+			<html><![CDATA[
+				Say goodbye to cluttered inboxes and missed messages. Karaqu Inbox email software is 
+				designed to be fast, intuitive, and intelligent—helping you focus on what 
+				matters most. With smart organization, powerful search, seamless integrations, 
+				and a beautifully clean interface, managing your communication has never 
+				been this effortless.
+			]]></html>
 		</mail>
 	</thread>
 </mail>

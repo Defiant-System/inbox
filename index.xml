@@ -8,8 +8,8 @@
 		<meta name="author" value="Hakan Bilgin" namespace="ant"/>
 		<meta name="license" value="AGPL-3.0"/>
 		<meta name="repository" value="https://github.com/Defiant-System/inbox"/>
-		<meta name="width" value="1180" min="720"/>
-		<meta name="height" value="700" min="340"/>
+		<meta name="width" value="1080" min="720"/>
+		<meta name="height" value="620" min="340"/>
 		<meta name="top" value="220"/>
 		<meta name="left" value="120"/>
 		<meta name="minimize"/>

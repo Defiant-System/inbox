@@ -15,8 +15,10 @@
 	<Menu for="mail-actions">
 		<Menu name="Reply"/>
 		<Menu name="Reply All"/>
-		<Menu name="Delete"/>
+		<Menu name="Forward"/>
 		<Menu type="divider"/>
 		<Menu name="Show attachments"/>
+		<Menu type="divider"/>
+		<Menu name="Delete"/>
 	</Menu>
 </MenuBar>
