@@ -82,10 +82,20 @@ const inbox = {
 				}
 				break;
 			case "show-view":
+				// demo flag app
+				delete Self.demoView;
 				switch (event.arg) {
-					case "default": break;
-					case "start": return Self.content.dispatch({ type: "render-blank-view" });
-					case "demo": return Self.blankView.dispatch({ type: "init-demo-data" });
+					case "default":
+						Self.sidebar.els.el.find(".folder-entry.active").removeClass("active");
+						Self.sidebar.els.el.find(".folder-entry").get(0).addClass("active");
+						Self.list.dispatch({ type: "render-folder", fId: 2001, fresh: true });
+						Self.list.els.el.find(".active").trigger("click");
+						break;
+					case "start":
+						return Self.content.dispatch({ type: "render-blank-view" });
+					case "demo":
+						Self.demoView = true;
+						return Self.blankView.dispatch({ type: "init-demo-data" });
 				}
 				break;
 			// proxy events

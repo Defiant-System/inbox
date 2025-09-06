@@ -96,7 +96,7 @@
 					let xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@active]`);
 					if (xMail) xMail.removeAttribute("active");
 					xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@id="${el.data("id")}"]`);
-					xMail.setAttribute("active", "1");
+					if (xMail) xMail.setAttribute("active", "1");
 				}
 				break;
 			case "check-for-new-mail":
@@ -112,8 +112,6 @@
 						let xDoc = await call.result,
 							data = {};
 						
-						return console.log( xDoc );
-
 						// loop mail nodes
 						xDoc.selectNodes("/data/mail").map(xMail => {
 							data.id = xMail.getAttribute("id");

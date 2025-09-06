@@ -9,7 +9,8 @@ let Test = {
 
 		return setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
-		// return APP.content.dispatch({ type: "render-blank-view" });
+		// setTimeout(() => APP.dispatch({ type: "show-view", arg: "start" }), 500);
+		// return setTimeout(() => APP.dispatch({ type: "show-view", arg: "default" }), 2000);
 
 		// return this.runTestData(APP);
 
@@ -55,8 +56,6 @@ let Test = {
 		}, 200);
 	},
 	runTestData(APP) {
-		// demo flag app
-		APP.demoView = true;
 		// if not already parsed
 		if (!window.bluePrint.selectNodes(`//TempThread//mail/excerpt`).length) {
 			// put lorem ipsum text into test mail body
