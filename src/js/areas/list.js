@@ -113,9 +113,17 @@
 							data = {};
 						// loop mail nodes
 						xDoc.selectNodes("/data/mail").map(xMail => {
+							// temp: START
+							xMail.selectSingleNode(`.//tags`).appendChild($.nodeFromString(`<i id="inReplyTo" value="welcome"/>`));
+							xMail.selectSingleNode(`.//tags`).appendChild($.nodeFromString(`<i id="threadId" value="welcome"/>`));
+							console.log(xMail);
+							// temp: END
+
 							data.id = xMail.getAttribute("id");
 							data.fId = xMail.getAttribute("fId");
+							data.threadId = xMail.selectSingleNode(`.//tags/i[@id="threadId"]`).getAttribute("value");
 							data.xMail = xMail;
+
 							// insert new mail node into app ledger
 							xFolder = APP.xData.selectSingleNode(`//folder[@id="${data.fId}"]`);
 							xFolder.appendChild(xMail);
@@ -129,20 +137,28 @@
 							}
 						});
 						if (data.fId === Self.els.el.parent().data("fId")) {
-							// render list view
-							let mailEl = window.render({
-									template: "list-entry",
-									match: `//mail[@id="${data.id}"]`,
-									vdom: true,
-								}).find(".list-entry").addClass("list-zero");
-							// insert enty into list
-							mailEl = Self.els.el.prepend(mailEl);
+							let threadEl = Self.els.el.find(`.list-entry[data-id="${data.threadId}"]`);
+							if (threadEl.length) {
+								let repliesEl = threadEl.find(".replies");
+								if (!repliesEl.length) repliesEl = threadEl.find(".row .subject").after(`<span class="replies">0</span>`);
+								let val = +repliesEl.text();
+								repliesEl.html(val+1);
+							} else {
+								// render list view
+								let mailEl = window.render({
+										template: "list-entry",
+										match: `//mail[@id="${data.id}"]`,
+										vdom: true,
+									}).find(".list-entry").addClass("list-zero");
+								// insert enty into list
+								mailEl = Self.els.el.prepend(mailEl);
+								// appear animation
+								setTimeout(() =>
+									mailEl.cssSequence("list-appear", "transitionend", el =>
+										el.removeClass("list-zero list-appear")));
+							}
 							// play sound
 							window.audio.play("new-mail");
-							// appear animation
-							setTimeout(() =>
-								mailEl.cssSequence("list-appear", "transitionend", el =>
-									el.removeClass("list-zero list-appear")));
 						}
 					});
 				break;

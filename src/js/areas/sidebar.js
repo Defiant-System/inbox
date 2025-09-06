@@ -30,7 +30,7 @@
 						xFolder.setAttribute("unread", unread);
 						xFolder.setAttribute("total", total);
 						// transfer mails into blueprint
-						xItems.map(xMail => xFolder.appendChild(xMail)); // disable to dev-test new mail
+						// xItems.map(xMail => xFolder.appendChild(xMail)); // disable to dev-test new mail
 					});
 					// render tree view
 					window.render({

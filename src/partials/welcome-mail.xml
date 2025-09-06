@@ -4,7 +4,10 @@
 	<date value="{{date}}T{{time}}" date="{{date}}" time="{{time}}"/>
 	<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
 	<to><i name="{{name}}" address="{{username}}@karaqu.com"/></to>
-
+	<tags>
+		<i id="threadId" value="welcome"/>
+		<i id="messageId" value="welcome"/>
+	</tags>
 	<thread>
 		<mail id="welcome" class="expanded active">
 			<excerpt><![CDATA[Say goodbye to cluttered inboxes and missed messages.]]></excerpt>
