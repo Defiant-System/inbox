@@ -11,6 +11,7 @@ const {
 
 
 const defaultSettings = {
+	firstUsed: Date.now(),
 	sidebar: { show: true, folder: 2001, },
 	list: { show: true, mail: "welcome" },
 	content: { show: true },
@@ -62,15 +63,31 @@ const inbox = {
 				karaqu.shell("fs -u '~/help/index.md'");
 				break;
 			case "init-settings":
+				let xViewMenus = window.bluePrint.selectNodes(`//Menu[@check-group="app-view"]`);
 				if (ME.username === "demo") {
 					Self.settings = defaultSettings;
+					// update menu
+					xViewMenus.map(xMenu => {
+						if (xMenu.getAttribute("arg") === "start") xMenu.setAttribute("is-checked", "1");
+						else xMenu.removeAttribute("is-checked");
+					});
 				} else {
 					// get settings, if any
 					Self.settings = window.settings.getItem("settings") || defaultSettings;
+					// update menu
+					xViewMenus.map(xMenu => {
+						if (xMenu.getAttribute("arg") === "default") xMenu.setAttribute("is-checked", "1");
+						else xMenu.removeAttribute("is-checked");
+					});
 				}
 				break;
-			case "show-start-view":
-				return Self.content.dispatch({ type: "render-blank-view" });
+			case "show-view":
+				switch (event.arg) {
+					case "default": break;
+					case "start": return Self.content.dispatch({ type: "render-blank-view" });
+					case "demo": return Self.blankView.dispatch({ type: "init-demo-data" });
+				}
+				break;
 			// proxy events
 			case "check-for-new-mail":
 				// this event was triggered by system/socket-io

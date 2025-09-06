@@ -41,7 +41,7 @@
 					if (APP.settings.list.mail === "welcome") {
 						let xInbox = APP.xData.selectSingleNode(`//Mailbox/folder[@id="2001"]`),
 							xWelcome = APP.xData.selectSingleNode(`//Data/mail[@id="welcome"]`),
-							now = new karaqu.Moment(),
+							now = new karaqu.Moment(APP.settings.firstUsed),
 							xNode;
 						// adapt mail to user
 						xNode = xWelcome.selectSingleNode(`./to/i`);

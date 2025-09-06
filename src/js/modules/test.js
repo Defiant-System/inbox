@@ -5,14 +5,15 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 let Test = {
 	init(APP) {
 
-		return;
+		// return;
 
-		return APP.content.dispatch({ type: "render-blank-view" });
+		return setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
-		return this.runTestData(APP);
+		// return APP.content.dispatch({ type: "render-blank-view" });
+
+		// return this.runTestData(APP);
 
 		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
-		// setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 500);
 
 		
 		return setTimeout(() => {
@@ -56,22 +57,21 @@ let Test = {
 	runTestData(APP) {
 		// demo flag app
 		APP.demoView = true;
-		// put lorem ipsum text into test mail body
-		window.bluePrint.selectNodes(`//TempThread//mail/html`).map(xHtml => {
-			let html = xHtml.textContent;
-			let xExcerpt = $.nodeFromString(`<excerpt><![CDATA[${html}]]></excerpt>`);
-			xExcerpt = xHtml.parentNode.appendChild(xExcerpt);
-			// add random mail content
-			let oddEven = Math.random() * 2 | 0 > 0;
-			xHtml.textContent = `${html}<br><br/>${oddEven ? lorem1 : lorem2}`;
-		});
-
+		// if not already parsed
+		if (!window.bluePrint.selectNodes(`//TempThread//mail/excerpt`).length) {
+			// put lorem ipsum text into test mail body
+			window.bluePrint.selectNodes(`//TempThread//mail/html`).map(xHtml => {
+				let html = xHtml.textContent;
+				let xExcerpt = $.nodeFromString(`<excerpt><![CDATA[${html}]]></excerpt>`);
+				xExcerpt = xHtml.parentNode.appendChild(xExcerpt);
+				// add random mail content
+				let oddEven = Math.random() * 2 | 0 > 0;
+				xHtml.textContent = `${html}<br><br/>${oddEven ? lorem1 : lorem2}`;
+			});
+		}
 		APP.list.dispatch({ type: "render-temp-list", fId: 2001 });
 		APP.list.els.el.find(`.list-entry`).get(0).trigger("click");
-		// APP.list.els.el.find(`.list-entry`).get(0).addClass("active");
-		// APP.content.dispatch({ type: "render-temp-thread" });
 
-		// setTimeout(() => window.find(`content .mail-entry[data-id="mid-5"]`).trigger("click"), 500);
 		setTimeout(() => APP.sidebar.els.el.find(`.folder-entry`).get(0).addClass("active"), 300);
 	}
 };

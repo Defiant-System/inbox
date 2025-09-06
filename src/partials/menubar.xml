@@ -2,7 +2,11 @@
 	<Menu name="Inbox">
 		<Menu name="About Inbox" shell="win -a"/>
 		<Menu type="divider"/>
-		<Menu name="Start View" click="show-start-view"/>
+		<Menu name="Views&#8230;">
+			<Menu name="Default" click="show-view" arg="default" check-group="app-view"/>
+			<Menu name="Start" click="show-view" arg="start" check-group="app-view"/>
+			<Menu name="Demo Data" click="show-view" arg="demo" check-group="app-view"/>
+		</Menu>
 		<Menu type="divider"/>
 		<Menu name="Quit Inbox" shell="win -c"/>
 	</Menu>

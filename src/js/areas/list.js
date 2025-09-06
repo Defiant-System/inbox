@@ -111,6 +111,9 @@
 					.then(async call => {
 						let xDoc = await call.result,
 							data = {};
+						
+						return console.log( xDoc );
+
 						// loop mail nodes
 						xDoc.selectNodes("/data/mail").map(xMail => {
 							data.id = xMail.getAttribute("id");
