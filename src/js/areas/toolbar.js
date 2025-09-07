@@ -63,13 +63,11 @@
 				// TODO
 				break;
 			case "reply-mail":
+			case "reply-all-mail":
+			case "forward-mail":
 				spawn = window.open("new-mail");
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				APP.dispatch({ type: "reply-mail", spawn, activeMail });
-				break;
-			case "reply-all-mail":
-				break;
-			case "forward-mail":
+				APP.dispatch({ ...event, spawn, activeMail });
 				break;
 			case "mail-selected":
 				// skip if demo account

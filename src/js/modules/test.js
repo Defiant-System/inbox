@@ -8,6 +8,7 @@ let Test = {
 		// return;
 
 		return setTimeout(() => {
+			APP.toolbar.els.btnReply.trigger("click");
 			// APP.list.dispatch({ type: "check-for-new-mail" });
 		}, 500);
 

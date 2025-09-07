@@ -106,6 +106,20 @@
 </xsl:template>
 
 
+<xsl:template name="reply-to-mail">
+	<br/><br/>
+	<div>
+		<div>Den tis 19 aug. 2025 kl 09:10 skrev 
+			<xsl:value-of select="from/i/@name"/> 
+			&lt;<a>
+				<xsl:attribute name="href">mailto:<xsl:value-of select="from/i/@mail"/></xsl:attribute>
+				<xsl:value-of select="from/i/@mail"/>
+			</a>&gt;:</div>
+		<blockquote><xsl:value-of select="html/text()" disable-output-escaping="yes"/></blockquote>
+	</div>
+</xsl:template>
+
+
 <xsl:template name="content-entries">
 	<div class="wrapper">
 		<xsl:attribute name="data-lanes"><xsl:value-of select="./thread/@lanes"/></xsl:attribute>

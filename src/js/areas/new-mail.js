@@ -41,9 +41,9 @@
 				break;
 			case "send-mail":
 				// mail recipients
-				data.to = Spawn.find(`.recient`).map(el => {
+				data.to = Spawn.find(`.recipient`).map(el => {
 					let name = el.innerHTML,
-						address = el.getAttribute("data-mail");
+						address = el.getAttribute("data-address");
 					return { name, address };
 				});
 				// if input field contains an address
@@ -72,24 +72,29 @@
 				break;
 
 			// from parent window
+			case "reply-all-mail":
+			case "forward-mail":
+				console.log(event);
+				break;
 			case "reply-mail":
-				xMail = APP.xData.selectSingleNode(`//mail[@id="${event.activeMail.id}"]`);
-				// console.log(xMail);
+				xMail = APP.xData.selectSingleNode(`//thread/mail[@id="${event.activeMail.id}"]`);
+				
 				// add recipient(s)
 				let xRecipients = xMail.selectNodes(`./from/i`);
 				if (!xRecipients.length) {
 					xRecipients = xMail.selectNodes(`./thread/mail[@id="${event.activeMail.id}"]/from/i`);
 				}
 				xRecipients.map(xRcpt => {
-					let rcpt = $(`<span class="recient" data-mail="${xRcpt.getAttribute("address")}">${xRcpt.getAttribute("name")}</span>`);
+					let rcpt = $(`<span class="recipient" data-address="${xRcpt.getAttribute("address")}">${xRcpt.getAttribute("name")}</span>`);
 					Spawn.find(`input[name="mail-to"]`).before(rcpt);
 				});
 				// fill in subject
-				Spawn.find(`input[name="mail-subject"]`).val(`RE: ${xMail.selectSingleNode("./subject").textContent}`);
+				Spawn.find(`input[name="mail-subject"]`).val(`RE: ${xMail.selectSingleNode("../../subject").textContent}`);
 				// fill hidden messageId
 				let xMessageId = xMail.selectSingleNode(`./tags/*[@id="messageId"]`);
-				if (!xMessageId) xMessageId = xMail.selectSingleNode(`./thread/mail[@id="${event.activeMail.id}"]/tags/*[@id="messageId"]`);
 				Spawn.find(`input[name="inReplyTo"]`).val(xMessageId.getAttribute("value"));
+				let xThreadId = xMail.selectSingleNode(`./tags/*[@id="threadId"]`);
+				Spawn.find(`input[name="threadId"]`).val(xThreadId.getAttribute("value"));
 				// render mail content
 				el = window.render({
 						template: "reply-to-mail",
@@ -100,7 +105,7 @@
 				el.find(`.mail-entry .body *[style]`).removeAttr("style");
 				// insert previous mail
 				Spawn.find(`div.mail-message`).html(el.html());
-
+				// focus after DOM update
 				setTimeout(() => Spawn.find(`div.mail-message`).focus(), 100);
 				break;
 		}

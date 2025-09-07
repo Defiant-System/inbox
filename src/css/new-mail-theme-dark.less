@@ -1,0 +1,55 @@
+
+&[data-theme="dark"] {
+	layout {
+		background: #ddd1;
+
+		label {
+			.recipient {
+				background: #0002;
+				color: #eee;
+				text-shadow: 0 1px 0 #0005;
+				box-shadow: 0 0 0 1px #0003;
+			}
+
+			.toggler {
+				background: #0001;
+				color: #bbb;
+				text-shadow: 0 1px 0 #0005;
+				box-shadow: 0 0 0 1px #0003;
+
+				&:hover {
+					background: #0002;
+					color: #eee;
+				}
+
+				&:nth-last-child(1) {
+					&:before {
+						opacity: .5;
+						filter: grayscale(1) invert(1) brightness(2) drop-shadow(0 1px 0 #0007);
+					}
+
+					&:hover:before {
+						opacity: 1;
+					}
+
+					&.isOn {
+						&:before {
+							filter: brightness(2) hue-rotate(45deg) saturate(2) drop-shadow(0 1px 0 #0007);
+						}
+					}
+				}
+
+				&.isOn {
+					background: #eee2;
+					color: #eee;
+					box-shadow: 0 0 0 1px #eee3;
+				}
+			}
+		}
+
+		.mail-message {
+			color: #eee;
+			text-shadow: 0 1px 0 #0005;
+		}
+	}
+}
