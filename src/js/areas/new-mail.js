@@ -58,11 +58,14 @@
 				// email attachments
 				data.attachments = [];
 				data.headers = {};
+				
 				// if reply to "message-id"
 				val = Spawn.find(`input[name="inReplyTo"]`).val();
-				if (!!val) {
-					data.headers["inReplyTo"] = val;
-				}
+				if (!!val) data.headers["inReplyTo"] = val;
+				// if reply to "message-id"
+				val = Spawn.find(`input[name="threadId"]`).val();
+				if (!!val) data.headers["threadId"] = val;
+				
 				// play sound
 				window.audio.play("swoosh");
 				// pass mail envelope to karaqu
@@ -95,10 +98,12 @@
 				Spawn.find(`input[name="inReplyTo"]`).val(xMessageId.getAttribute("value"));
 				let xThreadId = xMail.selectSingleNode(`./tags/*[@id="threadId"]`);
 				Spawn.find(`input[name="threadId"]`).val(xThreadId.getAttribute("value"));
+				// console.log( APP.xData.selectSingleNode(`//mail[@id="${event.activeMail.id}"]`) );
+				
 				// render mail content
 				el = window.render({
 						template: "reply-to-mail",
-						match: `//mail[@id="${event.activeMail.id}"]`,
+						match: `//thread/mail[@id="${event.activeMail.id}"]`,
 						vdom: true,
 					});
 				// clean up gmail inline styling

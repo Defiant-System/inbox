@@ -109,12 +109,14 @@
 <xsl:template name="reply-to-mail">
 	<br/><br/>
 	<div>
-		<div>Den tis 19 aug. 2025 kl 09:10 skrev 
-			<xsl:value-of select="from/i/@name"/> 
+		<div><xsl:value-of select="from/i/@name"/> 
 			&lt;<a>
-				<xsl:attribute name="href">mailto:<xsl:value-of select="from/i/@mail"/></xsl:attribute>
-				<xsl:value-of select="from/i/@mail"/>
-			</a>&gt;:</div>
+				<xsl:attribute name="href">mailto:<xsl:value-of select="from/i/@address"/></xsl:attribute>
+				<xsl:value-of select="from/i/@address"/>
+			</a>&gt; 
+			<xsl:value-of select="date/@date"/>
+			<xsl:text> </xsl:text>
+			<xsl:value-of select="date/@time"/> wrote:</div>
 		<blockquote><xsl:value-of select="html/text()" disable-output-escaping="yes"/></blockquote>
 	</div>
 </xsl:template>
@@ -236,7 +238,7 @@
 		<xsl:attribute name="class">mail-entry 
 			<xsl:value-of select="@class"/> 
 			<xsl:if test="count(../../thread/mail) = 1"> expanded</xsl:if>
-			<xsl:if test="tags/*[@id='deleted'][@value='symbolic']"> deleted</xsl:if>
+			<xsl:if test="@fId = '2005'"> deleted</xsl:if>
 		</xsl:attribute>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="data-messageId"><xsl:call-template name="get-tag-messageId"/></xsl:attribute>
@@ -256,7 +258,7 @@
 
 		<div class="head">
 			<xsl:choose>
-				<xsl:when test="tags/*[@id='deleted'][@value='symbolic']">
+				<xsl:when test="@fId = '2005'">
 					<span>Deleted</span>
 					<span class="btn-undo" data-click="undo-deleted-message">Undo</span>
 				</xsl:when>
