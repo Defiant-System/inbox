@@ -42,7 +42,11 @@
 			case "render-temp-thread":
 				xThread = APP.xData.selectSingleNode(`//TempThread/mail[@id="${event.id}"]`);
 				if (!xThread.getAttribute("graph-processed")) {
-					Self.dispatch({ ...event, type: "draw-graph" });
+					// pre-parse data
+					let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);
+					let graph = new Graph(xRoot);
+					graph.plot();
+					// set flag as processed
 					xThread.setAttribute("graph-processed", 1);
 				}
 				// render mail content
@@ -54,12 +58,6 @@
 				break;
 			case "render-blank-view":
 				APP.blankView.dispatch({ type: "render-blank-view" });
-				break;
-			case "draw-graph":
-				// pre-parse data
-				let xRoot = APP.xData.selectSingleNode(`//TempThread/mail/thread/mail[@id="${event.id}"]`);
-				let graph = new Graph(xRoot);
-				graph.plot();
 				break;
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
@@ -146,6 +144,17 @@
 				console.log(event);
 				break;
 			case "render-mail-contents":
+
+				xThread = APP.xData.selectSingleNode(`//mail[@id="${event.id}"]/thread/..`);
+				if (!xThread.getAttribute("graph-processed")) {
+					// pre-parse data
+					let xRoot = xThread.selectSingleNode(`./thread/mail[@id="${event.id}"]`);
+					let graph = new Graph(xRoot);
+					graph.plot();
+					// set flag as processed
+					xThread.setAttribute("graph-processed", 1);
+				}
+
 				// render mail content
 				window.render({
 					template: "content-entries",
