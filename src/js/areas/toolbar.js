@@ -28,6 +28,8 @@
 		switch (event.type) {
 			case "init-view":
 				isOn = ME.username === "demo";
+				Self.els.btnSidebar.toggleClass("tool-disabled_", !isOn);
+				Self.els.btnSendReceive.toggleClass("tool-disabled_", !isOn);
 				Self.els.btnNewMail.toggleClass("tool-disabled_", !isOn);
 				break;
 			case "init-demo-data":
@@ -38,6 +40,9 @@
 			case "toggle-sidebar":
 				isOn = Self.els.layout.hasClass("show-sidebar");
 				Self.els.layout.toggleClass("show-sidebar", isOn);
+				// update settings
+				APP.settings.sidebar.show = !isOn;
+				// return boolen for sys UI
 				return !isOn;
 			case "send-receive":
 				APP.list.dispatch({ type: "check-for-new-mail" });

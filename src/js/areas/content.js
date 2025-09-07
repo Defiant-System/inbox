@@ -89,7 +89,6 @@
 				if (file.length) {
 					// already parsed?
 					if (file[0].hasChildNodes()) {
-						// render mail
 						return Self.dispatch({ type: "render-mail-contents", id: event.id });
 					}
 					// parse attached ics files
@@ -155,8 +154,8 @@
 				});
 				// clean up gmail inline styling
 				Self.els.el.find(`.mail-entry .body .gmail_quote[style]`).removeAttr("style");
-				// toggle toolbar buttons
-				APP.toolbar.dispatch({ type: "mail-selected" });
+				// auto select first mail
+				Self.els.el.find(`.mail-entry`).get(0).trigger("click");
 				break;
 			case "toggle-message-view":
 				el = event.el;

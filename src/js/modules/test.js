@@ -7,6 +7,10 @@ let Test = {
 
 		// return;
 
+		return setTimeout(() => {
+			// APP.list.dispatch({ type: "check-for-new-mail" });
+		}, 500);
+
 		return setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 1500);
 
 		// setTimeout(() => APP.dispatch({ type: "show-view", arg: "start" }), 500);

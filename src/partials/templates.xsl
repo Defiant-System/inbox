@@ -221,6 +221,7 @@
 	<div class="mail-entry">
 		<xsl:attribute name="class">mail-entry 
 			<xsl:value-of select="@class"/> 
+			<xsl:if test="count(../../thread/mail) = 1"> expanded</xsl:if>
 			<xsl:if test="tags/*[@id='deleted'][@value='symbolic']"> deleted</xsl:if>
 		</xsl:attribute>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>

@@ -13,8 +13,8 @@ const {
 const defaultSettings = {
 	firstUsed: Date.now(),
 	sidebar: { show: true, folder: 2001, },
-	// list: { show: true, mail: "welcome" },
-	list: { show: true, mail: 1757188853202 },
+	list: { show: true, mail: "welcome" },
+	// list: { show: true, mail: 1757196025727 },
 	content: { show: true },
 };
 
@@ -58,6 +58,10 @@ const inbox = {
 			case "window.init":
 			case "window.focus":
 			case "window.blur":
+				break;
+			case "window.close":
+				// save settings
+				window.settings.setItem("settings", Self.settings);
 				break;
 			// custom events
 			case "open-help":

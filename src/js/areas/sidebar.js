@@ -5,6 +5,7 @@
 	init() {
 		// fast reeferences
 		this.els = {
+			layout: window.find("layout"),
 			el: window.find("sidebar .wrapper"),
 		};
 		// is first render
@@ -17,6 +18,15 @@
 		// console.log(event);
 		switch (event.type) {
 			case "init-render":
+				// sync UI/toolbar sidebar button
+				if (APP.settings.sidebar.show) {
+					APP.toolbar.els.btnSidebar.addClass("tool-active_");
+					Self.els.layout.addClass("show-sidebar");
+				} else {
+					APP.toolbar.els.btnSidebar.removeClass("tool-active_");
+					Self.els.layout.removeClass("show-sidebar");
+				}
+				// get mail summary
 				karaqu.shell("mail -i").then(async call => {
 					let xDoc = await call.result;
 					xDoc.selectNodes(`/data/folder[@id]`).map(xNode => {

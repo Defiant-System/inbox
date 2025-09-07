@@ -97,6 +97,8 @@
 					if (xMail) xMail.removeAttribute("active");
 					xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@id="${el.data("id")}"]`);
 					if (xMail) xMail.setAttribute("active", "1");
+					// make sure app remembers active mail, for next session
+					APP.settings.list.mail = el.data("id");
 				}
 				break;
 			case "check-for-new-mail":
@@ -107,8 +109,6 @@
 					if (id > latestMail) latestMail = id;
 				});
 
-				// latestMail -= 1; // TEMP
-				
 				// request for newer mail
 				karaqu.shell(`mail -n ${latestMail}`)
 					.then(async call => {
