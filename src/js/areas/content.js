@@ -144,17 +144,17 @@
 				console.log(event);
 				break;
 			case "render-mail-contents":
-
+				// render graph
 				xThread = APP.xData.selectSingleNode(`//mail[@id="${event.id}"]/thread/..`);
 				if (!xThread.getAttribute("graph-processed")) {
 					// pre-parse data
-					let xRoot = xThread.selectSingleNode(`./thread/mail[@id="${event.id}"]`);
+					let xTag = xThread.selectSingleNode(`./thread/mail[@id="${event.id}"]/tags/i[@id="threadId"]`),
+						xRoot = xThread.selectSingleNode(`./thread/mail[@id="${xTag.getAttribute("value")}"]`);
 					let graph = new Graph(xRoot);
 					graph.plot();
 					// set flag as processed
 					xThread.setAttribute("graph-processed", 1);
 				}
-
 				// render mail content
 				window.render({
 					template: "content-entries",
