@@ -4,6 +4,8 @@
 		<folder id="2004" icon="sent" name="Sent" />
 		<folder id="2003" icon="junk" name="Junk" />
 		<folder id="2002" icon="folder" name="Drafts" />
+		<folder id="2006" icon="users" name="Social" />
+		<folder id="2007" icon="campaign" name="Campaigns" />
 		<folder id="2005" icon="trash" name="Deleted" />
 	</Mailbox>
 
