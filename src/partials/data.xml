@@ -10,6 +10,7 @@
 	</Mailbox>
 
 	@import "welcome-mail.xml"
+	@import "address-book.xml"
 	@import "temp-thread.xml"
 </Data>
 
