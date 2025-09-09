@@ -17,7 +17,7 @@
 	</Menu>
 
 	<Menu for="mail-actions">
-		<Menu name="Reply" click="menu-rply-mail"/>
+		<Menu name="Reply" click="menu-reply-mail"/>
 		<Menu name="Reply All" click="menu-reply-all-mail"/>
 		<Menu name="Forward" click="menu-forward-mail"/>
 		<Menu type="divider"/>

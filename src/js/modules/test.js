@@ -6,7 +6,10 @@ let Test = {
 	init(APP) {
 
 		// return;
-		
+
+		// return APP.blankView.dispatch({ type: "init-demo-data" });
+
+
 		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
 		// Undo delete
@@ -30,39 +33,6 @@ let Test = {
 		}, 500);
 
 		return setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 1500);
-
-		// setTimeout(() => APP.dispatch({ type: "show-view", arg: "start" }), 500);
-		// return setTimeout(() => APP.dispatch({ type: "show-view", arg: "default" }), 2000);
-
-		// return this.runTestData(APP);
-
-		// setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
-
-		
-		return setTimeout(() => {
-			window.find(`list .wrapper .list-entry`).nth(3).trigger("click");
-			// setTimeout(() => APP.toolbar.els.btnReply.trigger("click"), 200);
-			// setTimeout(() => APP.content.els.el.find(`.mail-entry:nth(1) .head`).trigger("click"), 200);
-		}, 200);
-		
-		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(4)`).trigger("click"), 300);
-
-		// return setTimeout(() => window.find(`list .list-entry:nth(0)`).trigger("click"), 300);
-
-		// setTimeout(() => {
-		// 	let data = [
-		// 			{ id: "1754845936080", fId: "2001" },
-		// 			{ id: "1754845936079", fId: "2001" },
-		// 			{ id: "1754817794379", fId: "2001" },
-		// 		];
-		// 	// let data = [{ id: "1754845936079", fId: "2001" }];
-		// 	karaqu.shell({ cmd: `mail -u`, data })
-		// }, 500);
-
-		// setTimeout(() => {
-		// 	window.find(`sidebar .folder-entry[data-fid="2005"]`).trigger("click");
-		// 	karaqu.shell(`mail -d`);
-		// }, 500);
 
 		let Spawn = this.spawn || window.open("new-mail");
 		// return;

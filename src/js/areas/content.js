@@ -23,10 +23,27 @@
 		switch (event.type) {
 			// system events
 			case "before-menu:mail-actions":
-				event.el.parents(".mail-entry").addClass("menu-active");
+				el = (event.el || event.origin.el).parents("?.mail-entry");
+				el.addClass("menu-active");
+				// iterate menu options
+				event.xMenu.selectNodes(`.//Menu[@click]`).map(xMenu => {
+					switch (xMenu.getAttribute("click")) {
+						case "menu-reply-mail":
+						case "menu-reply-all-mail":
+						case "menu-forward-mail":
+							// disable for demo data?
+							break;
+						case "menu-show-attachments":
+							if (el.data("attachments")) xMenu.removeAttribute("disabled");
+							else xMenu.setAttribute("disabled", "1");
+							break;
+					}
+					if (el.data("id").startsWith("mid-")) xMenu.setAttribute("disabled", "1");
+				});
 				break;
 			case "after-menu:mail-actions":
-				event.el.parents(".mail-entry").removeClass("menu-active");
+				el = (event.el || event.origin.el).parents("?.mail-entry");
+				el.removeClass("menu-active");
 				break;
 			// custom events
 			case "init-view":
@@ -190,7 +207,6 @@
 					el.parents(".mail-entry").removeClass("expanded");
 					// add to node
 					Graph.removeClass(xMail, "expanded");
-					console.log(xMail);
 				}
 				el.parents("?.mail-entry").addClass("active");
 
@@ -224,11 +240,15 @@
 				file = new karaqu.File({ path: event.el.data("path") });
 				karaqu.shell(`fs -o ${file.dir}`);
 				break;
-			case "menu-rply-mail":
+			case "menu-reply-mail":
 			case "menu-reply-all-mail":
 			case "menu-forward-mail":
+				el = (event.el || event.origin.el).parents("?.mail-entry");
+				console.log(event.type, el);
+				break;
 			case "menu-show-attachments":
-				console.log(event);
+				el = (event.el || event.origin.el).parents("?.mail-entry");
+				karaqu.shell(`fs -o '/fs/Mail/${el.data("id")}'`);
 				break;
 			case "undo-deleted-message":
 				el = (event.el || event.origin.el).parents("?.mail-entry");

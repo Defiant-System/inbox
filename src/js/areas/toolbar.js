@@ -76,6 +76,7 @@
 
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
 				isOn = activeMail.id !== "welcome" && activeMail.el.length;
+				if (activeMail.id.startsWith("mid-")) isOn = false;
 				// update toolbar
 				Self.els.btnTrash.toggleClass("tool-disabled_", isOn);
 				Self.els.btnJunk.toggleClass("tool-disabled_", isOn);
