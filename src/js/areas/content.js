@@ -39,6 +39,9 @@
 					Self.els.layout.toggleClass("show-sidebar", !isOn);
 				}
 				break;
+			case "render-blank-view":
+				APP.blankView.dispatch({ type: "render-blank-view" });
+				break;
 			case "render-temp-thread":
 				xThread = APP.xData.selectSingleNode(`//TempThread/mail[@id="${event.id}"]`);
 				if (!xThread.getAttribute("graph-processed")) {
@@ -56,23 +59,13 @@
 					target: Self.els.el,
 				});
 				break;
-			case "render-blank-view":
-				APP.blankView.dispatch({ type: "render-blank-view" });
-				break;
 			case "fetch-thread":
 				karaqu.shell(`mail -v ${event.id}`).then(async call => {
 					let xDoc = await call.result;
-					// temp: START
-					// let xTmp = xDoc.selectSingleNode(`//thread/mail[@id="1757188853202"]`);
-					// xTmp.parentNode.removeChild(xTmp);
-					// return console.log(xDoc.xml);
-					// temp: END
-
 					let xNew = xDoc.selectSingleNode(`/data/mail[@id="${event.id}"]`),
 						xOld = APP.xData.selectSingleNode(`//mail[@id="${event.id}"]`);
 					// add mail node to app ledger
 					xOld.parentNode.replaceChild(xNew, xOld);
-
 					// render thread
 					Self.dispatch({ type: "render-thread", id: event.id });
 				});
@@ -217,6 +210,44 @@
 			case "open-attached-folder":
 				file = new karaqu.File({ path: event.el.data("path") });
 				karaqu.shell(`fs -o ${file.dir}`);
+				break;
+			case "menu-rply-mail":
+			case "menu-reply-all-mail":
+			case "menu-forward-mail":
+			case "menu-show-attachments":
+				console.log(event);
+				break;
+			case "undo-deleted-message":
+				el = (event.el || event.origin.el).parents("?.mail-entry");
+				
+				el.cssSequence("invisible", "transitionend", el => {
+					console.log(el);
+				});
+
+				// pass command to system
+				// karaqu.shell(`mail -cr ${el.data("id")}`);
+				break;
+			case "menu-delete-mail":
+				el = (event.el || event.origin.el).parents("?.mail-entry");
+				el.cssSequence("disappear", "transitionend", el => {
+					let xMail = APP.xData.selectSingleNode(`//mail/thread/mail[@id="${el.data("id")}"]`),
+						xTag = $.nodeFromString(`<i id="deleted" value="symbolic"/>`);
+					// insert deleted tag
+					xMail.selectSingleNode(`./tags`).appendChild(xTag);
+					// rerender DOM element
+					let updEl = window.render({
+							template: "mail-entry",
+							match: `//mail/thread/mail[@id="${el.data("id")}"]`,
+							vdom: true,
+						});
+					updEl = el.replace(updEl.find(".mail-entry").addClass("invisible"));
+					// fade in deleted row
+					setTimeout(() => 
+						updEl.cssSequence("reapper", "transitionend", el =>
+							el.removeClass("invisible reapper")), 100);
+				});
+				// pass command to system
+				karaqu.shell(`mail -c ${el.data("id")}`);
 				break;
 		}
 	}

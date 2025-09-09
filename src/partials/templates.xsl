@@ -238,7 +238,7 @@
 		<xsl:attribute name="class">mail-entry 
 			<xsl:value-of select="@class"/> 
 			<xsl:if test="count(../../thread/mail) = 1"> expanded</xsl:if>
-			<xsl:if test="@fId = '2005'"> deleted</xsl:if>
+			<xsl:if test="tags/*[@id='deleted'][@value='symbolic']"> deleted</xsl:if>
 		</xsl:attribute>
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="data-messageId"><xsl:call-template name="get-tag-messageId"/></xsl:attribute>
@@ -254,11 +254,13 @@
 			<i class="l4"></i>
 		</div>
 		
-		<span data-menu="mail-actions"><i class="icon-more-menu"></i></span>
+		<xsl:if test="not(tags/*[@id='deleted'])">
+			<span data-menu="mail-actions"><i class="icon-more-menu"></i></span>
+		</xsl:if>
 
 		<div class="head">
 			<xsl:choose>
-				<xsl:when test="@fId = '2005'">
+				<xsl:when test="tags/*[@id='deleted'][@value='symbolic']">
 					<span>Deleted</span>
 					<span class="btn-undo" data-click="undo-deleted-message">Undo</span>
 				</xsl:when>
@@ -280,70 +282,72 @@
 			</xsl:choose>
 		</div>
 
-		<xsl:for-each select="attachments/*[@kind = 'ics']">
-			<div class="ics-card">
-				<div class="ics-date">
-					<div class="ics-cal-date">
-						<span class="month"><xsl:value-of select="date/@month"/></span>
-						<span class="date"><xsl:value-of select="date/@date"/></span>
-						<span class="weekday"><xsl:value-of select="date/@weekday"/></span>
+		<xsl:if test="not(tags/*[@id='deleted'])">
+			<xsl:for-each select="attachments/*[@kind = 'ics']">
+				<div class="ics-card">
+					<div class="ics-date">
+						<div class="ics-cal-date">
+							<span class="month"><xsl:value-of select="date/@month"/></span>
+							<span class="date"><xsl:value-of select="date/@date"/></span>
+							<span class="weekday"><xsl:value-of select="date/@weekday"/></span>
+						</div>
+					</div>
+					<div class="ics-info">
+						<h3><xsl:value-of select="title"/></h3>
+						<div class="row">
+							<span class="icon"><i class="icon-calendar"></i></span>
+							<span class="name">När</span>
+							<span class="value"><xsl:value-of select="date"/></span>
+						</div>
+						<div class="row">
+							<span class="icon"><i class="icon-location"></i></span>
+							<span class="name">Var</span>
+							<span class="value"><xsl:value-of select="location"/></span>
+						</div>
+						<div class="row">
+							<span class="icon"><i class="icon-user"></i></span>
+							<span class="name">Vem</span>
+							<span class="value">
+								<xsl:for-each select="attendees/*">
+									<xsl:if test="position() &gt; 1">, </xsl:if>
+									<span class="attendee recipient">
+										<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
+										<xsl:value-of select="@name"/>
+									</span>
+								</xsl:for-each>
+							</span>
+						</div>
+						<div class="buttons">
+							<button disabled="disabled">Yes</button>
+							<button disabled="disabled">Maybe</button>
+							<button disabled="disabled">No</button>
+							<span></span>
+							<button data-click="add-to-calendar">
+								<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
+								Add to Calendar
+							</button>
+						</div>
 					</div>
 				</div>
-				<div class="ics-info">
-					<h3><xsl:value-of select="title"/></h3>
-					<div class="row">
-						<span class="icon"><i class="icon-calendar"></i></span>
-						<span class="name">När</span>
-						<span class="value"><xsl:value-of select="date"/></span>
-					</div>
-					<div class="row">
-						<span class="icon"><i class="icon-location"></i></span>
-						<span class="name">Var</span>
-						<span class="value"><xsl:value-of select="location"/></span>
-					</div>
-					<div class="row">
-						<span class="icon"><i class="icon-user"></i></span>
-						<span class="name">Vem</span>
-						<span class="value">
-							<xsl:for-each select="attendees/*">
-								<xsl:if test="position() &gt; 1">, </xsl:if>
-								<span class="attendee recipient">
-									<xsl:attribute name="data-address"><xsl:value-of select="@address"/></xsl:attribute>
-									<xsl:value-of select="@name"/>
-								</span>
-							</xsl:for-each>
-						</span>
-					</div>
-					<div class="buttons">
-						<button disabled="disabled">Yes</button>
-						<button disabled="disabled">Maybe</button>
-						<button disabled="disabled">No</button>
-						<span></span>
-						<button data-click="add-to-calendar">
+			</xsl:for-each>
+
+			<div class="body" contenteditable="false">
+				<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
+			</div>
+
+			<xsl:if test="count(attachments/*) &gt; 0">
+				<div class="foot">
+					<xsl:for-each select="attachments/*">
+						<span class="file-attachment" data-click="open-attached-folder">
 							<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
-							Add to Calendar
-						</button>
-					</div>
+							<i>
+								<xsl:attribute name="style">background-image: url(/app/icons/file-<xsl:value-of select="@kind"/>.png);</xsl:attribute>
+							</i>
+							<span><xsl:value-of select="@name"/></span>
+						</span>
+					</xsl:for-each>
 				</div>
-			</div>
-		</xsl:for-each>
-
-		<div class="body" contenteditable="false">
-			<xsl:value-of select="html/text()" disable-output-escaping="yes"/>
-		</div>
-
-		<xsl:if test="count(attachments/*) &gt; 0">
-			<div class="foot">
-				<xsl:for-each select="attachments/*">
-					<span class="file-attachment" data-click="open-attached-folder">
-						<xsl:attribute name="data-path"><xsl:value-of select="@path"/></xsl:attribute>
-						<i>
-							<xsl:attribute name="style">background-image: url(/app/icons/file-<xsl:value-of select="@kind"/>.png);</xsl:attribute>
-						</i>
-						<span><xsl:value-of select="@name"/></span>
-					</span>
-				</xsl:for-each>
-			</div>
+			</xsl:if>
 		</xsl:if>
 	</div>
 </xsl:template>

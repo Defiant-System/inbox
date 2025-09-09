@@ -17,12 +17,12 @@
 	</Menu>
 
 	<Menu for="mail-actions">
-		<Menu name="Reply"/>
-		<Menu name="Reply All"/>
-		<Menu name="Forward"/>
+		<Menu name="Reply" click="menu-rply-mail"/>
+		<Menu name="Reply All" click="menu-reply-all-mail"/>
+		<Menu name="Forward" click="menu-forward-mail"/>
 		<Menu type="divider"/>
-		<Menu name="Show attachments"/>
+		<Menu name="Show attachments" click="menu-show-attachments"/>
 		<Menu type="divider"/>
-		<Menu name="Delete"/>
+		<Menu name="Delete" click="menu-delete-mail"/>
 	</Menu>
 </MenuBar>

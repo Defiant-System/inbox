@@ -589,10 +589,12 @@ content {
 		position: relative;
 		background: #fff;
 		color: #999;
+		opacity: 1;
 		padding: 8px 11px 7px 7px;
 		margin: 0 11px 11px 26px;
 		border-radius: 7px;
 		border: 1px solid #0002;
+		min-height: 0;
 		cursor: pointer;
 
 		&:hover,
@@ -636,7 +638,25 @@ content {
 			border-color: #0000;
 			cursor: default;
 
+			&.invisible {
+				min-height: 2px;
+				transition: min-height 400ms ease-in-out;
+
+				&.reapper {
+					min-height: 0;
+
+					.head { opacity: 1; }
+				}
+
+				.head {
+					opacity: 0;
+					transition: opacity 200ms ease-in-out;
+					transition-delay: 100ms;
+				}
+			}
+
 			.head {
+				opacity: 1;
 				overflow: initial;
 				pointer-events: initial;
 
@@ -691,6 +711,7 @@ content {
 		&.expanded:not(.deleted) {
 			display: block;
 			cursor: initial;
+			height: calc-size(auto, size);
 
 			.head {
 				display: block;
@@ -782,6 +803,32 @@ content {
 			}
 		}
 
+		&.active.disappear,
+		&.expanded.disappear,
+		&.disappear {
+			background: #fff0;
+			border-color: #0000;
+			box-shadow: 0 0 0;
+			height: 32px !important;
+			min-height: 1px;
+			transition: all 400ms ease-in-out;
+			transition-behavior: allow-discrete;
+
+			.head,
+			.body,
+			.foot {
+				// opacity: 0;
+				height: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+				margin-top: 0;
+				margin-bottom: 0;
+				overflow: hidden;
+				transition: all 1ms ease-in-out;
+				transition-duration: inherit;
+			}
+		}
+		
 		.head {
 			position: relative;
 			padding: 0 0 0 23px;

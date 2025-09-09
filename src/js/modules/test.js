@@ -5,7 +5,22 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 let Test = {
 	init(APP) {
 
-		return;
+		// return;
+
+		// Undo delete
+		setTimeout(() => APP.content.els.el.find(`.btn-undo`).trigger("click"), 900);
+		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
+
+
+		// Delete (expanded or not)
+		setTimeout(() => APP.content.els.el.find(`.mail-entry[data-id="11024"]`).addClass("expanded"), 500);
+		setTimeout(() => {
+			// let el = APP.content.els.el.find(`.mail-entry.active`);
+			let el = APP.content.els.el.find(`.mail-entry[data-id="11024"] span[data-menu="mail-actions"]`);
+			APP.content.dispatch({ type: "menu-delete-mail", el });
+		}, 900);
+		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
+
 
 		return setTimeout(() => {
 			APP.toolbar.els.btnReply.trigger("click");
