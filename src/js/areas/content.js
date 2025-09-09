@@ -243,8 +243,9 @@
 			case "menu-reply-mail":
 			case "menu-reply-all-mail":
 			case "menu-forward-mail":
-				el = (event.el || event.origin.el).parents("?.mail-entry");
-				console.log(event.type, el);
+				(event.el || event.origin.el).parents("?.mail-entry").trigger("click");
+				// proxy event to toolbar
+				APP.toolbar.dispatch({ type: event.type.slice(5) });
 				break;
 			case "menu-show-attachments":
 				el = (event.el || event.origin.el).parents("?.mail-entry");

@@ -34,10 +34,17 @@
 				APP.toolbar.els.btnNewMail.trigger("click");
 				break;
 			case "init-demo-data":
+				APP.demoView = true;
 				// init test data
 				Test.runTestData(APP);
 				// enable toolbar for demo use
 				APP.toolbar.dispatch({ type: "init-demo-data" });
+				// render tree view
+				window.render({
+					template: "sidebar-entries",
+					match: `//Data/Mailbox`,
+					target: APP.sidebar.els.el
+				});
 				// show sidebar + list column
 				Self.els.layout.addClass("show-sidebar show-list");
 				break;

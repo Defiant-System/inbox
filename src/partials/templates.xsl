@@ -38,7 +38,7 @@
 		<xsl:if test="@user = 'demo'">
 			<div class="blank-block">
 				<i class="icon-warning"></i>
-				Since this is the guest account, the privilege to send or receive e-mails has been disabled.
+				Since this is a guest account, the privilege to send or receive e-mails has been disabled.
 				You are welcome to test this application with <span data-click="init-demo-data">demo data</span> - 
 				or <span data-click="register-account">register an account</span> to test full functionality.
 			</div>

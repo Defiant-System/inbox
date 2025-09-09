@@ -14,14 +14,15 @@ const defaultSettings = {
 	firstUsed: Date.now(),
 	sidebar: { show: true, folder: 2001, },
 	list: { show: true, mail: "welcome" },
-	// list: { show: true, mail: 1757196025727 },
 	content: { show: true },
 };
 
 
 // user details
 const ME = karaqu.user;
-if (ME.username === "demo") defaultSettings.content.show = "blank-view";
+if (ME.username === "demo") {
+	defaultSettings.content.show = "blank-view";
+}
 
 
 const inbox = {
@@ -40,8 +41,10 @@ const inbox = {
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init());
 
-		// init sidebar content
-		this.sidebar.dispatch({ type: "init-render" });
+		if (defaultSettings.content.show !== "blank-view") {
+			// init sidebar content
+			this.sidebar.dispatch({ type: "init-render" });
+		}
 
 		// DEV-ONLY-START
 		Test.init(this);

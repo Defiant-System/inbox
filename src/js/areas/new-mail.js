@@ -77,8 +77,6 @@
 			// from parent window
 			case "reply-all-mail":
 			case "forward-mail":
-				console.log(event);
-				break;
 			case "reply-mail":
 				xMail = APP.xData.selectSingleNode(`//thread/mail[@id="${event.activeMail.id}"]`);
 				
