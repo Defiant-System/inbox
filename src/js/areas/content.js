@@ -13,6 +13,7 @@
 		let APP = inbox,
 			Self = APP.content,
 			xThread,
+			xMail,
 			file,
 			data,
 			isOn,
@@ -157,7 +158,7 @@
 				// clean up gmail inline styling
 				Self.els.el.find(`.mail-entry .body .gmail_quote[style]`).removeAttr("style");
 				// auto select first mail
-				Self.els.el.find(`.mail-entry`).get(0).trigger("click");
+				// Self.els.el.find(`.mail-entry`).get(0).trigger("click");
 				break;
 			case "toggle-message-view":
 				el = event.el;
@@ -177,10 +178,22 @@
 				if (el.parents("?.mail-entry").hasClass("deleted")) return;
 				// deactivate current, if any
 				Self.els.el.find(".mail-entry.active").removeClass("active");
+				// find mail node
+				xMail = APP.xData.selectSingleNode(`//thread/mail[@id="${el.parents("?.mail-entry").data("id")}"]`);
 				// toggles mail expand/collapse mode
-				if (el.hasClass("mail-entry") && !el.hasClass("expanded")) el.addClass("expanded");
-				if (el.parents(".head").length) el.parents(".mail-entry").removeClass("expanded");
+				if (el.hasClass("mail-entry") && !el.hasClass("expanded")) {
+					el.addClass("expanded");
+					// add to node
+					Graph.addClass(xMail, "expanded");
+				}
+				if (el.parents(".head").length) {
+					el.parents(".mail-entry").removeClass("expanded");
+					// add to node
+					Graph.removeClass(xMail, "expanded");
+					console.log(xMail);
+				}
 				el.parents("?.mail-entry").addClass("active");
+
 				// toggle toolbar buttons
 				APP.toolbar.dispatch({ type: "mail-selected" });
 				break;
@@ -219,13 +232,26 @@
 				break;
 			case "undo-deleted-message":
 				el = (event.el || event.origin.el).parents("?.mail-entry");
-				
+				// fade out
 				el.cssSequence("invisible", "transitionend", el => {
-					console.log(el);
+					let xPath = `//mail/thread/mail[@id="${el.data("id")}"]/tags/i[@id="deleted"]`,
+						xTag = APP.xData.selectSingleNode(xPath);
+					// remove deleted tag
+					xTag.parentNode.removeChild(xTag);
+					// rerender DOM element
+					let updEl = window.render({
+							template: "mail-entry",
+							match: `//mail/thread/mail[@id="${el.data("id")}"]`,
+							vdom: true,
+						});
+					updEl = el.replace(updEl.find(".mail-entry").addClass("disappear"));
+					// fade in deleted row
+					setTimeout(() =>
+						updEl.cssSequence("reappear", "transitionend", el =>
+							el.removeClass("disappear reappear")), 100);
 				});
-
 				// pass command to system
-				// karaqu.shell(`mail -cr ${el.data("id")}`);
+				karaqu.shell(`mail -cr ${el.data("id")}`);
 				break;
 			case "menu-delete-mail":
 				el = (event.el || event.origin.el).parents("?.mail-entry");
@@ -243,8 +269,8 @@
 					updEl = el.replace(updEl.find(".mail-entry").addClass("invisible"));
 					// fade in deleted row
 					setTimeout(() => 
-						updEl.cssSequence("reapper", "transitionend", el =>
-							el.removeClass("invisible reapper")), 100);
+						updEl.cssSequence("reappear", "transitionend", el =>
+							el.removeClass("invisible reappear")), 100);
 				});
 				// pass command to system
 				karaqu.shell(`mail -c ${el.data("id")}`);

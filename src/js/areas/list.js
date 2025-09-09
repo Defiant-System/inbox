@@ -77,6 +77,7 @@
 					Self.els.el.find(".active").removeClass("active");
 					return APP.content.dispatch({ type: "clear-view" });
 				}
+				if (el.hasClass("active")) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
 

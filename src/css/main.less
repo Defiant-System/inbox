@@ -642,7 +642,7 @@ content {
 				min-height: 2px;
 				transition: min-height 400ms ease-in-out;
 
-				&.reapper {
+				&.reappear {
 					min-height: 0;
 
 					.head { opacity: 1; }
@@ -813,6 +813,14 @@ content {
 			min-height: 1px;
 			transition: all 400ms ease-in-out;
 			transition-behavior: allow-discrete;
+
+			&.reappear {
+				min-height: 3px;
+
+				.head {
+					height: 15px;
+				}
+			}
 
 			.head,
 			.body,

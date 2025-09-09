@@ -6,6 +6,8 @@ let Test = {
 	init(APP) {
 
 		// return;
+		
+		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
 		// Undo delete
 		setTimeout(() => APP.content.els.el.find(`.btn-undo`).trigger("click"), 900);

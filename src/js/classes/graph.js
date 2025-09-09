@@ -91,7 +91,14 @@ class Graph {
 		this.lanes = lanes;
 	}
 
-	addClass(node, name) {
+	static removeClass(node, name) {
+		let names = (node.getAttribute("class") || "").split(" ");
+		names.splice(names.indexOf(name), 1); // remove name, if any
+		names = [...new Set(names.filter(e => !!e))]; // clean up + remove duplicates
+		node.setAttribute("class", names.join(" ").trim());
+	}
+
+	static addClass(node, name) {
 		let names = (node.getAttribute("class") || "").split(" ");
 		names = names.concat(name.split(" ")).sort((a,b) => a.localeCompare(b));
 		names = [...new Set(names.filter(e => !!e))]; // clean up + remove duplicates
@@ -138,16 +145,16 @@ class Graph {
 				// console.log(xMail);
 				switch (true) {
 					case (i === 0):
-						this.addClass(xMail, `l${indent+2}-up`);
+						Graph.addClass(xMail, `l${indent+2}-up`);
 						break;
 					case (s === "-"):
-						this.addClass(xMail, `l${indent+2}-track`);
+						Graph.addClass(xMail, `l${indent+2}-track`);
 						break;
 					case (i === r.length-1):
-						this.addClass(xMail, `l${indent+2}-down`);
+						Graph.addClass(xMail, `l${indent+2}-down`);
 						break;
 					default:
-						this.addClass(xMail, `l${indent+2}-conn`);
+						Graph.addClass(xMail, `l${indent+2}-conn`);
 				}
 			});
 		});
