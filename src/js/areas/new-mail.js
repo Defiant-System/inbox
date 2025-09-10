@@ -34,6 +34,13 @@
 				el.toggleClass("hidden", el.hasClass("hidden"));
 				event.el.toggleClass("isOn", event.el.hasClass("isOn"));
 				break;
+			case "add-recipient":
+				el = $(`<span class="recipient" data-address="${event.recipient.address}">${event.recipient.name}<i data-click="remove-recipient"></i></span>`);
+				event.el.before(el);
+				break;
+			case "remove-recipient":
+				event.el.parent().remove();
+				break;
 			case "add-attachment":
 				// opens file dialog
 				Spawn.dialog.open({ any: file => Self.dispatch({ type: "attache-file-to-mail", file }) });

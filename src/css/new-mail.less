@@ -85,14 +85,7 @@ layout {
 			text-overflow: ellipsis;
 			overflow: hidden;
 
-			&:hover {
-				&:after {
-					opacity: .5;
-				}
-			}
-
-			&:after {
-				content: "";
+			i[data-click] {
 				position: absolute;
 				top: 0;
 				right: 0;
@@ -103,6 +96,10 @@ layout {
 				background: url(~/icons/icon-times.png) 50% 50% no-repeat;
 				background-size: 11px auto;
 				opacity: .35;
+
+				&:hover {
+					opacity: .65;
+				}
 			}
 		}
 

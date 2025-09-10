@@ -36,8 +36,11 @@ let Test = {
 		let Spawn = this.spawn || window.open("new-mail");
 		// return;
 		setTimeout(() => {
-			let iEl = Spawn.find(`input[name="mail-to"]`);
-			iEl.val("mon");
+			let el = Spawn.find(`input[name="mail-to"]`),
+				recipient = { name: "Hakan Bilgin", address: "hbi99@hotmail.com" };
+			APP.newMail.dispatch({ type: "add-recipient", el, recipient });
+
+			// el.val("mo");
 			// Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
 			// Spawn.find(`input[name="mail-to"]`).val("hbi@longscript.com");
 			// let rcpt = $(`<span class="from recipient" data-address="hbi@longscript.com">Hakan Bilgin</span>`);
@@ -48,7 +51,7 @@ let Test = {
 			// Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
 			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
 
-			setTimeout(() => iEl.focus().trigger("keydown"), 500);
+			setTimeout(() => el.focus(), 500); // .trigger("keydown")
 		}, 200);
 	},
 	runTestData(APP) {
