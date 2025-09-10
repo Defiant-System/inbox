@@ -58,13 +58,15 @@
 			case "send-mail":
 				// mail recipients
 				data.to = Spawn.find(`.recipient`).map(el => {
-					let name = el.innerHTML,
+					let name = el.innerHTML.stripHtml(),
 						address = el.getAttribute("data-address");
 					return { name, address };
 				});
 				// if input field contains an address
 				val = Spawn.find(`input[name="mail-to"]`).val();
 				if (!!val) data.to.push({ address: val });
+				// dont "send if no recipient"
+				if (!data.length) return;
 				// email subject
 				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
 				// email body + clean up
