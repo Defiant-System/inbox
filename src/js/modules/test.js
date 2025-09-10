@@ -7,45 +7,48 @@ let Test = {
 
 		// return;
 
-
 		// return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
 
-		setTimeout(() => APP.content.els.el.find(`.mail-entry`).get(1).trigger("click"), 400);
-		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
+		// setTimeout(() => APP.content.els.el.find(`.mail-entry`).get(1).trigger("click"), 400);
+		// return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
-		// Undo delete
-		setTimeout(() => APP.content.els.el.find(`.btn-undo`).trigger("click"), 900);
-		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
-
-
-		// Delete (expanded or not)
-		setTimeout(() => APP.content.els.el.find(`.mail-entry[data-id="11024"]`).addClass("expanded"), 500);
-		setTimeout(() => {
-			// let el = APP.content.els.el.find(`.mail-entry.active`);
-			let el = APP.content.els.el.find(`.mail-entry[data-id="11024"] span[data-menu="mail-actions"]`);
-			APP.content.dispatch({ type: "menu-delete-mail", el });
-		}, 900);
-		return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
+		// // Undo delete
+		// setTimeout(() => APP.content.els.el.find(`.btn-undo`).trigger("click"), 900);
+		// return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
 
-		return setTimeout(() => {
-			APP.toolbar.els.btnReply.trigger("click");
-			// APP.list.dispatch({ type: "check-for-new-mail" });
-		}, 500);
+		// // Delete (expanded or not)
+		// setTimeout(() => APP.content.els.el.find(`.mail-entry[data-id="11024"]`).addClass("expanded"), 500);
+		// setTimeout(() => {
+		// 	// let el = APP.content.els.el.find(`.mail-entry.active`);
+		// 	let el = APP.content.els.el.find(`.mail-entry[data-id="11024"] span[data-menu="mail-actions"]`);
+		// 	APP.content.dispatch({ type: "menu-delete-mail", el });
+		// }, 900);
+		// return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
-		return setTimeout(() => APP.list.dispatch({ type: "check-for-new-mail" }), 1500);
+
+		// return setTimeout(() => {
+		// 	APP.toolbar.els.btnReply.trigger("click");
+		// 	// APP.list.dispatch({ type: "check-for-new-mail" });
+		// }, 500);
+
 
 		let Spawn = this.spawn || window.open("new-mail");
 		// return;
 		setTimeout(() => {
+			let iEl = Spawn.find(`input[name="mail-to"]`);
+			iEl.val("mon");
 			// Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
-			Spawn.find(`input[name="mail-to"]`).val("hbi@longscript.com");
-			// let rcpt = $(`<div class="mail-rcpt" data-mail="hbi@longscript.com">Hakan Bilgin</div>`);
+			// Spawn.find(`input[name="mail-to"]`).val("hbi@longscript.com");
+			// let rcpt = $(`<span class="from recipient" data-address="hbi@longscript.com">Hakan Bilgin</span>`);
 			// Spawn.find(`input[name="mail-to"]`).before(rcpt);
+
 			Spawn.find(`input[name="mail-subject"]`).val("This is a thread start");
 			Spawn.find(`div.mail-message`).html(`This is the thread root.<br/><br/>-H`);
 			// Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
 			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
+
+			setTimeout(() => iEl.focus().trigger("keydown"), 500);
 		}, 200);
 	},
 	runTestData(APP) {

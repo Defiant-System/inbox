@@ -15,11 +15,20 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			// system events
 			case "spawn.open":
 				break;
 			case "spawn.close":
 				window.focus();
 				break;
+			// custom events
+			case "get-email-address":
+				return APP.xData.selectNodes(`//AddressBook/*`).map(x => {
+					let name = x.getAttribute("name"),
+						address = x.getAttribute("address");
+					return { name, address };
+				});
+				// break;
 			case "toggle-field":
 				el = Spawn.find(`input[name="mail-${event.arg}"]`).parents("label");
 				el.toggleClass("hidden", el.hasClass("hidden"));
