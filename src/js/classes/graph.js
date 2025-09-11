@@ -134,7 +134,6 @@ class Graph {
 		// loop lanes
 		this.lanes.map((lane, l) => {
 			let b = lane[0] - 1;
-
 			// translate lanest to css classnames
 			lane.map((s, i, r) => {
 				let num = s === "-" ? i+1+b : s,
@@ -160,6 +159,7 @@ class Graph {
 		});
 		// overall lane thickness in U
 		let lLen = Math.max(...Object.keys(tracks).map(e => tracks[e].indent));
+		if (xThread.selectNodes("./mail").length === 1) lLen = -1;
 		xThread.setAttribute("lanes", lLen+2);
 	}
 

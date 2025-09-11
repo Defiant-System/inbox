@@ -474,6 +474,21 @@ content {
 		--l3: #fdc18b;
 		--l4: #67df70;
 
+		&[data-lanes="1"] {
+			.mail-entry {
+				margin-left: 23px;
+
+				.graph {
+					left: -23px;
+					width: 22px;
+
+					i:not(.l1) {
+						display: none;
+					}
+				}
+			}
+		}
+
 		&[data-lanes="2"] {
 			.mail-entry {
 				margin-left: 28px;

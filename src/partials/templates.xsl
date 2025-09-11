@@ -98,7 +98,7 @@
 			<xsl:if test="count(attachments/*) &gt; 0">
 				<i class="icon-attachment"></i>
 			</xsl:if>
-			<xsl:if test="@thread">
+			<xsl:if test="@thread &gt; 1">
 				<span class="replies"><xsl:value-of select="@thread"/></span>
 			</xsl:if>
 		</div>
