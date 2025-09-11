@@ -66,7 +66,7 @@
 				val = Spawn.find(`input[name="mail-to"]`).val();
 				if (!!val) data.to.push({ address: val });
 				// dont "send if no recipient"
-				if (!data.length) return;
+				if (!data.to.length) return;
 				// email subject
 				data.subject = Spawn.find(`input[name="mail-subject"]`).val();
 				// email body + clean up

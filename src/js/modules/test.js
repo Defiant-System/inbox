@@ -7,6 +7,9 @@ let Test = {
 
 		// return;
 
+		setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
+		return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
+
 		// return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
 
 		// setTimeout(() => APP.content.els.el.find(`.mail-entry`).get(1).trigger("click"), 400);
@@ -33,6 +36,7 @@ let Test = {
 		// }, 500);
 
 
+		/*
 		let Spawn = this.spawn || window.open("new-mail");
 		// return;
 		setTimeout(() => {
@@ -53,6 +57,7 @@ let Test = {
 
 			setTimeout(() => el.focus(), 500); // .trigger("keydown")
 		}, 200);
+		*/
 	},
 	runTestData(APP) {
 		// if not already parsed
