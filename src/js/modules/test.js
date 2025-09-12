@@ -7,8 +7,8 @@ let Test = {
 
 		// return;
 
-		setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
-		return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
+		// setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
+		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
 
 		// return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
 
@@ -37,6 +37,7 @@ let Test = {
 
 
 		/*
+		*/
 		let Spawn = this.spawn || window.open("new-mail");
 		// return;
 		setTimeout(() => {
@@ -55,9 +56,9 @@ let Test = {
 			// Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
 			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
 
-			setTimeout(() => el.focus(), 500); // .trigger("keydown")
+			// setTimeout(() => Spawn.find(`.toolbar-tool_[data-click="add-attachment"]`).trigger("click"), 500);
+			// setTimeout(() => el.focus(), 500); // .trigger("keydown")
 		}, 200);
-		*/
 	},
 	runTestData(APP) {
 		// if not already parsed

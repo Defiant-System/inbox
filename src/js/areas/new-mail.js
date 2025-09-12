@@ -43,10 +43,18 @@
 				break;
 			case "add-attachment":
 				// opens file dialog
-				Spawn.dialog.open({ any: file => Self.dispatch({ type: "attache-file-to-mail", file }) });
+				Spawn.dialog.open({ any: file => Self.dispatch({ type: "attach-file-to-mail", spawn: Spawn, file }) });
 				break;
-			case "attache-file-to-mail":
-				console.log(event);
+			case "attach-file-to-mail":
+				el = $(`<span class="file-attachment" data-path="${event.file.path}">
+							<i style="background-image: url(/app/icons/file-${event.file.kind}.png);"></i>
+							<span>${event.file.base}</span>
+							<i data-click="remove-attachment"></i>
+						</span>`);
+				Spawn.find(`.mail-attachments`).append(el);
+				break;
+			case "remove-attachment":
+				event.el.parent().remove();
 				break;
 			case "expand-container":
 				// expand container

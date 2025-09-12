@@ -27,7 +27,7 @@ layout {
 		position: relative;
 		padding: 1px 0 2px;
 		font-size: 0;
-		border-bottom: 1px solid rgba(0,0,0,.1);
+		border-bottom: 1px solid #0001;
 		transition: all 160ms ease-in-out;
 
 		&:nth-child(1) {
@@ -171,5 +171,57 @@ layout {
 		color: #333;
 
 		@import "mail-content";
+	}
+
+	.mail-attachments {
+		&:has(.file-attachment) {
+			padding: 7px 2px 3px;
+			border-top: 1px solid #0001;
+		}
+
+		.file-attachment {
+			position: relative;
+			display: inline-block;
+			padding: 2px 25px 3px 9px;
+			margin-right: 7px;
+			cursor: pointer;
+			color: #888;
+			border-radius: 31px;
+			box-shadow: 0 0 0 1px #0002;
+
+			i {
+				display: inline-block;
+				vertical-align: middle;
+				width: 17px;
+				height: 17px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				margin-right: 3px;
+			}
+
+			span {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 13px;
+			}
+
+			i[data-click="remove-attachment"] {
+				position: absolute;
+				top: 2px;
+				right: -3px;
+				width: 19px;
+				height: 19px;
+				border-radius: 50%;
+				cursor: pointer;
+				background: url(~/icons/icon-times.png) 50% 50% no-repeat;
+				background-size: 11px auto;
+				opacity: .35;
+
+				&:hover {
+					opacity: .65;
+				}
+			}
+		}
 	}
 }
