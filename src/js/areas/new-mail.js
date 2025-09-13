@@ -35,7 +35,8 @@
 				event.el.toggleClass("isOn", event.el.hasClass("isOn"));
 				break;
 			case "add-recipient":
-				el = $(`<span class="recipient" data-address="${event.recipient.address}">${event.recipient.name}<i data-click="remove-recipient"></i></span>`);
+				val = event.recipient.name || event.recipient.address;
+				el = $(`<span class="recipient" data-address="${event.recipient.address}">${val}<i data-click="remove-recipient"></i></span>`);
 				event.el.before(el);
 				break;
 			case "remove-recipient":
@@ -65,11 +66,14 @@
 				break;
 			case "send-mail":
 				// mail recipients
-				data.to = Spawn.find(`.recipient`).map(el => {
-					let name = el.innerHTML.stripHtml(),
-						address = el.getAttribute("data-address");
-					return { name, address };
+				data.to = Spawn.find(`.recipient`).map(elem => {
+					let el = $(elem),
+						name = el.html().stripHtml(),
+						address = el.data("address"),
+						[a,type] = el.parent().find("input").attr("name").split("-");
+					return { name, address, type };
 				});
+
 				// if input field contains an address
 				val = Spawn.find(`input[name="mail-to"]`).val();
 				if (!!val) data.to.push({ address: val });
@@ -82,15 +86,18 @@
 				data.body.replace(/quote_container block-collapsed/g, "quote_container");
 				data.body.replace(/data-click=".+?"/g, "");
 				// email attachments
-				data.attachments = [];
-				data.headers = {};
+				data.attachments = Spawn.find(`.mail-attachments .file-attachment`).map(fEl => fEl.getAttribute("data-path"));
 				
+				data.headers = {};
 				// if reply to "message-id"
 				val = Spawn.find(`input[name="inReplyTo"]`).val();
 				if (!!val) data.headers["inReplyTo"] = val;
 				// if reply to "message-id"
 				val = Spawn.find(`input[name="threadId"]`).val();
 				if (!!val) data.headers["threadId"] = val;
+				// message priority
+				val = Spawn.find(`.toggler[data-arg="priority"]`).hasClass("isOn");
+				if (!!val) data.headers["priority"] = "high";
 				
 				// play sound
 				window.audio.play("swoosh");

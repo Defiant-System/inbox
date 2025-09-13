@@ -5,7 +5,7 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 let Test = {
 	init(APP) {
 
-		// return;
+		return;
 
 		// setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
@@ -37,13 +37,20 @@ let Test = {
 
 
 		/*
-		*/
 		let Spawn = this.spawn || window.open("new-mail");
 		// return;
 		setTimeout(() => {
 			let el = Spawn.find(`input[name="mail-to"]`),
-				recipient = { name: "Hakan Bilgin", address: "hbi99@hotmail.com" };
+				recipient = { name: "Hakan Bilgin", address: "hbi@longscript.com" };
 			APP.newMail.dispatch({ type: "add-recipient", el, recipient });
+
+			// el = Spawn.find(`input[name="mail-cc"]`);
+			// recipient = { address: "hbi99@hotmail.com" };
+			// APP.newMail.dispatch({ type: "add-recipient", el, recipient });
+
+			// el = Spawn.find(`input[name="mail-bcc"]`);
+			// recipient = { address: "mr.hakan.bilgin@gmail.com" };
+			// APP.newMail.dispatch({ type: "add-recipient", el, recipient });
 
 			// el.val("mo");
 			// Spawn.find(`input[name="mail-to"]`).val("hbi99@hotmail.com");
@@ -56,9 +63,12 @@ let Test = {
 			// Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
 			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
 
+			setTimeout(() => Spawn.find(`label.hidden`).removeClass("hidden"), 200);
+			setTimeout(() => Spawn.find(`label:nth(0) i[data-arg="priority"]`).trigger("click"), 200);
 			// setTimeout(() => Spawn.find(`.toolbar-tool_[data-click="add-attachment"]`).trigger("click"), 500);
 			// setTimeout(() => el.focus(), 500); // .trigger("keydown")
 		}, 200);
+		*/
 	},
 	runTestData(APP) {
 		// if not already parsed
