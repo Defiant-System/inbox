@@ -17,6 +17,38 @@
 			el;
 		// console.log(event);
 		switch (event.type) {
+			// system events
+			case "before-menu:list-entry-actions":
+				el = (event.el || event.origin.el).parents("?.list-entry");
+				el.addClass("menu-active");
+				// "move-to" folders
+				xFolder = event.xMenu.selectSingleNode(`./Menu[@id="folders"]`);
+				// clear old submenu, if any
+				xFolder.selectNodes(`./Menu`).map(x => x.parentNode.removeChild(x));
+				// populate submenu
+				{
+					let fId = el.parents(`list`).data("fId");
+					APP.xData.selectNodes(`//Mailbox/folder[@id!='2005'][@id!='${fId}']`).map(xF => {
+						let id = xF.getAttribute("id"),
+							name = xF.getAttribute("name"),
+							xMenu = $.nodeFromString(`<Menu name="${name}" click="move-thread-to" arg="${id}"/>`);
+						xFolder.appendChild(xMenu);
+					});
+					// if already deleted
+					xFolder = event.xMenu.selectSingleNode(`./Menu[@click="menu-delete-list-entry"]`);
+					if (+fId === 2005) xFolder.setAttribute("disabled", "1");
+					else xFolder.removeAttribute("disabled");
+				}
+				break;
+			case "after-menu:list-entry-actions":
+				el = (event.el || event.origin.el).parents("?.list-entry");
+				el.removeClass("menu-active");
+				break;
+			// custom events
+			case "menu-delete-list-entry":
+				console.log(event);
+				break;
+
 			case "render-temp-list":
 				// render mail content
 				window.render({
@@ -25,7 +57,6 @@
 					target: Self.els.el,
 				});
 				break;
-				
 			case "fetch-mail-folder":
 				karaqu.shell(`mail -l ${event.fId}`)
 					.then(async call => {
@@ -225,27 +256,6 @@
 				if (Self.dragOrigin) Self.dragOrigin.removeClass("dragged-mail");
 				delete Self.dragOrigin;
 				break;
-
-			case "check-mail-drag":
-				// tag dragged item
-				Self.dragOrigin = event.el;
-				// tag "drop zones"
-				APP.sidebar.els.el.find(".folder-entry")
-					.data({
-						"drop-zone": "drop-mail-in-folder",
-						"drop-outside": "drop-mail-outside",
-					});
-
-				let clone = Self.dragOrigin.clone(true).addClass("dragged-mail drag-clone"),
-					offset = event.el.offset("layout"),
-					top = offset.top,
-					left = offset.left,
-					width = event.el.width(),
-					height = event.el.height();
-				// prepare ghost/clone
-				clone.removeClass("active").css({ top, left, height, width });
-				// return ghost
-				return Self.els.swap.append(clone);
 		}
 	}
 }

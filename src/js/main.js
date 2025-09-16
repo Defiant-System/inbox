@@ -82,6 +82,7 @@ const inbox = {
 				} else {
 					// get settings, if any
 					Self.settings = window.settings.getItem("settings") || defaultSettings;
+					// Self.settings = defaultSettings;
 					// update menu
 					xViewMenus.map(xMenu => {
 						if (xMenu.getAttribute("arg") === "default") xMenu.setAttribute("is-checked", "1");

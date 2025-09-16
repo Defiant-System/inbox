@@ -74,7 +74,7 @@
 
 
 <xsl:template name="list-entry">
-	<div data-ondrag="check-mail-drag">
+	<div class="list-entry">
 		<xsl:attribute name="data-id"><xsl:value-of select="@id"/></xsl:attribute>
 		<xsl:attribute name="class">
 			list-entry
@@ -92,6 +92,7 @@
 				<i class="icon-flag-red"></i>
 			</xsl:if>
 			<span class="date"><xsl:value-of select="substring-before(@date, ' ')"/></span>
+			<span data-menu="list-entry-actions"><i class="icon-more-menu"></i></span>
 		</div>
 		<div class="row">
 			<span class="subject"><xsl:value-of select="subject/text()"/></span>

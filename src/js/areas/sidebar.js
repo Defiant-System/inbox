@@ -57,6 +57,9 @@
 						xNode = xWelcome.selectSingleNode(`./to/i`);
 						xNode.setAttribute("name", `${ME.name}`);
 						xNode.setAttribute("address", `${ME.username}`);
+						xNode = xWelcome.selectSingleNode(`./thread/mail/to/i`);
+						xNode.setAttribute("name", `${ME.name}`);
+						xNode.setAttribute("address", `${ME.username}@karaqu.com`);
 						// set date
 						xNode = xWelcome.selectSingleNode(`./date`);
 						xNode.setAttribute("value", now.format("YYYY-MM-DD HH:mm"));

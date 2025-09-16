@@ -4,12 +4,14 @@
 	<date value="{{date}}T{{time}}" date="{{date}}" time="{{time}}"/>
 	<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
 	<to><i name="{{name}}" address="{{username}}@karaqu.com"/></to>
-	<tags>
-		<i id="threadId" value="welcome"/>
-		<i id="messageId" value="welcome"/>
-	</tags>
 	<thread>
 		<mail id="welcome" class="expanded active">
+			<from><i name="Karaqu System" address="no-reply@karaqu.com"/></from>
+			<to><i name="{{name}}" address="{{username}}@karaqu.com"/></to>
+			<tags>
+				<i id="threadId" value="welcome"/>
+				<i id="messageId" value="welcome"/>
+			</tags>
 			<excerpt><![CDATA[Say goodbye to cluttered inboxes and missed messages.]]></excerpt>
 			<html><![CDATA[
 				<h3 style="font-size: 20px; font-weight: 400; color: #666;">Introducing Inbox</h3>
@@ -21,7 +23,7 @@
 				<br/>
 				<br/>
 				Enjoy using <b>Inbox</b>,<br/>
-				Hakan Bilgin
+				Team Karaqu
 			]]></html>
 		</mail>
 	</thread>

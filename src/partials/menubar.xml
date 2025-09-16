@@ -16,6 +16,15 @@
 		<Menu name="License" shell="win -al"/>
 	</Menu>
 
+	<!-- contextmenus for app -->
+	<Menu for="list-entry-actions">
+		<Menu name="Show thread"/>
+		<Menu name="Show attachments"/>
+		<Menu type="divider"/>
+		<Menu name="Move to&#8230;" id="folders"/>
+		<Menu type="divider"/>
+		<Menu name="Delete" click="menu-delete-list-entry"/>
+	</Menu>
 	<Menu for="mail-actions">
 		<Menu name="Reply" click="menu-reply-mail"/>
 		<Menu name="Reply All" click="menu-reply-all-mail"/>

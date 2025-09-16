@@ -23,11 +23,7 @@
 				break;
 			// custom events
 			case "get-email-address":
-				return APP.xData.selectNodes(`//AddressBook/*`).map(x => {
-					let name = x.getAttribute("name"),
-						address = x.getAttribute("address");
-					return { name, address };
-				});
+				return ME.addressBook;
 				// break;
 			case "toggle-field":
 				el = Spawn.find(`input[name="mail-${event.arg}"]`).parents("label");
