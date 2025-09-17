@@ -37,6 +37,14 @@
 						xMenu = $.nodeFromString(`<Menu name="${name}" click="menu-delete-list-entry" arg="${id}" ${isDisabled}/>`);
 					xFolder.appendChild(xMenu);
 				});
+				// show thread
+				xNode = event.xMenu.selectSingleNode(`./Menu[@click="menu-show-thread"]`);
+				if (!el.hasClass("active")) xNode.removeAttribute("disabled");
+				else xNode.setAttribute("disabled", "1");
+				// has attachments
+				xNode = event.xMenu.selectSingleNode(`./Menu[@click="menu-show-attachments"]`);
+				if (el.find(".icon-attachment").length) xNode.removeAttribute("disabled");
+				else xNode.setAttribute("disabled", "1");
 				// if already deleted
 				xFolder = event.xMenu.selectSingleNode(`./Menu[@click="menu-delete-list-entry"]`);
 				if (+fId === 2004) xFolder.setAttribute("disabled", "1"); // sent folder
@@ -58,6 +66,13 @@
 					threadId: xNode.getAttribute("value"),
 					fId: +(event.arg || 2005),
 				});
+				break;
+			case "menu-show-thread":
+				el = (event.el || event.origin.el).parents("?.list-entry");
+				el.trigger("click");
+				break;
+			case "menu-show-attachments":
+				// TODO
 				break;
 
 			case "render-temp-list":
@@ -251,6 +266,31 @@
 						Self.els.el.parent().removeClass("has-mails");
 					});
 				break;
+			/*
+			case "drop-mail-in-folder":
+				// forward event
+				Self.dispatch({
+					type: "put-mail-in-folder",
+					id: event.el.data("id"),
+					fId: event.target.data("fId"),
+					el: Self.dragOrigin,
+				});
+				break;
+			case "drop-mail-outside":
+				// falls through
+			case "reset-drag-drop":
+				// clean up
+				Self.els.swap.html("");
+				// reset zones
+				window.find(`[data-drop-zone-before], [data-drop-zone-after], [data-drop-zone], [drop-outside]`)
+					.removeAttr("data-drop-zone-before data-drop-zone-after data-drop-zone data-drop-outside");
+				// click element if no drag'n drop
+				if (!event.hasMoved && Self.dragOrigin) Self.dragOrigin.trigger("click");
+				// reset reference to dragged element
+				if (Self.dragOrigin) Self.dragOrigin.removeClass("dragged-mail");
+				delete Self.dragOrigin;
+				break;
+			*/
 		}
 	}
 }

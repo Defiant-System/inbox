@@ -18,8 +18,8 @@
 
 	<!-- contextmenus for app -->
 	<Menu for="list-entry-actions">
-		<Menu name="Show thread"/>
-		<Menu name="Show attachments"/>
+		<Menu name="Show thread" click="menu-show-thread"/>
+		<Menu name="Show attachments" click="menu-show-attachments"/>
 		<Menu type="divider"/>
 		<Menu name="Move to&#8230;" id="folders"/>
 		<Menu type="divider"/>
