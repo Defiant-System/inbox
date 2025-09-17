@@ -13,7 +13,10 @@
 			Self = APP.list,
 			activeMail,
 			xFolder,
+			xNode,
+			xPath,
 			data,
+			fId,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -26,19 +29,19 @@
 				// clear old submenu, if any
 				xFolder.selectNodes(`./Menu`).map(x => x.parentNode.removeChild(x));
 				// populate submenu
-				{
-					let fId = el.parents(`list`).data("fId");
-					APP.xData.selectNodes(`//Mailbox/folder[@id!='2005'][@id!='${fId}']`).map(xF => {
-						let id = xF.getAttribute("id"),
-							name = xF.getAttribute("name"),
-							xMenu = $.nodeFromString(`<Menu name="${name}" click="move-thread-to" arg="${id}"/>`);
-						xFolder.appendChild(xMenu);
-					});
-					// if already deleted
-					xFolder = event.xMenu.selectSingleNode(`./Menu[@click="menu-delete-list-entry"]`);
-					if (+fId === 2005) xFolder.setAttribute("disabled", "1");
-					else xFolder.removeAttribute("disabled");
-				}
+				fId = el.parents(`list`).data("fId");
+				APP.xData.selectNodes(`//Mailbox/folder[@id!='2005'][@id!='${fId}']`).map(xF => {
+					let id = xF.getAttribute("id"),
+						name = xF.getAttribute("name"),
+						isDisabled = [2004].includes(+id) ? `disabled="1"` : "",
+						xMenu = $.nodeFromString(`<Menu name="${name}" click="menu-delete-list-entry" arg="${id}" ${isDisabled}/>`);
+					xFolder.appendChild(xMenu);
+				});
+				// if already deleted
+				xFolder = event.xMenu.selectSingleNode(`./Menu[@click="menu-delete-list-entry"]`);
+				if (+fId === 2004) xFolder.setAttribute("disabled", "1"); // sent folder
+				if (+fId === 2005) xFolder.setAttribute("disabled", "1"); // deleted folder
+				else xFolder.removeAttribute("disabled");
 				break;
 			case "after-menu:list-entry-actions":
 				el = (event.el || event.origin.el).parents("?.list-entry");
@@ -46,7 +49,15 @@
 				break;
 			// custom events
 			case "menu-delete-list-entry":
-				console.log(event);
+				el = (event.el || event.origin.el).parents("?.list-entry");
+				fId = el.parents("list").data("fId");
+				xPath = `//folder[@id="${fId}"]/mail[@id="${el.data("id")}"]/tags/i[@id="threadId"]`;
+				xNode = APP.xData.selectSingleNode(xPath);
+				Self.dispatch({
+					type: "put-thread-in-folder",
+					threadId: xNode.getAttribute("value"),
+					fId: +(event.arg || 2005),
+				});
 				break;
 
 			case "render-temp-list":
@@ -202,6 +213,16 @@
 						}
 					});
 				break;
+			case "put-thread-in-folder":
+				// console.log(event);
+				data = [];
+				data.push({ threadId: event.threadId, fId: event.fId });
+				karaqu.shell({ cmd: "mail -u", data })
+					.then(async res => {
+						let result = await res.result;
+						console.log(result);
+					});
+				break;
 			case "put-mail-in-folder":
 				data = [];
 				data.push({ id: event.id, fId: event.fId });
@@ -220,7 +241,6 @@
 						Self.dispatch({ type: "reset-drag-drop" });
 					});
 				break;
-
 			case "permanently-empty-trashcan":
 				karaqu.shell("mail -d")
 					.then(res => {
@@ -230,31 +250,6 @@
 						Self.els.el.find(".list-entry").remove();
 						Self.els.el.parent().removeClass("has-mails");
 					});
-				break;
-
-			case "drop-mail-in-folder":
-				// forward event
-				Self.dispatch({
-					type: "put-mail-in-folder",
-					id: event.el.data("id"),
-					fId: event.target.data("fId"),
-					el: Self.dragOrigin,
-				});
-				break;
-
-			case "drop-mail-outside":
-				/* falls through */
-			case "reset-drag-drop":
-				// clean up
-				Self.els.swap.html("");
-				// reset zones
-				window.find(`[data-drop-zone-before], [data-drop-zone-after], [data-drop-zone], [drop-outside]`)
-					.removeAttr("data-drop-zone-before data-drop-zone-after data-drop-zone data-drop-outside");
-				// click element if no drag'n drop
-				if (!event.hasMoved && Self.dragOrigin) Self.dragOrigin.trigger("click");
-				// reset reference to dragged element
-				if (Self.dragOrigin) Self.dragOrigin.removeClass("dragged-mail");
-				delete Self.dragOrigin;
 				break;
 		}
 	}

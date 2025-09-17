@@ -7,6 +7,12 @@ let Test = {
 
 		return;
 
+		return setTimeout(() => {
+			let el = window.find(`list .list-entry:nth-child(1)`);
+			APP.list.dispatch({ type: "menu-delete-list-entry", el });
+		}, 400);
+
+
 		// setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
 

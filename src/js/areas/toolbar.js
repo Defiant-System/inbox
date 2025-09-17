@@ -53,7 +53,6 @@
 				break;
 			case "delete-mail":
 				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				// APP.list.dispatch({ type: "put-mail-in-folder", id: activeMail.id, fId: 2005, el: activeMail.listEl });
 				APP.content.dispatch({ type: "menu-delete-mail", el: activeMail.el });
 				break;
 			case "junk-mail":
