@@ -58,13 +58,13 @@
 			// custom events
 			case "menu-delete-list-entry":
 				el = (event.el || event.origin.el).parents("?.list-entry");
-				fId = el.parents("list").data("fId");
-				xPath = `//folder[@id="${fId}"]/mail[@id="${el.data("id")}"]/tags/i[@id="threadId"]`;
+				xPath = `//mail[@id="${el.data("id")}"]/tags/i[@id="threadId"]`;
 				xNode = APP.xData.selectSingleNode(xPath);
 				Self.dispatch({
 					type: "put-thread-in-folder",
 					threadId: xNode.getAttribute("value"),
 					fId: +(event.arg || 2005),
+					el,
 				});
 				break;
 			case "menu-show-thread":
@@ -132,6 +132,9 @@
 				el = $(event.target);
 				if (!el.length || el[0] === event.el[0] || !el.data("id")) {
 					Self.els.el.find(".active").removeClass("active");
+					// clear reference to "active" mail
+					delete APP.settings.list.mail;
+					// notify content area
 					return APP.content.dispatch({ type: "clear-view" });
 				}
 				if (el.hasClass("active")) return;
@@ -229,13 +232,20 @@
 					});
 				break;
 			case "put-thread-in-folder":
-				// console.log(event);
 				data = [];
 				data.push({ threadId: event.threadId, fId: event.fId });
 				karaqu.shell({ cmd: "mail -u", data })
 					.then(async res => {
 						let result = await res.result;
-						console.log(result);
+						// move xml node
+						data.map(mail => {
+							let xMail = APP.xData.selectSingleNode(`//mail[@id="${event.el.data("id")}"]`),
+								xFolder = APP.xData.selectSingleNode(`//folder[@id="${event.fId}"]`);
+							// move mail to folder
+							xFolder.appendChild(xMail);
+						});
+						// DOM animation
+						event.el.cssSequence("list-entry-disappear", "transitionend", el => el.remove());
 					});
 				break;
 			case "put-mail-in-folder":

@@ -30,8 +30,10 @@ const inbox = {
 		// fast references
 		this.xData = window.bluePrint.selectSingleNode("//Data");
 		// put username to ledger data
-		// this.xData.setAttribute("user", "demo");
 		this.xData.setAttribute("user", ME.username);
+
+		// clear dock notification number, if any
+		karaqu.shell("gui -c");
 
 		// init settings
 		this.dispatch({ type: "init-settings" });
