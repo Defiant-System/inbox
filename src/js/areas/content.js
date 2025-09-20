@@ -249,7 +249,8 @@
 				break;
 			case "menu-show-attachments":
 				el = (event.el || event.origin.el).parents("?.mail-entry");
-				karaqu.shell(`fs -o '/fs/Mail/${el.data("id")}'`);
+				// console.log(`fs -h '/fs/Mail/${el.data("id")}'`);
+				karaqu.shell(`fs -ho '/fs/Mail/${el.data("id")}'`);
 				break;
 			case "undo-deleted-message":
 				el = (event.el || event.origin.el).parents("?.mail-entry");

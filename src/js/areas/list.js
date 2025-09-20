@@ -72,7 +72,9 @@
 				el.trigger("click");
 				break;
 			case "menu-show-attachments":
-				// TODO
+				el = (event.el || event.origin.el).parents("?.list-entry");
+				// console.log(`fs -h '/fs/Mail/${el.data("id")}'`);
+				karaqu.shell(`fs -ho '/fs/Mail/${el.data("id")}'`);
 				break;
 
 			case "render-temp-list":
