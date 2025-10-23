@@ -87,6 +87,7 @@
 			<span class="from recipient">
 				<xsl:attribute name="data-address"><xsl:value-of select="from/i/@address"/></xsl:attribute>
 				<xsl:value-of select="from/i/@name"/>
+				<xsl:if test="from/i/@name = ''"><xsl:value-of select="from/i/@address"/></xsl:if>
 			</span>
 			<xsl:if test="tags/i[@id = 'priority' and @value = '1']">
 				<i class="icon-flag-red"></i>

@@ -7,10 +7,10 @@ let Test = {
 
 		return;
 
-		return setTimeout(() => {
-			let el = window.find(`list .list-entry:nth-child(1)`);
-			APP.list.dispatch({ type: "menu-delete-list-entry", el });
-		}, 400);
+		// return setTimeout(() => {
+		// 	let el = window.find(`list .list-entry:nth-child(1)`);
+		// 	APP.list.dispatch({ type: "menu-delete-list-entry", el });
+		// }, 400);
 
 
 		// setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
@@ -47,7 +47,7 @@ let Test = {
 		// return;
 		setTimeout(() => {
 			let el = Spawn.find(`input[name="mail-to"]`),
-				recipient = { name: "Hakan Bilgin", address: "hbi@longscript.com" };
+				recipient = { name: "Hakan Bilgin", address: "mr.hakan.bilgin@gmail.com" };
 			APP.newMail.dispatch({ type: "add-recipient", el, recipient });
 
 			// el = Spawn.find(`input[name="mail-cc"]`);
@@ -64,13 +64,13 @@ let Test = {
 			// let rcpt = $(`<span class="from recipient" data-address="hbi@longscript.com">Hakan Bilgin</span>`);
 			// Spawn.find(`input[name="mail-to"]`).before(rcpt);
 
-			Spawn.find(`input[name="mail-subject"]`).val("This is a thread start");
+			Spawn.find(`input[name="mail-subject"]`).val("kube-system");
 			Spawn.find(`div.mail-message`).html(`This is the thread root.<br/><br/>-H`);
 			// Spawn.find(`div.mail-message`).html(`Testing this mail <br/><b>with rich</b> text....<br/><br/>${lorem1}`);
 			// Spawn.find(`.toolbar-tool_[data-click="send-mail"]`).trigger("click");
 
-			setTimeout(() => Spawn.find(`label.hidden`).removeClass("hidden"), 200);
-			setTimeout(() => Spawn.find(`label:nth(0) i[data-arg="priority"]`).trigger("click"), 200);
+			// setTimeout(() => Spawn.find(`label.hidden`).removeClass("hidden"), 200);
+			// setTimeout(() => Spawn.find(`label:nth(0) i[data-arg="priority"]`).trigger("click"), 200);
 			// setTimeout(() => Spawn.find(`.toolbar-tool_[data-click="add-attachment"]`).trigger("click"), 500);
 			// setTimeout(() => el.focus(), 500); // .trigger("keydown")
 		}, 200);

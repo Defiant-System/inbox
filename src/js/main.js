@@ -129,7 +129,7 @@ const inbox = {
 	},
 	// shell exposed methods: START
 	writeMailTo(mail) {
-		// open new spawn & insert email addres
+		// open new spawn & insert email address
 		let Spawn = window.open("new-mail");
 		Spawn.find(`input[name="mail-to"]`).val(mail);
 	},
