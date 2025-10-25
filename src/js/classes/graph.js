@@ -15,6 +15,7 @@ class Graph {
 		xList.map((x,i) => {
 			let xMessageId = x.selectSingleNode(`./tags/i[@id="messageId"]`),
 				xInReplyTo = x.selectSingleNode(`./tags/i[@id="inReplyTo"]`);
+			// if (!xMessageId) console.log(x);
 			xMessageId.setAttribute("_val", i+1);
 			if (xInReplyTo) {
 				let xReplyMsg = x.selectSingleNode(`../mail/tags/i[@id="messageId"][@value="${xInReplyTo.getAttribute("value")}"]`);

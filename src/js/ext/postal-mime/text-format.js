@@ -266,15 +266,11 @@ function formatTextHeader(message) {
         return foldedLines.map((line, i) => `${i ? emptyPrefix : prefix}${line}`);
     });
 
-    console.log(rows);
-    console.log(rows.map(r => r.length));
-
     let maxLineLength = rows
         .map(r => r.length)
         .reduce((acc, cur) => {
             return cur > acc ? cur : acc;
         }, 0);
-    console.log(maxLineLength);
 
     let lineMarker = '-'.repeat(maxLineLength);
 

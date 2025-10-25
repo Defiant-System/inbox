@@ -5,6 +5,17 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 let Test = {
 	init(APP) {
 
+		// let dirty = "";
+		// let tmp = DOMPurify.sanitize(dirty);
+		// console.log(tmp);
+
+		// console.log( DOMPurify.sanitize('<s onclick="alert(1)">hello</s>') );
+
+
+		// let cssString = `h1, h2 { color: red; } .class-name, #id > p { font-size: 16px; } .parent .child { margin: 20px; }`;
+		// CssSelectors.constrain(".banana", cssString);
+
+
 		return;
 
 		// return setTimeout(() => {
@@ -13,7 +24,7 @@ let Test = {
 		// }, 400);
 
 
-		// setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 400);
+		return setTimeout(() => window.find(`list .list-entry`).get(3).trigger("click"), 600);
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
 
 		// return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);

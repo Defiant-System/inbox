@@ -3,10 +3,15 @@
 @import "modules/test.js"
 
 
+import CssSelectors from "./ext/css-selector.js";
+
+
 // fetch bundled code
 const {
+	// CssSelectors,
+	DOMPurify,
 	ICAL,
-	PostalMime,
+	// PostalMime,
 } = await window.fetch("~/js/bundle.js");
 
 

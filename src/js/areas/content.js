@@ -166,6 +166,24 @@
 					// set flag as processed
 					xThread.setAttribute("graph-processed", 1);
 				}
+				// parse pre-render
+				xThread.selectNodes(`./thread/mail/html[not(@parsed)]`).map(async xHtml => {
+					let cData = xHtml.textContent;
+					cData = cData.replace(/(<styl[^>]+>)((.|\n)*?)(<\/style>)/gmi, (a, p1, p2) => {
+						let cssRoot = `.mail-entry[data-id="${event.id}"] .body`;
+						let constrained = CssSelectors.constrain(cssRoot, p2);
+						return `${p1}${constrained}</style>`;
+					});
+					// remove unprocessed original
+					while (xHtml.hasChildNodes()) xHtml.removeChild(xHtml.firstChild);
+					// make css safe
+					let processed = $(`<span>${cData}</span>`).html();
+					xHtml.appendChild($.cDataFromString(processed));
+					// flag it "parsed"
+					xHtml.setAttribute("parsed", 1);
+				});
+				// return;
+
 				// render mail content
 				window.render({
 					template: "content-entries",
