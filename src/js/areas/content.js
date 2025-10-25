@@ -166,19 +166,27 @@
 					// set flag as processed
 					xThread.setAttribute("graph-processed", 1);
 				}
+				
+				// TODO: use DOM 
+
 				// parse pre-render
 				xThread.selectNodes(`./thread/mail/html[not(@parsed)]`).map(async xHtml => {
-					let cData = xHtml.textContent;
-					cData = cData.replace(/(<styl[^>]+>)((.|\n)*?)(<\/style>)/gmi, (a, p1, p2) => {
+					// make css safe
+					let cData = xHtml.textContent.replace(/(<styl[^>]+>)((.|\n)*?)(<\/style>)/gmi, (a, p1, p2) => {
 						let cssRoot = `.mail-entry[data-id="${event.id}"] .body`;
 						let constrained = CssSelectors.constrain(cssRoot, p2);
 						return `${p1}${constrained}</style>`;
 					});
+					// sanitize html
+					cData = DOMPurify.sanitize(cData);
+					// open links in new window
+					cData = cData.replace(/ href=".*"/mig, h => ` target="_blank"${h}`);
 					// remove unprocessed original
 					while (xHtml.hasChildNodes()) xHtml.removeChild(xHtml.firstChild);
-					// make css safe
 					let processed = $(`<span>${cData}</span>`).html();
-					xHtml.appendChild($.cDataFromString(processed));
+					// console.log( processed.match(/\&#xfeff;/ig) );
+					processed = $.cDataFromString(processed);
+					xHtml.appendChild(processed);
 					// flag it "parsed"
 					xHtml.setAttribute("parsed", 1);
 				});
