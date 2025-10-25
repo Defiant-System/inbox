@@ -4,18 +4,6 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 
 let Test = {
 	init(APP) {
-
-		// let dirty = "";
-		// let tmp = DOMPurify.sanitize(dirty);
-		// console.log(tmp);
-
-		// console.log( DOMPurify.sanitize('<s onclick="alert(1)">hello</s>') );
-
-
-		// let cssString = `h1, h2 { color: red; } .class-name, #id > p { font-size: 16px; } .parent .child { margin: 20px; }`;
-		// CssSelectors.constrain(".banana", cssString);
-
-
 		return;
 
 		// return setTimeout(() => {

@@ -3,12 +3,9 @@
 @import "modules/test.js"
 
 
-import CssSelectors from "./ext/css-selector.js";
-
-
 // fetch bundled code
 const {
-	// CssSelectors,
+	CssSelector,
 	DOMPurify,
 	ICAL,
 	// PostalMime,

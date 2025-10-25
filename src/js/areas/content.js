@@ -166,15 +166,12 @@
 					// set flag as processed
 					xThread.setAttribute("graph-processed", 1);
 				}
-				
-				// TODO: use DOM 
-
 				// parse pre-render
 				xThread.selectNodes(`./thread/mail/html[not(@parsed)]`).map(async xHtml => {
 					// make css safe
 					let cData = xHtml.textContent.replace(/(<styl[^>]+>)((.|\n)*?)(<\/style>)/gmi, (a, p1, p2) => {
 						let cssRoot = `.mail-entry[data-id="${event.id}"] .body`;
-						let constrained = CssSelectors.constrain(cssRoot, p2);
+						let constrained = CssSelector.constrain(cssRoot, p2);
 						return `${p1}${constrained}</style>`;
 					});
 					// sanitize html
@@ -190,7 +187,6 @@
 					// flag it "parsed"
 					xHtml.setAttribute("parsed", 1);
 				});
-				// return;
 
 				// render mail content
 				window.render({

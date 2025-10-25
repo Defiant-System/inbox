@@ -75,7 +75,8 @@
 						APP.sidebar.els.el.find(`.folder-entry[data-fid="${APP.settings.sidebar.folder}"]`).trigger("click");
 					}
 					// click on last mail, default to "welcome"
-					APP.list.els.el.find(`.list-entry[data-id="${APP.settings.list.mail}"]`).trigger("click");
+					let mEl = APP.list.els.el.find(`.list-entry[data-id="${APP.settings.list.mail}"]`);
+					if (mEl.length) mEl.trigger("click");
 					// init toolbar
 					APP.toolbar.dispatch({ type: "init-view" });
 				});

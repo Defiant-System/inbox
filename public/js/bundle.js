@@ -1,3 +1,26 @@
+let CssSelector = (() => {
+
+	let Sel = {
+		constrain(base, str) {
+			// Match selectors followed by a block
+			let regex = /([^{]+)(\{[^}]*\})/g;
+		    let parsed = [];
+		    let match;
+		    // Loop through all matches in the string
+		    while ((match = regex.exec(str)) !== null) {
+		        // Split by commas to handle multiple selectors
+		        let selectors = match[1].split(",").map(s => `${base} ${s.trim()}`);
+		        let rules = match[2];
+		        parsed.push(`${selectors.join(",")} ${rules}`);
+		    }
+			return parsed.join("\n");
+		}
+	};
+
+	return Sel;
+
+})();
+
 /*! @license DOMPurify 3.3.0
  *| (c) Cure53 and other contributors
  *| Released under the Apache license 2.0 and Mozilla Public License 2.0
@@ -1395,7 +1418,7 @@ class t{static fromString(e){return new t(e)}constructor(t){this.value=t;}icalty
 
 module.exports = {
 	// PostalMime,
-	// CssSelectors,
+	CssSelector,
 	DOMPurify: purify,
 	ICAL: Yt,
 };
