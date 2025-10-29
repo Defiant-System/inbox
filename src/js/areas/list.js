@@ -159,9 +159,14 @@
 					let xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@active]`);
 					if (xMail) xMail.removeAttribute("active");
 					xMail = APP.xData.selectSingleNode(`//Mailbox//mail[@id="${el.data("id")}"]`);
-					if (xMail) xMail.setAttribute("active", "1");
+					if (xMail) {
+						xMail.setAttribute("active", "1");
+						xMail.setAttribute("is_read", "1");
+					}
 					// make sure app remembers active mail, for next session
 					APP.settings.list.mail = el.data("id");
+					// refresh sidebar
+					APP.sidebar.dispatch({ type: "refresh-active-unread" });
 				}
 				break;
 			case "check-for-new-mail":

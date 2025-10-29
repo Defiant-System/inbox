@@ -14,6 +14,7 @@
 	dispatch(event) {
 		let APP = inbox,
 			Self = APP.sidebar,
+			value,
 			el;
 		// console.log(event);
 		switch (event.type) {
@@ -94,6 +95,12 @@
 				});
 				// once done
 				delete Self.isFirst;
+				break;
+			case "refresh-active-unread":
+				el = Self.els.el.find(`.folder-entry.active`);
+				value = APP.xData.selectNodes(`//Mailbox/folder[@id="${el.data("fId")}"]/mail[@is_read="0"]`).length;
+				if (value > 0) el.find(`span.unread`).html(value);
+				else el.find(`span.unread`).remove();
 				break;
 		}
 	}
