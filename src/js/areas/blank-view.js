@@ -8,7 +8,7 @@
 			content: window.find("content"),
 		};
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let APP = inbox,
 			Self = APP.blankView,
 			el;
@@ -21,7 +21,7 @@
 				// hide sidebar + list column
 				Self.els.layout.removeClass("show-sidebar show-list");
 				// render blank view
-				window.render({
+				await window.render({
 					template: "blank-view",
 					match: `//Data`,
 					target: Self.els.content
@@ -40,13 +40,14 @@
 				// enable toolbar for demo use
 				APP.toolbar.dispatch({ type: "init-demo-data" });
 				// render tree view
-				window.render({
+				await window.render({
 					template: "sidebar-entries",
 					match: `//Data/Mailbox`,
 					target: APP.sidebar.els.el
 				});
 				// show sidebar + list column
 				Self.els.layout.addClass("show-sidebar show-list");
+				console.log( Self.els.layout );
 				break;
 			case "register-account":
 				karaqu.shell("sys -x");

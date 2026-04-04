@@ -5,7 +5,7 @@
 	init() {
 		
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let APP = inbox,
 			Self = APP.newMail,
 			Spawn = event.spawn,
@@ -128,7 +128,7 @@
 				// console.log( APP.xData.selectSingleNode(`//mail[@id="${event.activeMail.id}"]`) );
 				
 				// render mail content
-				el = window.render({
+				el = await window.render({
 						template: "reply-to-mail",
 						match: `//thread/mail[@id="${event.activeMail.id}"]`,
 						vdom: true,

@@ -16,15 +16,15 @@ const defaultSettings = {
 	firstUsed: Date.now(),
 	sidebar: { show: true, folder: 2001, },
 	list: { show: true, mail: "welcome" },
-	content: { show: true },
+	content: { show: "blank-view" },
 };
 
 
 // user details
 const ME = karaqu.user;
-if (ME.username === "demo") {
-	defaultSettings.content.show = "blank-view";
-}
+// if (ME.username === "demo") {
+// 	defaultSettings.content.show = "blank-view";
+// }
 
 
 const inbox = {
@@ -85,8 +85,8 @@ const inbox = {
 					});
 				} else {
 					// get settings, if any
-					Self.settings = window.settings.getItem("settings") || defaultSettings;
-					// Self.settings = defaultSettings;
+					// Self.settings = window.settings.getItem("settings") || defaultSettings;
+					Self.settings = defaultSettings;
 					// update menu
 					xViewMenus.map(xMenu => {
 						if (xMenu.getAttribute("arg") === "default") xMenu.setAttribute("is-checked", "1");
@@ -130,9 +130,9 @@ const inbox = {
 		}
 	},
 	// shell exposed methods: START
-	writeMailTo(mail) {
+	async writeMailTo(mail) {
 		// open new spawn & insert email address
-		let Spawn = window.open("new-mail");
+		let Spawn = await window.open("new-mail");
 		Spawn.find(`input[name="mail-to"]`).val(mail);
 	},
 	// shell exposed methods: END

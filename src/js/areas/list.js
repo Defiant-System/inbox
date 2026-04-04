@@ -8,7 +8,7 @@
 			swap: window.find(".ux-swap"),
 		};
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let APP = inbox,
 			Self = APP.list,
 			activeMail,
@@ -79,7 +79,7 @@
 
 			case "render-temp-list":
 				// render mail content
-				window.render({
+				await window.render({
 					template: "list-entries",
 					match: `//TempFolder[@fId="${event.fId}"]`,
 					target: Self.els.el,
@@ -110,7 +110,7 @@
 				// tag "folder ID" as attribute
 				Self.els.el.parent().data({ fId: event.fId });
 				// render list view
-				window.render({
+				await window.render({
 					template: "list-entries",
 					match: `//folder[@id="${event.fId}"]`,
 					target: Self.els.el,
@@ -217,7 +217,7 @@
 								repliesEl.html(val+1);
 							} else {
 								// render list view
-								let mailEl = window.render({
+								let mailEl = await window.render({
 										template: "list-entry",
 										match: `//mail[@id="${data.id}"]`,
 										vdom: true,

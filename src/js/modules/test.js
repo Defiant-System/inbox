@@ -4,7 +4,7 @@ let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem acc
 
 let Test = {
 	init(APP) {
-		return;
+		// return;
 
 		// return setTimeout(() => {
 		// 	let el = window.find(`list .list-entry:nth-child(1)`);
@@ -12,10 +12,10 @@ let Test = {
 		// }, 400);
 
 
-		return setTimeout(() => window.find(`list .list-entry`).get(3).trigger("click"), 600);
+		// return setTimeout(() => window.find(`list .list-entry`).get(3).trigger("click"), 600);
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
 
-		// return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
+		return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
 
 		// setTimeout(() => APP.content.els.el.find(`.mail-entry`).get(1).trigger("click"), 400);
 		// return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
@@ -42,7 +42,7 @@ let Test = {
 
 
 		/*
-		let Spawn = this.spawn || window.open("new-mail");
+		let Spawn = this.spawn || await window.open("new-mail");
 		// return;
 		setTimeout(() => {
 			let el = Spawn.find(`input[name="mail-to"]`),
@@ -75,7 +75,7 @@ let Test = {
 		}, 200);
 		*/
 	},
-	runTestData(APP) {
+	async runTestData(APP) {
 		// if not already parsed
 		if (!window.bluePrint.selectNodes(`//TempThread//mail/excerpt`).length) {
 			// put lorem ipsum text into test mail body
@@ -88,7 +88,7 @@ let Test = {
 				xHtml.textContent = `${html}<br><br/>${oddEven ? lorem1 : lorem2}`;
 			});
 		}
-		APP.list.dispatch({ type: "render-temp-list", fId: 2001 });
+		await APP.list.dispatch({ type: "render-temp-list", fId: 2001 });
 		APP.list.els.el.find(`.list-entry`).get(0).trigger("click");
 
 		setTimeout(() => APP.sidebar.els.el.find(`.folder-entry`).get(0).addClass("active"), 300);

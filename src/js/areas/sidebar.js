@@ -11,7 +11,7 @@
 		// is first render
 		this.isFirst = true;
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let APP = inbox,
 			Self = APP.sidebar,
 			value,
@@ -44,7 +44,7 @@
 						xItems.map(xMail => xFolder.appendChild(xMail)); // disable to dev-test new mail
 					});
 					// render tree view
-					window.render({
+					await window.render({
 						template: "sidebar-entries",
 						match: `//Data/Mailbox`,
 						target: Self.els.el

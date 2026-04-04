@@ -9,7 +9,7 @@
 		};
 		this.dispatch({ type: "init-view" });
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let APP = inbox,
 			Self = APP.content,
 			xThread,
@@ -71,7 +71,7 @@
 					xThread.setAttribute("graph-processed", 1);
 				}
 				// render mail content
-				window.render({
+				await window.render({
 					template: "content-entries",
 					match: `//TempThread/mail[@id="${event.id}"]`,
 					target: Self.els.el,
@@ -189,7 +189,7 @@
 				});
 
 				// render mail content
-				window.render({
+				await window.render({
 					template: "content-entries",
 					match: `//mail[@id="${event.id}"]`,
 					target: Self.els.el,
@@ -276,13 +276,13 @@
 			case "undo-deleted-message":
 				el = (event.el || event.origin.el).parents("?.mail-entry");
 				// fade out
-				el.cssSequence("invisible", "transitionend", el => {
+				el.cssSequence("invisible", "transitionend", async el => {
 					let xPath = `//mail/thread/mail[@id="${el.data("id")}"]/tags/i[@id="deleted"]`,
 						xTag = APP.xData.selectSingleNode(xPath);
 					// remove deleted tag
 					xTag.parentNode.removeChild(xTag);
 					// rerender DOM element
-					let updEl = window.render({
+					let updEl = await window.render({
 							template: "mail-entry",
 							match: `//mail/thread/mail[@id="${el.data("id")}"]`,
 							vdom: true,
@@ -298,13 +298,13 @@
 				break;
 			case "menu-delete-mail":
 				el = (event.el || event.origin.el).parents("?.mail-entry");
-				el.cssSequence("disappear", "transitionend", el => {
+				el.cssSequence("disappear", "transitionend", async el => {
 					let xMail = APP.xData.selectSingleNode(`//mail/thread/mail[@id="${el.data("id")}"]`),
 						xTag = $.nodeFromString(`<i id="deleted" value="symbolic"/>`);
 					// insert deleted tag
 					xMail.selectSingleNode(`./tags`).appendChild(xTag);
 					// rerender DOM element
-					let updEl = window.render({
+					let updEl = await window.render({
 							template: "mail-entry",
 							match: `//mail/thread/mail[@id="${el.data("id")}"]`,
 							vdom: true,

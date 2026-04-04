@@ -17,7 +17,7 @@
 			btnforward: window.find(`.toolbar-tool_[data-click="forward-mail"]`),
 		};
 	},
-	dispatch(event) {
+	async dispatch(event) {
 		let APP = inbox,
 			Self = APP.toolbar,
 			spawn,
@@ -45,19 +45,19 @@
 				// return boolen for sys UI
 				return !isOn;
 			case "send-receive":
-				APP.list.dispatch({ type: "check-for-new-mail" });
+				await APP.list.dispatch({ type: "check-for-new-mail" });
 				break;
 			case "new-mail":
-				spawn = window.open("new-mail");
+				spawn = await window.open("new-mail");
 				setTimeout(() => spawn.find(`input[name="mail-to"]`).focus(), 100);
 				break;
 			case "delete-mail":
-				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				APP.content.dispatch({ type: "menu-delete-mail", el: activeMail.el });
+				activeMail = await APP.content.dispatch({ type: "get-active-mail" });
+				await APP.content.dispatch({ type: "menu-delete-mail", el: activeMail.el });
 				break;
 			case "junk-mail":
-				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				APP.list.dispatch({ type: "put-mail-in-folder", id: activeMail.id, fId: 2003, el: activeMail.listEl });
+				activeMail = await APP.content.dispatch({ type: "get-active-mail" });
+				await APP.list.dispatch({ type: "put-mail-in-folder", id: activeMail.id, fId: 2003, el: activeMail.listEl });
 				break;
 			case "archive-mail":
 				// TODO
@@ -65,15 +65,15 @@
 			case "reply-mail":
 			case "reply-all-mail":
 			case "forward-mail":
-				spawn = window.open("new-mail");
-				activeMail = APP.content.dispatch({ type: "get-active-mail" });
-				APP.dispatch({ ...event, spawn, activeMail });
+				spawn = await window.open("new-mail");
+				activeMail = await APP.content.dispatch({ type: "get-active-mail" });
+				await APP.dispatch({ ...event, spawn, activeMail });
 				break;
 			case "mail-selected":
 				// skip if demo account
 				if (ME.username === "demo") return;
 
-				activeMail = APP.content.dispatch({ type: "get-active-mail" });
+				activeMail = await APP.content.dispatch({ type: "get-active-mail" });
 				isOn = activeMail.id !== "welcome" && activeMail.el.length;
 				if (activeMail.id?.startsWith("mid-")) isOn = false;
 				// update toolbar
