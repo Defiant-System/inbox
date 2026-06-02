@@ -53,7 +53,11 @@
 				break;
 			case "delete-mail":
 				activeMail = await APP.content.dispatch({ type: "get-active-mail" });
-				await APP.content.dispatch({ type: "menu-delete-mail", el: activeMail.el });
+				APP.list.dispatch({
+					type: "put-thread-in-folder",
+					threadId: activeMail.ids[0],
+					fId: 2005
+				});
 				break;
 			case "junk-mail":
 				activeMail = await APP.content.dispatch({ type: "get-active-mail" });

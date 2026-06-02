@@ -16,15 +16,15 @@ const defaultSettings = {
 	firstUsed: Date.now(),
 	sidebar: { show: true, folder: 2001, },
 	list: { show: true, mail: "welcome" },
-	content: { show: "blank-view" },
+	content: { show: true },
 };
 
 
 // user details
 const ME = karaqu.user;
-// if (ME.username === "demo") {
-// 	defaultSettings.content.show = "blank-view";
-// }
+if (ME.username === "demo") {
+	defaultSettings.content.show = "blank-view";
+}
 
 
 const inbox = {
@@ -45,7 +45,9 @@ const inbox = {
 			.filter(i => typeof this[i].init === "function")
 			.map(i => this[i].init());
 
-		if (defaultSettings.content.show !== "blank-view") {
+		if (defaultSettings.content.show == "blank-view") {
+			this.blankView.dispatch({ type: "render-blank-view" });
+		} else {
 			// init sidebar content
 			this.sidebar.dispatch({ type: "init-render" });
 		}
@@ -85,8 +87,8 @@ const inbox = {
 					});
 				} else {
 					// get settings, if any
-					// Self.settings = window.settings.getItem("settings") || defaultSettings;
-					Self.settings = defaultSettings;
+					Self.settings = window.settings.getItem("settings") || defaultSettings;
+					// Self.settings = defaultSettings;
 					// update menu
 					xViewMenus.map(xMenu => {
 						if (xMenu.getAttribute("arg") === "default") xMenu.setAttribute("is-checked", "1");

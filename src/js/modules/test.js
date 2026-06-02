@@ -3,8 +3,8 @@ let lorem1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 let lorem2 = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
 let Test = {
-	init(APP) {
-		// return;
+	async init(APP) {
+		return;
 
 		// return setTimeout(() => {
 		// 	let el = window.find(`list .list-entry:nth-child(1)`);
@@ -12,10 +12,19 @@ let Test = {
 		// }, 400);
 
 
-		// return setTimeout(() => window.find(`list .list-entry`).get(3).trigger("click"), 600);
+		// render tree view
+		// await window.render({
+		// 	template: "sidebar-entries",
+		// 	match: `//Data/Mailbox`,
+		// 	target: APP.sidebar.els.el
+		// });
+		// APP.sidebar.els.el.find(`.list-wrapper .folder-entry`).get(0).trigger("click");
+		
+
+		return setTimeout(() => window.find(`list .list-entry`).get(0).trigger("click"), 600);
 		// return setTimeout(() => window.find(`sidebar .folder-entry:nth(1)`).trigger("click"), 300);
 
-		return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
+		// return setTimeout(() => APP.blankView.els.layout.find(`.btn[data-click="init-demo-data"]`).trigger("click"), 200);
 
 		// setTimeout(() => APP.content.els.el.find(`.mail-entry`).get(1).trigger("click"), 400);
 		// return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
@@ -35,10 +44,10 @@ let Test = {
 		// return setTimeout(() => window.find(`list .list-entry:nth(2)`).trigger("click"), 300);
 
 
-		// return setTimeout(() => {
-		// 	APP.toolbar.els.btnReply.trigger("click");
-		// 	// APP.list.dispatch({ type: "check-for-new-mail" });
-		// }, 500);
+		return setTimeout(() => {
+			APP.toolbar.els.btnReply.trigger("click");
+			// APP.list.dispatch({ type: "check-for-new-mail" });
+		}, 500);
 
 
 		/*

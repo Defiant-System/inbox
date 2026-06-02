@@ -142,6 +142,8 @@
 				if (el.hasClass("active")) return;
 				event.el.find(".active").removeClass("active");
 				el.addClass("active");
+				// update toolbar
+				APP.toolbar.dispatch({ type: "mail-selected" });
 
 				// make sure thread is marked as "read"
 				el.removeClass("unread");
@@ -240,19 +242,25 @@
 				break;
 			case "put-thread-in-folder":
 				data = [];
-				data.push({ threadId: event.threadId, fId: event.fId });
+				data.push({ id: event.threadId, fId: event.fId });
 				karaqu.shell({ cmd: "mail -u", data })
 					.then(async res => {
 						let result = await res.result;
 						// move xml node
 						data.map(mail => {
-							let xMail = APP.xData.selectSingleNode(`//mail[@id="${event.el.data("id")}"]`),
+							let xMail = APP.xData.selectSingleNode(`//mail[@id="${event.threadId}"]`),
 								xFolder = APP.xData.selectSingleNode(`//folder[@id="${event.fId}"]`);
 							// move mail to folder
 							xFolder.appendChild(xMail);
 						});
 						// DOM animation
-						event.el.cssSequence("list-entry-disappear", "transitionend", el => el.remove());
+						let el = event.el;
+						if (!el || !el.length) el = Self.els.el.find(`.list-entry[data-id="${event.threadId}"]`);
+						el.cssSequence("list-entry-disappear", "transitionend", el => {
+							let nextEl = el.nextAll(".list-entry");
+							if (nextEl.length) nextEl.trigger("click");
+							el.remove();
+						});
 					});
 				break;
 			case "put-mail-in-folder":

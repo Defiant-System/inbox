@@ -239,6 +239,7 @@
 				el = Self.els.el.find(`.mail-entry.active`);
 				if (el.id === "welcome") data = { el: [] };
 				else {
+					if (!el.length) el = APP.list.els.el.find(".list-entry.active");
 					data = {
 						el,
 						id: el.data("id"),

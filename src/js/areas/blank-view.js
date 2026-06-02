@@ -47,7 +47,6 @@
 				});
 				// show sidebar + list column
 				Self.els.layout.addClass("show-sidebar show-list");
-				console.log( Self.els.layout );
 				break;
 			case "register-account":
 				karaqu.shell("sys -x");
